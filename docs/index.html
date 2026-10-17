@@ -117,6 +117,11 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .pp[aria-pressed="true"].d{background:#2d6cc0;border-color:#2d6cc0;color:#fff}
 .pp[aria-pressed="true"].r{background:#b2403a;border-color:#b2403a;color:#fff}
 .pp[aria-pressed="true"].i{background:var(--gray);border-color:var(--gray);color:#fff}
+.avpick{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
+.av{background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:6px 6px 4px;width:104px;color:var(--ink);font-size:.78rem;line-height:1.2}
+.av svg{display:block;margin:0 auto 2px}.av:hover{border-color:var(--gray)}
+.av[aria-checked="true"]{border-color:var(--yale);box-shadow:0 0 0 2px var(--light)}
+.lbav{display:inline-block;vertical-align:middle;margin-right:6px}.lbav svg{display:block}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -174,6 +179,8 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
       <button type="button" id="pred-save" class="save">Save my picks</button>
       <span id="pred-msg" class="note" role="status"></span>
     </div>
+    <h3 id="av-h">Pick your avatar</h3>
+    <div id="pred-avatars" class="avpick" role="radiogroup" aria-labelledby="av-h"></div>
     <p class="note" id="pred-mode"></p>
     <div id="pred-lb"></div>
     <div id="pred-tables"></div>
@@ -319,6 +326,83 @@ hairBack(t)+'<rect x="87" y="106" width="26" height="36" rx="8" fill="'+sd+'"/>'
 facial(t)+hairFront(t)+hat(t)+(t.glasses?glasses():"")+earrings(t)+(o.yale?yPatch():"")+'</g></g>'+ring(o.party)+'</svg>'}
 root.YaleAvatars={make:make,traits:traits,joey:makeJoey}})(window);
 </script>
+<script>
+/* Labubu avatars for players: a Joey Labubu plus Labubus dressed like past presidents.
+   Ported from the Lecture 12 <Labubu /> template. Presidents are suggested by their famous
+   hats, hair and clothes, not their faces. */
+(function(root){"use strict";
+var INK="#1c1118",CX=136;
+function rnd(i,s){var x=Math.sin(i*127.1+s*311.7)*43758.5453;return x-Math.floor(x)}
+function poly(l){return l.map(function(p){return p[0].toFixed(1)+" "+p[1].toFixed(1)}).join(" L")}
+function furEllipse(cx,cy,rx,ry,n,amp,seed){var o=[];for(var i=0;i<n;i++){var a0=i/n*Math.PI*2,a1=(i+.5)/n*Math.PI*2,k=amp*(.4+rnd(i,seed));
+  o.push([cx+rx*Math.cos(a0),cy+ry*Math.sin(a0)]);o.push([cx+(rx+k)*Math.cos(a1),cy+(ry+k)*Math.sin(a1)])}return"M"+poly(o)+" Z"}
+var HOOD=furEllipse(CX,214,124,98,48,6,3),BODY=furEllipse(CX,385,68,76,34,5,7),ARM=furEllipse(0,0,19,42,22,4,11),
+  FACE="M36 232 C36 190 82 166 136 166 C190 166 236 190 236 232 C236 278 192 304 136 304 C80 304 36 278 36 232 Z";
+var FRINGE=(function(){var top=function(x){return 232-66*Math.sqrt(Math.max(0,1-Math.pow((x-CX)/100,2)))},xs=[];for(var x=48;x<=224;x+=8)xs.push(x);
+  var up=xs.map(function(x){return[x,top(x)-4]}),zig=xs.map(function(x,i){return[x,top(x)+(i%2?9+rnd(i,5)*6:2)]});
+  return{fill:"M"+poly(up.concat(zig.slice().reverse()))+" Z",edge:"M"+poly(zig)}})();
+function mirror(s){return s+'<g transform="translate('+2*CX+' 0) scale(-1 1)">'+s+'</g>'}
+function ear(fur,inner){return'<path d="M52 146 L52 122 C46 84 58 34 86 14 C100 4 116 8 122 34 C128 60 130 92 130 124 L130 146 Z" fill="'+fur+'" stroke="'+INK+'" stroke-width="3.2" stroke-linejoin="round"/>'+
+  '<path d="M66 132 C62 90 72 46 91 28 C104 24 112 50 114 80 C115 100 115 116 115 132 Z" fill="'+inner+'" stroke="'+INK+'" stroke-width="2.4" stroke-linejoin="round"/>'+
+  '<path d="M88 132 C88 108 92 94 100 94 C108 94 112 108 112 132 Z" fill="'+fur+'" stroke="'+INK+'" stroke-width="2.2" stroke-linejoin="round"/>'}
+function arm(fur,face){return'<g transform="translate(44 366) rotate(14)"><path d="'+ARM+'" fill="'+fur+'" stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"/><ellipse cx="0" cy="40" rx="14" ry="12" fill="'+face+'" stroke="'+INK+'" stroke-width="2.8"/></g>'}
+function eye(cx){return'<ellipse cx="'+cx+'" cy="238" rx="21" ry="28" fill="#fff" stroke="'+INK+'" stroke-width="3"/><ellipse cx="'+cx+'" cy="239" rx="16.5" ry="23.5" fill="'+INK+'"/><circle cx="'+(cx-6)+'" cy="229" r="5.5" fill="#fff"/><circle cx="'+(cx+6)+'" cy="249" r="2.6" fill="#fff"/>'}
+/* the signature grin: a smile curve with a zigzag row of teeth on it ("smile" preset from Lecture 12) */
+var GRIN=(function(){var halfW=58,yEnd=268,c=24/.75,count=6,T=9,v=2,P=[[CX-halfW,yEnd],[CX-halfW*.73,yEnd+c],[CX+halfW*.73,yEnd+c],[CX+halfW,yEnd]];
+  function at(t){var u=1-t;return[0,1].map(function(k){return u*u*u*P[0][k]+3*u*u*t*P[1][k]+3*u*t*t*P[2][k]+t*t*t*P[3][k]})}
+  function nor(t){var u=1-t,d=[0,1].map(function(k){return 3*u*u*(P[1][k]-P[0][k])+6*u*t*(P[2][k]-P[1][k])+3*t*t*(P[3][k]-P[2][k])}),l=Math.hypot(d[0],d[1]);return[d[1]/l,-d[0]/l]}
+  var zig=[],base=[];for(var i=0;i<=count*2;i++){var t=.07+.86*i/(count*2),p=at(t),n=nor(t),off=i%2?T:v;zig.push([p[0]+n[0]*off,p[1]+n[1]*off]);base.push(p)}
+  return'<path d="M'+poly(zig.concat(base.slice().reverse()))+' Z" fill="#fffaf0" stroke="'+INK+'" stroke-width="2.2" stroke-linejoin="round"/>'+
+    '<path d="M'+P[0].join(" ")+" C"+P[1].join(" ")+" "+P[2].join(" ")+" "+P[3].join(" ")+'" fill="none" stroke="'+INK+'" stroke-width="3.6" stroke-linecap="round"/>'})();
+var NOSE='<path d="M124 245 Q136 241 148 245 Q142 259 136 260 Q130 259 124 245 Z" fill="#f2879a" stroke="'+INK+'" stroke-width="2.4" stroke-linejoin="round"/>';
+var S=' stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"';
+
+// ---- outfit pieces ----
+function coat(c,inner,extra){return'<path d="M66 336 C80 314 192 314 206 336 L220 470 L52 470 Z" fill="'+c+'"'+S+'/>'+
+  (inner?'<path d="M114 316 L136 372 L158 316 Z" fill="'+inner+'"'+S+'/>':"")+(extra||"")}
+function glasses(r,col){return mirror('<circle cx="94" cy="238" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="4.5"/>')+'<path d="M'+(94+r)+' 236 Q136 226 '+(178-r)+' 236" fill="none" stroke="'+col+'" stroke-width="4"/>'}
+function bowtie(c){return'<path d="M136 324 L112 312 L112 338 Z M136 324 L160 312 L160 338 Z" fill="'+c+'"'+S+'/><circle cx="136" cy="324" r="6" fill="'+c+'"'+S+'/>'}
+var STAR='M0 -7 L2 -2 L7 -2 L3 1 L4.5 6 L0 3 L-4.5 6 L-3 1 L-7 -2 L-2 -2 Z';
+
+var LIST=[
+  {id:"joey",name:"Joey",fur:"#d8b07a",face:"#fbe9c9",
+   body:coat("#a9c8ea","#ffffff",'<path d="M114 316 L100 336 L126 350 Z M158 316 L172 336 L146 350 Z" fill="#7fa6d6"'+S+'/><circle cx="92" cy="372" r="11" fill="#00356b" stroke="#fff" stroke-width="2"/><text x="92" y="377" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="14" fill="#fff">Y</text>'),
+   head:'<path d="M58 168 C58 92 98 64 136 64 C174 64 214 92 214 168 Z" fill="#f7f7f5"'+S+'/><path d="M136 66 V160 M100 76 C92 104 90 134 92 162 M172 76 C180 104 182 134 180 162" fill="none" stroke="#d9dde3" stroke-width="3"/>'+
+     '<path d="M56 166 Q136 150 216 166 L216 174 Q136 158 56 174 Z" fill="#e3e7ec"'+S+'/><path d="M104 168 C104 128 168 128 168 168 Z" fill="#9c6b3c"'+S+'/><path d="M104 150 H168" stroke="#8b9097" stroke-width="7" stroke-linecap="round"/><path d="M118 168 C120 156 126 150 132 148 M140 168 C142 154 150 148 156 150" fill="none" stroke="'+INK+'" stroke-width="2"/>'},
+  {id:"washington",name:"George Washington",fur:"#efebe4",face:"#fbe9c9",
+   body:coat("#1f3a6b","#ffffff",'<path d="M120 318 Q136 344 152 318 Q150 334 136 340 Q122 334 120 318 Z" fill="#fff"'+S+'/>'+[350,382,414].map(function(y){return'<circle cx="108" cy="'+y+'" r="5" fill="#e3b341" stroke="'+INK+'" stroke-width="1.6"/><circle cx="164" cy="'+y+'" r="5" fill="#e3b341" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")),
+   head:mirror('<circle cx="30" cy="206" r="17" fill="#fbfaf7"'+S+'/><circle cx="26" cy="238" r="17" fill="#fbfaf7"'+S+'/>')},
+  {id:"lincoln",name:"Abraham Lincoln",fur:"#5a3b28",face:"#fbe9c9",
+   body:coat("#1c1c22","#ffffff",bowtie("#1c1c22")),
+   head:'<path d="M40 246 C44 290 94 306 136 306 C178 306 228 290 232 246 C222 278 182 292 160 294 L150 304 L136 296 L122 304 L112 294 C90 292 50 278 40 246 Z" fill="#2e1f16"'+S+'/>'+
+     '<ellipse cx="136" cy="128" rx="78" ry="14" fill="#141418"'+S+'/><path d="M92 128 L96 -36 L176 -36 L180 128 Z" fill="#141418"'+S+'/><rect x="94" y="96" width="84" height="14" fill="#3a3a44"/>'},
+  {id:"troosevelt",name:"Teddy Roosevelt",fur:"#9a6a3c",face:"#fbe9c9",
+   body:coat("#b59b6a","#e9dcc0",'<path d="M112 316 L136 336 L160 316 L150 346 L136 340 L122 346 Z" fill="#c0392b"'+S+'/>'),
+   head:glasses(26,"#c9a227")+'<path d="M96 272 C110 254 128 256 136 264 C144 256 162 254 176 272 C160 268 146 274 136 278 C126 274 112 268 96 272 Z" fill="#4a2e1a"'+S+'/>'+
+     '<ellipse cx="136" cy="140" rx="128" ry="20" fill="#8a6a3e"'+S+'/><path d="M84 140 C84 96 104 74 136 74 C168 74 188 96 188 140 Z" fill="#8a6a3e"'+S+'/><path d="M118 80 L136 96 L154 80" fill="none" stroke="'+INK+'" stroke-width="3"/><rect x="86" y="122" width="100" height="10" fill="#5a3e22"/>'},
+  {id:"fdr",name:"Franklin D. Roosevelt",fur:"#8f9aa6",face:"#fbe9c9",
+   body:'<path d="M30 470 C30 360 70 314 136 314 C202 314 242 360 242 470 Z" fill="#1d2b4a"'+S+'/><path d="M118 318 L136 360 L154 318 Z" fill="#fff"'+S+'/>'+bowtie("#7a2b27"),
+   head:glasses(19,"#2b2b2b")+'<path d="M76 248 Q60 290 74 320" fill="none" stroke="#c9a227" stroke-width="2.2"/>'},
+  {id:"truman",name:"Harry Truman",fur:"#b9bcc2",face:"#fbe9c9",
+   body:coat("#5f646d","#ffffff",bowtie("#2d3e66")+'<g fill="#fff"><circle cx="124" cy="320" r="2.2"/><circle cx="148" cy="330" r="2.2"/><circle cx="126" cy="332" r="2.2"/></g>'),
+   head:glasses(24,"#3a3a3a")+'<ellipse cx="136" cy="140" rx="104" ry="16" fill="#6b6f76"'+S+'/><path d="M80 140 C80 98 102 78 136 78 C170 78 192 98 192 140 Z" fill="#6b6f76"'+S+'/><path d="M110 84 Q136 100 162 84" fill="none" stroke="'+INK+'" stroke-width="3"/><rect x="82" y="120" width="108" height="12" fill="#2a2d33"/>'},
+  {id:"eisenhower",name:"Dwight Eisenhower",fur:"#e6d3b3",face:"#fbe9c9",
+   body:coat("#5b6b3a","#c9b98f",'<path d="M128 320 L144 320 L140 360 L132 360 Z" fill="#6b5a3a"'+S+'/>'+[0,1,2,3,4].map(function(i){var a=-Math.PI/2+i*2*Math.PI/5;return'<path d="'+STAR+'" transform="translate('+(88+12*Math.cos(a))+' '+(352+12*Math.sin(a))+')" fill="#e3b341"/>'}).join("")),
+   head:'<path d="M70 150 C70 108 100 92 136 92 C172 92 202 108 202 150 Z" fill="#5b6b3a"'+S+'/><path d="M66 150 Q136 176 206 150 L206 160 Q136 186 66 160 Z" fill="#3a2a1a"'+S+'/><circle cx="136" cy="128" r="11" fill="#e3b341"'+S+'/>'},
+  {id:"jfk",name:"John F. Kennedy",fur:"#a85a2a",face:"#fbe9c9",
+   body:coat("#1f2a44","#ffffff",'<path d="M131 318 H141 L144 330 L136 380 L128 330 Z" fill="#2d3e66"'+S+'/>'),
+   head:'<path d="M60 186 C70 140 120 118 176 128 C204 134 222 152 222 176 C196 156 160 150 130 166 C112 154 82 160 60 186 Z" fill="#a85a2a"'+S+'/><path d="M126 166 C134 148 160 140 186 146" fill="none" stroke="'+INK+'" stroke-width="2.6"/>'}
+];
+var BY={};LIST.forEach(function(a){BY[a.id]=a});
+function make(id,size,label){var a=BY[id]||LIST[0];size=size||96;var lab=label||a.name+" Labubu";
+  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -50 332 432" width="'+size+'" height="'+Math.round(size*432/332)+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title>'+
+    mirror(ear(a.fur,a.face))+'<path d="'+BODY+'" fill="'+a.fur+'"'+S+'/>'+mirror(arm(a.fur,a.face))+(a.body||"")+
+    '<path d="'+HOOD+'" fill="'+a.fur+'" stroke="'+INK+'" stroke-width="3.4" stroke-linejoin="round"/>'+
+    '<path d="'+FACE+'" fill="'+a.face+'" stroke="'+INK+'" stroke-width="3"/><path d="'+FRINGE.fill+'" fill="'+a.fur+'"/><path d="'+FRINGE.edge+'" fill="none" stroke="'+INK+'" stroke-width="2.6" stroke-linejoin="round"/>'+
+    mirror('<ellipse cx="62" cy="266" rx="13" ry="8" fill="#ff7a9a" opacity=".5"/>')+eye(94)+eye(178)+NOSE+GRIN+(a.head||"")+'</svg>'}
+root.Labubus={list:LIST,make:make,has:function(id){return!!BY[id]}};
+})(window);
+</script>
 
 <script>
 (function(){"use strict";
@@ -386,7 +470,8 @@ function renderTally(){var t=$("tally");t.textContent="";
     var bar=h("div",{class:"bar2",role:"img","aria-label":d+" lean Democratic, "+tu+" toss-ups, "+rr+" lean Republican"});
     [[d,"#3d7fd1"],[tu,"#a79fc7"],[rr,"#c9605a"]].forEach(function(x){var i=h("i");i.style.width=(100*x[0]/rs.length)+"%";i.style.background=x[1];bar.appendChild(i)});
     t.appendChild(h("div",{},[h("b",{text:g[1]}),bar,"Forecasters lean D in "+d+", toss-up in "+tu+", lean R in "+rr+"."]))})}
-function renderYou(){var n=Object.keys(S.picks).length,box=$("you");box.textContent="";var av=h("div");av.innerHTML=YaleAvatars.make("you-slot",{size:48,label:"Your avatar"});box.appendChild(av.firstChild);box.appendChild(document.createTextNode(n?"You: "+n+(n===1?" pick":" picks"):"Your slot"))}
+function renderYou(){var n=Object.keys(S.picks).length,box=$("you");box.textContent="";var av=h("div");var mine=(lsGet("mt_pred_draft")||{}).a;
+  av.innerHTML=window.Labubus&&Labubus.has(mine)?Labubus.make(mine,40,"Your avatar"):YaleAvatars.make("you-slot",{size:48,label:"Your avatar"});box.appendChild(av.firstChild);box.appendChild(document.createTextNode(n?"You: "+n+(n===1?" pick":" picks"):"Your slot"))}
 
 // ---- map ----
 function renderMap(){var host=$("map");host.textContent="";
@@ -506,7 +591,11 @@ var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-
 var EXTRA={};
 /* Real winners after Election Day, keyed by race id ("D", "R" or "I"). Filling this turns on the leaderboard. */
 var RESULTS={};
-var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",all:[]};
+var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
+function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
+function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
+  var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));
+  b.disabled=closed();b.addEventListener("click",function(){P.avatar=a.id;draft();box.querySelectorAll(".av").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});renderYou()});box.appendChild(b)})}
 function predRace(id){if(S.byId[id])return S.byId[id];var x=EXTRA[id];return{id:id,chamber:"house",state:x.state,district:x.district,dn:x.dn,rn:x.rn,cons:null,mine:null,extra:true}}
 function predName(r){return r.chamber==="house"?r.state+"-"+(r.district<10?"0":"")+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
 function choices(r){return lineup(r).map(function(x){var nm=x[1];if(r.id==="gov-ak"&&x[0]==="R")nm="Republican (3 on the ballot)";return[x[0],nm&&nm!=="-"?nm:PTY[x[0]]]})}
@@ -515,31 +604,31 @@ function closed(){return Date.now()>=CLOSE}
 function tagEl(v){var t={D:"Dem",R:"Rep",I:"Ind",T:"Toss-up"}[v]||"–";return h("span",{class:"tag "+(v?v.toLowerCase():""),text:t})}
 function listShared(){return window.storage.list("pred:",true).then(function(res){var keys=Array.isArray(res)?res:(res&&res.keys)||[];
   return Promise.all(keys.map(function(k){k=typeof k==="string"?k:k.key;return window.storage.get(k,true).then(function(v){try{return JSON.parse(v.value)}catch(e){return null}}).catch(function(){return null})}))}).then(function(a){return a.filter(function(e){return e&&e.n&&e.p})})}
-function loadPred(){var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||""}$("pred-name").value=P.name;
+function loadPred(){var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||"";P.avatar=Labubus.has(d.a)?d.a:""}$("pred-name").value=P.name;
   if(!SHARED){var me=lsGet("mt_pred_self");P.all=me?[me]:[];return Promise.resolve()}
   return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
 function crowd(id){var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
 function crowdCall(id){var c=crowd(id);if(!c.t)return null;var best=null,bv=-1,tie=false;["D","I","R"].forEach(function(k){if(c.n[k]>bv){bv=c.n[k];best=k;tie=false}else if(c.n[k]===bv&&bv>0)tie=true});return tie?"T":best}
 function score(get){var ok=0,n=0;Object.keys(RESULTS).forEach(function(id){n++;if(get(id)===RESULTS[id])ok++});return[ok,n]}
-function renderPred(){
+function renderPred(){renderAvatars();
   $("pred-mode").textContent=SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
   var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
   var lb=$("pred-lb");lb.textContent="";
   if(Object.keys(RESULTS).length){
-    var rows=P.all.map(function(e){return[e.n,score(function(id){return e.p[id]})]});
+    var rows=P.all.map(function(e){return[e.n,score(function(id){return e.p[id]}),Labubus.has(e.a)?e.a:""]});
     rows.push(["The crowd",score(crowdCall)],["Forecasters' consensus",score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})],
       ["My model",score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})],["Joey",score(function(id){return joeyCall(predRace(id))})]);
     rows.sort(function(a,b){return b[1][0]-a[1][0]});
     lb.appendChild(h("h3",{text:"Leaderboard"}));
     lb.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Who"}),h("th",{class:"num",text:"Correct"})])]),
-      h("tbody",{},rows.map(function(x){return h("tr",{},[h("td",{text:x[0]}),h("td",{class:"num",text:x[1][0]+" of "+x[1][1]})])}))])]))}
+      h("tbody",{},rows.map(function(x){var who=h("td");if(x[2]){var s=h("span",{class:"lbav"});s.innerHTML=Labubus.make(x[2],28);who.appendChild(s)}who.appendChild(document.createTextNode(x[0]));return h("tr",{},[who,h("td",{class:"num",text:x[1][0]+" of "+x[1][1]})])}))])]))}
   var host=$("pred-tables"),hasRes=Object.keys(RESULTS).length>0;host.textContent="";
   PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
     var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
     var body=g[1].map(function(id){var r=predRace(id),cell=h("td");
       choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),text:c[1]});
-        b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),p:P.mine});
+        b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];draft();
           cell.querySelectorAll(".pp").forEach(function(pb){pb.setAttribute("aria-pressed",String(pb===b&&P.mine[id]===c[0]))})});cell.appendChild(b)});
       var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
       [["D","#3d7fd1"],["I","#978d85"],["R","#c9605a"]].forEach(function(x){if(cr.n[x[0]]){var i=h("i");i.style.width=(100*cr.n[x[0]]/cr.t)+"%";i.style.background=x[1];bar.appendChild(i)}});
@@ -552,8 +641,9 @@ function renderPred(){
 function savePred(){var msg=$("pred-msg"),nm=cleanName($("pred-name").value);
   if(closed()){msg.textContent="Picks are closed.";return}
   if(!nm){msg.textContent="Enter a name or nickname first.";return}
+  if(!P.avatar){msg.textContent="Pick an avatar first.";return}
   if(!Object.keys(P.mine).length){msg.textContent="Pick at least one race first.";return}
-  var entry={n:nm,p:P.mine,t:Date.now()};$("pred-name").value=nm;lsSet("mt_pred_draft",{n:nm,p:P.mine});
+  var entry={n:nm,a:P.avatar,p:P.mine,t:Date.now()};$("pred-name").value=nm;draft();
   var done=function(){msg.textContent="Saved "+Object.keys(P.mine).length+" of 37 picks for "+nm+".";loadPred().then(renderPred)};
   if(SHARED){window.storage.set("pred:"+nm.toLowerCase().replace(/[^a-z0-9]+/g,"-"),JSON.stringify(entry),true).then(done).catch(function(){msg.textContent="Couldn't save. Try again."})}
   else{lsSet("mt_pred_self",entry);done()}}
