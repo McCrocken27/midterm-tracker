@@ -134,6 +134,8 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
 #detail .rrow[aria-selected="true"]{border-radius:18px 18px 0 0}
+.racecell{white-space:nowrap}.info{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-left:8px;border-radius:50%;border:2px solid var(--light);background:transparent;color:var(--light);font:900 .75rem/1 Georgia,serif;font-style:italic;vertical-align:1px;padding:0}
+.info:hover{background:var(--light);color:#13153a}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -895,7 +897,9 @@ function renderPred(){renderAvatars();
       var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
       [["D","#3d7fd1"],["I","#978d85"],["R","#c9605a"]].forEach(function(x){if(cr.n[x[0]]){var i=h("i");i.style.width=(100*cr.n[x[0]]/cr.t)+"%";i.style.background=x[1];bar.appendChild(i)}});
       var cc=h("td",{},[bar,h("span",{class:"note",text:cr.t?cr.t+(cr.t===1?" pick":" picks"):"No picks yet"})]);
-      var cells=[h("td",{text:predName(r)+(r.extra?" *":"")}),cell,cc,h("td",{},[tagEl(r.extra?null:forecastCall(r))]),h("td",{},[tagEl(r.extra?null:modelCall(r))]),h("td",{},[tagEl(joeyCall(r))])];
+      var info=h("button",{type:"button",class:"info",title:"See this race on the map","aria-label":"See "+predName(r)+" on the map",text:"i"});
+      info.addEventListener("click",function(){openOnMap(r)});
+      var cells=[h("td",{class:"racecell"},[h("span",{text:predName(r)}),info]),cell,cc,h("td",{},[tagEl(r.extra?null:forecastCall(r))]),h("td",{},[tagEl(r.extra?null:modelCall(r))]),h("td",{},[tagEl(joeyCall(r))])];
       if(hasRes)cells.push(h("td",{},[tagEl(RESULTS[id])]));
       return h("tr",{},cells)});
     host.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{text:t})}))]),h("tbody",{},body)])]))});
@@ -996,6 +1000,9 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
     out.appendChild(h("p",{},[a]));
     out.appendChild(h("p",{class:"note",text:st==="ND"?"North Dakota doesn't require voter registration. The link explains what to bring to vote.":"This is your state's official election office. Registration deadlines are set by each state, and in many states the deadline for Nov 3 has already passed. Some states let you register on Election Day, so check the link."}))}}
 
+/* jump from any tab to a race on the map, with its details open */
+function openOnMap(r){if(!S.byId[r.id])return;showTab("tab-map");S.state=r.state;selectRace(r.id);renderMap();
+  var sel=document.querySelector('#detail .rrow[aria-selected="true"]');(sel||$("detail")).scrollIntoView({behavior:"smooth",block:"start"})}
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
   $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-vote").hidden=id!=="tab-vote";if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
