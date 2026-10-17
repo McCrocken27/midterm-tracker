@@ -344,7 +344,7 @@ function animalTorso(kind,c,dark,accent){
 
 /* Signature looks for well-known candidates: hair, glasses and props only (never skin, body or face).
    Each is a widely known, friendly detail: Sherrod Brown's canary pin, Jim Jordan's shirtsleeves, and so on. */
-var HOUSE_STARS={"Riley Owen":1,"Rosa DeLauro":1,"Rebecca Cooke":1,"Bryan Steil":1,"David Joyce":1,"Mike Johnson":1,"Hakeem Jeffries":1,"Lauren Boebert":1,"Jim Jordan":1,"Alexandria Ocasio-Cortez":1,"Paul LePage":1,"David Valadao":1,"Don Davis":1,"Brian Fitzpatrick":1,"Juan Ciscomani":1,"Bobby Pulido":1,"Henry Cuellar":1,"Mariannette Miller-Meeks":1,"Eli Crane":1,"Tim Burchett":1};
+var HOUSE_STARS={"Mitchell Berman":1,"Riley Owen":1,"Rosa DeLauro":1,"Rebecca Cooke":1,"Bryan Steil":1,"David Joyce":1,"Mike Johnson":1,"Hakeem Jeffries":1,"Lauren Boebert":1,"Jim Jordan":1,"Alexandria Ocasio-Cortez":1,"Paul LePage":1,"David Valadao":1,"Don Davis":1,"Brian Fitzpatrick":1,"Juan Ciscomani":1,"Bobby Pulido":1,"Henry Cuellar":1,"Mariannette Miller-Meeks":1,"Eli Crane":1,"Tim Burchett":1};
 var LOOKS={
   "James Talarico":{pin:"apple"},"Sherrod Brown":{hair:["#c9ccd1","messy"],pin:"canary"},"Jon Husted":{hair:["#4a3426","short"]},
   "Troy Jackson":{outfit:"flannel"},"Susan Collins":{hair:["#d8c8a0","bob"]},"Mary Peltola":{hair:["#241812","long"],pin:"fish"},
@@ -359,7 +359,7 @@ var LOOKS={
   "Mike Johnson":{hair:["#3a2a1e","short"],glasses:"#1c1118"},"Hakeem Jeffries":{hand:"papers"},"Lauren Boebert":{hair:["#2a1d17","long"]},
   "Jim Jordan":{outfit:"shirtsleeves"},"Alexandria Ocasio-Cortez":{hair:["#241812","long"],ears:"hoops"},
   "Josh Shapiro":{hair:["#2a1d17","short"],pin:"keystone"},"Mark Warner":{hair:["#c9ccd1","short"],hand:"phone"},"Paul LePage":{pin:"lobster"},
-  "Tom Tiffany":{hat:"cheese",glasses:"#1c1118"},"David Crowley":{hat:"cheese",glasses:"#1c1118"},"Rebecca Cooke":{hat:"cheese"},"Bryan Steil":{hat:"cheese"},"Rick Jackson":{pin:"peach"},"Keisha Lance Bottoms":{pin:"peach"},
+  "Tom Tiffany":{hat:"cheese",glasses:"#1c1118"},"David Crowley":{hat:"cheese",glasses:"#1c1118"},"Rebecca Cooke":{hat:"cheese"},"Bryan Steil":{hat:"cheese"},"Mitchell Berman":{hat:"cheese"},"Rick Jackson":{pin:"peach"},"Keisha Lance Bottoms":{pin:"peach"},
   "Doug Jones":{hair:["#c9ccd1","short"],pin:"scales"},"Xavier Becerra":{hair:["#8a8f98","short"],pin:"poppy"},"Steve Hilton":{outfit:"opencollar"},
   "David Valadao":{pin:"cow"},"Don Davis":{pin:"service"},"Brian Fitzpatrick":{pin:"shield"},"Juan Ciscomani":{pin:"cactus"},
   "Bobby Pulido":{hat:"cowboy",hand:"mic"},"Henry Cuellar":{pin:"lonestar"},"Mariannette Miller-Meeks":{neck:"steth"},
@@ -738,7 +738,7 @@ S.races.filter(function(r){return r.state==="TX"&&r.chamber==="house"}).sort(fun
 var JOEY={
   "gov-ga":["R"],"gov-nv":["R"],"gov-oh":["D"],"gov-wi":["D"],"gov-ak":["D"],"gov-az":["D"],"gov-ia":["D"],"gov-mi":["D"],"gov-or":["D"],"gov-nh":["R"],
   "sen-tx":["R"],"sen-oh":["D"],"sen-me":["R"],"sen-ak":["D"],"sen-ia":["R"],"sen-ks":["R"],"sen-mi":["D"],"sen-nc":["D"],"sen-nh":["D"],"sen-ga":["D"],"sen-mn":["D"],"sen-ne":["R"],
-  "ia-02":["D"],"mi-10":["D"],"mi-07":["D"],"mi-04":["R"],"ny-17":["R"],"co-08":["D"],"az-06":["D"],"mt-01":["R"],"pa-08":["D"],"wi-03":["R"],"oh-09":["D"],"oh-07":["D"],"tx-34":["D"],"tx-15":["R"],"va-02":["D"],
+  "ia-02":["D"],"mi-10":["D"],"mi-07":["D"],"mi-04":["R"],"ny-17":["R"],"co-08":["D"],"az-06":["D"],"mt-01":["R"],"pa-08":["D"],"wi-03":["D"],"oh-09":["D"],"oh-07":["D"],"tx-34":["D"],"tx-15":["R"],"va-02":["D"],
   "sen-sc":["R"],"sen-fl":["R"],"gov-ks":["R"],"gov-fl":["R"],"gov-tx":["R"],"gov-me":["D"],"va-01":["R"],"fl-22":["R"],"nc-11":["D"],"pa-01":["R"],"nc-01":["D"],"tx-35":["R"],"me-02":["R"],"wi-01":["R"],"fl-07":["R"],"fl-14":["D"],"co-05":["R"],"ky-06":["R"],"fl-09":["D"],"fl-25":["D"],"ca-22":["R"],"az-01":["D"],"pa-07":["D"],"co-03":["R"],"fl-13":["R"],"sc-01":["R"],"pa-10":["D"],"ia-03":["D"],"mo-02":["R"],"fl-27":["R"],"tx-23":["R"],"ia-01":["D"],"nj-07":["D"],"oh-15":["R"],"mn-01":["R"],"al-02":["R"],"wa-03":["D"],"tx-28":["D"],"va-05":["R"],"az-02":["R"],"nv-02":["R"],"co-04":["R"],"ca-48":["D"],"oh-01":["D"],"nm-02":["D"],"fl-16":["R"],"ar-02":["R"],"ny-21":["R"],"ny-01":["R"],"ak-00":["R"],"ca-13":["D"],"oh-10":["R"],"ne-01":["R"],"nj-02":["R"],"in-05":["R"],"ne-02":["D"],"nv-03":["D"],"nh-01":["D"],"tx-09":["R"],"ny-03":["D"],"ny-04":["D"],"nv-01":["D"],"wa-05":["R"],"ny-02":["R"],"nc-03":["R"],"nc-09":["R"],"nv-04":["D"]};
 var PTY={D:"Democratic",R:"Republican",I:"Independent"},MASCOT={D:"Democratic donkey",R:"Republican elephant",I:"Independent eagle"};
 function dSide(r){return r.dn==="-"&&IND[r.id]?"I":"D"}
