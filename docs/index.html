@@ -119,7 +119,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .pp[aria-pressed="true"].i{background:var(--gray);border-color:var(--gray);color:#fff}
 .avpick{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
 .av{background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:6px 6px 4px;width:104px;color:var(--ink);font-size:.78rem;line-height:1.2}
-.av svg{display:block;margin:0 auto 2px}.av:hover{border-color:var(--gray)}
+.av svg{display:block;margin:0 auto 2px}.avp{display:block;margin:4px auto 0;width:max-content;padding:1px 8px;border-radius:999px;font-size:.7rem;font-weight:900;color:#fff}.avp.d{background:#2d6cc0}.avp.r{background:#b22234}.avp.x{background:#8a8f98}.av:hover{border-color:var(--gray)}
 .av[aria-checked="true"]{border-color:var(--yale);box-shadow:0 0 0 2px var(--light)}
 .lbav{display:inline-block;vertical-align:middle;margin-right:6px}.lbav svg{display:block}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
@@ -428,7 +428,7 @@ function hatBrim(cx,cy,rx,ry,c){return'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx
 var STAR='M0 -7 L2 -2 L7 -2 L3 1 L4.5 6 L0 3 L-4.5 6 L-3 1 L-7 -2 L-2 -2 Z';
 
 var LIST=[
-  {id:"joey",name:"Joey",fur:"#d8b07a",face:"#fbe9c9",
+  {id:"joey",party:"N",name:"Joey",fur:"#d8b07a",face:"#fbe9c9",
    /* an open light-blue button-down hanging open over a white crew-neck undershirt, with a Y pin */
    body:'<path d="'+COAT+'" fill="#ffffff"'+S+'/><path d="M108 318 Q136 340 164 318" fill="none" stroke="#c9d2dc" stroke-width="5" stroke-linecap="round"/>'+
      '<path d="M66 336 C76 318 96 314 110 314 L104 470 L52 470 Z" fill="#a9c8ea"'+S+'/><path d="M206 336 C196 318 176 314 162 314 L168 470 L220 470 Z" fill="#a9c8ea"'+S+'/>'+
@@ -438,59 +438,59 @@ var LIST=[
    /* white cap worn backwards: dome, thin edge, strap opening with hair poking through */
    head:'<path d="M58 168 C58 92 98 64 136 64 C174 64 214 92 214 168 Z" fill="#f7f7f5"'+S+'/><path d="M136 68 V158 M100 78 C92 104 90 134 92 160 M172 78 C180 104 182 134 180 160" fill="none" stroke="#d9dde3" stroke-width="3.5"/>'+
      '<path d="M56 166 Q136 150 216 166 L216 176 Q136 160 56 176 Z" fill="#e3e7ec"'+S+'/><path d="M104 168 C104 128 168 128 168 168 Z" fill="#9c6b3c"'+S+'/><path d="M104 150 H168" stroke="#8b9097" stroke-width="8" stroke-linecap="round"/>'},
-  {id:"liberty",name:"Statue of Liberty",fur:"#7fbfa6",face:"#d5eee2",
+  {id:"liberty",party:"N",name:"Statue of Liberty",fur:"#7fbfa6",face:"#d5eee2",
    body:'<path d="M50 470 C50 380 80 322 136 318 C192 322 222 380 222 470 Z" fill="#8fcfb5"'+S+'/><path d="M86 340 Q136 372 196 330 M78 380 Q140 410 206 372" fill="none" stroke="#5f9e86" stroke-width="4" stroke-linecap="round"/>'+
      '<rect x="168" y="372" width="34" height="44" rx="4" fill="#6fb39a"'+S+'/><path d="M175 386 H196 M175 398 H196" stroke="'+INK+'" stroke-width="2"/>',
    head:[-60,-30,0,30,60].map(function(a){return'<path d="M-9 0 L0 -46 L9 0 Z" transform="translate('+(136+Math.sin(a*Math.PI/180)*70)+' '+(150-Math.cos(a*Math.PI/180)*30)+') rotate('+a+')" fill="#9ed8c0"'+S+'/>'}).join("")+
      '<path d="M70 166 Q136 120 202 166 L196 182 Q136 144 76 182 Z" fill="#9ed8c0"'+S+'/>'+[96,116,136,156,176].map(function(x){return'<rect x="'+(x-5)+'" y="'+(150-Math.abs(x-136)*.15)+'" width="10" height="9" rx="2" fill="#5fb8e6" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")+
      '<path d="M244 300 L254 120" stroke="#6fb39a" stroke-width="16" stroke-linecap="round"/><path d="M244 300 L254 120" stroke="'+INK+'" stroke-width="3" stroke-linecap="round" opacity=".0"/>'+
      '<path d="M236 128 L272 128 L264 104 L244 104 Z" fill="#c9a227"'+S+'/><path d="M254 104 C232 84 250 66 256 46 C262 66 280 82 254 104 Z" fill="#ff9a2e"'+S+'/><path d="M255 98 C246 88 254 78 256 68 C260 80 266 88 255 98 Z" fill="#ffe066"/>'},
-  {id:"washington",name:"George Washington",fur:"#efebe4",face:"#fbe9c9",
+  {id:"washington",party:"X",name:"George Washington",fur:"#efebe4",face:"#fbe9c9",
    body:suit("#1f3a6b","#ffffff",null,'<path d="M118 318 Q136 350 154 318 Q152 338 136 346 Q120 338 118 318 Z" fill="#fff"'+S+'/>'+[396,428].map(function(y){return'<circle cx="108" cy="'+y+'" r="6" fill="#e3b341"'+S+'/><circle cx="164" cy="'+y+'" r="6" fill="#e3b341"'+S+'/>'}).join("")),
    head:mirror('<circle cx="30" cy="204" r="19" fill="#fbfaf7"'+S+'/><circle cx="26" cy="240" r="19" fill="#fbfaf7"'+S+'/>')},
-  {id:"lincoln",name:"Abraham Lincoln",fur:"#5a3b28",face:"#fbe9c9",
+  {id:"lincoln",party:"R",name:"Abraham Lincoln",fur:"#5a3b28",face:"#fbe9c9",
    body:suit("#24242c","#ffffff",null,bowtie("#141418")),
    head:'<path d="M40 246 C44 290 94 306 136 306 C178 306 228 290 232 246 C222 278 182 292 160 294 L150 304 L136 296 L122 304 L112 294 C90 292 50 278 40 246 Z" fill="#2e1f16"'+S+'/>'+
      hatBrim(136,128,80,15,"#141418")+'<path d="M92 128 L96 -36 L176 -36 L180 128 Z" fill="#141418"'+S+'/><rect x="94" y="94" width="84" height="16" fill="#3a3a44"/>'},
-  {id:"troosevelt",name:"Teddy Roosevelt",fur:"#9a6a3c",face:"#fbe9c9",
+  {id:"troosevelt",party:"R",name:"Teddy Roosevelt",fur:"#9a6a3c",face:"#fbe9c9",
    body:suit("#b59b6a","#e9dcc0",null,'<path d="M112 318 L136 338 L160 318 L152 350 L136 342 L120 350 Z" fill="#c0392b"'+S+'/>'),
    head:glasses(28,"#c9a227")+'<path d="M94 276 C108 256 128 258 136 266 C144 258 164 256 178 276 C162 270 146 278 136 282 C126 278 110 270 94 276 Z" fill="#4a2e1a"'+S+'/>'+
      hatBrim(136,140,130,22,"#8a6a3e")+'<path d="M84 140 C84 96 104 72 136 72 C168 72 188 96 188 140 Z" fill="#8a6a3e"'+S+'/><path d="M116 78 L136 98 L156 78" fill="none"'+S+'/><rect x="86" y="120" width="100" height="12" fill="#5a3e22"/>'},
-  {id:"fdr",name:"Franklin D. Roosevelt",fur:"#8f9aa6",face:"#fbe9c9",
+  {id:"fdr",party:"D",name:"Franklin D. Roosevelt",fur:"#8f9aa6",face:"#fbe9c9",
    body:'<path d="M30 470 C30 360 70 314 136 314 C202 314 242 360 242 470 Z" fill="#1d2b4a"'+S+'/><path d="M116 318 L136 364 L156 318 Z" fill="#fff"'+S+'/>'+bowtie("#7a2b27"),
    head:glasses(21,"#2b2b2b")+'<path d="M73 254 Q58 292 72 324" fill="none" stroke="#c9a227" stroke-width="2.6"/>'},
-  {id:"truman",name:"Harry Truman",fur:"#b9bcc2",face:"#fbe9c9",
+  {id:"truman",party:"D",name:"Harry Truman",fur:"#b9bcc2",face:"#fbe9c9",
    body:suit("#5f646d","#ffffff",null,bowtie("#2d3e66")+'<g fill="#fff"><circle cx="122" cy="322" r="2.6"/><circle cx="150" cy="332" r="2.6"/><circle cx="124" cy="334" r="2.6"/></g>'),
    head:glasses(26,"#3a3a3a")+hatBrim(136,140,108,18,"#6b6f76")+'<path d="M80 140 C80 98 102 76 136 76 C170 76 192 98 192 140 Z" fill="#6b6f76"'+S+'/><path d="M110 84 Q136 102 162 84" fill="none"'+S+'/><rect x="82" y="118" width="108" height="14" fill="#2a2d33"/>'},
-  {id:"eisenhower",name:"Dwight Eisenhower",fur:"#e6d3b3",face:"#fbe9c9",
+  {id:"eisenhower",party:"R",name:"Dwight Eisenhower",fur:"#e6d3b3",face:"#fbe9c9",
    body:suit("#5b6b3a","#c9b98f","#6b5a3a",[0,1,2,3,4].map(function(i){var a=-Math.PI/2+i*2*Math.PI/5;return'<path d="'+STAR+'" transform="translate('+(86+13*Math.cos(a))+' '+(400+13*Math.sin(a))+') scale(1.2)" fill="#e3b341" stroke="'+INK+'" stroke-width="1"/>'}).join("")),
    head:'<path d="M70 150 C70 106 100 90 136 90 C172 90 202 106 202 150 Z" fill="#5b6b3a"'+S+'/><path d="M66 150 Q136 178 206 150 L206 162 Q136 190 66 162 Z" fill="#3a2a1a"'+S+'/><circle cx="136" cy="126" r="13" fill="#e3b341"'+S+'/>'},
-  {id:"jfk",name:"John F. Kennedy",fur:"#a85a2a",face:"#fbe9c9",
+  {id:"jfk",party:"D",name:"John F. Kennedy",fur:"#a85a2a",face:"#fbe9c9",
    body:suit("#1f2a44","#ffffff","#2d3e66"),
    head:'<path d="M58 188 C68 138 120 116 178 126 C206 132 224 150 224 178 C196 156 160 150 128 168 C110 154 80 160 58 188 Z" fill="#b5652b"'+S+'/><path d="M126 166 C134 148 160 140 188 146" fill="none" stroke="'+INK+'" stroke-width="3"/>'},
-  {id:"reagan",name:"Ronald Reagan",fur:"#4a3426",face:"#fbe9c9",
+  {id:"reagan",party:"R",name:"Ronald Reagan",fur:"#4a3426",face:"#fbe9c9",
    body:suit("#7a5a3e","#ffffff","#b03a2e",flagPin(176,350)),
    /* big dark pompadour */
    head:'<path d="M62 182 C56 128 98 102 140 104 C186 104 220 132 214 182 C196 150 170 140 140 146 C112 140 80 150 62 182 Z" fill="#3a2a1e"'+S+'/><path d="M88 150 C110 124 152 120 182 136 M100 168 C122 146 156 144 188 156" fill="none" stroke="#6b4e38" stroke-width="4" stroke-linecap="round"/>'},
-  {id:"obama",name:"Barack Obama",fur:"#3d3a38",face:"#fbe9c9",
+  {id:"obama",party:"D",name:"Barack Obama",fur:"#3d3a38",face:"#fbe9c9",
    body:suit("#1d2433","#ffffff","#4a7fc1",flagPin(176,350)),
    /* close-cropped hair with a little gray */
    head:'<path d="M64 182 C62 136 98 112 136 112 C174 112 210 136 208 182 C190 160 164 152 136 152 C108 152 82 160 64 182 Z" fill="#2a2726"'+S+'/><path d="M84 160 C100 148 116 144 128 144 M150 144 C164 146 178 150 188 160" fill="none" stroke="#9a9a9a" stroke-width="3" stroke-linecap="round"/>'},
-  {id:"trump",name:"Donald Trump",fur:"#e2c27a",face:"#fbe9c9",
+  {id:"trump",party:"R",name:"Donald Trump",fur:"#e2c27a",face:"#fbe9c9",
    /* navy suit with an extra-long red tie */
    body:'<path d="'+COAT+'" fill="#1f2a4a"'+S+'/><path d="M114 316 L136 376 L158 316 Z" fill="#fff"'+S+'/><path d="M129 320 H143 L148 336 L140 470 L132 470 L124 336 Z" fill="#d62828"'+S+'/>'+
      '<path d="M114 316 L100 338 L126 360 L136 376 Z M158 316 L172 338 L146 360 L136 376 Z" fill="#141c33"'+S+'/>'+flagPin(176,350),
    /* golden sideswept hair */
    head:'<path d="M52 196 C46 132 100 104 150 108 C196 112 226 140 222 176 C214 160 196 150 170 150 C140 150 112 160 92 172 C78 180 62 188 52 196 Z" fill="#f0c95a"'+S+'/><path d="M80 158 C112 130 166 124 206 146 M96 172 C126 150 170 148 210 164" fill="none" stroke="#c99a2e" stroke-width="4" stroke-linecap="round"/>'},
-  {id:"biden",name:"Joe Biden",fur:"#ececee",face:"#fbe9c9",
+  {id:"biden",party:"D",name:"Joe Biden",fur:"#ececee",face:"#fbe9c9",
    body:suit("#1f2a4a","#ffffff","#2d6cc0",flagPin(176,350)),
    /* aviator sunglasses */
    head:mirror('<path d="M66 222 Q94 210 120 222 Q122 252 100 264 Q74 266 68 246 Z" fill="#1d2633" stroke="#c9a227" stroke-width="4.5" stroke-linejoin="round"/><path d="M76 228 Q86 224 96 228" stroke="#6f86a6" stroke-width="4" fill="none" stroke-linecap="round"/>')+'<path d="M120 224 Q136 216 152 224" fill="none" stroke="#c9a227" stroke-width="4.5"/>'},
-  {id:"vance",name:"JD Vance",fur:"#4a3426",face:"#fbe9c9",
+  {id:"vance",party:"R",name:"JD Vance",fur:"#4a3426",face:"#fbe9c9",
    body:suit("#1f2a4a","#ffffff","#b03a2e",flagPin(176,350)),
    /* short dark beard along the jaw */
    head:'<path d="M40 236 C42 286 92 304 136 304 C180 304 230 286 232 236 C224 266 200 280 182 284 C176 302 96 302 90 284 C72 280 48 266 40 236 Z" fill="#4a3426"'+S+'/><path d="M110 268 Q136 256 162 268 Q136 263 110 268 Z" fill="#4a3426"'+S+'/>'},
-  {id:"harris",name:"Kamala Harris",fur:"#3b2a22",face:"#fbe9c9",
+  {id:"harris",party:"D",name:"Kamala Harris",fur:"#3b2a22",face:"#fbe9c9",
    body:'<path d="'+COAT+'" fill="#1f2a44"'+S+'/><path d="M108 316 Q136 346 164 316 L158 380 L114 380 Z" fill="#f4efe6"'+S+'/>'+
      '<path d="M108 316 L92 340 L120 372 L126 336 Z M164 316 L180 340 L152 372 L146 336 Z" fill="#141c33"'+S+'/>'+
      [-30,-20,-10,0,10,20,30].map(function(dx){return'<circle cx="'+(136+dx)+'" cy="'+(334+Math.abs(dx)*-.25+8-Math.cos(dx/40)*4)+'" r="5" fill="#fffdf6" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")+flagPin(176,350),
@@ -702,7 +702,7 @@ var RESULTS={};
 var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
 function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
 function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
-  var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));
+  var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));var pt={D:["Democrat","d"],R:["Republican","r"],X:["No party","x"],N:["Nonpartisan","x"]}[a.party];if(pt)b.appendChild(h("span",{class:"avp "+pt[1],text:pt[0]}));
   b.disabled=closed();b.addEventListener("click",function(){P.avatar=a.id;draft();box.querySelectorAll(".av").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});renderYou()});box.appendChild(b)})}
 function predRace(id){if(S.byId[id])return S.byId[id];var x=EXTRA[id];return{id:id,chamber:"house",state:x.state,district:x.district,dn:x.dn,rn:x.rn,cons:null,mine:null,extra:true}}
 function predName(r){return r.chamber==="house"?r.state+"-"+(r.district<10?"0":"")+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
