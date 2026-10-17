@@ -1,0 +1,20 @@
+# Secrets: never commit a real key. Copy .env.example to .env instead.
+.env
+.env.*
+!.env.example
+
+# Private working notes (not part of the published project)
+casual_greeting_chat.md
+STATUS.md
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
