@@ -131,6 +131,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
+.lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -869,14 +870,19 @@ function renderPred(){renderAvatars();
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
   var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
   var lb=$("pred-lb");lb.textContent="";
-  if(Object.keys(RESULTS).length){
-    var rows=P.all.map(function(e){return[e.n,score(function(id){return e.p[id]}),Labubus.has(e.a)?e.a:""]});
-    rows.push(["The crowd",score(crowdCall)],["Forecasters' consensus",score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})],
-      ["My model",score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})],["Joey",score(function(id){return joeyCall(predRace(id))})]);
-    rows.sort(function(a,b){return b[1][0]-a[1][0]});
-    lb.appendChild(h("h3",{text:"Leaderboard"}));
-    lb.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Who"}),h("th",{class:"num",text:"Correct"})])]),
-      h("tbody",{},rows.map(function(x){var who=h("td");if(x[2]){var s=h("span",{class:"lbav"});s.innerHTML=Labubus.make(x[2],28);who.appendChild(s)}who.appendChild(document.createTextNode(x[0]));return h("tr",{},[who,h("td",{class:"num",text:x[1][0]+" of "+x[1][1]})])}))])]))}
+  /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
+  var live=Object.keys(RESULTS).length>0,PTS=10;
+  var rows=P.all.map(function(e){return{name:e.n,av:Labubus.has(e.a)?Labubus.make(e.a,40,e.n+"'s avatar"):"",pts:PTS*score(function(id){return e.p[id]})[0]}});
+  rows.push({name:"Joey (expert)",av:YaleAvatars.joey(40),pts:PTS*score(function(id){return joeyCall(predRace(id))})[0],bench:1});
+  if(live)rows.push({name:"The crowd",pts:PTS*score(crowdCall)[0],bench:1},{name:"Forecasters' consensus",pts:PTS*score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})[0],bench:1},
+    {name:"My model",pts:PTS*score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})[0],bench:1});
+  if(live)rows.sort(function(a,b){return b.pts-a.pts||a.name.localeCompare(b.name)});else rows.sort(function(a,b){return(a.bench||0)-(b.bench||0)||a.name.localeCompare(b.name)});
+  lb.appendChild(h("h3",{text:"Leaderboard"}));
+  lb.appendChild(h("p",{class:"note",text:live?"10 points for every race called correctly. A toss-up pick counts as a miss.":"Points show up after Election Day: 10 for every race called correctly. For now, here's everyone who has made picks."}));
+  var head=live?["#","Player","Points"]:["Player"];
+  lb.appendChild(h("div",{class:"table-wrap lb"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{class:t==="Points"?"num":"",text:t})}))]),
+    h("tbody",{},rows.map(function(x,k){var who=h("td",{class:"lbwho"});if(x.av){var s=h("span",{class:"lbav"});s.innerHTML=x.av;who.appendChild(s)}who.appendChild(h("b",{text:x.name}));
+      var cells=[who];if(live){cells.unshift(h("td",{class:"num",text:String(k+1)}));cells.push(h("td",{class:"num lbpts",text:x.pts+" pts"}))}return h("tr",{},cells)}))])]));
   var host=$("pred-tables"),hasRes=Object.keys(RESULTS).length>0;host.textContent="";
   PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
     var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
