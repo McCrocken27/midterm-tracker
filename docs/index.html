@@ -122,6 +122,10 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .av svg{display:block;margin:0 auto 2px}.avp{display:block;margin:4px auto 0;width:max-content;padding:1px 8px;border-radius:999px;font-size:.7rem;font-weight:900;color:#fff}.avp.d{background:#2d6cc0}.avp.r{background:#b22234}.avp.x{background:#8a8f98}.av:hover{border-color:var(--gray)}
 .av[aria-checked="true"]{border-color:var(--yale);box-shadow:0 0 0 2px var(--light)}
 .lbav{display:inline-block;vertical-align:middle;margin-right:6px}.lbav svg{display:block}
+.pp.d{border-color:#8fb4e6}.pp.r{border-color:#e6a0a6}.pp.i{border-color:#b9bcc2}
+.ptag{display:inline-block;min-width:18px;padding:0 5px;margin-left:2px;border-radius:999px;font-size:.72rem;font-weight:900;color:#fff;line-height:1.5}
+.pp.d .ptag{background:#2d6cc0}.pp.r .ptag{background:#b22234}.pp.i .ptag{background:#8a8f98}
+.pp[aria-pressed="true"] .ptag{background:#fff;color:#1c1118}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -702,7 +706,7 @@ var RESULTS={};
 var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
 function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
 function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
-  var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));var pt={D:["Democrat","d"],R:["Republican","r"],X:["No party","x"],N:["Nonpartisan","x"]}[a.party];if(pt)b.appendChild(h("span",{class:"avp "+pt[1],text:pt[0]}));
+  var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));
   b.disabled=closed();b.addEventListener("click",function(){P.avatar=a.id;draft();box.querySelectorAll(".av").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});renderYou()});box.appendChild(b)})}
 function predRace(id){if(S.byId[id])return S.byId[id];var x=EXTRA[id];return{id:id,chamber:"house",state:x.state,district:x.district,dn:x.dn,rn:x.rn,cons:null,mine:null,extra:true}}
 function predName(r){return r.chamber==="house"?r.state+"-"+(r.district<10?"0":"")+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
@@ -735,7 +739,7 @@ function renderPred(){renderAvatars();
   PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
     var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
     var body=g[1].map(function(id){var r=predRace(id),cell=h("td");
-      choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),text:c[1]});
+      choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),"aria-label":c[1]+", "+PTY[c[0]]},[c[1]+" ",h("span",{class:"ptag",text:c[0]})]);
         b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];draft();
           cell.querySelectorAll(".pp").forEach(function(pb){pb.setAttribute("aria-pressed",String(pb===b&&P.mine[id]===c[0]))})});cell.appendChild(b)});
       var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
