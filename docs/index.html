@@ -130,6 +130,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .vote-race{font-size:1.1rem;color:var(--head)}.vote-cands{list-style:none;padding:0;margin:8px 0 4px}.vote-cands li{margin:4px 0;font-weight:700}
 .ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
+.more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -235,6 +236,7 @@ html{color-scheme:dark}
         <button type="button" class="f" data-f="governor" aria-pressed="false">Governor</button>
         <button type="button" class="f" data-f="house" aria-pressed="false">House</button></div></div>
     <div id="map" class="map" role="group" aria-label="Map of states. Select a state with tracked races."></div>
+    <div id="more" class="more" aria-live="polite"></div>
     <div class="legend" aria-hidden="true"><span class="lg"><i class="dot big"></i> State color shows the forecasters' consensus for the selected race type</span><span class="lg"><i class="dot"></i> House district (House view)</span><span class="lg"><i class="dot big" style="background:var(--tint);border:1.5px solid var(--stroke)"></i> Gray-blue: House races only</span><span class="scale" id="scale"></span></div>
     <div id="tally" class="tally"></div>
   </section>
@@ -727,22 +729,30 @@ function renderMap(){var host=$("map");host.textContent="";
     g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();selectState(st)}});
     svg.appendChild(g)});
   host.appendChild(svg)}
-function setFilter(f){S.filter=f;document.querySelectorAll(".f").forEach(function(b){var on=b.dataset.f===f;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on))});renderMap()}
+function setFilter(f,quiet){S.filter=f;document.querySelectorAll(".f").forEach(function(b){var on=b.dataset.f===f;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on))});renderMap();
+  if(!quiet&&S.state){var v=stateRaces(S.state).filter(visible);if(v.length)selectRace(v[0].id);else renderNoType(S.state)}}
 
 // ---- selection and detail ----
 function stateRaces(st){return(S.byState[st]||[]).slice().sort(function(a,b){return a.chamber!==b.chamber?ORD[a.chamber]-ORD[b.chamber]:a.district-b.district})}
-function selectState(st){S.state=st;var rs=stateRaces(st),first=rs.filter(visible)[0]||rs[0];renderMap();if(first)selectRace(first.id);else renderEmptyState(st)}
+function selectState(st){S.state=st;var rs=stateRaces(st),first=rs.filter(visible)[0];renderMap();if(first)selectRace(first.id);else if(rs.length)renderNoType(st);else renderEmptyState(st)}
+var TYPE={senate:"Senate",governor:"governor",house:"House"};
+function renderNoType(st){S.raceId=null;var box=$("detail");box.textContent="";box.appendChild(stateHead(st));
+  box.appendChild(h("p",{class:"note",text:NAMES[st]+" has no "+TYPE[S.filter]+" race on the map this year. Its other races are listed below the map."}));renderMore()}
+function rowBtn(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});
+  if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
+  var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[h("span",{class:"rn",text:tagLong(r)}),chip,
+    (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:"r",text:"R vs. R"})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
+  b.addEventListener("click",function(){selectRace(r.id)});return b}
+/* the state's races of other types go under the map; clicking one switches the map to that type */
+function renderMore(){var box=$("more");box.textContent="";if(!S.state)return;var o=stateRaces(S.state).filter(function(r){return!visible(r)});if(!o.length)return;
+  var w=h("div",{class:"rrows",role:"tablist","aria-label":"More races in "+NAMES[S.state]});o.forEach(function(r){w.appendChild(rowBtn(r))});
+  box.appendChild(h("h3",{text:"More races in "+NAMES[S.state]}));box.appendChild(w)}
 function stateHead(st){var n=stateRaces(st).length;return h("div",{class:"state-head"},[h("h2",{class:"state-name",text:NAMES[st]}),
   h("p",{class:"note",text:n?n+(n===1?" tracked race":" tracked races")+". Pick one to see the details.":"No tracked races."})])}
-function renderEmptyState(st){S.raceId=null;var box=$("detail");box.textContent="";box.appendChild(stateHead(st));
+function renderEmptyState(st){S.raceId=null;$("more").textContent="";var box=$("detail");box.textContent="";box.appendChild(stateHead(st));
   box.appendChild(h("p",{class:"note",text:"This tracker covers every Senate and governor race this year, plus 164 House races: every seat at least one forecaster rates competitive, big names like Hakeem Jeffries and Mike Johnson, and at least one seat in every state. "+NAMES[st]+" has no Senate or governor race in 2026 and none of its House races are on the map, so there is nothing to show here."}))}
 function raceList(){var w=h("div",{class:"rrows",role:"tablist","aria-label":NAMES[S.state]+" races"});
-  stateRaces(S.state).forEach(function(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});
-    if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
-    var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[
-      h("span",{class:"rn",text:tagLong(r)}),chip,
-      (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:"r",text:"R vs. R"})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
-    b.addEventListener("click",function(){selectRace(r.id)});w.appendChild(b)});return w}
+  stateRaces(S.state).filter(visible).forEach(function(r){w.appendChild(rowBtn(r))});return w}
 /* Verified Yale alumni on the 2026 ballot, from the Yale Alumni Magazine's lists of alumni in Congress and governors' offices. Not exhaustive. */
 var YALE_SET={"sen-nj-D":1,"sen-de-D":1,"sen-oh-D":1,"gov-mn-D":1,"gov-ct-D":1};
 /* House members the Yale Alumni Magazine lists as alumni ("Elected Elis"), on the 2026 ballot. Not exhaustive. */
@@ -777,7 +787,7 @@ function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"
     txt.appendChild(h("p",{class:"call"},[h("b",{class:j[0].toLowerCase(),text:who})]));if(j[1])txt.appendChild(h("p",{class:"note",text:j[1]}))}
   else txt.appendChild(h("p",{class:"note",text:"He hasn't made his call on this race yet."}));
   return h("div",{class:"joey"},[av.firstChild,txt])}
-function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");box.textContent="";box.appendChild(stateHead(S.state));box.appendChild(raceList());
+function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");if(r.chamber!==S.filter)setFilter(r.chamber,true);renderMore();box.textContent="";box.appendChild(stateHead(S.state));box.appendChild(raceList());
   box.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL")+")":"")}));
   box.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
   var lu=lineup(r);
