@@ -794,6 +794,7 @@ var COWBOY={"sen-tx-D":1,"sen-tx-R":1,"gov-tx-D":1,"gov-tx-R":1};
 S.races.filter(function(r){return r.state==="TX"&&r.chamber==="house"}).sort(function(a,b){return a.district-b.district}).forEach(function(r,i){COWBOY[r.id+"-"+(i%2?"R":"D")]=1});
 /* Joey's calls, keyed by race id: [pick D/R/I/T, short note]. Empty until Joey sends them. */
 var JOEY={
+  "ca-11":["D","Wiener over fellow Democrat Connie Chan"],"la-01":["R"],"md-08":["D"],"ca-17":["D"],"ok-04":["R"],"ky-02":["R"],"ar-04":["R"],"mn-03":["D"],"ca-33":["D"],"ny-15":["D"],
   "ca-40":["R","Calvert over fellow Republican Young Kim"],
   "gov-ga":["R"],"gov-nv":["R"],"gov-oh":["D"],"gov-wi":["D"],"gov-ak":["D"],"gov-az":["D"],"gov-ia":["D"],"gov-mi":["D"],"gov-or":["D"],"gov-nh":["R"],
   "sen-tx":["R"],"sen-oh":["D"],"sen-me":["R"],"sen-ak":["D"],"sen-ia":["R"],"sen-ks":["R"],"sen-mi":["D"],"sen-nc":["D"],"sen-nh":["D"],"sen-ga":["D"],"sen-mn":["D"],"sen-ne":["R"],
