@@ -698,6 +698,10 @@ function raceList(){var w=h("div",{class:"rrows",role:"tablist","aria-label":NAM
     b.addEventListener("click",function(){selectRace(r.id)});w.appendChild(b)});return w}
 /* Verified Yale alumni on the 2026 ballot, from the Yale Alumni Magazine's lists of alumni in Congress and governors' offices. Not exhaustive. */
 var YALE_SET={"sen-nj-D":1,"sen-de-D":1,"sen-oh-D":1,"gov-mn-D":1,"gov-ct-D":1};
+/* House members the Yale Alumni Magazine lists as alumni ("Elected Elis"), on the 2026 ballot. Not exhaustive. */
+var YALE_HOUSE={"Tom Cole":1,"Brett Guthrie":1,"Kevin Kiley":1,"Bruce Westerman":1,"Teresa Leger Fern\u00e1ndez":1,"Teresa Leger Fernandez":1,"Maggie Goodlander":1,"Ro Khanna":1,"Kelly Morrison":1};
+function isYale(r,party,name){return YALE_SET[r.id+"-"+party]===1||(r.chamber==="house"&&YALE_HOUSE[name]===1)}
+function badges(yale,nd){var s=[];if(yale)s.push(h("span",{class:"badge y",title:"Yale alumnus",text:"Y"}));if(nd)s.push(h("span",{class:"badge nd",title:"Notre Dame alumnus",text:"\u2618"}));return s}
 /* Independents with a real shot (eagles). In Nebraska the independent takes the Democratic slot. */
 var IND={"sen-ne":"Dan Osborn","sen-mt":"Seth Bodnar","ca-06":"Kevin Kiley"};
 /* Verified Notre Dame alumni on the 2026 ballot (Notre Dame Scholastic, Irish Rover, LegiStorm). Not exhaustive. */
@@ -713,7 +717,7 @@ var PTY={D:"Democratic",R:"Republican",I:"Independent"},MASCOT={D:"Democratic do
 function dSide(r){return r.dn==="-"&&IND[r.id]?"I":"D"}
 function rSide(r){return r.rn==="-"&&IND[r.id]?"I":"R"}
 function lineup(r){var c=[];if(dSide(r)==="D")c.push(["D",r.dn]);if(IND[r.id])c.push(["I",IND[r.id]]);if(rSide(r)==="R")c.push(["R",r.rn]);return c}
-function candidate(r,party,name){var k=r.id+"-"+party,y=YALE_SET[k]===1,nd=ND_NAMES[name]===1,av=h("div");
+function candidate(r,party,name){var k=r.id+"-"+party,y=isYale(r,party,name),nd=ND_NAMES[name]===1,av=h("div");
   av.innerHTML=YaleAvatars.make(k,{size:104,party:party,yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
   return h("div",{class:"cand"},[av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:PTY[party]})])}
 function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"Safe seat, so he's going with the favorite."]:null,av=h("div");av.innerHTML=YaleAvatars.joey(56);
@@ -730,7 +734,7 @@ function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("de
     h("div",{class:"faceoff"},[candidate(r,lu[0][0],lu[0][1]),h("div",{class:"vs",text:"vs."}),candidate(r,lu[1][0],lu[1][1])]));
   if(r.oth)box.appendChild(h("p",{class:"note",text:r.oth+"."}));
   if(lineup(r).some(function(x){return ND_NAMES[x[1]]}))box.appendChild(h("p",{class:"note",text:"The shamrock means this candidate went to Notre Dame."}));
-  if(YALE_SET[r.id+"-D"]||YALE_SET[r.id+"-R"])box.appendChild(h("p",{class:"note",text:"The Y patch means this candidate attended Yale, according to the Yale Alumni Magazine's list of alumni in office."}));
+  if(lineup(r).some(function(x){return isYale(r,x[0],x[1])}))box.appendChild(h("p",{class:"note",text:"The Y patch means this candidate attended Yale, according to the Yale Alumni Magazine's list of alumni in office."}));
 
   box.appendChild(h("h3",{text:"What the forecasters say"}));
   box.appendChild(c?h("p",{class:"call"},[h("b",{text:c.label}),h("span",{class:"note",text:"consensus of "+c.n+" of "+r.ratings.length+" outlets"+(c.tossups?", "+c.tossups+" call it a toss-up":"")})]):h("p",{class:"note",text:"No forecaster ratings collected for this race yet."}));
@@ -812,7 +816,7 @@ function renderPred(){renderAvatars();
   PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
     var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
     var body=g[1].map(function(id){var r=predRace(id),cell=h("td");
-      choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),"aria-label":c[1]+", "+PTY[c[0]]},[c[1]+" ",h("span",{class:"ptag",text:c[0]})]);
+      choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),"aria-label":c[1]+", "+PTY[c[0]]},[c[1]+" ",h("span",{class:"ptag",text:c[0]})].concat(badges(isYale(r,c[0],c[1]),ND_NAMES[c[1]]===1)));
         b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];draft();
           cell.querySelectorAll(".pp").forEach(function(pb){pb.setAttribute("aria-pressed",String(pb===b&&P.mine[id]===c[0]))})});cell.appendChild(b)});
       var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
@@ -846,7 +850,7 @@ function hsRows(){var q=($("hs-q").value||"").toLowerCase().trim(),comp=$("hs-co
     else{var sc=fav==="D"?3:-3,chip=h("span",{class:"chip-r",text:"Safe "+(fav||"?")});chip.style.background=colorFor(sc);chip.style.color=textOn(sc);rating=chip;joey=fav}
     var cands=h("td");x[5].forEach(function(c,i){if(i)cands.appendChild(document.createTextNode(" vs. "));
       var s=h("span",{class:"cn "+c[0].toLowerCase()},[h("b",{text:c[1]})," ("+c[0]+")"]);if(YaleAvatars.lookFor(c[1],true)){var m=h("span",{class:"lbav"});m.innerHTML=YaleAvatars.make(key.toLowerCase()+"-"+c[0],{size:30,party:c[0],look:YaleAvatars.lookFor(c[1],true),nd:ND_NAMES[c[1]]===1,label:MASCOT[c[0]]+" for "+c[1]});s.insertBefore(m,s.firstChild)}
-      if(YALE_NAMES[c[1]])s.appendChild(h("span",{class:"badge y",title:"Yale alumnus",text:"Y"}));
+      if(YALE_NAMES[c[1]]||YALE_HOUSE[c[1]])s.appendChild(h("span",{class:"badge y",title:"Yale alumnus",text:"Y"}));
       if(ND_NAMES[c[1]])s.appendChild(h("span",{class:"badge nd",title:"Notre Dame alumnus",text:"☘"}));cands.appendChild(s)});
     body.appendChild(h("tr",{},[h("td",{text:key.replace("-00","-AL")}),h("td",{text:x[2]+(x[3]?" ("+x[3]+")":"")}),cands,h("td",{text:lean}),h("td",{},[rating]),h("td",{},[tagEl(joey)])]))});
   $("hs-count").textContent=n+(n===1?" seat":" seats")}
@@ -907,7 +911,7 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
   rows.forEach(function(x){var r=x[1],card=h("div",{class:"vote-card"});card.appendChild(h("b",{class:"vote-race",text:x[0]}));
     var list=h("ul",{class:"vote-cands"});x[2].forEach(function(c){var nm=c[1];if(!nm||nm==="-")return;
       var rid=(r?r.id:x[3][0].toLowerCase())+"-"+c[0],m=h("span",{class:"lbav"});
-      m.innerHTML=YaleAvatars.make(rid,{size:40,party:c[0],look:YaleAvatars.lookFor(nm,x[0].indexOf("House")>=0),yale:YALE_SET[rid]===1,nd:ND_NAMES[nm]===1,hat:COWBOY[rid]?"cowboy":"",label:MASCOT[c[0]]+" for "+nm});
+      m.innerHTML=YaleAvatars.make(rid,{size:40,party:c[0],look:YaleAvatars.lookFor(nm,x[0].indexOf("House")>=0),yale:YALE_SET[rid]===1||(x[0].indexOf("House")>=0&&YALE_HOUSE[nm]===1),nd:ND_NAMES[nm]===1,hat:COWBOY[rid]?"cowboy":"",label:MASCOT[c[0]]+" for "+nm});
       list.appendChild(h("li",{},[m,h("span",{class:"ptag "+c[0].toLowerCase(),text:c[0]})," "+nm+" ",h("span",{class:"note",text:"("+PTY[c[0]]+")"})]))});
     card.appendChild(list);
     if(r){var c=r.cons,chip=h("span",{class:"chip-r",text:c?c.label:"No ratings"});if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
