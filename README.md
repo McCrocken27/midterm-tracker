@@ -12,6 +12,7 @@ MGT 409 final project. The site shows every 2026 Senate and governor race, plus 
 - **Joey**, a made-up "former campaign expert", has his own calls on 37 key races, and he picks the favorite in every seat rated Safe.
 - **Every House seat** tab: all 435 districts with incumbent, candidates, lean, and rating, searchable by district, state, or name.
 - **Predict and compare** tab: players pick a nickname and a cartoon Labubu avatar (Joey, the Statue of Liberty, or one dressed like a president or vice president: Washington, Lincoln, Teddy Roosevelt, FDR, Truman, Eisenhower, JFK, Reagan, Obama, Trump, Biden, Vance, Harris). They are suggested by hats, hair and clothes, not faces, then pick winners in 37 key races and compare them with the crowd, the forecasters, the model, and Joey. A leaderboard turns on once results are entered. On GitHub Pages, picks are saved in each visitor's own browser.
+- **Vote** tab: enter an address to see your Senate, governor, and House races, the candidates and their parties, and a link to your state's official voter registration page. The address goes once to the U.S. Census Bureau's free geocoder (which returns the new 2026 districts), is cleared from the page immediately, and is never stored. Lookups are capped at 10 per visit.
 - Only major candidates are shown: a major-party nominee, or anyone with better than a 20% chance of winning.
 
 ## Run it locally

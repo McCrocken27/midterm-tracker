@@ -126,6 +126,10 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .ptag{display:inline-block;min-width:18px;padding:0 5px;margin-left:2px;border-radius:999px;font-size:.72rem;font-weight:900;color:#fff;line-height:1.5}
 .pp.d .ptag{background:#2d6cc0}.pp.r .ptag{background:#b22234}.pp.i .ptag{background:#8a8f98}
 .pp[aria-pressed="true"] .ptag{background:#fff;color:#1c1118}
+.vote-card{background:var(--surface);border:3px solid var(--line);border-radius:18px;box-shadow:0 4px 0 var(--line);padding:12px 16px;margin:10px 0;max-width:720px}
+.vote-race{font-size:1.1rem;color:var(--head)}.vote-cands{list-style:none;padding:0;margin:8px 0 4px}.vote-cands li{margin:4px 0;font-weight:700}
+.ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
+a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -203,6 +207,7 @@ h2{font-weight:900;color:var(--head)}h3{font-weight:900;color:var(--head)}
   <button type="button" class="tab on" role="tab" aria-selected="true" aria-controls="tab-map" data-tab="tab-map">Map</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and Compare</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-house" data-tab="tab-house">Every House Seat</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-vote" data-tab="tab-vote">Vote</button>
 </nav>
 <div id="tab-map" role="tabpanel">
 <main class="layout">
@@ -220,6 +225,20 @@ h2{font-weight:900;color:var(--head)}h3{font-weight:900;color:var(--head)}
     <p>Select a highlighted state on the map to see its races, who the forecasters favor, and what my model says. You can lock in your own pick for each race.</p></div></div></section>
 </main>
 <section class="ask"><h2>Ask the forecast</h2><p class="note">The question-answering panel needs the Python server and an API key, so it isn't part of this page. It lives in the full project.</p></section>
+</div>
+<div id="tab-vote" role="tabpanel" hidden>
+  <section class="pred">
+    <h2>Vote</h2>
+    <p class="note">Enter your home address to see the Senate, governor, and House races on your ballot, who's running, and how to register in your state.</p>
+    <form id="vote-form" class="pred-form" autocomplete="off">
+      <label for="vote-addr"><b>Your address</b></label>
+      <input id="vote-addr" type="text" name="vote-addr-nosave" autocomplete="off" spellcheck="false" maxlength="200" placeholder="e.g. 165 Whitney Ave, New Haven, CT 06511">
+      <button type="submit" class="save">Find My Races</button>
+      <span id="vote-msg" class="note" role="status"></span>
+    </form>
+    <p class="note">Privacy: your address is sent once to the U.S. Census Bureau's free address lookup to find your district, then cleared from this page right away. It's never saved, and you can do up to 10 lookups per visit.</p>
+    <div id="vote-out"></div>
+  </section>
 </div>
 <div id="tab-house" role="tabpanel" hidden>
   <section class="pred">
@@ -777,14 +796,82 @@ function hsRows(){var q=($("hs-q").value||"").toLowerCase().trim(),comp=$("hs-co
       if(ND_NAMES[c[1]])s.appendChild(h("span",{class:"badge nd",title:"Notre Dame alumnus",text:"☘"}));cands.appendChild(s)});
     body.appendChild(h("tr",{},[h("td",{text:key.replace("-00","-AL")}),h("td",{text:x[2]+(x[3]?" ("+x[3]+")":"")}),cands,h("td",{text:lean}),h("td",{},[rating]),h("td",{},[tagEl(joey)])]))});
   $("hs-count").textContent=n+(n===1?" seat":" seats")}
+
+// ---- vote: find your races from an address ----
+/* Official state election office pages for registering to vote. Checked 2026-10-17. */
+var REG={AL:"https://www.sos.alabama.gov/alabama-votes/voter/register-to-vote",AK:"https://www.elections.alaska.gov/",AZ:"https://azsos.gov/elections/voters/registering-vote",
+  AR:"https://www.sos.arkansas.gov/elections/voter-information",CA:"https://registertovote.ca.gov/",CO:"https://www.coloradosos.gov/voter/pages/pub/olvr/verifyNewVoter.xhtml",
+  CT:"https://voterregistration.ct.gov/",DE:"https://ivote.de.gov/",DC:"https://www.dcboe.org/voters/register-to-vote",
+  FL:"https://dos.fl.gov/elections/for-voters/voter-registration/register-to-vote-or-update-your-information/",GA:"https://sos.ga.gov/how-to-guide/how-guide-register-vote",
+  HI:"https://olvr.hawaii.gov/",ID:"https://voteidaho.gov/",IL:"https://ova.elections.il.gov/",IN:"https://indianavoters.in.gov/",IA:"https://sos.iowa.gov/voters",
+  KS:"https://sos.ks.gov/elections/elections.html",KY:"https://www.govoteky.com/",LA:"https://voterportal.sos.la.gov/",ME:"https://www.maine.gov/sos/cec/elec/voter-info/index.html",
+  MD:"https://elections.maryland.gov/voter_registration/index.html",MA:"https://www.sec.state.ma.us/ovr/",MI:"https://mvic.sos.state.mi.us/registervoter",
+  MN:"https://www.sos.state.mn.us/elections-voting/register-to-vote/",MS:"https://www.sos.ms.gov/elections-voting/voter-registration-information",
+  MO:"https://www.sos.mo.gov/elections/goVoteMissouri/register",MT:"https://sosmt.gov/elections/vote/",NE:"https://www.nebraska.gov/apps-sos-voter-registration/",
+  NV:"https://registertovote.nv.gov/",NH:"https://www.sos.nh.gov/elections/voters/register-vote",NJ:"https://voter.svrs.nj.gov/register",
+  NM:"https://www.sos.nm.gov/voting-and-elections/",NY:"https://elections.ny.gov/register-vote",NC:"https://www.ncsbe.gov/registering/how-register",
+  ND:"https://www.sos.nd.gov/elections/voter/voting-north-dakota",OH:"https://www.ohiosos.gov/elections/voters/register/",OK:"https://oklahoma.gov/elections/voter-registration.html",
+  OR:"https://sos.oregon.gov/elections/pages/registration.aspx",PA:"https://www.pa.gov/agencies/vote/voter-registration",RI:"https://vote.sos.ri.gov/Voter/RegisterToVote",
+  SC:"https://scvotes.gov/voters/register-to-vote/",SD:"https://sdsos.gov/elections-voting/voting/register-to-vote/default.aspx",TN:"https://sos.tn.gov/elections/guides/how-to-register-to-vote",
+  TX:"https://www.votetexas.gov/register-to-vote/",UT:"https://vote.utah.gov/register-to-vote-or-update-your-voter-registration/",VT:"https://vote.vermont.gov/",
+  VA:"https://www.elections.virginia.gov/registration/",WA:"https://www.sos.wa.gov/elections/voters",WV:"https://ovr.sos.wv.gov/Register/Landing",
+  WI:"https://myvote.wi.gov/en-us/Register-To-Vote",WY:"https://sos.wyo.gov/Elections/State/RegisteringToVote.aspx"};
+var FIPS={"01":"AL","02":"AK","04":"AZ","05":"AR","06":"CA","08":"CO","09":"CT","10":"DE","11":"DC","12":"FL","13":"GA","15":"HI","16":"ID","17":"IL","18":"IN","19":"IA","20":"KS","21":"KY","22":"LA",
+  "23":"ME","24":"MD","25":"MA","26":"MI","27":"MN","28":"MS","29":"MO","30":"MT","31":"NE","32":"NV","33":"NH","34":"NJ","35":"NM","36":"NY","37":"NC","38":"ND","39":"OH","40":"OK","41":"OR",
+  "42":"PA","44":"RI","45":"SC","46":"SD","47":"TN","48":"TX","49":"UT","50":"VT","51":"VA","53":"WA","54":"WV","55":"WI","56":"WY"};
+var VOTE_MAX=10,voteUsed=0,voteBusy=false;
+function voteMsg(t){$("vote-msg").textContent=t}
+function voteLookup(){var input=$("vote-addr"),addr=String(input.value||"").trim();
+  /* the address is cleared from the page right away and never saved anywhere */
+  input.value="";
+  if(voteBusy)return;
+  if(voteUsed>=VOTE_MAX){addr=null;voteMsg("You've used all "+VOTE_MAX+" lookups for this visit. Reload the page to look up more.");return}
+  if(addr.length<8||addr.length>200||!/\d/.test(addr)){addr=null;voteMsg("Enter a full street address with a house number, city, and state (or ZIP).");return}
+  voteUsed++;voteBusy=true;voteMsg("Looking up your district…");$("vote-out").textContent="";
+  var cb="__census"+Date.now(),s=document.createElement("script"),done=false;
+  var url="https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?benchmark=Public_AR_Current&vintage=Current_Current&format=jsonp&callback="+cb+"&address="+encodeURIComponent(addr);
+  addr=null;
+  function finish(){done=true;voteBusy=false;try{delete window[cb]}catch(e){window[cb]=undefined}s.remove();clearTimeout(timer)}
+  var timer=setTimeout(function(){if(!done){finish();voteMsg("The address lookup didn't answer. Try again in a moment.")}},15000);
+  window[cb]=function(res){if(done)return;finish();voteShow(res)};
+  s.onerror=function(){if(!done){finish();voteMsg("Couldn't reach the address lookup. Check your connection and try again.")}};
+  s.src=url;url=null;document.head.appendChild(s)}
+function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
+  if(!m.length){voteMsg("We couldn't find that address. Check the spelling and include the city and state.");return}
+  var g=m[0].geographies||{},cdKey=Object.keys(g).filter(function(k){return/Congressional Districts/.test(k)})[0],cd=cdKey&&g[cdKey][0],stf=(g.States&&g.States[0]&&g.States[0].STATE)||(cd&&cd.STATE),st=FIPS[stf];
+  if(!st){voteMsg("That address is outside the 50 states and DC.");return}
+  var num=cd?String(cd["CD120"]||cd["CD119"]||cd.BASENAME||"").replace(/\D/g,""):"",key=st+"-"+(num==="98"||num===""?"00":("0"+num).slice(-2));
+  voteMsg("Found it. Your address has already been cleared from this page.");
+  var out=$("vote-out"),rows=[];out.textContent="";
+  out.appendChild(h("h3",{text:st==="DC"?"Washington, DC":NAMES[st]+", "+(key.slice(3)==="00"?"at-large district":"district "+parseInt(key.slice(3),10))}));
+  if(st==="DC"){out.appendChild(h("p",{class:"note",text:"DC elects a non-voting delegate to the House and has no Senate or governor race, so this tracker has no DC races."}))}
+  stateRaces(st).filter(function(r){return r.chamber!=="house"}).forEach(function(r){rows.push([r.chamber==="senate"?"U.S. Senate":"Governor",r,lineup(r).map(function(x){return[x[0],x[1]]})])});
+  if(st!=="DC"){var hr=S.byId[key.toLowerCase()],al=ALLH.filter(function(x){return x[0]===key})[0];
+    if(hr)rows.push(["U.S. House ("+key.replace("-00","-AL")+")",hr,lineup(hr).map(function(x){return[x[0],x[1]]})]);
+    else if(al)rows.push(["U.S. House ("+key.replace("-00","-AL")+")",null,al[5].map(function(c){return[c[0],c[1]]}),al])}
+  if(!rows.length&&st!=="DC")out.appendChild(h("p",{class:"note",text:"No Senate, governor, or House race found for this district in the tracker."}));
+  rows.forEach(function(x){var r=x[1],card=h("div",{class:"vote-card"});card.appendChild(h("b",{class:"vote-race",text:x[0]}));
+    var list=h("ul",{class:"vote-cands"});x[2].forEach(function(c){var nm=c[1];if(!nm||nm==="-")return;
+      list.appendChild(h("li",{},[h("span",{class:"ptag "+c[0].toLowerCase(),text:c[0]})," "+nm+" ",h("span",{class:"note",text:"("+PTY[c[0]]+")"})]))});
+    card.appendChild(list);
+    if(r){var c=r.cons,chip=h("span",{class:"chip-r",text:c?c.label:"No ratings"});if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
+      var go=h("button",{type:"button",class:"linkish vote-go",text:"See this race on the map →"});go.addEventListener("click",function(){showTab("tab-map");setFilter(r.chamber);selectState(r.state);selectRace(r.id);$("detail").scrollIntoView({behavior:"smooth",block:"start"})});
+      card.appendChild(h("p",{class:"note"},["Forecasters: ",chip," ",go]))}
+    else{var lean=x[3][1],fav=lean[0]==="D"?"D":"R";card.appendChild(h("p",{class:"note",text:"Forecasters rate this seat Safe "+fav+" (district lean "+lean+")."}))}
+    out.appendChild(card)});
+  if(REG[st]){var a=h("a",{href:REG[st],target:"_blank",rel:"noopener noreferrer",class:"save vote-reg",text:"How to register in "+(NAMES[st]||"DC")+" ↗"});
+    out.appendChild(h("p",{},[a]));
+    out.appendChild(h("p",{class:"note",text:st==="ND"?"North Dakota doesn't require voter registration. The link explains what to bring to vote.":"This is your state's official election office. Registration deadlines are set by each state, and in many states the deadline for Nov 3 has already passed. Some states let you register on Election Day, so check the link."}))}}
+
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
-  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-vote").hidden=id!=="tab-vote";if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
 // ---- boot ----
 document.querySelectorAll(".f").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
-$("hs-q").addEventListener("input",hsRows);$("hs-comp").addEventListener("change",hsRows);
+$("hs-q").addEventListener("input",hsRows);
+$("vote-form").addEventListener("submit",function(e){e.preventDefault();voteLookup()});$("hs-comp").addEventListener("change",hsRows);
 renderStatic();renderTally();renderMap();renderYou();
 loadPicks().then(renderYou);
 })();
@@ -815,6 +902,8 @@ function eagleSVG(kind,back){
     '<circle cx="112" cy="56" r="18" fill="#fff" stroke="#1c1118" stroke-width="3"/>'+
     '<path d="M126 50 C140 50 146 58 140 66 C136 62 132 62 128 64 Z" fill="#f2b632" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
     '<circle cx="117" cy="51" r="3.6" fill="#1c1118"/><path d="M110 45 L122 47" stroke="#1c1118" stroke-width="3" stroke-linecap="round"/>'+
+    (kind==="gop"?'<path d="M94 46 C92 26 128 24 132 42 Z" fill="#d62828" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/><path d="M128 40 L150 40 Q152 47 130 47 Z" fill="#b71c1c" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
+      '<text x="112" y="41" text-anchor="middle" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="9" fill="#fff"'+(back?' transform="translate(224 0) scale(-1 1)"':'')+'>MAGA</text>':'')+
     '</g></svg>'}
 function fly(kind,dir){var kinds=["us","dem","gop"],k=kind||kinds[Math.floor(Math.random()*3)],d=document.createElement("div"),back=dir===undefined?Math.random()<.4:!!dir;
   d.className="flyer"+(back?" rtl":"");d.innerHTML=eagleSVG(k,back);d.style.top=(8+Math.random()*60)+"vh";d.style.animationDuration=(9+Math.random()*5)+"s";
