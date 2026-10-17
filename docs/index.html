@@ -341,14 +341,61 @@ function animalTorso(kind,c,dark,accent){
   if(kind==="tie")return base+'<path d="M88 136 L100 176 L112 136 Z" fill="#f4f6f8"/><path d="M88 136 L76 150 L98 190 L100 176 Z" fill="'+dark+'"/><path d="M112 136 L124 150 L102 190 L100 176 Z" fill="'+dark+'"/><path d="M96 140 H104 L106 150 L100 184 L94 150 Z" fill="'+accent+'"/>';
   return base+'<path d="M80 137 C88 150 112 150 120 137 C112 146 88 146 80 137 Z" fill="'+dark+'"/>';
 }
+
+/* Signature looks for well-known candidates: hair, glasses and props only (never skin, body or face).
+   Each is a widely known, friendly detail: Sherrod Brown's canary pin, Jim Jordan's shirtsleeves, and so on. */
+var HOUSE_STARS={"Mike Johnson":1,"Hakeem Jeffries":1,"Lauren Boebert":1,"Jim Jordan":1,"Alexandria Ocasio-Cortez":1};
+var LOOKS={
+  "James Talarico":{pin:"apple"},"Sherrod Brown":{hair:["#c9ccd1","messy"],pin:"canary"},"Jon Husted":{hair:["#4a3426","short"]},
+  "Troy Jackson":{outfit:"flannel"},"Susan Collins":{hair:["#d8c8a0","bob"]},"Mary Peltola":{hair:["#241812","long"],pin:"fish"},
+  "Dan Sullivan":{hair:["#5a4232","buzz"]},"Josh Turek":{neck:"medal"},"Ashley Hinson":{hand:"mic"},
+  "Abdul El-Sayed":{hair:["#241812","short"],beard:"#241812",neck:"steth"},"Mike Rogers":{hair:["#b9bcc2","short"],sun:1},
+  "Roy Cooper":{hair:["#c9ccd1","short"]},"Michael Whatley":{hair:["#6b4e38","short"]},"Jon Ossoff":{hair:["#3a2a1e","short"],hand:"clapper"},
+  "Mike Collins":{hat:"trucker"},"Chris Pappas":{hair:["#2a1d17","short"],glasses:"#1c1118"},"John Sununu":{hair:["#c9ccd1","short"]},
+  "Dan Osborn":{hat:"hard",outfit:"work"},"Pete Ricketts":{hat:"cap"},
+  "Vivek Ramaswamy":{hair:["#1c1414","short"]},"Amy Acton":{neck:"steth"},"JB Pritzker":{glasses:"#1c1118"},"Kathy Hochul":{hair:["#e6cf8f","bob"]},
+  "Tommy Tuberville":{neck:"whistle"},"Marsha Blackburn":{hair:["#e8cf86","big"]},"Phil Scott":{pin:"checker"},"Joe Lombardo":{pin:"star"},
+  "Jocelyn Benson":{neck:"medal"},"John James":{sun:1},"Brad Little":{hat:"cowboy"},
+  "Mike Johnson":{hair:["#3a2a1e","short"],glasses:"#1c1118"},"Hakeem Jeffries":{hand:"papers"},"Lauren Boebert":{hair:["#2a1d17","long"]},
+  "Jim Jordan":{outfit:"shirtsleeves"},"Alexandria Ocasio-Cortez":{hair:["#241812","long"],ears:"hoops"}};
+function lookHair(c,s,T){var top='M64 '+(T+26)+' C60 '+(T-14)+' 140 '+(T-14)+' 136 '+(T+26)+' C124 '+(T+10)+' 76 '+(T+10)+' 64 '+(T+26)+' Z';
+  if(s==="buzz")return'<path d="M72 '+(T+16)+' C72 '+T+' 128 '+T+' 128 '+(T+16)+' C118 '+(T+9)+' 82 '+(T+9)+' 72 '+(T+16)+' Z" fill="'+c+'" opacity=".9"/>';
+  if(s==="messy"){var pts=[];for(var i=0;i<=8;i++){var x=66+i*8.5;pts.push(x+" "+(i%2?T-6:T+6))}return'<path d="M66 '+(T+24)+' L'+pts.join(" L")+' L134 '+(T+24)+' C122 '+(T+10)+' 78 '+(T+10)+' 66 '+(T+24)+' Z" fill="'+c+'"/>'}
+  var side=function(len){return'<path d="M67 '+(T+16)+' C56 '+(T+len*.5)+' 56 '+(T+len)+' 66 '+(T+len+12)+' L76 '+(T+30)+' Z" fill="'+c+'"/><path d="M133 '+(T+16)+' C144 '+(T+len*.5)+' 144 '+(T+len)+' 134 '+(T+len+12)+' L124 '+(T+30)+' Z" fill="'+c+'"/>'};
+  if(s==="bob")return side(58)+'<path d="'+top+'" fill="'+c+'"/>';
+  if(s==="long")return side(100)+'<path d="'+top+'" fill="'+c+'"/>';
+  if(s==="big")return side(66)+'<path d="M56 '+(T+30)+' C46 '+(T-22)+' 154 '+(T-22)+' 144 '+(T+30)+' C132 '+(T+8)+' 68 '+(T+8)+' 56 '+(T+30)+' Z" fill="'+c+'"/>';
+  return'<path d="'+top+'" fill="'+c+'"/>'}
+function lookHat(k,T,c){
+  if(k==="hard")return'<path d="M66 '+(T+18)+' C66 '+(T-24)+' 134 '+(T-24)+' 134 '+(T+18)+' Z" fill="#ffc83d" stroke="#1b2430" stroke-width="2"/><path d="M100 '+(T-18)+' V'+(T+16)+'" stroke="#e0a800" stroke-width="5"/><rect x="58" y="'+(T+16)+'" width="84" height="7" rx="3" fill="#ffc83d" stroke="#1b2430" stroke-width="2"/>';
+  var crown=k==="trucker"?"#ffffff":"#2d4a8a",front=k==="trucker"?"#b22234":"#2d4a8a";
+  return'<path d="M68 '+(T+20)+' C68 '+(T-14)+' 132 '+(T-14)+' 132 '+(T+20)+' Z" fill="'+crown+'" stroke="#1b2430" stroke-width="2"/><path d="M80 '+(T+18)+' C80 '+(T-8)+' 120 '+(T-8)+' 120 '+(T+18)+' Z" fill="'+front+'"/>'+
+    '<path d="M62 '+(T+20)+' Q100 '+(T+32)+' 138 '+(T+20)+' L140 '+(T+25)+' Q100 '+(T+40)+' 60 '+(T+25)+' Z" fill="'+front+'" stroke="#1b2430" stroke-width="2"/>'}
+function lookProps(L,el){var s="",n="",k="";
+  if(L.pin==="canary")s+='<g transform="translate(124 170)"><ellipse cx="0" cy="2" rx="8" ry="6" fill="#ffd23f" stroke="#1b2430" stroke-width="1.5"/><circle cx="7" cy="-4" r="4.5" fill="#ffd23f" stroke="#1b2430" stroke-width="1.5"/><path d="M11 -4 L15 -3 L11 -1 Z" fill="#f28c28"/><circle cx="8" cy="-5" r="1" fill="#1b2430"/></g>';
+  if(L.pin==="fish")s+='<g transform="translate(124 170)"><path d="M-9 0 C-4 -7 6 -7 9 0 C6 7 -4 7 -9 0 Z M-9 0 L-15 -6 L-15 6 Z" fill="#5fa8d3" stroke="#1b2430" stroke-width="1.5"/><circle cx="4" cy="-1" r="1.2" fill="#1b2430"/></g>';
+  if(L.pin==="apple")s+='<g transform="translate(124 170)"><circle cx="0" cy="2" r="8" fill="#d62828" stroke="#1b2430" stroke-width="1.5"/><path d="M0 -6 L1 -10" stroke="#5a3e22" stroke-width="2"/><path d="M1 -9 C5 -12 8 -9 7 -7 C4 -6 2 -7 1 -9 Z" fill="#3a9a4a"/></g>';
+  if(L.pin==="star")s+='<path d="M124 158 L127.5 166 L136 166.5 L129.5 172 L131.5 180.5 L124 176 L116.5 180.5 L118.5 172 L112 166.5 L120.5 166 Z" fill="#ffc83d" stroke="#1b2430" stroke-width="1.6"/>';
+  if(L.pin==="checker"){s+='<g transform="translate(116 162)"><rect width="16" height="12" fill="#fff" stroke="#1b2430" stroke-width="1.5"/>';for(var i=0;i<4;i++)for(var j=0;j<3;j++)if((i+j)%2)s+='<rect x="'+(i*4)+'" y="'+(j*4)+'" width="4" height="4" fill="#1b2430"/>';s+='<path d="M0 0 V18" stroke="#1b2430" stroke-width="1.6"/></g>'}
+  if(L.neck==="medal")n+='<path d="M90 138 L100 166 L110 138" fill="none" stroke="#2d6cc0" stroke-width="5"/><path d="M93 138 L100 160 L107 138" fill="none" stroke="#b22234" stroke-width="2"/><circle cx="100" cy="172" r="9" fill="#ffc83d" stroke="#1b2430" stroke-width="1.6"/><path d="M100 167 V177" stroke="#e0a800" stroke-width="2"/>';
+  if(L.neck==="steth")n+='<path d="M84 140 C84 168 116 168 116 140" fill="none" stroke="#6b7280" stroke-width="3.2"/><path d="M110 160 C118 176 124 178 128 172" fill="none" stroke="#6b7280" stroke-width="3"/><circle cx="129" cy="171" r="5" fill="#c9ccd1" stroke="#1b2430" stroke-width="1.5"/>';
+  if(L.neck==="whistle")n+='<path d="M88 138 L100 166 L112 138" fill="none" stroke="#b22234" stroke-width="2.5"/><rect x="96" y="164" width="14" height="8" rx="3" fill="#c9ccd1" stroke="#1b2430" stroke-width="1.5"/><circle cx="98" cy="168" r="3" fill="#9aa0a6"/>';
+  if(L.hand==="mic")k+='<path d="M150 196 L156 170" stroke="#1b2430" stroke-width="6" stroke-linecap="round"/><circle cx="157" cy="165" r="8" fill="#6b7280" stroke="#1b2430" stroke-width="1.6"/>';
+  if(L.hand==="clapper")k+='<g transform="translate(140 160) rotate(-8)"><rect width="26" height="18" fill="#1b2430"/><path d="M0 0 L26 -6 L26 -1 L0 5 Z" fill="#fff" stroke="#1b2430" stroke-width="1.2"/><path d="M5 -1 L9 -2 M13 -3 L17 -4" stroke="#1b2430" stroke-width="2"/></g>';
+  if(L.hand==="papers")k+='<g transform="translate(140 156) rotate(-10)"><rect width="22" height="28" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><rect x="3" y="-3" width="22" height="28" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><path d="M7 4 H21 M7 9 H21 M7 14 H21 M7 19 H17" stroke="#9aa0a6" stroke-width="1.6"/></g>';
+  return(s?'<g transform="translate(-50 -18)">'+s+'</g>':'')+(n?'<g transform="translate(0 -14)">'+n+'</g>':'')+(k?'<g transform="translate(-16 -16)">'+k+'</g>':'')}
 function makeAnimal(seed,o){
   var r=rng("a"+seed),el=o.party==="R",eg=o.party==="I",size=o.size||96,col=pick(r,eg?I_OUT:el?R_OUT:D_OUT),
     kind=pick(r,eg?["blazer","tie"]:el?["sweater","blazer","sweater","blazer"]:["sweater","blazer","tie"]),
     specs=!eg&&r()<.25,dark=shade(col,-.18),accent=eg?YALE.gray:el?"#c0463f":"#3d7fd1",id="c"+hash(seed),
     lab=o.label?String(o.label).replace(/[<>&"]/g,""):(eg?"Independent":el?"Republican":"Democratic")+" mascot",
-    ex=eg?[88,112,76]:el?[86,114,76]:[87,113,80],body="";
+    ex=eg?[88,112,76]:el?[86,114,76]:[87,113,80],body="",L=o.look||{},T=eg?40:el?48:44;
+  if(L.outfit==="shirtsleeves"){col="#f4f6f8";kind="tie"}else if(L.outfit==="work"){col="#8a6a3e";kind="sweater"}else if(L.outfit==="flannel"){col="#b22234";kind="sweater"}
+  if(L.outfit)dark=shade(col,-.18);if(o.look)specs=false;
+  var torsoX=animalTorso(kind,col,dark,accent)+(L.outfit==="flannel"?'<path d="M26 200 C26 160 50 140 88 136 L112 136 C150 140 174 160 174 200 Z" fill="url(#pl'+id+')"/>':"")+
+    (L.outfit==="shirtsleeves"?'<path d="M40 178 L64 168 M160 178 L136 168" stroke="#d3dae3" stroke-width="5" stroke-linecap="round"/>':"");
   if(eg){
-    body=animalTorso(kind,col,dark,accent)+
+    body=torsoX+
       '<path d="M80 104 L84 142 L116 142 L120 104 Z" fill="#5b3a1e"/>'+
       '<path d="M66 82 C64 50 82 40 100 40 C118 40 136 50 134 82 C134 100 122 112 100 114 C78 112 66 100 66 82 Z" fill="#fbfaf6" stroke="#cfd5dc" stroke-width="2"/>'+
       '<path d="M70 96 L62 104 L74 102 Z M130 96 L138 104 L126 102 Z M90 112 L94 122 L100 114 L106 122 L110 112 Z" fill="#fbfaf6"/>'+
@@ -358,7 +405,7 @@ function makeAnimal(seed,o){
   }else if(el){
     body='<ellipse cx="56" cy="86" rx="26" ry="32" fill="#8d97a3"/><ellipse cx="58" cy="88" rx="16" ry="22" fill="#e5b9b4"/>'+
       '<ellipse cx="144" cy="86" rx="26" ry="32" fill="#8d97a3"/><ellipse cx="142" cy="88" rx="16" ry="22" fill="#e5b9b4"/>'+
-      animalTorso(kind,col,dark,accent)+
+      torsoX+
       '<rect x="82" y="112" width="36" height="30" rx="10" fill="#7e8894"/><ellipse cx="100" cy="84" rx="38" ry="36" fill="#9aa4b0"/>'+
       '<path d="M100 92 C100 122 94 134 106 148" fill="none" stroke="#9aa4b0" stroke-width="20" stroke-linecap="round"/>'+
       '<path d="M100 98 C100 122 95 133 106 146" fill="none" stroke="#7e8894" stroke-width="3" stroke-linecap="round" opacity="0.5"/>'+
@@ -367,7 +414,7 @@ function makeAnimal(seed,o){
   }else{
     body='<path d="M70 62 C62 42 66 26 74 20 C84 26 88 44 86 62 Z" fill="#9b8f84"/><path d="M75 56 C71 44 73 34 76 29 C80 34 82 44 81 56 Z" fill="#e5b9b4"/>'+
       '<path d="M130 62 C138 42 134 26 126 20 C116 26 112 44 114 62 Z" fill="#9b8f84"/><path d="M125 56 C129 44 127 34 124 29 C120 34 118 44 119 56 Z" fill="#e5b9b4"/>'+
-      animalTorso(kind,col,dark,accent)+
+      torsoX+
       '<rect x="84" y="112" width="32" height="32" rx="10" fill="#8d8176"/><ellipse cx="100" cy="82" rx="30" ry="38" fill="#a89c90"/>'+
       '<path d="M84 50 C92 38 108 38 116 50 C108 47 92 47 84 50 Z" fill="#4a3f36"/>'+
       '<ellipse cx="100" cy="112" rx="20" ry="15" fill="#e9e1d6"/><ellipse cx="92" cy="110" rx="2.4" ry="3.4" fill="#5a4f46"/><ellipse cx="108" cy="110" rx="2.4" ry="3.4" fill="#5a4f46"/>'+
@@ -375,10 +422,17 @@ function makeAnimal(seed,o){
   }
   body+='<circle cx="'+ex[0]+'" cy="'+ex[2]+'" r="3.6" fill="#1b2430"/><circle cx="'+ex[1]+'" cy="'+ex[2]+'" r="3.6" fill="#1b2430"/>';
   if(specs)body+='<g fill="none" stroke="'+YALE.mid+'" stroke-width="2.6"><circle cx="'+ex[0]+'" cy="'+ex[2]+'" r="9"/><circle cx="'+ex[1]+'" cy="'+ex[2]+'" r="9"/><path d="M'+(ex[0]+9)+' '+ex[2]+' H'+(ex[1]-9)+'"/></g>';
-  if(o.hat==="cowboy"&&!eg)body+=cowboyHat(!el);
+  if(L.glasses)body+='<g fill="none" stroke="'+L.glasses+'" stroke-width="3"><circle cx="'+ex[0]+'" cy="'+ex[2]+'" r="9"/><circle cx="'+ex[1]+'" cy="'+ex[2]+'" r="9"/><path d="M'+(ex[0]+9)+' '+ex[2]+' H'+(ex[1]-9)+'"/></g>';
+  if(L.sun)body+='<g stroke="#1b2430" stroke-width="2"><ellipse cx="'+ex[0]+'" cy="'+(ex[2]+1)+'" rx="10" ry="8" fill="#1b2430"/><ellipse cx="'+ex[1]+'" cy="'+(ex[2]+1)+'" rx="10" ry="8" fill="#1b2430"/><path d="M'+(ex[0]+10)+' '+ex[2]+' H'+(ex[1]-10)+'"/></g><path d="M'+(ex[0]-5)+' '+(ex[2]-3)+' l4 -2" stroke="#6f86a6" stroke-width="2"/>';
+  if(L.hair&&!(o.hat==="cowboy"||L.hat))body+=lookHair(L.hair[0],L.hair[1],T);
+  if(L.beard&&!el&&!eg)body+='<path d="M78 112 C76 140 124 140 122 112 C114 132 86 132 78 112 Z" fill="'+L.beard+'"/>';
+  if(L.ears==="hoops")body+='<circle cx="69" cy="104" r="8" fill="none" stroke="#ffc83d" stroke-width="3"/><circle cx="131" cy="104" r="8" fill="none" stroke="#ffc83d" stroke-width="3"/>';
+  if((o.hat==="cowboy"||L.hat==="cowboy")&&!eg)body+=cowboyHat(!el);
+  else if(L.hat){body+=lookHat(L.hat,T);if(!el&&!eg)body+='<path d="M70 '+(T+6)+' C62 '+(T-8)+' 66 26 74 20 C84 26 86 '+(T-10)+' 84 '+(T+6)+' Z" fill="#9b8f84"/><path d="M130 '+(T+6)+' C138 '+(T-8)+' 134 26 126 20 C116 26 114 '+(T-10)+' 116 '+(T+6)+' Z" fill="#9b8f84"/>'}
+  body+=lookProps(L,el);
   if(o.nd)body+='<g><circle cx="70" cy="154" r="11" fill="#ffffff" stroke="#1f8a3c" stroke-width="2"/><g fill="#1f8a3c"><circle cx="70" cy="149" r="4"/><circle cx="65.5" cy="155" r="4"/><circle cx="74.5" cy="155" r="4"/></g><path d="M70 155 Q71 161 68 163" fill="none" stroke="#1f8a3c" stroke-width="1.8" stroke-linecap="round"/></g>';
   if(o.yale)body+='<g><circle cx="130" cy="154" r="11" fill="'+YALE.blue+'" stroke="#ffffff" stroke-width="2"/><text x="130" y="159.4" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#ffffff">Y</text></g>';
-  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+size+'" height="'+size+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title><defs><clipPath id="'+id+'"><circle cx="100" cy="100" r="100"/></clipPath></defs><g clip-path="url(#'+id+')"><g transform="translate(100 142) scale(1.2) translate(-100 -128)">'+body+'</g></g>'+ring(o.party)+'</svg>';
+  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+size+'" height="'+size+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title><defs><clipPath id="'+id+'"><circle cx="100" cy="100" r="100"/></clipPath>'+(L.outfit==="flannel"?'<pattern id="pl'+id+'" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 7 H14 M7 0 V14" stroke="#4a0e14" stroke-width="4" opacity=".55"/><path d="M0 2 H14" stroke="#f0c3c3" stroke-width="1" opacity=".5"/></pattern>':'')+'</defs><g clip-path="url(#'+id+')"><g transform="translate(100 142) scale(1.2) translate(-100 -128)">'+body+'</g></g>'+ring(o.party)+'</svg>';
 }
 /* Joey: a made-up election expert, drawn from the user's description. Not a likeness of anyone. */
 function makeJoey(size,label){size=size||96;var skin="#f0c2a0",hair="#c8a06a",lab=label||"Joey, made-up election expert",id="cjoey"+size;
@@ -403,7 +457,7 @@ return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+si
 hairBack(t)+'<rect x="87" y="106" width="26" height="36" rx="8" fill="'+sd+'"/>'+torso(t)+
 '<ellipse cx="66" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="134" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="100" cy="80" rx="34" ry="40" fill="'+skin+'"/>'+
 facial(t)+hairFront(t)+hat(t)+(t.glasses?glasses():"")+earrings(t)+(o.yale?yPatch():"")+'</g></g>'+ring(o.party)+'</svg>'}
-root.YaleAvatars={make:make,traits:traits,joey:makeJoey}})(window);
+root.YaleAvatars={make:make,traits:traits,joey:makeJoey,looks:LOOKS,lookFor:function(name,house){return house?(HOUSE_STARS[name]?LOOKS[name]:null):(HOUSE_STARS[name]?null:LOOKS[name])}}})(window);
 </script>
 <script>
 /* Labubu avatars for players: a Joey Labubu, the Statue of Liberty, and Labubus dressed like
@@ -569,9 +623,9 @@ DATA.forEach(function(x){
     cons:mean===null?null:{score:mean,label:labelOf(mean),n:sc.length,tossups:sc.filter(function(v){return v===0}).length},
     mine:{dem:x[13][0],rep:100-x[13][0],label:x[13][1],unc:UNC},polls:x[14]};
   S.races.push(r);S.byId[r.id]=r;(S.byState[r.state]=S.byState[r.state]||[]).push(r)});
-function raceName(r){return r.chamber==="house"?NAMES[r.state]+" "+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
-function tag(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":"House "+r.district}
-function tagLong(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":"House district "+r.district}
+function raceName(r){return r.chamber==="house"?NAMES[r.state]+(r.district?" "+r.district:" at-large"):NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
+function tag(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":"House "+(r.district||"at-large")}
+function tagLong(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":(r.district?"House district "+r.district:"House at-large")}
 function visible(r){return r.chamber===S.filter}
 function forecastCall(r){var c=r.cons;return c?(c.score>.25?dSide(r):c.score<-.25?rSide(r):"T"):null}
 function modelCall(r){var l=r.mine.label;return /^Toss/.test(l)?"T":/ D$/.test(l)?dSide(r):rSide(r)}
@@ -660,7 +714,7 @@ function dSide(r){return r.dn==="-"&&IND[r.id]?"I":"D"}
 function rSide(r){return r.rn==="-"&&IND[r.id]?"I":"R"}
 function lineup(r){var c=[];if(dSide(r)==="D")c.push(["D",r.dn]);if(IND[r.id])c.push(["I",IND[r.id]]);if(rSide(r)==="R")c.push(["R",r.rn]);return c}
 function candidate(r,party,name){var k=r.id+"-"+party,y=YALE_SET[k]===1,nd=ND_NAMES[name]===1,av=h("div");
-  av.innerHTML=YaleAvatars.make(k,{size:104,party:party,yale:y,nd:nd,hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
+  av.innerHTML=YaleAvatars.make(k,{size:104,party:party,yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
   return h("div",{class:"cand"},[av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:PTY[party]})])}
 function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"Safe seat, so he's going with the favorite."]:null,av=h("div");av.innerHTML=YaleAvatars.joey(56);
   var txt=h("div",{},[h("b",{text:"Joey, former campaign expert"}),h("span",{class:"note",text:"75% win rate, by his own count"})]);
@@ -669,7 +723,7 @@ function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"
   else txt.appendChild(h("p",{class:"note",text:"He hasn't made his call on this race yet."}));
   return h("div",{class:"joey"},[av.firstChild,txt])}
 function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");box.textContent="";box.appendChild(stateHead(S.state));box.appendChild(raceList());
-  box.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district<10?"0":"")+r.district+")":"")}));
+  box.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL")+")":"")}));
   box.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
   var lu=lineup(r);
   box.appendChild(lu.length===3?h("div",{class:"faceoff three"},lu.map(function(x){return candidate(r,x[0],x[1])})):
@@ -791,7 +845,7 @@ function hsRows(){var q=($("hs-q").value||"").toLowerCase().trim(),comp=$("hs-co
       b.addEventListener("click",function(){showTab("tab-map");setFilter("house");selectState(st);selectRace(id);$("detail").scrollIntoView({behavior:"smooth",block:"start"})});rating=b;joey=joeyCall(r)}
     else{var sc=fav==="D"?3:-3,chip=h("span",{class:"chip-r",text:"Safe "+(fav||"?")});chip.style.background=colorFor(sc);chip.style.color=textOn(sc);rating=chip;joey=fav}
     var cands=h("td");x[5].forEach(function(c,i){if(i)cands.appendChild(document.createTextNode(" vs. "));
-      var s=h("span",{class:"cn "+c[0].toLowerCase()},[h("b",{text:c[1]})," ("+c[0]+")"]);
+      var s=h("span",{class:"cn "+c[0].toLowerCase()},[h("b",{text:c[1]})," ("+c[0]+")"]);if(YaleAvatars.lookFor(c[1],true)){var m=h("span",{class:"lbav"});m.innerHTML=YaleAvatars.make(key.toLowerCase()+"-"+c[0],{size:30,party:c[0],look:YaleAvatars.lookFor(c[1],true),nd:ND_NAMES[c[1]]===1,label:MASCOT[c[0]]+" for "+c[1]});s.insertBefore(m,s.firstChild)}
       if(YALE_NAMES[c[1]])s.appendChild(h("span",{class:"badge y",title:"Yale alumnus",text:"Y"}));
       if(ND_NAMES[c[1]])s.appendChild(h("span",{class:"badge nd",title:"Notre Dame alumnus",text:"☘"}));cands.appendChild(s)});
     body.appendChild(h("tr",{},[h("td",{text:key.replace("-00","-AL")}),h("td",{text:x[2]+(x[3]?" ("+x[3]+")":"")}),cands,h("td",{text:lean}),h("td",{},[rating]),h("td",{},[tagEl(joey)])]))});
@@ -852,7 +906,9 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
   if(!rows.length&&st!=="DC")out.appendChild(h("p",{class:"note",text:"No Senate, governor, or House race found for this district in the tracker."}));
   rows.forEach(function(x){var r=x[1],card=h("div",{class:"vote-card"});card.appendChild(h("b",{class:"vote-race",text:x[0]}));
     var list=h("ul",{class:"vote-cands"});x[2].forEach(function(c){var nm=c[1];if(!nm||nm==="-")return;
-      list.appendChild(h("li",{},[h("span",{class:"ptag "+c[0].toLowerCase(),text:c[0]})," "+nm+" ",h("span",{class:"note",text:"("+PTY[c[0]]+")"})]))});
+      var rid=(r?r.id:x[3][0].toLowerCase())+"-"+c[0],m=h("span",{class:"lbav"});
+      m.innerHTML=YaleAvatars.make(rid,{size:40,party:c[0],look:YaleAvatars.lookFor(nm,x[0].indexOf("House")>=0),yale:YALE_SET[rid]===1,nd:ND_NAMES[nm]===1,hat:COWBOY[rid]?"cowboy":"",label:MASCOT[c[0]]+" for "+nm});
+      list.appendChild(h("li",{},[m,h("span",{class:"ptag "+c[0].toLowerCase(),text:c[0]})," "+nm+" ",h("span",{class:"note",text:"("+PTY[c[0]]+")"})]))});
     card.appendChild(list);
     if(r){var c=r.cons,chip=h("span",{class:"chip-r",text:c?c.label:"No ratings"});if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
       var go=h("button",{type:"button",class:"linkish vote-go",text:"See this race on the map →"});go.addEventListener("click",function(){showTab("tab-map");setFilter(r.chamber);selectState(r.state);selectRace(r.id);$("detail").scrollIntoView({behavior:"smooth",block:"start"})});
@@ -894,7 +950,7 @@ function flag(kind){
     '<text x="37" y="41" text-anchor="middle" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="12" fill="#fff">'+(dem?"DEM":"GOP")+'</text>'}
 function eagleSVG(kind,back){
   return'<svg xmlns="http://www.w3.org/2000/svg" width="220" height="150" viewBox="0 0 220 150" aria-hidden="true"><g class="bob">'+
-    '<path d="M116 92 L118 142" stroke="#7a5a3a" stroke-width="4" stroke-linecap="round"/><g transform="translate(118 92) rotate(8)'+(back?' translate(74 0) scale(-1 1)':'')+'">'+flag(kind)+'</g>'+
+    '<g transform="translate(118 92) rotate(8)'+(back?' translate(74 0) scale(-1 1)':'')+'">'+flag(kind)+'</g>'+
     '<path d="M26 66 L4 58 L8 70 L2 80 L28 76 Z" fill="#fff" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
     '<ellipse cx="66" cy="70" rx="44" ry="20" fill="#6b4423" stroke="#1c1118" stroke-width="3"/>'+
     '<path d="M98 82 L106 96 M106 82 L114 94" stroke="#f2b632" stroke-width="5" stroke-linecap="round"/>'+
