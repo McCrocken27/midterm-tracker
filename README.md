@@ -1,6 +1,6 @@
 # 2026 Midterm Tracker
 
-MGT 409 final project. The site shows every 2026 Senate and governor race, plus the 144 House races that at least one forecaster rates competitive, and a searchable list of all 435 House seats. For each race you can compare ratings from 10 forecasters, see a model prediction, and make your own pick.
+MGT 409 final project. The site shows every 2026 Senate and governor race, plus 162 House races (every seat at least one forecaster rates competitive, big names like Hakeem Jeffries and Mike Johnson, and at least one seat in every state), and a searchable list of all 435 House seats. For each race you can compare ratings from 10 forecasters, see a model prediction, and make your own pick.
 
 **Live site:** https://mccrocken27.github.io/midterm-tracker/
 
