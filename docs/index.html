@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2026 midterm tracker</title>
+<title>2026 Midterm Tracker</title>
 <style>
 :root{--yale:#00356b;--mid:#286dc0;--light:#63aaff;--gray:#978d85;--ink:#1b2430;--muted:#5a6573;--paper:#eef1f5;--surface:#fff;--line:#d3dae3;--head:#00356b;
 --tile:#e2e7ee;--tint:#c3cddb;--tilesel:#e6f0fb;--stroke:#00356b;--th:#f4f6f9;--abbr:#8a94a3;--dc:#2d6cc0;--rc:#b2403a;--warn:#8a5a12;--warnbg:#fbf1dc;--focus:#63aaff;
@@ -130,24 +130,80 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .crowd{display:flex;height:10px;min-width:90px;border-radius:5px;overflow:hidden;background:var(--line)}.crowd i{display:block;height:100%}
 .tag{font-weight:700}.tag.d{color:var(--dc)}.tag.r{color:var(--rc)}.tag.i,.tag.t{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== Red, white and blue theme: big, round and friendly ===== */
+:root{--yale:#3c3b6e;--flagred:#b22234;--gold:#ffc83d;--mid:#5b5ea6;--light:#9fa6ff;--head:#3c3b6e;--paper:#fffdf7;--surface:#ffffff;--line:#d8dcf0;--stroke:#3c3b6e;--th:#f1f2fb;--focus:#ffc83d;
+  --serif:"Nunito","Arial Rounded MT Bold","Trebuchet MS","Segoe UI",system-ui,sans-serif;--sans:"Nunito","Arial Rounded MT Bold","Trebuchet MS","Segoe UI",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--paper:#13153a;--surface:#1d2053;--line:#363b80;--head:#ffffff;--th:#24286a;--stroke:#9fa6ff;--tile:#262a63;--tint:#3b4190;--ink:#eef0ff;--muted:#b9bde6}}
+body{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M30 18l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z' fill='%233c3b6e' fill-opacity='.06'/%3E%3Cpath d='M92 76l1.8 3.8 4.2.4-3.1 2.8.9 4.1-3.8-2.2-3.8 2.2.9-4.1-3.1-2.8 4.2-.4z' fill='%23b22234' fill-opacity='.06'/%3E%3C/svg%3E");font-weight:500}
+.top{position:relative;overflow:hidden;background-color:#3c3b6e;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M16 6l2.6 5.6 6.1.6-4.6 4 1.4 6-5.5-3.2-5.5 3.2 1.4-6-4.6-4 6.1-.6z' fill='%23ffffff' fill-opacity='.18'/%3E%3Cpath d='M48 38l1.6 3.4 3.7.4-2.8 2.4.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.4 3.7-.4z' fill='%23ffffff' fill-opacity='.12'/%3E%3C/svg%3E"),linear-gradient(180deg,#3c3b6e,#2c2b58)}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:repeating-linear-gradient(90deg,#b22234 0 28px,#ffffff 28px 56px)}
+.top-inner{position:relative;padding:30px 24px 38px}
+h1{font:900 clamp(2rem,4.6vw,3.3rem)/1.05 var(--sans);letter-spacing:.01em;text-shadow:3px 3px 0 #b22234}
+h1 .st{color:var(--gold);text-shadow:none;display:inline-block;animation:twinkle 2.6s ease-in-out infinite}
+h1 .st+.st{animation-delay:1.3s}
+.sub{color:#e6e8ff;font-weight:700;font-size:1.05rem}
+.countdown{background:#b22234;border:4px solid #fff;border-radius:22px;padding:10px 16px 8px;box-shadow:0 6px 0 rgba(0,0,0,.25);text-align:center;transform:rotate(-3deg)}
+.days{font:900 clamp(2.6rem,6vw,4rem)/.9 var(--sans);color:#fff}
+.days-label{color:#fff;font-weight:800}
+.you{color:#fff;font-weight:800}
+.banner{background:#fff6d6;color:#6b4a00;border:3px dashed var(--gold);border-left-width:3px;border-radius:16px}
+@media (prefers-color-scheme:dark){.banner{background:#2d2a12;color:#ffe08a}}
+.tabs{border-bottom:0;gap:10px;flex-wrap:wrap;margin-top:18px}
+.tab{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;margin:0;padding:8px 18px;font-weight:900;box-shadow:0 4px 0 var(--yale);transition:transform .12s}
+.tab:hover{transform:translateY(-2px)}
+.tab.on{background:#b22234;border-color:#b22234;color:#fff;box-shadow:0 4px 0 #7d1624}
+h2{font-weight:900;color:var(--head)}h3{font-weight:900;color:var(--head)}
+#map-h::before,.pred>h2::before,.empty h2::before{content:"\2605  ";color:#b22234}
+.filters{border:3px solid var(--yale);border-radius:999px;box-shadow:0 3px 0 var(--yale)}
+.f{font-weight:900;padding:6px 16px}.f.on{background:#b22234;color:#fff}.f+.f{border-left:3px solid var(--yale)}
+.map,.detail,.ask,.tally div:not(.bar2),.table-wrap,.rrow,.joey,.av{border-radius:18px;border-width:3px}
+.map,.detail,.ask{border:3px solid var(--line);box-shadow:0 6px 0 var(--line)}
+.tally div:not(.bar2){border:3px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.table-wrap{border:3px solid var(--line);overflow:hidden}
+.rrow{border:3px solid var(--line);transition:transform .12s}.rrow:hover{transform:translateX(3px)}
+.rrow[aria-selected="true"]{border-color:#b22234;box-shadow:inset 6px 0 0 #b22234}
+.state-name,.race-title{font-weight:900}
+.pick,.pp{border-radius:999px;border-width:3px;transition:transform .12s}.pick:hover,.pp:hover{transform:translateY(-2px)}
+.save{background:#b22234;border-radius:999px;padding:10px 22px;font-weight:900;box-shadow:0 4px 0 #7d1624}
+.av{border:3px solid var(--line);transition:transform .12s}.av:hover{transform:translateY(-3px) rotate(-2deg)}
+.av[aria-checked="true"]{border-color:#b22234;box-shadow:0 0 0 3px var(--gold)}
+.chip-r{border-radius:999px}
+.pred-form input{border:3px solid var(--line);border-radius:999px;padding:8px 14px}
+.foot{text-align:center}.foot::before{content:"\2605  \2605  \2605";display:block;color:#b22234;letter-spacing:.4em;font-size:1.2rem;margin-bottom:8px}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(12deg)}}
+/* twinkling stars in the header */
+.sky{position:absolute;inset:0;pointer-events:none}
+.sky i{position:absolute;color:#fff;font-style:normal;opacity:.75;animation:twinkle 3s ease-in-out infinite}
+/* eagles that fly across the screen now and then */
+.flyer{position:fixed;left:0;z-index:50;pointer-events:none;will-change:transform;animation:fly linear forwards}
+.flyer.rtl{animation-name:flyback}
+.flyer .wing{transform-origin:62px 54px;animation:flap .45s ease-in-out infinite alternate}
+.flyer .bob{animation:bob 1.6s ease-in-out infinite}
+@keyframes flap{from{transform:rotate(-18deg)}to{transform:rotate(26deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes fly{from{transform:translateX(-260px)}to{transform:translateX(calc(100vw + 60px))}}
+@keyframes flyback{from{transform:translateX(calc(100vw + 60px)) scaleX(-1)}to{transform:translateX(-260px) scaleX(-1)}}
+@media (prefers-reduced-motion:reduce){.flyer{display:none}h1 .st,.sky i{animation:none}}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-inner">
-  <div><h1>2026 midterm tracker</h1><p class="sub">Every Senate and governor race, plus the 144 competitive House races, with every forecaster side by side.</p></div>
-  <div class="top-right"><div class="you" id="joey-slot"></div><div class="you" id="you"></div>
-    <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label" id="days-label">days to Election Day</span></div></div>
+  <div class="sky" aria-hidden="true"></div>
+  <div><h1><span class="st" aria-hidden="true">&#9733;</span> 2026 Midterm Tracker <span class="st" aria-hidden="true">&#9733;</span></h1><p class="sub">Every Senate and Governor Race, Plus the 144 Competitive House Races, With Every Forecaster Side by Side</p></div>
+  <div class="top-right"><div class="you" id="joey-slot"></div>
+    <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label" id="days-label">Days to Election Day</span></div></div>
 </div></header>
 <div id="banner" class="banner" role="status"></div>
 <nav class="tabs" role="tablist" aria-label="Sections">
   <button type="button" class="tab on" role="tab" aria-selected="true" aria-controls="tab-map" data-tab="tab-map">Map</button>
-  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and compare</button>
-  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-house" data-tab="tab-house">Every House seat</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and Compare</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-house" data-tab="tab-house">Every House Seat</button>
 </nav>
 <div id="tab-map" role="tabpanel">
 <main class="layout">
   <section aria-labelledby="map-h">
-    <div class="section-head"><h2 id="map-h">Where the races are</h2>
+    <div class="section-head"><h2 id="map-h">Where the Races Are</h2>
       <div class="filters" role="group" aria-label="Show on map">
         <button type="button" class="f on" data-f="senate" aria-pressed="true">Senate</button>
         <button type="button" class="f" data-f="governor" aria-pressed="false">Governor</button>
@@ -156,14 +212,14 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
     <div class="legend" aria-hidden="true"><span class="lg"><i class="dot big"></i> State color shows the forecasters' consensus for the selected race type</span><span class="lg"><i class="dot"></i> House district (House view)</span><span class="lg"><i class="dot big" style="background:var(--tint);border:1.5px solid var(--stroke)"></i> Gray-blue: House races only</span><span class="scale" id="scale"></span></div>
     <div id="tally" class="tally"></div>
   </section>
-  <section aria-live="polite"><div id="detail" class="detail"><div class="empty"><h2>Pick a state</h2>
+  <section aria-live="polite"><div id="detail" class="detail"><div class="empty"><h2>Pick a State</h2>
     <p>Select a highlighted state on the map to see its races, who the forecasters favor, and what my model says. You can lock in your own pick for each race.</p></div></div></section>
 </main>
 <section class="ask"><h2>Ask the forecast</h2><p class="note">The question-answering panel needs the Python server and an API key, so it isn't part of this page. It lives in the full project.</p></section>
 </div>
 <div id="tab-house" role="tabpanel" hidden>
   <section class="pred">
-    <h2>Every House seat</h2>
+    <h2>Every House Seat</h2>
     <p class="note">All 435 districts. The 144 that at least one forecaster rates competitive have full race panels on the map. Every other seat is rated Safe, so it shows the party the district leans toward, and Joey goes with that favorite.</p>
     <div class="pred-form"><label for="hs-q"><b>Search</b></label><input id="hs-q" type="search" placeholder="District, state, or candidate (e.g. TX-34, Ohio, Kiggans)"><label class="chk"><input type="checkbox" id="hs-comp"> Competitive only</label><span id="hs-count" class="note" role="status"></span></div>
     <div class="table-wrap"><table><thead><tr><th>District</th><th>Incumbent</th><th>Candidates</th><th>Lean</th><th>Rating</th><th>Joey</th></tr></thead><tbody id="hs-body"></tbody></table></div>
@@ -171,7 +227,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 </div>
 <div id="tab-predict" role="tabpanel" hidden>
   <section class="pred">
-    <h2>Predict and compare</h2>
+    <h2>Predict and Compare</h2>
     <p class="note">Pick the winner of 37 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
     <div class="pred-form">
       <label for="pred-name"><b>Your name or nickname</b></label>
@@ -509,9 +565,9 @@ function loadPicks(){try{if(window.storage)return window.storage.get("mt_picks",
 function renderStatic(){
   $("banner").textContent="Real ratings collected from public pages dated Aug 11 to Oct 16, 2026. Blank means not collected yet, not no opinion. Individual polls are still missing for most races.";
   var left=Math.ceil((Date.UTC(2026,10,3,5)-Date.now())/864e5);
-  if(left>0){$("days").textContent=String(left);$("days-label").textContent=left===1?"day to Election Day":"days to Election Day"}
-  else{$("days").textContent=left===0?"Today":"Done";$("days-label").textContent=left===0?"is Election Day":"Election Day has passed"}
-  var js=$("joey-slot"),jd=h("div");jd.innerHTML=YaleAvatars.joey(48);js.appendChild(jd.firstChild);js.appendChild(document.createTextNode("Joey, expert"));
+  if(left>0){$("days").textContent=String(left);$("days-label").textContent=left===1?"Day to Election Day":"Days to Election Day"}
+  else{$("days").textContent=left===0?"Today":"Done";$("days-label").textContent=left===0?"Is Election Day":"Election Day Has Passed"}
+  var js=$("joey-slot"),jd=h("div");jd.innerHTML=YaleAvatars.joey(48);js.appendChild(jd.firstChild);js.appendChild(document.createTextNode("Joey, Expert"));
   $("env-note").textContent="Data as of 2026-10-17. National environment used by my model: Democrats +"+ENV+" on the generic ballot (average of RCP, Silver Bulletin, Decision Desk HQ and FiftyPlusOne as of Sept 25, 2026).";
   var sc=$("scale");sc.appendChild(h("em",{text:"Safe D"}));[3,2,1,.5,0,-.5,-1,-2,-3].forEach(function(s){var sp=h("span");sp.style.background=colorFor(s);sc.appendChild(sp)});sc.appendChild(h("em",{text:"Safe R"}))}
 function renderTally(){var t=$("tally");t.textContent="";
@@ -521,7 +577,7 @@ function renderTally(){var t=$("tally");t.textContent="";
     var bar=h("div",{class:"bar2",role:"img","aria-label":d+" lean Democratic, "+tu+" toss-ups, "+rr+" lean Republican"});
     [[d,"#3d7fd1"],[tu,"#a79fc7"],[rr,"#c9605a"]].forEach(function(x){var i=h("i");i.style.width=(100*x[0]/rs.length)+"%";i.style.background=x[1];bar.appendChild(i)});
     t.appendChild(h("div",{},[h("b",{text:g[1]}),bar,"Forecasters lean D in "+d+", toss-up in "+tu+", lean R in "+rr+"."]))})}
-function renderYou(){var n=Object.keys(S.picks).length,box=$("you");box.textContent="";var av=h("div");var mine=(lsGet("mt_pred_draft")||{}).a;
+function renderYou(){var n=Object.keys(S.picks).length,box=$("you");if(!box)return;box.textContent="";var av=h("div");var mine=(lsGet("mt_pred_draft")||{}).a;
   av.innerHTML=window.Labubus&&Labubus.has(mine)?Labubus.make(mine,40,"Your avatar"):YaleAvatars.make("you-slot",{size:48,label:"Your avatar"});box.appendChild(av.firstChild);box.appendChild(document.createTextNode(n?"You: "+n+(n===1?" pick":" picks"):"Your slot"))}
 
 // ---- map ----
@@ -726,6 +782,41 @@ $("pred-save").addEventListener("click",savePred);
 $("hs-q").addEventListener("input",hsRows);$("hs-comp").addEventListener("change",hsRows);
 renderStatic();renderTally();renderMap();renderYou();
 loadPicks().then(renderYou);
+})();
+</script>
+<script>
+/* Eagles that fly across the page every couple of minutes, carrying an American, Democratic or GOP flag. */
+(function(){"use strict";
+var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var sky=document.querySelector(".sky");
+if(sky)for(var i=0;i<14;i++){var s=document.createElement("i");s.textContent=i%3?"✦":"★";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*85)+"%";
+  s.style.fontSize=(8+Math.random()*12)+"px";s.style.animationDelay=(Math.random()*3)+"s";sky.appendChild(s)}
+if(calm)return;
+function flag(kind){
+  if(kind==="us")return'<rect x="0" y="0" width="74" height="46" fill="#fff"/>'+[0,1,2,3,4,5,6].map(function(i){return'<rect x="0" y="'+(i*6.6)+'" width="74" height="3.3" fill="#b22234"/>'}).join("")+
+    '<rect x="0" y="0" width="32" height="23" fill="#3c3b6e"/>'+[[6,6],[16,6],[26,6],[11,12],[21,12],[6,18],[16,18],[26,18]].map(function(p){return'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.8" fill="#fff"/>'}).join("")+
+    '<rect x="0" y="0" width="74" height="46" fill="none" stroke="#1c1118" stroke-width="2.5"/>';
+  var dem=kind==="dem",c=dem?"#2d6cc0":"#b22234";
+  return'<rect x="0" y="0" width="74" height="46" rx="3" fill="'+c+'" stroke="#1c1118" stroke-width="2.5"/>'+
+    '<path d="M37 7 l3 6.5 7 .7-5.3 4.7 1.6 6.9-6.3-3.7-6.3 3.7 1.6-6.9-5.3-4.7 7-.7z" fill="#fff"/>'+
+    '<text x="37" y="41" text-anchor="middle" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="12" fill="#fff">'+(dem?"DEM":"GOP")+'</text>'}
+function eagleSVG(kind){
+  return'<svg xmlns="http://www.w3.org/2000/svg" width="220" height="150" viewBox="0 0 220 150" aria-hidden="true"><g class="bob">'+
+    '<path d="M116 92 L118 142" stroke="#7a5a3a" stroke-width="4" stroke-linecap="round"/><g transform="translate(118 92) rotate(8)">'+flag(kind)+'</g>'+
+    '<path d="M26 66 L4 58 L8 70 L2 80 L28 76 Z" fill="#fff" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
+    '<ellipse cx="66" cy="70" rx="44" ry="20" fill="#6b4423" stroke="#1c1118" stroke-width="3"/>'+
+    '<path d="M98 82 L106 96 M106 82 L114 94" stroke="#f2b632" stroke-width="5" stroke-linecap="round"/>'+
+    '<g class="wing"><path d="M62 54 C40 14 14 6 2 10 C18 22 22 30 20 36 C30 34 34 40 32 46 C42 44 48 50 46 56 Z" fill="#7d5230" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/></g>'+
+    '<circle cx="112" cy="56" r="18" fill="#fff" stroke="#1c1118" stroke-width="3"/>'+
+    '<path d="M126 50 C140 50 146 58 140 66 C136 62 132 62 128 64 Z" fill="#f2b632" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
+    '<circle cx="117" cy="51" r="3.6" fill="#1c1118"/><path d="M110 45 L122 47" stroke="#1c1118" stroke-width="3" stroke-linecap="round"/>'+
+    '</g></svg>'}
+function fly(kind){var kinds=["us","dem","gop"],k=kind||kinds[Math.floor(Math.random()*3)],d=document.createElement("div"),back=Math.random()<.4;
+  d.className="flyer"+(back?" rtl":"");d.innerHTML=eagleSVG(k);d.style.top=(8+Math.random()*60)+"vh";d.style.animationDuration=(9+Math.random()*5)+"s";
+  d.addEventListener("animationend",function(e){if(e.target===d)d.remove()});document.body.appendChild(d);return d}
+window.flyEagle=fly;
+function loop(){fly();setTimeout(loop,90000+Math.random()*60000)}
+setTimeout(loop,5000);
 })();
 </script>
 </body>
