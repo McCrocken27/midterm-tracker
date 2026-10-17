@@ -344,7 +344,7 @@ function animalTorso(kind,c,dark,accent){
 
 /* Signature looks for well-known candidates: hair, glasses and props only (never skin, body or face).
    Each is a widely known, friendly detail: Sherrod Brown's canary pin, Jim Jordan's shirtsleeves, and so on. */
-var HOUSE_STARS={"Rosa DeLauro":1,"Rebecca Cooke":1,"Bryan Steil":1,"David Joyce":1,"Mike Johnson":1,"Hakeem Jeffries":1,"Lauren Boebert":1,"Jim Jordan":1,"Alexandria Ocasio-Cortez":1,"Paul LePage":1,"David Valadao":1,"Don Davis":1,"Brian Fitzpatrick":1,"Juan Ciscomani":1,"Bobby Pulido":1,"Henry Cuellar":1,"Mariannette Miller-Meeks":1,"Eli Crane":1,"Tim Burchett":1};
+var HOUSE_STARS={"Riley Owen":1,"Rosa DeLauro":1,"Rebecca Cooke":1,"Bryan Steil":1,"David Joyce":1,"Mike Johnson":1,"Hakeem Jeffries":1,"Lauren Boebert":1,"Jim Jordan":1,"Alexandria Ocasio-Cortez":1,"Paul LePage":1,"David Valadao":1,"Don Davis":1,"Brian Fitzpatrick":1,"Juan Ciscomani":1,"Bobby Pulido":1,"Henry Cuellar":1,"Mariannette Miller-Meeks":1,"Eli Crane":1,"Tim Burchett":1};
 var LOOKS={
   "James Talarico":{pin:"apple"},"Sherrod Brown":{hair:["#c9ccd1","messy"],pin:"canary"},"Jon Husted":{hair:["#4a3426","short"]},
   "Troy Jackson":{outfit:"flannel"},"Susan Collins":{hair:["#d8c8a0","bob"]},"Mary Peltola":{hair:["#241812","long"],pin:"fish"},
@@ -363,7 +363,7 @@ var LOOKS={
   "Doug Jones":{hair:["#c9ccd1","short"],pin:"scales"},"Xavier Becerra":{hair:["#8a8f98","short"],pin:"poppy"},"Steve Hilton":{outfit:"opencollar"},
   "David Valadao":{pin:"cow"},"Don Davis":{pin:"service"},"Brian Fitzpatrick":{pin:"shield"},"Juan Ciscomani":{pin:"cactus"},
   "Bobby Pulido":{hat:"cowboy",hand:"mic"},"Henry Cuellar":{pin:"lonestar"},"Mariannette Miller-Meeks":{neck:"steth"},
-  "Greg Abbott":{hand:"gavel"},"Rosa DeLauro":{hair:["#8e5bd6","messy"],glasses:"#1c1118"},"Ned Lamont":{hair:["#e6e6e6","short"]},"Ryan Fazio":{pin:"chart"},"Ken Paxton":{pin:"scales"},"David Joyce":{hand:"mug"},"Annie Andrews":{neck:"steth"},"Darline Graham":{pin:"palmetto"},"Andy Biggs":{hat:"maga"},"Eli Crane":{hat:"maga"},"Tim Burchett":{hat:"maga"}};
+  "Greg Abbott":{hand:"gavel"},"Riley Owen":{hair:["#e3c98f","short"],glasses:"#1c1118",outfit:"redtie"},"Rosa DeLauro":{hair:["#8e5bd6","messy"],glasses:"#1c1118"},"Ned Lamont":{hair:["#e6e6e6","short"]},"Ryan Fazio":{pin:"chart"},"Ken Paxton":{pin:"scales"},"David Joyce":{hand:"mug"},"Annie Andrews":{neck:"steth"},"Darline Graham":{pin:"palmetto"},"Andy Biggs":{hat:"maga"},"Eli Crane":{hat:"maga"},"Tim Burchett":{hat:"maga"}};
 function lookHair(c,s,T){var top='M64 '+(T+26)+' C60 '+(T-14)+' 140 '+(T-14)+' 136 '+(T+26)+' C124 '+(T+10)+' 76 '+(T+10)+' 64 '+(T+26)+' Z';
   if(s==="buzz")return'<path d="M72 '+(T+16)+' C72 '+T+' 128 '+T+' 128 '+(T+16)+' C118 '+(T+9)+' 82 '+(T+9)+' 72 '+(T+16)+' Z" fill="'+c+'" opacity=".9"/>';
   if(s==="messy"){var pts=[];for(var i=0;i<=8;i++){var x=66+i*8.5;pts.push(x+" "+(i%2?T-6:T+6))}return'<path d="M66 '+(T+24)+' L'+pts.join(" L")+' L134 '+(T+24)+' C122 '+(T+10)+' 78 '+(T+10)+' 66 '+(T+24)+' Z" fill="'+c+'"/>'}
@@ -415,7 +415,7 @@ function makeAnimal(seed,o){
     specs=false,dark=shade(col,-.18),accent=eg?YALE.gray:el?"#c0463f":"#3d7fd1",id="c"+hash(seed),
     lab=o.label?String(o.label).replace(/[<>&"]/g,""):(eg?"Independent":el?"Republican":"Democratic")+" mascot",
     ex=eg?[88,112,76]:el?[86,114,76]:[87,113,80],body="",L=o.look||{},T=eg?40:el?48:44;
-  if(L.outfit==="opencollar"){kind="blazer"}else if(L.outfit==="shirtsleeves"){col="#f4f6f8";kind="tie"}else if(L.outfit==="work"){col="#8a6a3e";kind="sweater"}else if(L.outfit==="flannel"){col="#b22234";kind="sweater"}
+  if(L.outfit==="redtie"){col="#1f2a44";kind="tie";accent="#d62828"}else if(L.outfit==="opencollar"){kind="blazer"}else if(L.outfit==="shirtsleeves"){col="#f4f6f8";kind="tie"}else if(L.outfit==="work"){col="#8a6a3e";kind="sweater"}else if(L.outfit==="flannel"){col="#b22234";kind="sweater"}
   if(L.outfit&&L.outfit!=="opencollar")dark=shade(col,-.18);if(o.look)specs=false;
   var torsoX=animalTorso(kind,col,dark,accent)+(L.outfit==="flannel"?'<path d="M26 200 C26 160 50 140 88 136 L112 136 C150 140 174 160 174 200 Z" fill="url(#pl'+id+')"/>':"")+
     (L.outfit==="shirtsleeves"?'<path d="M40 178 L64 168 M160 178 L136 168" stroke="#d3dae3" stroke-width="5" stroke-linecap="round"/>':"");
