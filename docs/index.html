@@ -132,6 +132,8 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
+.rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
+#detail .rrow[aria-selected="true"]{border-radius:18px 18px 0 0}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -745,7 +747,7 @@ function rowBtn(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:
   if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
   var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[h("span",{class:"rn",text:tagLong(r)}),chip,
     (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:"r",text:"R vs. R"})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
-  b.addEventListener("click",function(){selectRace(r.id)});return b}
+  b.addEventListener("click",function(){selectRace(r.id);var sel=document.querySelector('#detail .rrow[aria-selected="true"]');if(sel)sel.scrollIntoView({behavior:"smooth",block:"nearest"})});return b}
 /* the state's races of other types go under the map; clicking one switches the map to that type */
 function renderMore(){var box=$("more");box.textContent="";if(!S.state)return;var o=stateRaces(S.state).filter(function(r){return!visible(r)});if(!o.length)return;
   var w=h("div",{class:"rrows",role:"tablist","aria-label":"More races in "+NAMES[S.state]});o.forEach(function(r){w.appendChild(rowBtn(r))});
@@ -790,37 +792,37 @@ function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"
     txt.appendChild(h("p",{class:"call"},[h("b",{class:j[0].toLowerCase(),text:who})]));if(j[1])txt.appendChild(h("p",{class:"note",text:j[1]}))}
   else txt.appendChild(h("p",{class:"note",text:"He hasn't made his call on this race yet."}));
   return h("div",{class:"joey"},[av.firstChild,txt])}
-function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");if(r.chamber!==S.filter)setFilter(r.chamber,true);renderMore();box.textContent="";box.appendChild(stateHead(S.state));box.appendChild(raceList());
-  box.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL")+")":"")}));
-  box.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
+function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");if(r.chamber!==S.filter)setFilter(r.chamber,true);renderMore();box.textContent="";box.appendChild(stateHead(S.state));var list=raceList(),det=h("div",{class:"rdetail"});box.appendChild(list);
+  det.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL")+")":"")}));
+  det.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
   var lu=lineup(r);
-  box.appendChild(lu.length===3?h("div",{class:"faceoff three"},lu.map(function(x){return candidate(r,x[0],x[1])})):
+  det.appendChild(lu.length===3?h("div",{class:"faceoff three"},lu.map(function(x){return candidate(r,x[0],x[1])})):
     h("div",{class:"faceoff"},[candidate(r,lu[0][0],lu[0][1]),h("div",{class:"vs",text:"vs."}),candidate(r,lu[1][0],lu[1][1])]));
-  if(r.oth)box.appendChild(h("p",{class:"note",text:r.oth+"."}));
-  if(lineup(r).some(function(x){return ND_NAMES[x[1]]}))box.appendChild(h("p",{class:"note",text:"The shamrock means this candidate went to Notre Dame."}));
-  if(lineup(r).some(function(x){return isYale(r,x[0],x[1])}))box.appendChild(h("p",{class:"note",text:"The Y patch means this candidate attended Yale, according to the Yale Alumni Magazine's list of alumni in office."}));
+  if(r.oth)det.appendChild(h("p",{class:"note",text:r.oth+"."}));
+  if(lineup(r).some(function(x){return ND_NAMES[x[1]]}))det.appendChild(h("p",{class:"note",text:"The shamrock means this candidate went to Notre Dame."}));
+  if(lineup(r).some(function(x){return isYale(r,x[0],x[1])}))det.appendChild(h("p",{class:"note",text:"The Y patch means this candidate attended Yale, according to the Yale Alumni Magazine's list of alumni in office."}));
 
-  box.appendChild(h("h3",{text:"What the forecasters say"}));
-  box.appendChild(c?h("p",{class:"call"},[h("b",{text:c.label}),h("span",{class:"note",text:"consensus of "+c.n+" of "+r.ratings.length+" outlets"+(c.tossups?", "+c.tossups+" call it a toss-up":"")})]):h("p",{class:"note",text:"No forecaster ratings collected for this race yet."}));
+  det.appendChild(h("h3",{text:"What the forecasters say"}));
+  det.appendChild(c?h("p",{class:"call"},[h("b",{text:c.label}),h("span",{class:"note",text:"consensus of "+c.n+" of "+r.ratings.length+" outlets"+(c.tossups?", "+c.tossups+" call it a toss-up":"")})]):h("p",{class:"note",text:"No forecaster ratings collected for this race yet."}));
   var rows=r.ratings.map(function(x){var sc=x.code?SCORE[x.code]:null,chip=h("span",{class:"chip-r"+(x.code?"":" na"),text:x.code?LBL[x.code]:"Not collected"});
     if(x.code){chip.style.background=colorFor(sc);chip.style.color=textOn(sc)}
     return h("tr",{},[h("td",{text:x.name}),h("td",{},[chip]),h("td",{class:"asof",text:x.asOf})])});
-  box.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Outlet"}),h("th",{text:"Rating"}),h("th",{text:"As of"})])]),h("tbody",{},rows)])]));
+  det.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Outlet"}),h("th",{text:"Rating"}),h("th",{text:"As of"})])]),h("tbody",{},rows)])]));
 
-  if(SAME[r.id]){box.appendChild(h("h3",{text:"My prediction"}));box.appendChild(h("p",{class:"note",text:"Both candidates are Republicans, so my party-based model doesn't pick between them."}))}else{
-  box.appendChild(h("h3",{text:"My prediction"}));
+  if(SAME[r.id]){det.appendChild(h("h3",{text:"My prediction"}));det.appendChild(h("p",{class:"note",text:"Both candidates are Republicans, so my party-based model doesn't pick between them."}))}else{
+  det.appendChild(h("h3",{text:"My prediction"}));
   var strip=h("div",{class:"strip",role:"img","aria-label":"Democrats "+m.dem+" percent, Republicans "+m.rep+" percent"}),filled=Math.round(m.dem/5);
   var ds=dSide(r),dl=ds.toLowerCase();
   for(var i=0;i<20;i++)strip.appendChild(h("span",{class:"bub "+(i<filled?dl:"r")}));
-  box.appendChild(h("p",{class:"call"},[h("b",{class:dl,text:ds+" "+m.dem+"%"}),h("b",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+m.rep+"%"}),h("span",{class:"note",text:m.label.replace(/ D$/," "+ds)})]));
-  box.appendChild(strip);
-  box.appendChild(h("p",{class:"note",text:"Experimental. It blends the outlets' ratings with the area's lean and the national environment, give or take "+m.unc+" points. It hasn't been checked against past elections, and it mostly echoes the forecasters."+(ds==="I"?" In Nebraska the non-Republican side is independent Dan Osborn.":"")}));
+  det.appendChild(h("p",{class:"call"},[h("b",{class:dl,text:ds+" "+m.dem+"%"}),h("b",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+m.rep+"%"}),h("span",{class:"note",text:m.label.replace(/ D$/," "+ds)})]));
+  det.appendChild(strip);
+  det.appendChild(h("p",{class:"note",text:"Experimental. It blends the outlets' ratings with the area's lean and the national environment, give or take "+m.unc+" points. It hasn't been checked against past elections, and it mostly echoes the forecasters."+(ds==="I"?" In Nebraska the non-Republican side is independent Dan Osborn.":"")}));
 
   }
-  box.appendChild(h("h3",{text:"Joey's call"}));
-  box.appendChild(joeyBox(r));
+  det.appendChild(h("h3",{text:"Joey's call"}));
+  det.appendChild(joeyBox(r));
 
-  box.appendChild(h("h3",{text:"Your pick"}));
+  det.appendChild(h("h3",{text:"Your pick"}));
   var picks=h("div",{class:"picks",role:"group","aria-label":"Your pick for this race"}),agree=h("p",{class:"agree"});
   function paint(){var p=S.picks[r.id];if(!p){agree.textContent="Make your call and I'll compare it to the forecasters and my model.";return}
     var cs=forecastCall(r),ms=modelCall(r);
@@ -831,12 +833,12 @@ function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("de
     b.addEventListener("click",function(){if(S.picks[r.id]===o[0])delete S.picks[r.id];else S.picks[r.id]=o[0];savePicks();
       picks.querySelectorAll(".pick").forEach(function(pb,i){pb.setAttribute("aria-pressed",String(S.picks[r.id]===keys[i]))});paint();renderYou()});
     picks.appendChild(b)});
-  box.appendChild(picks);box.appendChild(agree);paint();
+  det.appendChild(picks);det.appendChild(agree);paint();
 
-  box.appendChild(h("h3",{text:"Polls"}));
+  det.appendChild(h("h3",{text:"Polls"}));
   if(r.polls.length){var pr=r.polls.map(function(p){return h("tr",{},[h("td",{text:p[0]}),h("td",{text:p[1]}),h("td",{class:"num",text:String(p[2])}),h("td",{class:"num",text:String(p[3])}),h("td",{class:"num",text:String(p[4])})])});
-    box.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Pollster"}),h("th",{text:"Ended"}),h("th",{class:"num",text:"Sample"}),h("th",{class:"num",text:"Dem"}),h("th",{class:"num",text:"Rep"})])]),h("tbody",{},pr)])]))}
-  else box.appendChild(h("p",{class:"note",text:"No individual polls collected for this race yet."}))}
+    det.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Pollster"}),h("th",{text:"Ended"}),h("th",{class:"num",text:"Sample"}),h("th",{class:"num",text:"Dem"}),h("th",{class:"num",text:"Rep"})])]),h("tbody",{},pr)])]))}
+  else det.appendChild(h("p",{class:"note",text:"No individual polls collected for this race yet."}));var sel=list.querySelector('.rrow[aria-selected="true"]');if(sel)list.insertBefore(det,sel.nextSibling);else box.appendChild(det)}
 
 // ---- predict and compare ----
 var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-mi","sen-nc","sen-nh","sen-ga","sen-mn","sen-ne"]],
