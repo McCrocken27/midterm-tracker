@@ -875,7 +875,7 @@ function hsRows(){var q=($("hs-q").value||"").toLowerCase().trim(),comp=$("hs-co
       b.addEventListener("click",function(){showTab("tab-map");setFilter("house");selectState(st);selectRace(id);$("detail").scrollIntoView({behavior:"smooth",block:"start"})});rating=b;joey=joeyCall(r)}
     else{var sc=fav==="D"?3:-3,chip=h("span",{class:"chip-r",text:"Safe "+(fav||"?")});chip.style.background=colorFor(sc);chip.style.color=textOn(sc);rating=chip;joey=fav}
     var cands=h("td");x[5].forEach(function(c,i){if(i)cands.appendChild(document.createTextNode(" vs. "));
-      var s=h("span",{class:"cn "+c[0].toLowerCase()},[h("b",{text:c[1]})," ("+c[0]+")"]);if(YaleAvatars.lookFor(c[1],true)){var m=h("span",{class:"lbav"});m.innerHTML=YaleAvatars.make(key.toLowerCase()+"-"+c[0],{size:30,party:c[0],look:YaleAvatars.lookFor(c[1],true),nd:ND_NAMES[c[1]]===1,label:MASCOT[c[0]]+" for "+c[1]});s.insertBefore(m,s.firstChild)}
+      var s=h("span",{class:"cn "+c[0].toLowerCase()},[h("b",{text:c[1]})," ("+c[0]+")"]);
       if(YALE_NAMES[c[1]]||YALE_HOUSE[c[1]])s.appendChild(h("span",{class:"badge y",title:"Yale alumnus",text:"Y"}));
       if(ND_NAMES[c[1]])s.appendChild(h("span",{class:"badge nd",title:"Notre Dame alumnus",text:"☘"}));cands.appendChild(s)});
     body.appendChild(h("tr",{},[h("td",{text:key.replace("-00","-AL")}),h("td",{text:x[2]+(x[3]?" ("+x[3]+")":"")}),cands,h("td",{text:lean}),h("td",{},[rating]),h("td",{},[tagEl(joey)])]))});
