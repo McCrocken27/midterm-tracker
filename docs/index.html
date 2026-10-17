@@ -193,12 +193,23 @@ h2{font-weight:900;color:var(--head)}h3{font-weight:900;color:var(--head)}
 @keyframes fly{from{transform:translateX(-260px)}to{transform:translateX(calc(100vw + 60px))}}
 @keyframes flyback{from{transform:translateX(calc(100vw + 60px)) scaleX(-1)}to{transform:translateX(-260px) scaleX(-1)}}
 @media (prefers-reduced-motion:reduce){.flyer{display:none}h1 .st,.sky i{animation:none}}
+
+/* centered header with red, white and blue title words */
+.top-inner{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px}
+.top-inner>div:not(.sky):not(.top-right){display:flex;flex-direction:column;align-items:center}
+.top-right{display:flex;flex-direction:row;gap:24px}
+.sub{max-width:62ch;margin:6px auto 0;color:#ffffff}
+.top-right{justify-content:center;align-items:center}
+h1 .w-r{color:#ff3b4e;text-shadow:3px 3px 0 #ffffff}
+h1 .w-w{color:#ffffff;text-shadow:3px 3px 0 #b22234}
+h1 .w-b{color:#8ec5ff;text-shadow:3px 3px 0 #b22234}
+h1{text-shadow:none}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-inner">
   <div class="sky" aria-hidden="true"></div>
-  <div><h1><span class="st" aria-hidden="true">&#9733;</span> 2026 Midterm Tracker <span class="st" aria-hidden="true">&#9733;</span></h1><p class="sub">Every Senate and Governor Race, Plus 163 House Races (Every Competitive One and Big Names in All 50 States), With Every Forecaster Side by Side</p></div>
+  <div><h1><span class="st" aria-hidden="true">&#9733;</span> <span class="w-r">2026</span> <span class="w-w">Midterm</span> <span class="w-b">Tracker</span> <span class="st" aria-hidden="true">&#9733;</span></h1><p class="sub">Every Senate and Governor Race, Plus 163 House Races (Every Competitive One and Big Names in All 50 States), With Every Forecaster Side by Side</p></div>
   <div class="top-right"><div class="you" id="joey-slot"></div>
     <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label" id="days-label">Days to Election Day</span></div></div>
 </div></header>
