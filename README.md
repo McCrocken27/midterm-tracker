@@ -11,7 +11,7 @@ MGT 409 final project. The site shows every 2026 Senate and governor race, plus 
 - **Avatars** are party mascots, not likenesses: donkeys for Democrats, elephants for Republicans, and eagles for independents with a real shot (Dan Osborn in Nebraska, Seth Bodnar in Montana). A Y patch marks a verified Yale alumnus, and a shamrock marks a verified Notre Dame alumnus.
 - **Joey**, a made-up "former campaign expert", has his own calls on 37 key races, and he picks the favorite in every seat rated Safe.
 - **Every House seat** tab: all 435 districts with incumbent, candidates, lean, and rating, searchable by district, state, or name.
-- **Predict and compare** tab: players pick a nickname and a Labubu avatar (Joey, or one dressed like a past president: Washington, Lincoln, Teddy Roosevelt, FDR, Truman, Eisenhower, JFK), then pick winners in 37 key races and compare them with the crowd, the forecasters, the model, and Joey. A leaderboard turns on once results are entered. On GitHub Pages, picks are saved in each visitor's own browser.
+- **Predict and compare** tab: players pick a nickname and a cartoon Labubu avatar (Joey, the Statue of Liberty, or one dressed like a president or vice president: Washington, Lincoln, Teddy Roosevelt, FDR, Truman, Eisenhower, JFK, Reagan, Obama, Trump, Biden, Vance, Harris). They are suggested by hats, hair and clothes, not faces, then pick winners in 37 key races and compare them with the crowd, the forecasters, the model, and Joey. A leaderboard turns on once results are entered. On GitHub Pages, picks are saved in each visitor's own browser.
 - Only major candidates are shown: a major-party nominee, or anyone with better than a 20% chance of winning.
 
 ## Run it locally

@@ -327,79 +327,130 @@ facial(t)+hairFront(t)+hat(t)+(t.glasses?glasses():"")+earrings(t)+(o.yale?yPatc
 root.YaleAvatars={make:make,traits:traits,joey:makeJoey}})(window);
 </script>
 <script>
-/* Labubu avatars for players: a Joey Labubu plus Labubus dressed like past presidents.
-   Ported from the Lecture 12 <Labubu /> template. Presidents are suggested by their famous
-   hats, hair and clothes, not their faces. */
+/* Labubu avatars for players: a Joey Labubu, the Statue of Liberty, and Labubus dressed like
+   presidents and vice presidents. Ported from the Lecture 12 <Labubu /> template, drawn as a
+   chunky cartoon sticker. Each one is suggested by famous hats, hair, glasses and clothes,
+   not by a face. */
 (function(root){"use strict";
-var INK="#1c1118",CX=136;
+var INK="#1c1118",CX=136,SEQ=0;
 function rnd(i,s){var x=Math.sin(i*127.1+s*311.7)*43758.5453;return x-Math.floor(x)}
 function poly(l){return l.map(function(p){return p[0].toFixed(1)+" "+p[1].toFixed(1)}).join(" L")}
 function furEllipse(cx,cy,rx,ry,n,amp,seed){var o=[];for(var i=0;i<n;i++){var a0=i/n*Math.PI*2,a1=(i+.5)/n*Math.PI*2,k=amp*(.4+rnd(i,seed));
   o.push([cx+rx*Math.cos(a0),cy+ry*Math.sin(a0)]);o.push([cx+(rx+k)*Math.cos(a1),cy+(ry+k)*Math.sin(a1)])}return"M"+poly(o)+" Z"}
-var HOOD=furEllipse(CX,214,124,98,48,6,3),BODY=furEllipse(CX,385,68,76,34,5,7),ARM=furEllipse(0,0,19,42,22,4,11),
+/* fewer, bigger tufts than the original, for a softer cartoon look */
+var HOOD=furEllipse(CX,214,124,98,30,9,3),BODY=furEllipse(CX,385,68,76,22,6,7),ARM=furEllipse(0,0,19,42,14,5,11),
   FACE="M36 232 C36 190 82 166 136 166 C190 166 236 190 236 232 C236 278 192 304 136 304 C80 304 36 278 36 232 Z";
-var FRINGE=(function(){var top=function(x){return 232-66*Math.sqrt(Math.max(0,1-Math.pow((x-CX)/100,2)))},xs=[];for(var x=48;x<=224;x+=8)xs.push(x);
-  var up=xs.map(function(x){return[x,top(x)-4]}),zig=xs.map(function(x,i){return[x,top(x)+(i%2?9+rnd(i,5)*6:2)]});
+var FRINGE=(function(){var top=function(x){return 232-66*Math.sqrt(Math.max(0,1-Math.pow((x-CX)/100,2)))},xs=[];for(var x=48;x<=224;x+=11)xs.push(x);
+  var up=xs.map(function(x){return[x,top(x)-4]}),zig=xs.map(function(x,i){return[x,top(x)+(i%2?11+rnd(i,5)*5:2)]});
   return{fill:"M"+poly(up.concat(zig.slice().reverse()))+" Z",edge:"M"+poly(zig)}})();
+var W=4.2,S=' stroke="'+INK+'" stroke-width="'+W+'" stroke-linejoin="round" stroke-linecap="round"';
 function mirror(s){return s+'<g transform="translate('+2*CX+' 0) scale(-1 1)">'+s+'</g>'}
-function ear(fur,inner){return'<path d="M52 146 L52 122 C46 84 58 34 86 14 C100 4 116 8 122 34 C128 60 130 92 130 124 L130 146 Z" fill="'+fur+'" stroke="'+INK+'" stroke-width="3.2" stroke-linejoin="round"/>'+
-  '<path d="M66 132 C62 90 72 46 91 28 C104 24 112 50 114 80 C115 100 115 116 115 132 Z" fill="'+inner+'" stroke="'+INK+'" stroke-width="2.4" stroke-linejoin="round"/>'+
-  '<path d="M88 132 C88 108 92 94 100 94 C108 94 112 108 112 132 Z" fill="'+fur+'" stroke="'+INK+'" stroke-width="2.2" stroke-linejoin="round"/>'}
-function arm(fur,face){return'<g transform="translate(44 366) rotate(14)"><path d="'+ARM+'" fill="'+fur+'" stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"/><ellipse cx="0" cy="40" rx="14" ry="12" fill="'+face+'" stroke="'+INK+'" stroke-width="2.8"/></g>'}
-function eye(cx){return'<ellipse cx="'+cx+'" cy="238" rx="21" ry="28" fill="#fff" stroke="'+INK+'" stroke-width="3"/><ellipse cx="'+cx+'" cy="239" rx="16.5" ry="23.5" fill="'+INK+'"/><circle cx="'+(cx-6)+'" cy="229" r="5.5" fill="#fff"/><circle cx="'+(cx+6)+'" cy="249" r="2.6" fill="#fff"/>'}
+function ear(fur,inner){return'<path d="M52 146 L52 122 C46 84 58 34 86 14 C100 4 116 8 122 34 C128 60 130 92 130 124 L130 146 Z" fill="'+fur+'"'+S+'/>'+
+  '<path d="M68 132 C64 90 74 48 92 30 C104 28 111 52 113 80 C114 100 114 116 114 132 Z" fill="'+inner+'"'+S+'/>'}
+function arm(fur,face){return'<g transform="translate(44 366) rotate(14)"><path d="'+ARM+'" fill="'+fur+'"'+S+'/><ellipse cx="0" cy="40" rx="15" ry="13" fill="'+face+'"'+S+'/></g>'}
+function eye(cx){return'<ellipse cx="'+cx+'" cy="238" rx="24" ry="31" fill="#fff"'+S+'/><ellipse cx="'+cx+'" cy="241" rx="19" ry="26" fill="'+INK+'"/>'+
+  '<circle cx="'+(cx-7)+'" cy="229" r="8" fill="#fff"/><circle cx="'+(cx+7)+'" cy="253" r="3.6" fill="#fff"/>'}
 /* the signature grin: a smile curve with a zigzag row of teeth on it ("smile" preset from Lecture 12) */
-var GRIN=(function(){var halfW=58,yEnd=268,c=24/.75,count=6,T=9,v=2,P=[[CX-halfW,yEnd],[CX-halfW*.73,yEnd+c],[CX+halfW*.73,yEnd+c],[CX+halfW,yEnd]];
+var GRIN=(function(){var halfW=56,yEnd=272,c=26/.75,count=5,T=11,v=2,P=[[CX-halfW,yEnd],[CX-halfW*.73,yEnd+c],[CX+halfW*.73,yEnd+c],[CX+halfW,yEnd]];
   function at(t){var u=1-t;return[0,1].map(function(k){return u*u*u*P[0][k]+3*u*u*t*P[1][k]+3*u*t*t*P[2][k]+t*t*t*P[3][k]})}
   function nor(t){var u=1-t,d=[0,1].map(function(k){return 3*u*u*(P[1][k]-P[0][k])+6*u*t*(P[2][k]-P[1][k])+3*t*t*(P[3][k]-P[2][k])}),l=Math.hypot(d[0],d[1]);return[d[1]/l,-d[0]/l]}
   var zig=[],base=[];for(var i=0;i<=count*2;i++){var t=.07+.86*i/(count*2),p=at(t),n=nor(t),off=i%2?T:v;zig.push([p[0]+n[0]*off,p[1]+n[1]*off]);base.push(p)}
-  return'<path d="M'+poly(zig.concat(base.slice().reverse()))+' Z" fill="#fffaf0" stroke="'+INK+'" stroke-width="2.2" stroke-linejoin="round"/>'+
-    '<path d="M'+P[0].join(" ")+" C"+P[1].join(" ")+" "+P[2].join(" ")+" "+P[3].join(" ")+'" fill="none" stroke="'+INK+'" stroke-width="3.6" stroke-linecap="round"/>'})();
-var NOSE='<path d="M124 245 Q136 241 148 245 Q142 259 136 260 Q130 259 124 245 Z" fill="#f2879a" stroke="'+INK+'" stroke-width="2.4" stroke-linejoin="round"/>';
-var S=' stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"';
+  return'<path d="M'+poly(zig.concat(base.slice().reverse()))+' Z" fill="#fffaf0" stroke="'+INK+'" stroke-width="2.8" stroke-linejoin="round"/>'+
+    '<path d="M'+P[0].join(" ")+" C"+P[1].join(" ")+" "+P[2].join(" ")+" "+P[3].join(" ")+'" fill="none" stroke="'+INK+'" stroke-width="'+W+'" stroke-linecap="round"/>'})();
+var NOSE='<path d="M123 246 Q136 241 149 246 Q142 261 136 262 Q130 261 123 246 Z" fill="#f2879a"'+S+'/>';
 
 // ---- outfit pieces ----
-function coat(c,inner,extra){return'<path d="M66 336 C80 314 192 314 206 336 L220 470 L52 470 Z" fill="'+c+'"'+S+'/>'+
-  (inner?'<path d="M114 316 L136 372 L158 316 Z" fill="'+inner+'"'+S+'/>':"")+(extra||"")}
-function glasses(r,col){return mirror('<circle cx="94" cy="238" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="4.5"/>')+'<path d="M'+(94+r)+' 236 Q136 226 '+(178-r)+' 236" fill="none" stroke="'+col+'" stroke-width="4"/>'}
-function bowtie(c){return'<path d="M136 324 L112 312 L112 338 Z M136 324 L160 312 L160 338 Z" fill="'+c+'"'+S+'/><circle cx="136" cy="324" r="6" fill="'+c+'"'+S+'/>'}
+var COAT="M66 336 C80 314 192 314 206 336 L220 470 L52 470 Z";
+function suit(c,shirt,tie,extra){return'<path d="'+COAT+'" fill="'+c+'"'+S+'/>'+'<path d="M114 316 L136 376 L158 316 Z" fill="'+(shirt||"#fff")+'"'+S+'/>'+
+  (tie?'<path d="M130 320 H142 L146 334 L136 392 L126 334 Z" fill="'+tie+'"'+S+'/>':"")+
+  '<path d="M114 316 L100 338 L126 360 L136 376 Z M158 316 L172 338 L146 360 L136 376 Z" fill="'+shade(c,-.25)+'"'+S+'/>'+(extra||"")}
+function shade(hex,amt){var n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255;function f(c){return Math.max(0,Math.min(255,Math.round(amt<0?c*(1+amt):c+(255-c)*amt)))}return"#"+((1<<24)+(f(r)<<16)+(f(g)<<8)+f(b)).toString(16).slice(1)}
+function glasses(r,col){return mirror('<circle cx="94" cy="238" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="5.5"/>')+'<path d="M'+(94+r)+' 236 Q136 224 '+(178-r)+' 236" fill="none" stroke="'+col+'" stroke-width="5"/>'}
+function bowtie(c){return'<path d="M136 326 L110 312 L110 340 Z M136 326 L162 312 L162 340 Z" fill="'+c+'"'+S+'/><circle cx="136" cy="326" r="7" fill="'+c+'"'+S+'/>'}
+function flagPin(x,y){return'<g transform="translate('+x+' '+y+')"><rect x="-9" y="-6" width="18" height="12" rx="1.5" fill="#fff" stroke="'+INK+'" stroke-width="1.8"/><path d="M-9 -2 H9 M-9 2 H9" stroke="#c0392b" stroke-width="2"/><rect x="-9" y="-6" width="8" height="6" fill="#2d3e8f"/></g>'}
+function hatBrim(cx,cy,rx,ry,c){return'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+c+'"'+S+'/>'}
 var STAR='M0 -7 L2 -2 L7 -2 L3 1 L4.5 6 L0 3 L-4.5 6 L-3 1 L-7 -2 L-2 -2 Z';
 
 var LIST=[
   {id:"joey",name:"Joey",fur:"#d8b07a",face:"#fbe9c9",
-   body:coat("#a9c8ea","#ffffff",'<path d="M114 316 L100 336 L126 350 Z M158 316 L172 336 L146 350 Z" fill="#7fa6d6"'+S+'/><circle cx="92" cy="372" r="11" fill="#00356b" stroke="#fff" stroke-width="2"/><text x="92" y="377" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="14" fill="#fff">Y</text>'),
-   head:'<path d="M58 168 C58 92 98 64 136 64 C174 64 214 92 214 168 Z" fill="#f7f7f5"'+S+'/><path d="M136 66 V160 M100 76 C92 104 90 134 92 162 M172 76 C180 104 182 134 180 162" fill="none" stroke="#d9dde3" stroke-width="3"/>'+
-     '<path d="M56 166 Q136 150 216 166 L216 174 Q136 158 56 174 Z" fill="#e3e7ec"'+S+'/><path d="M104 168 C104 128 168 128 168 168 Z" fill="#9c6b3c"'+S+'/><path d="M104 150 H168" stroke="#8b9097" stroke-width="7" stroke-linecap="round"/><path d="M118 168 C120 156 126 150 132 148 M140 168 C142 154 150 148 156 150" fill="none" stroke="'+INK+'" stroke-width="2"/>'},
+   /* an open light-blue button-down hanging open over a white crew-neck undershirt, with a Y pin */
+   body:'<path d="'+COAT+'" fill="#ffffff"'+S+'/><path d="M108 318 Q136 340 164 318" fill="none" stroke="#c9d2dc" stroke-width="5" stroke-linecap="round"/>'+
+     '<path d="M66 336 C76 318 96 314 110 314 L104 470 L52 470 Z" fill="#a9c8ea"'+S+'/><path d="M206 336 C196 318 176 314 162 314 L168 470 L220 470 Z" fill="#a9c8ea"'+S+'/>'+
+     '<path d="M110 314 L94 332 L112 350 Z M162 314 L178 332 L160 350 Z" fill="#cfe0f3"'+S+'/>'+
+     [372,404,436].map(function(y){return'<circle cx="99" cy="'+y+'" r="3.6" fill="#fff" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")+
+     '<circle cx="86" cy="384" r="12" fill="#00356b" stroke="#fff" stroke-width="2.4"/><text x="86" y="389.5" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="15" fill="#fff">Y</text>',
+   /* white cap worn backwards: dome, thin edge, strap opening with hair poking through */
+   head:'<path d="M58 168 C58 92 98 64 136 64 C174 64 214 92 214 168 Z" fill="#f7f7f5"'+S+'/><path d="M136 68 V158 M100 78 C92 104 90 134 92 160 M172 78 C180 104 182 134 180 160" fill="none" stroke="#d9dde3" stroke-width="3.5"/>'+
+     '<path d="M56 166 Q136 150 216 166 L216 176 Q136 160 56 176 Z" fill="#e3e7ec"'+S+'/><path d="M104 168 C104 128 168 128 168 168 Z" fill="#9c6b3c"'+S+'/><path d="M104 150 H168" stroke="#8b9097" stroke-width="8" stroke-linecap="round"/>'},
+  {id:"liberty",name:"Statue of Liberty",fur:"#7fbfa6",face:"#d5eee2",
+   body:'<path d="M50 470 C50 380 80 322 136 318 C192 322 222 380 222 470 Z" fill="#8fcfb5"'+S+'/><path d="M86 340 Q136 372 196 330 M78 380 Q140 410 206 372" fill="none" stroke="#5f9e86" stroke-width="4" stroke-linecap="round"/>'+
+     '<rect x="168" y="372" width="34" height="44" rx="4" fill="#6fb39a"'+S+'/><path d="M175 386 H196 M175 398 H196" stroke="'+INK+'" stroke-width="2"/>',
+   head:[-60,-30,0,30,60].map(function(a){return'<path d="M-9 0 L0 -46 L9 0 Z" transform="translate('+(136+Math.sin(a*Math.PI/180)*70)+' '+(150-Math.cos(a*Math.PI/180)*30)+') rotate('+a+')" fill="#9ed8c0"'+S+'/>'}).join("")+
+     '<path d="M70 166 Q136 120 202 166 L196 182 Q136 144 76 182 Z" fill="#9ed8c0"'+S+'/>'+[96,116,136,156,176].map(function(x){return'<rect x="'+(x-5)+'" y="'+(150-Math.abs(x-136)*.15)+'" width="10" height="9" rx="2" fill="#5fb8e6" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")+
+     '<path d="M244 300 L254 120" stroke="#6fb39a" stroke-width="16" stroke-linecap="round"/><path d="M244 300 L254 120" stroke="'+INK+'" stroke-width="3" stroke-linecap="round" opacity=".0"/>'+
+     '<path d="M236 128 L272 128 L264 104 L244 104 Z" fill="#c9a227"'+S+'/><path d="M254 104 C232 84 250 66 256 46 C262 66 280 82 254 104 Z" fill="#ff9a2e"'+S+'/><path d="M255 98 C246 88 254 78 256 68 C260 80 266 88 255 98 Z" fill="#ffe066"/>'},
   {id:"washington",name:"George Washington",fur:"#efebe4",face:"#fbe9c9",
-   body:coat("#1f3a6b","#ffffff",'<path d="M120 318 Q136 344 152 318 Q150 334 136 340 Q122 334 120 318 Z" fill="#fff"'+S+'/>'+[350,382,414].map(function(y){return'<circle cx="108" cy="'+y+'" r="5" fill="#e3b341" stroke="'+INK+'" stroke-width="1.6"/><circle cx="164" cy="'+y+'" r="5" fill="#e3b341" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")),
-   head:mirror('<circle cx="30" cy="206" r="17" fill="#fbfaf7"'+S+'/><circle cx="26" cy="238" r="17" fill="#fbfaf7"'+S+'/>')},
+   body:suit("#1f3a6b","#ffffff",null,'<path d="M118 318 Q136 350 154 318 Q152 338 136 346 Q120 338 118 318 Z" fill="#fff"'+S+'/>'+[396,428].map(function(y){return'<circle cx="108" cy="'+y+'" r="6" fill="#e3b341"'+S+'/><circle cx="164" cy="'+y+'" r="6" fill="#e3b341"'+S+'/>'}).join("")),
+   head:mirror('<circle cx="30" cy="204" r="19" fill="#fbfaf7"'+S+'/><circle cx="26" cy="240" r="19" fill="#fbfaf7"'+S+'/>')},
   {id:"lincoln",name:"Abraham Lincoln",fur:"#5a3b28",face:"#fbe9c9",
-   body:coat("#1c1c22","#ffffff",bowtie("#1c1c22")),
+   body:suit("#24242c","#ffffff",null,bowtie("#141418")),
    head:'<path d="M40 246 C44 290 94 306 136 306 C178 306 228 290 232 246 C222 278 182 292 160 294 L150 304 L136 296 L122 304 L112 294 C90 292 50 278 40 246 Z" fill="#2e1f16"'+S+'/>'+
-     '<ellipse cx="136" cy="128" rx="78" ry="14" fill="#141418"'+S+'/><path d="M92 128 L96 -36 L176 -36 L180 128 Z" fill="#141418"'+S+'/><rect x="94" y="96" width="84" height="14" fill="#3a3a44"/>'},
+     hatBrim(136,128,80,15,"#141418")+'<path d="M92 128 L96 -36 L176 -36 L180 128 Z" fill="#141418"'+S+'/><rect x="94" y="94" width="84" height="16" fill="#3a3a44"/>'},
   {id:"troosevelt",name:"Teddy Roosevelt",fur:"#9a6a3c",face:"#fbe9c9",
-   body:coat("#b59b6a","#e9dcc0",'<path d="M112 316 L136 336 L160 316 L150 346 L136 340 L122 346 Z" fill="#c0392b"'+S+'/>'),
-   head:glasses(26,"#c9a227")+'<path d="M96 272 C110 254 128 256 136 264 C144 256 162 254 176 272 C160 268 146 274 136 278 C126 274 112 268 96 272 Z" fill="#4a2e1a"'+S+'/>'+
-     '<ellipse cx="136" cy="140" rx="128" ry="20" fill="#8a6a3e"'+S+'/><path d="M84 140 C84 96 104 74 136 74 C168 74 188 96 188 140 Z" fill="#8a6a3e"'+S+'/><path d="M118 80 L136 96 L154 80" fill="none" stroke="'+INK+'" stroke-width="3"/><rect x="86" y="122" width="100" height="10" fill="#5a3e22"/>'},
+   body:suit("#b59b6a","#e9dcc0",null,'<path d="M112 318 L136 338 L160 318 L152 350 L136 342 L120 350 Z" fill="#c0392b"'+S+'/>'),
+   head:glasses(28,"#c9a227")+'<path d="M94 276 C108 256 128 258 136 266 C144 258 164 256 178 276 C162 270 146 278 136 282 C126 278 110 270 94 276 Z" fill="#4a2e1a"'+S+'/>'+
+     hatBrim(136,140,130,22,"#8a6a3e")+'<path d="M84 140 C84 96 104 72 136 72 C168 72 188 96 188 140 Z" fill="#8a6a3e"'+S+'/><path d="M116 78 L136 98 L156 78" fill="none"'+S+'/><rect x="86" y="120" width="100" height="12" fill="#5a3e22"/>'},
   {id:"fdr",name:"Franklin D. Roosevelt",fur:"#8f9aa6",face:"#fbe9c9",
-   body:'<path d="M30 470 C30 360 70 314 136 314 C202 314 242 360 242 470 Z" fill="#1d2b4a"'+S+'/><path d="M118 318 L136 360 L154 318 Z" fill="#fff"'+S+'/>'+bowtie("#7a2b27"),
-   head:glasses(19,"#2b2b2b")+'<path d="M76 248 Q60 290 74 320" fill="none" stroke="#c9a227" stroke-width="2.2"/>'},
+   body:'<path d="M30 470 C30 360 70 314 136 314 C202 314 242 360 242 470 Z" fill="#1d2b4a"'+S+'/><path d="M116 318 L136 364 L156 318 Z" fill="#fff"'+S+'/>'+bowtie("#7a2b27"),
+   head:glasses(21,"#2b2b2b")+'<path d="M73 254 Q58 292 72 324" fill="none" stroke="#c9a227" stroke-width="2.6"/>'},
   {id:"truman",name:"Harry Truman",fur:"#b9bcc2",face:"#fbe9c9",
-   body:coat("#5f646d","#ffffff",bowtie("#2d3e66")+'<g fill="#fff"><circle cx="124" cy="320" r="2.2"/><circle cx="148" cy="330" r="2.2"/><circle cx="126" cy="332" r="2.2"/></g>'),
-   head:glasses(24,"#3a3a3a")+'<ellipse cx="136" cy="140" rx="104" ry="16" fill="#6b6f76"'+S+'/><path d="M80 140 C80 98 102 78 136 78 C170 78 192 98 192 140 Z" fill="#6b6f76"'+S+'/><path d="M110 84 Q136 100 162 84" fill="none" stroke="'+INK+'" stroke-width="3"/><rect x="82" y="120" width="108" height="12" fill="#2a2d33"/>'},
+   body:suit("#5f646d","#ffffff",null,bowtie("#2d3e66")+'<g fill="#fff"><circle cx="122" cy="322" r="2.6"/><circle cx="150" cy="332" r="2.6"/><circle cx="124" cy="334" r="2.6"/></g>'),
+   head:glasses(26,"#3a3a3a")+hatBrim(136,140,108,18,"#6b6f76")+'<path d="M80 140 C80 98 102 76 136 76 C170 76 192 98 192 140 Z" fill="#6b6f76"'+S+'/><path d="M110 84 Q136 102 162 84" fill="none"'+S+'/><rect x="82" y="118" width="108" height="14" fill="#2a2d33"/>'},
   {id:"eisenhower",name:"Dwight Eisenhower",fur:"#e6d3b3",face:"#fbe9c9",
-   body:coat("#5b6b3a","#c9b98f",'<path d="M128 320 L144 320 L140 360 L132 360 Z" fill="#6b5a3a"'+S+'/>'+[0,1,2,3,4].map(function(i){var a=-Math.PI/2+i*2*Math.PI/5;return'<path d="'+STAR+'" transform="translate('+(88+12*Math.cos(a))+' '+(352+12*Math.sin(a))+')" fill="#e3b341"/>'}).join("")),
-   head:'<path d="M70 150 C70 108 100 92 136 92 C172 92 202 108 202 150 Z" fill="#5b6b3a"'+S+'/><path d="M66 150 Q136 176 206 150 L206 160 Q136 186 66 160 Z" fill="#3a2a1a"'+S+'/><circle cx="136" cy="128" r="11" fill="#e3b341"'+S+'/>'},
+   body:suit("#5b6b3a","#c9b98f","#6b5a3a",[0,1,2,3,4].map(function(i){var a=-Math.PI/2+i*2*Math.PI/5;return'<path d="'+STAR+'" transform="translate('+(86+13*Math.cos(a))+' '+(400+13*Math.sin(a))+') scale(1.2)" fill="#e3b341" stroke="'+INK+'" stroke-width="1"/>'}).join("")),
+   head:'<path d="M70 150 C70 106 100 90 136 90 C172 90 202 106 202 150 Z" fill="#5b6b3a"'+S+'/><path d="M66 150 Q136 178 206 150 L206 162 Q136 190 66 162 Z" fill="#3a2a1a"'+S+'/><circle cx="136" cy="126" r="13" fill="#e3b341"'+S+'/>'},
   {id:"jfk",name:"John F. Kennedy",fur:"#a85a2a",face:"#fbe9c9",
-   body:coat("#1f2a44","#ffffff",'<path d="M131 318 H141 L144 330 L136 380 L128 330 Z" fill="#2d3e66"'+S+'/>'),
-   head:'<path d="M60 186 C70 140 120 118 176 128 C204 134 222 152 222 176 C196 156 160 150 130 166 C112 154 82 160 60 186 Z" fill="#a85a2a"'+S+'/><path d="M126 166 C134 148 160 140 186 146" fill="none" stroke="'+INK+'" stroke-width="2.6"/>'}
+   body:suit("#1f2a44","#ffffff","#2d3e66"),
+   head:'<path d="M58 188 C68 138 120 116 178 126 C206 132 224 150 224 178 C196 156 160 150 128 168 C110 154 80 160 58 188 Z" fill="#b5652b"'+S+'/><path d="M126 166 C134 148 160 140 188 146" fill="none" stroke="'+INK+'" stroke-width="3"/>'},
+  {id:"reagan",name:"Ronald Reagan",fur:"#4a3426",face:"#fbe9c9",
+   body:suit("#7a5a3e","#ffffff","#b03a2e",flagPin(176,350)),
+   /* big dark pompadour */
+   head:'<path d="M62 182 C56 128 98 102 140 104 C186 104 220 132 214 182 C196 150 170 140 140 146 C112 140 80 150 62 182 Z" fill="#3a2a1e"'+S+'/><path d="M88 150 C110 124 152 120 182 136 M100 168 C122 146 156 144 188 156" fill="none" stroke="#6b4e38" stroke-width="4" stroke-linecap="round"/>'},
+  {id:"obama",name:"Barack Obama",fur:"#3d3a38",face:"#fbe9c9",
+   body:suit("#1d2433","#ffffff","#4a7fc1",flagPin(176,350)),
+   /* close-cropped hair with a little gray */
+   head:'<path d="M64 182 C62 136 98 112 136 112 C174 112 210 136 208 182 C190 160 164 152 136 152 C108 152 82 160 64 182 Z" fill="#2a2726"'+S+'/><path d="M84 160 C100 148 116 144 128 144 M150 144 C164 146 178 150 188 160" fill="none" stroke="#9a9a9a" stroke-width="3" stroke-linecap="round"/>'},
+  {id:"trump",name:"Donald Trump",fur:"#e2c27a",face:"#fbe9c9",
+   /* navy suit with an extra-long red tie */
+   body:'<path d="'+COAT+'" fill="#1f2a4a"'+S+'/><path d="M114 316 L136 376 L158 316 Z" fill="#fff"'+S+'/><path d="M129 320 H143 L148 336 L140 470 L132 470 L124 336 Z" fill="#d62828"'+S+'/>'+
+     '<path d="M114 316 L100 338 L126 360 L136 376 Z M158 316 L172 338 L146 360 L136 376 Z" fill="#141c33"'+S+'/>'+flagPin(176,350),
+   /* golden sideswept hair */
+   head:'<path d="M52 196 C46 132 100 104 150 108 C196 112 226 140 222 176 C214 160 196 150 170 150 C140 150 112 160 92 172 C78 180 62 188 52 196 Z" fill="#f0c95a"'+S+'/><path d="M80 158 C112 130 166 124 206 146 M96 172 C126 150 170 148 210 164" fill="none" stroke="#c99a2e" stroke-width="4" stroke-linecap="round"/>'},
+  {id:"biden",name:"Joe Biden",fur:"#ececee",face:"#fbe9c9",
+   body:suit("#1f2a4a","#ffffff","#2d6cc0",flagPin(176,350)),
+   /* aviator sunglasses */
+   head:mirror('<path d="M66 222 Q94 210 120 222 Q122 252 100 264 Q74 266 68 246 Z" fill="#1d2633" stroke="#c9a227" stroke-width="4.5" stroke-linejoin="round"/><path d="M76 228 Q86 224 96 228" stroke="#6f86a6" stroke-width="4" fill="none" stroke-linecap="round"/>')+'<path d="M120 224 Q136 216 152 224" fill="none" stroke="#c9a227" stroke-width="4.5"/>'},
+  {id:"vance",name:"JD Vance",fur:"#4a3426",face:"#fbe9c9",
+   body:suit("#1f2a4a","#ffffff","#b03a2e",flagPin(176,350)),
+   /* short dark beard along the jaw */
+   head:'<path d="M40 236 C42 286 92 304 136 304 C180 304 230 286 232 236 C224 266 200 280 182 284 C176 302 96 302 90 284 C72 280 48 266 40 236 Z" fill="#4a3426"'+S+'/><path d="M110 268 Q136 256 162 268 Q136 263 110 268 Z" fill="#4a3426"'+S+'/>'},
+  {id:"harris",name:"Kamala Harris",fur:"#3b2a22",face:"#fbe9c9",
+   body:'<path d="'+COAT+'" fill="#1f2a44"'+S+'/><path d="M108 316 Q136 346 164 316 L158 380 L114 380 Z" fill="#f4efe6"'+S+'/>'+
+     '<path d="M108 316 L92 340 L120 372 L126 336 Z M164 316 L180 340 L152 372 L146 336 Z" fill="#141c33"'+S+'/>'+
+     [-30,-20,-10,0,10,20,30].map(function(dx){return'<circle cx="'+(136+dx)+'" cy="'+(334+Math.abs(dx)*-.25+8-Math.cos(dx/40)*4)+'" r="5" fill="#fffdf6" stroke="'+INK+'" stroke-width="1.6"/>'}).join("")+flagPin(176,350),
+   /* shoulder-length bob framing the face */
+   head:mirror('<path d="M40 190 C30 236 34 292 64 314 C56 280 56 236 70 196 Z" fill="#2a1d17"'+S+'/>')+'<path d="M60 188 C78 146 118 132 150 136 C186 140 210 160 214 188 C190 164 160 156 136 160 C108 160 80 170 60 188 Z" fill="#2a1d17"'+S+'/>'}
 ];
 var BY={};LIST.forEach(function(a){BY[a.id]=a});
-function make(id,size,label){var a=BY[id]||LIST[0];size=size||96;var lab=label||a.name+" Labubu";
-  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -50 332 432" width="'+size+'" height="'+Math.round(size*432/332)+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title>'+
-    mirror(ear(a.fur,a.face))+'<path d="'+BODY+'" fill="'+a.fur+'"'+S+'/>'+mirror(arm(a.fur,a.face))+(a.body||"")+
-    '<path d="'+HOOD+'" fill="'+a.fur+'" stroke="'+INK+'" stroke-width="3.4" stroke-linejoin="round"/>'+
-    '<path d="'+FACE+'" fill="'+a.face+'" stroke="'+INK+'" stroke-width="3"/><path d="'+FRINGE.fill+'" fill="'+a.fur+'"/><path d="'+FRINGE.edge+'" fill="none" stroke="'+INK+'" stroke-width="2.6" stroke-linejoin="round"/>'+
-    mirror('<ellipse cx="62" cy="266" rx="13" ry="8" fill="#ff7a9a" opacity=".5"/>')+eye(94)+eye(178)+NOSE+GRIN+(a.head||"")+'</svg>'}
+function make(id,size,label){var a=BY[id]||LIST[0];size=size||96;var lab=label||a.name+" Labubu",f="lbstk"+(++SEQ);
+  /* the head is drawn a bit bigger than the body for a chibi look, and a white sticker outline goes around everything */
+  var head='<g transform="translate(136 236) scale(1.12) translate(-136 -236)">'+mirror(ear(a.fur,a.face))+
+    '<path d="'+HOOD+'" fill="'+a.fur+'" stroke="'+INK+'" stroke-width="'+(W+.6)+'" stroke-linejoin="round"/>'+
+    '<path d="'+FACE+'" fill="'+a.face+'"'+S+'/><path d="'+FRINGE.fill+'" fill="'+a.fur+'"/><path d="'+FRINGE.edge+'" fill="none"'+S+'/>'+
+    mirror('<ellipse cx="60" cy="270" rx="16" ry="10" fill="#ff7a9a" opacity=".7"/>')+eye(94)+eye(178)+NOSE+GRIN+(a.head||"")+'</g>';
+  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -70 360 470" width="'+size+'" height="'+Math.round(size*470/360)+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title>'+
+    '<defs><filter id="'+f+'" x="-10%" y="-10%" width="120%" height="120%"><feMorphology in="SourceAlpha" operator="dilate" radius="7" result="d"/><feFlood flood-color="#ffffff"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+
+    '<g filter="url(#'+f+')"><path d="'+BODY+'" fill="'+a.fur+'"'+S+'/>'+mirror(arm(a.fur,a.face))+(a.body||"")+head+'</g></svg>'}
 root.Labubus={list:LIST,make:make,has:function(id){return!!BY[id]}};
 })(window);
 </script>
