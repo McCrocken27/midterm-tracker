@@ -216,6 +216,17 @@ html{color-scheme:dark}
 :root{color-scheme:dark;--ink:#eef0ff;--muted:#b9bde6;--paper:#13153a;--surface:#1d2053;--line:#363b80;--head:#ffffff;--tile:#262a63;--tint:#3b4190;--tilesel:#1f3552;
   --stroke:#9fa6ff;--th:#24286a;--abbr:#6d7b8d;--dc:#6fa8ee;--rc:#e0766f;--warn:#f0c878;--warnbg:#3a2d12}
 .banner{background:#2d2a12;color:#ffe08a}
+
+/* flatter, wider header: title in the middle, Joey and the countdown on the right */
+.top-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;max-width:1240px;padding:16px 24px 30px;text-align:center}
+.top-inner>div:not(.sky):not(.top-right){grid-column:2}
+.top-right{grid-column:3;justify-self:end;gap:18px}
+.top{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M22 6l3.8 8.2 9 .9-6.8 6 2 8.8-8-4.7-8 4.7 2-8.8-6.8-6 9-.9z' fill='%23ffffff' fill-opacity='.3'/%3E%3Cpath d='M68 52l2.6 5.6 6.1.6-4.6 4 1.4 6-5.5-3.2-5.5 3.2 1.4-6-4.6-4 6.1-.6z' fill='%23ffffff' fill-opacity='.22'/%3E%3C/svg%3E"),linear-gradient(180deg,#3c3b6e,#2c2b58)}
+h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
+.sky i{opacity:.9}
+.countdown{padding:6px 14px 6px}.days{font-size:clamp(2.2rem,4vw,3rem)}.days-label{font-size:.85rem}
+.days-label{white-space:nowrap}.top-inner .sub{max-width:80ch}
+@media (max-width:900px){.top-inner{grid-template-columns:1fr}.top-inner>div:not(.sky):not(.top-right),.top-right{grid-column:1;justify-self:center}}
 </style>
 </head>
 <body>
@@ -1023,7 +1034,7 @@ loadPicks().then(renderYou);
 var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var sky=document.querySelector(".sky");
 if(sky)for(var i=0;i<14;i++){var s=document.createElement("i");s.textContent=i%3?"✦":"★";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*85)+"%";
-  s.style.fontSize=(8+Math.random()*12)+"px";s.style.animationDelay=(Math.random()*3)+"s";sky.appendChild(s)}
+  s.style.fontSize=(14+Math.random()*18)+"px";s.style.animationDelay=(Math.random()*3)+"s";sky.appendChild(s)}
 if(calm)return;
 function flag(kind){
   if(kind==="us")return'<rect x="0" y="0" width="74" height="46" fill="#fff"/>'+[0,1,2,3,4,5,6].map(function(i){return'<rect x="0" y="'+(i*6.6)+'" width="74" height="3.3" fill="#b22234"/>'}).join("")+
