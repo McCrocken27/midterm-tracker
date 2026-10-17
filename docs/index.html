@@ -761,7 +761,10 @@ function rowBtn(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:
   if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
   var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[h("span",{class:"rn",text:tagLong(r)}),chip,
     (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:"r",text:"R vs. R"})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
-  b.addEventListener("click",function(){selectRace(r.id);var sel=document.querySelector('#detail .rrow[aria-selected="true"]');if(sel)sel.scrollIntoView({behavior:"smooth",block:"nearest"})});return b}
+  b.addEventListener("click",function(){var open=document.querySelector("#detail .rdetail");
+    /* clicking the open race again collapses its details */
+    if(r.id===S.raceId&&open&&b.closest("#detail")){open.remove();b.setAttribute("aria-selected","false");S.raceId=null;return}
+    selectRace(r.id);var sel=document.querySelector('#detail .rrow[aria-selected="true"]');if(sel)sel.scrollIntoView({behavior:"smooth",block:"nearest"})});return b}
 /* the state's races of other types go under the map; clicking one switches the map to that type */
 function renderMore(){var box=$("more");box.textContent="";if(!S.state)return;var o=stateRaces(S.state).filter(function(r){return!visible(r)});if(!o.length)return;
   var w=h("div",{class:"rrows",role:"tablist","aria-label":"More races in "+NAMES[S.state]});o.forEach(function(r){w.appendChild(rowBtn(r))});
