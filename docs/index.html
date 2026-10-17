@@ -71,6 +71,10 @@ h2{font:700 1.25rem/1.2 var(--serif);margin:0;color:var(--head)}
 .race-sub{margin:4px 0 14px;color:var(--muted);font-size:.92rem}
 .faceoff{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:6px 0 16px;text-align:center}
 .faceoff .vs{color:var(--muted);font-size:.85rem}
+.faceoff.three{grid-template-columns:repeat(3,1fr)}.faceoff.three .cand svg{width:84px;height:84px}
+.bub.i{background:var(--gray)}.call .i,.rrow .rp .i{color:var(--gray);font-weight:700}
+.joey{display:flex;gap:12px;align-items:center;background:var(--th);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.joey svg{flex:none;width:56px;height:56px}.joey b{display:block}.joey .call b{font-size:1.15rem}
 .cand svg{width:104px;height:104px}
 .cand .nm{font-weight:600;line-height:1.25;min-height:2.5em}
 .cand .nm.none{font-weight:400;color:var(--muted);font-style:italic}
@@ -98,16 +102,38 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .ask{max-width:1192px;margin:8px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 20px}
 .ask h2{font-size:1.1rem}.ask p{margin:6px 0 0}
 .foot{max-width:1240px;margin:0 auto;padding:18px 24px 40px;color:var(--muted);font-size:.88rem}.foot p{margin:0 0 4px}
+.tabs{max-width:1192px;margin:16px auto 0;display:flex;gap:6px;border-bottom:2px solid var(--line)}
+@media (max-width:1240px){.tabs{margin-left:24px;margin-right:24px}}
+.tab{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:8px 14px;font-weight:700;color:var(--muted)}
+.tab.on{color:var(--head);border-bottom-color:var(--yale)}
+.pred{max-width:1192px;margin:16px auto 0;padding:0 24px}
+@media (min-width:1241px){.pred{padding:0}}
+.pred-form{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:14px 0 4px}
+.pred-form input{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);min-width:220px}
+.save{background:var(--yale);color:#fff;border:0;border-radius:6px;padding:8px 16px;font-weight:700}
+.save:disabled,.pp:disabled{opacity:.5;cursor:not-allowed}
+.pred table{background:var(--surface)}.pred h3{margin-top:22px}
+.pp{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:3px 9px;font-weight:600;margin:2px 4px 2px 0;font-size:.85rem}
+.pp[aria-pressed="true"].d{background:#2d6cc0;border-color:#2d6cc0;color:#fff}
+.pp[aria-pressed="true"].r{background:#b2403a;border-color:#b2403a;color:#fff}
+.pp[aria-pressed="true"].i{background:var(--gray);border-color:var(--gray);color:#fff}
+.crowd{display:flex;height:10px;min-width:90px;border-radius:5px;overflow:hidden;background:var(--line)}.crowd i{display:block;height:100%}
+.tag{font-weight:700}.tag.d{color:var(--dc)}.tag.r{color:var(--rc)}.tag.i,.tag.t{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-inner">
   <div><h1>2026 midterm tracker</h1><p class="sub">Every Senate and governor race, plus the 30 closest House races, with every forecaster side by side.</p></div>
-  <div class="top-right"><div class="you" id="you"></div>
-    <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label">days to Election Day</span></div></div>
+  <div class="top-right"><div class="you" id="joey-slot"></div><div class="you" id="you"></div>
+    <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label" id="days-label">days to Election Day</span></div></div>
 </div></header>
 <div id="banner" class="banner" role="status"></div>
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button type="button" class="tab on" role="tab" aria-selected="true" aria-controls="tab-map" data-tab="tab-map">Map</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and compare</button>
+</nav>
+<div id="tab-map" role="tabpanel">
 <main class="layout">
   <section aria-labelledby="map-h">
     <div class="section-head"><h2 id="map-h">Where the races are</h2>
@@ -123,10 +149,28 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
     <p>Select a highlighted state on the map to see its races, who the forecasters favor, and what my model says. You can lock in your own pick for each race.</p></div></div></section>
 </main>
 <section class="ask"><h2>Ask the forecast</h2><p class="note">The question-answering panel needs the Python server and an API key, so it isn't part of this page. It lives in the full project.</p></section>
+</div>
+<div id="tab-predict" role="tabpanel" hidden>
+  <section class="pred">
+    <h2>Predict and compare</h2>
+    <p class="note">Pick the winner of 37 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
+    <div class="pred-form">
+      <label for="pred-name"><b>Your name or nickname</b></label>
+      <input id="pred-name" type="text" maxlength="30" autocomplete="nickname" placeholder="e.g. Bulldog26">
+      <button type="button" id="pred-save" class="save">Save my picks</button>
+      <span id="pred-msg" class="note" role="status"></span>
+    </div>
+    <p class="note" id="pred-mode"></p>
+    <div id="pred-lb"></div>
+    <div id="pred-tables"></div>
+  </section>
+</div>
 <footer class="foot">
   <p id="env-note"></p>
   <p>Race to the WH is included for governor races only. It, the New York Times, and CNN are not shown for Senate or House races because I found no per-race ratings from them that I could collect. Ratings are dated Aug 11 to Oct 16, 2026, and each outlet's date is shown in the race details.</p>
-  <p>Forecasts are probabilities, not predictions. Avatars are party mascots (donkeys for Democrats, elephants for Republicans), not likenesses. A Y patch marks a candidate the Yale Alumni Magazine lists as a Yale alumnus. Its lists cover people in Congress and governors' offices, so a missing Y does not mean someone didn't attend Yale.</p>
+  <p>Only major candidates are shown: a major-party nominee, or anyone with better than a 20% chance of winning.</p>
+  <p>Joey is a made-up character, not a real analyst. His 75% win rate is by his own count.</p>
+  <p>Forecasts are probabilities, not predictions. Avatars are party mascots (donkeys for Democrats, elephants for Republicans, eagles for independents), not likenesses. A Y patch marks a candidate the Yale Alumni Magazine lists as a Yale alumnus. Its lists cover people in Congress and governors' offices, so a missing Y does not mean someone didn't attend Yale.</p>
 </footer>
 
 <script>
@@ -183,7 +227,14 @@ default:return base+'<path d="M80 137 C88 150 112 150 120 137 C112 146 88 146 80
 function yPatch(){return'<g><circle cx="124" cy="151" r="12" fill="'+YALE.blue+'" stroke="#ffffff" stroke-width="2"/><text x="124" y="156.6" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#ffffff">Y</text></g>'}
 function ring(p){var col=p==="D"?"#3d7fd1":p==="R"?"#c0463f":p==="I"?YALE.gray:null;return col?'<circle cx="100" cy="100" r="98" fill="none" stroke="'+col+'" stroke-width="4"/>':""}
 /* Party mascots: donkeys for Democrats, elephants for Republicans. Cartoon animals, not likenesses of anyone. */
-var D_OUT=["#1f4f9a","#3d7fd1","#00356B","#286DC0","#4a4f57"],R_OUT=["#a63a34","#c0463f","#7a2b27","#4a4f57","#1f2a37"];
+var D_OUT=["#1f4f9a","#3d7fd1","#00356B","#286DC0","#4a4f57"],R_OUT=["#a63a34","#c0463f","#7a2b27","#4a4f57","#1f2a37"],I_OUT=["#4a4f57","#1f2a37","#6b6f76","#3a3f47"];
+/* Cowboy hat. Donkey ears are redrawn on top so they poke up through the brim. */
+function cowboyHat(dem){var c=dem?"#c9a26b":"#7a4e2a",band=dem?"#4a3424":"#2a1a10";
+  var hat='<path d="M74 54 C72 30 82 22 92 26 C96 30 104 30 108 26 C118 22 128 30 126 54 Z" fill="'+c+'"/><rect x="73" y="45" width="54" height="7" fill="'+band+'"/>'+
+    '<path d="M46 54 C60 64 140 64 154 54 C150 50 136 60 100 58 C64 60 50 50 46 54 Z" fill="'+shade(c,-.12)+'"/><ellipse cx="100" cy="55" rx="50" ry="7" fill="'+c+'"/>';
+  if(dem)hat+='<path d="M70 50 C62 42 66 26 74 20 C84 26 86 40 84 50 Z" fill="#9b8f84"/><path d="M75 46 C71 38 73 32 76 29 C80 34 81 40 80 46 Z" fill="#e5b9b4"/>'+
+    '<path d="M130 50 C138 42 134 26 126 20 C116 26 114 40 116 50 Z" fill="#9b8f84"/><path d="M125 46 C129 38 127 32 124 29 C120 34 119 40 120 46 Z" fill="#e5b9b4"/>';
+  return hat}
 function animalTorso(kind,c,dark,accent){
   var base='<path d="M26 200 C26 160 50 140 88 136 L112 136 C150 140 174 160 174 200 Z" fill="'+c+'"/>';
   if(kind==="blazer")return base+'<path d="M88 136 L100 172 L112 136 Z" fill="#f4f6f8"/><path d="M88 136 L76 150 L98 186 L100 172 Z" fill="'+dark+'"/><path d="M112 136 L124 150 L102 186 L100 172 Z" fill="'+dark+'"/>';
@@ -191,12 +242,20 @@ function animalTorso(kind,c,dark,accent){
   return base+'<path d="M80 137 C88 150 112 150 120 137 C112 146 88 146 80 137 Z" fill="'+dark+'"/>';
 }
 function makeAnimal(seed,o){
-  var r=rng("a"+seed),el=o.party==="R",size=o.size||96,col=pick(r,el?R_OUT:D_OUT),
-    kind=pick(r,el?["sweater","blazer","sweater","blazer"]:["sweater","blazer","tie"]),
-    specs=r()<.25,dark=shade(col,-.18),accent=el?"#c0463f":"#3d7fd1",id="c"+hash(seed),
-    lab=o.label?String(o.label).replace(/[<>&"]/g,""):(el?"Republican":"Democratic")+" mascot",
-    ex=el?[86,114,76]:[87,113,80],body="";
-  if(el){
+  var r=rng("a"+seed),el=o.party==="R",eg=o.party==="I",size=o.size||96,col=pick(r,eg?I_OUT:el?R_OUT:D_OUT),
+    kind=pick(r,eg?["blazer","tie"]:el?["sweater","blazer","sweater","blazer"]:["sweater","blazer","tie"]),
+    specs=!eg&&r()<.25,dark=shade(col,-.18),accent=eg?YALE.gray:el?"#c0463f":"#3d7fd1",id="c"+hash(seed),
+    lab=o.label?String(o.label).replace(/[<>&"]/g,""):(eg?"Independent":el?"Republican":"Democratic")+" mascot",
+    ex=eg?[88,112,76]:el?[86,114,76]:[87,113,80],body="";
+  if(eg){
+    body=animalTorso(kind,col,dark,accent)+
+      '<path d="M80 104 L84 142 L116 142 L120 104 Z" fill="#5b3a1e"/>'+
+      '<path d="M66 82 C64 50 82 40 100 40 C118 40 136 50 134 82 C134 100 122 112 100 114 C78 112 66 100 66 82 Z" fill="#fbfaf6" stroke="#cfd5dc" stroke-width="2"/>'+
+      '<path d="M70 96 L62 104 L74 102 Z M130 96 L138 104 L126 102 Z M90 112 L94 122 L100 114 L106 122 L110 112 Z" fill="#fbfaf6"/>'+
+      '<path d="M88 86 C92 80 110 80 116 88 C118 100 110 108 102 116 C104 106 98 98 88 92 Z" fill="#f2b632"/>'+
+      '<path d="M102 116 C108 110 114 104 116 96 C116 106 110 114 102 116 Z" fill="#c98a12"/>'+
+      '<path d="M76 66 L95 72 M124 66 L105 72" stroke="#3a2a1a" stroke-width="4" stroke-linecap="round"/>';
+  }else if(el){
     body='<ellipse cx="56" cy="86" rx="26" ry="32" fill="#8d97a3"/><ellipse cx="58" cy="88" rx="16" ry="22" fill="#e5b9b4"/>'+
       '<ellipse cx="144" cy="86" rx="26" ry="32" fill="#8d97a3"/><ellipse cx="142" cy="88" rx="16" ry="22" fill="#e5b9b4"/>'+
       animalTorso(kind,col,dark,accent)+
@@ -216,23 +275,41 @@ function makeAnimal(seed,o){
   }
   body+='<circle cx="'+ex[0]+'" cy="'+ex[2]+'" r="3.6" fill="#1b2430"/><circle cx="'+ex[1]+'" cy="'+ex[2]+'" r="3.6" fill="#1b2430"/>';
   if(specs)body+='<g fill="none" stroke="'+YALE.mid+'" stroke-width="2.6"><circle cx="'+ex[0]+'" cy="'+ex[2]+'" r="9"/><circle cx="'+ex[1]+'" cy="'+ex[2]+'" r="9"/><path d="M'+(ex[0]+9)+' '+ex[2]+' H'+(ex[1]-9)+'"/></g>';
+  if(o.hat==="cowboy"&&!eg)body+=cowboyHat(!el);
   if(o.yale)body+='<g><circle cx="130" cy="154" r="11" fill="'+YALE.blue+'" stroke="#ffffff" stroke-width="2"/><text x="130" y="159.4" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#ffffff">Y</text></g>';
   return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+size+'" height="'+size+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title><defs><clipPath id="'+id+'"><circle cx="100" cy="100" r="100"/></clipPath></defs><g clip-path="url(#'+id+')"><g transform="translate(100 142) scale(1.2) translate(-100 -128)">'+body+'</g></g>'+ring(o.party)+'</svg>';
 }
-function make(seed,o){o=o||{};if(o.party==="D"||o.party==="R")return makeAnimal(seed,o);var t=traits(seed),ov=o.traits||{};Object.keys(ov).forEach(function(k){t[k]=ov[k]});
+/* Joey: a made-up election expert, drawn from the user's description. Not a likeness of anyone. */
+function makeJoey(size,label){size=size||96;var skin="#f0c2a0",hair="#c8a06a",lab=label||"Joey, made-up election expert",id="cjoey"+size;
+  var body='<rect x="87" y="106" width="26" height="36" rx="8" fill="'+shade(skin,-.1)+'"/>'+
+    '<path d="M26 200 C26 160 50 140 88 136 L112 136 C150 140 174 160 174 200 Z" fill="#ffffff"/>'+
+    '<path d="M86 137 C92 146 108 146 114 137" fill="none" stroke="#d3dae3" stroke-width="3"/>'+
+    '<path d="M26 200 C26 160 50 140 86 136 L92 200 Z" fill="#a9c8ea"/><path d="M174 200 C174 160 150 140 114 136 L108 200 Z" fill="#a9c8ea"/>'+
+    '<path d="M86 136 L76 150 L92 162 Z" fill="#7fa6d6"/><path d="M114 136 L124 150 L108 162 Z" fill="#7fa6d6"/>'+
+    '<g><circle cx="72" cy="152" r="8" fill="'+YALE.blue+'" stroke="#ffffff" stroke-width="1.5"/><text x="72" y="156" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#ffffff">Y</text></g>'+
+    '<ellipse cx="66" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="134" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="100" cy="80" rx="34" ry="40" fill="'+skin+'"/>'+
+    '<path d="M68 90 C68 118 84 126 100 126 C116 126 132 118 132 90 C128 104 118 108 100 108 C82 108 72 104 68 90 Z" fill="#8a6a4a" opacity="0.14"/>'+
+    '<path d="M66 70 C64 78 66 86 70 90 C70 82 71 76 73 70 Z M134 70 C136 78 134 86 130 90 C130 82 129 76 127 70 Z" fill="'+hair+'"/>'+
+    '<path d="M64 70 C62 34 82 24 100 24 C118 24 138 34 136 70 Z" fill="#f7f7f5" stroke="#d9dde3" stroke-width="1.5"/>'+
+    '<path d="M100 25 V62 M82 30 C78 44 77 56 78 64 M118 30 C122 44 123 56 122 64" fill="none" stroke="#e1e5ea" stroke-width="1.5"/>'+
+    '<rect x="63" y="62" width="74" height="9" rx="3" fill="#eceff2"/>'+
+    '<path d="M84 71 C84 56 116 56 116 71 Z" fill="'+hair+'"/><path d="M84 65 H116" stroke="#9aa0a6" stroke-width="3"/>'+
+    '<path d="M128 70 C132 76 132 82 129 86 M132 69 C136 74 136 80 134 84" fill="none" stroke="'+hair+'" stroke-width="2.5" stroke-linecap="round"/>';
+  return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+size+'" height="'+size+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title><defs><clipPath id="'+id+'"><circle cx="100" cy="100" r="100"/></clipPath></defs><g clip-path="url(#'+id+')"><rect width="200" height="200" fill="#ffffff"/><g transform="translate(100 142) scale(1.2) translate(-100 -128)">'+body+'</g></g><circle cx="100" cy="100" r="98" fill="none" stroke="'+YALE.blue+'" stroke-width="4"/></svg>'}
+function make(seed,o){o=o||{};if(o.party==="D"||o.party==="R"||o.party==="I")return makeAnimal(seed,o);var t=traits(seed),ov=o.traits||{};Object.keys(ov).forEach(function(k){t[k]=ov[k]});
 var size=o.size||96,skin=t.skin,sd=shade(skin,-.1),lab=o.label?String(o.label).replace(/[<>&"]/g,""):"Avatar",id="c"+hash(seed);
 return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="'+size+'" height="'+size+'" role="img" aria-label="'+lab+'"><title>'+lab+'</title><defs><clipPath id="'+id+'"><circle cx="100" cy="100" r="100"/></clipPath></defs><g clip-path="url(#'+id+')"><g transform="translate(100 142) scale(1.2) translate(-100 -128)">'+
 hairBack(t)+'<rect x="87" y="106" width="26" height="36" rx="8" fill="'+sd+'"/>'+torso(t)+
 '<ellipse cx="66" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="134" cy="84" rx="5.5" ry="9" fill="'+skin+'"/><ellipse cx="100" cy="80" rx="34" ry="40" fill="'+skin+'"/>'+
 facial(t)+hairFront(t)+hat(t)+(t.glasses?glasses():"")+earrings(t)+(o.yale?yPatch():"")+'</g></g>'+ring(o.party)+'</svg>'}
-root.YaleAvatars={make:make,traits:traits}})(window);
+root.YaleAvatars={make:make,traits:traits,joey:makeJoey}})(window);
 </script>
 
 <script>
 (function(){"use strict";
 /* Rows: id, chamber (s/g/h), state, district, lean, incumbent, incumbent party, status, Dem name, Rep name, notes, ratings (2 letters per outlet, -- = not collected), date exceptions, [my Dem %, my call], polls */
 var DEF={"s":["1006","0917","0922","0926","0925","0925","0924","0922","0923","0924"],"h":["1009","1001","1008","1007","1008","1008","1008","0922","0910","1007"],"g":["0910","0904","0903","0903","0814","0818","0811","0828"]};
-var DATA=[["sen-ia","s","IA",0,"R6","Open seat (Ernst retiring)","R","open","Josh Turek","Ashley Hinson","","TUTRTUTUTUTUTUTULDTU",[],[54,"Toss-up"],[]],["sen-tx","s","TX",0,"R6","Open seat (Cornyn lost renomination)","R","open","James Talarico","Ken Paxton","","TUTRTUTULDTULDTULDTU",[[1,"1001"]],[58,"Toss-up"],[]],["sen-oh","s","OH",0,"R5","Jon Husted (appointed)","R","appointed","Sherrod Brown","Jon Husted","Special election","TUTUTULDTUTULDTULDTU",[],[60,"Lean D"],[]],["sen-ak","s","AK",0,"R6","Dan Sullivan","R","incumbent","Mary Peltola","Dan Sullivan","Also on the ballot: Dan J. Sullivan (R, a different person with the same name) and Gerald Heikes (R)","TUTULDTULDLDLDTUTUTU",[[1,"1001"],[2,"1006"]],[61,"Lean D"],[["NYT/Siena","2026-06-29",593,45,47]]],["sen-ks","s","KS",0,"R8","Roger Marshall","R","incumbent","Adam Hamilton","Roger Marshall","","TUYRLRTULRYRLRLRLRTU",[],[32,"Lean R"],[]],["sen-me","s","ME",0,"D4","Susan Collins","R","incumbent","Troy Jackson","Susan Collins","Jackson replaced Graham Platner, who withdrew in July","TUTUTULDLDTULDTULDTU",[],[72,"Lean D"],[]],["sen-mi","s","MI",0,"EVEN","Open seat (Peters retiring)","D","open","Abdul El-Sayed","Mike Rogers","","TUTDLDLDLDLDLDTUYDTU",[[1,"1001"]],[74,"Lean D"],[]],["sen-ne","s","NE",0,"R10","Pete Ricketts","R","incumbent","-","Pete Ricketts","Independent Dan Osborn is the main challenger and is endorsed by the Nebraska Democratic Party","YRLRYRLRLRYRYRYRYRTU",[[1,"1001"]],[20,"Likely R"],[]],["sen-sc","s","SC",0,"R8","Darline Graham (appointed after Lindsey Graham's death)","R","appointed","Annie Andrews","Darline Graham","","YRYRYRYRYRLRLRSRYRLR",[[2,"1006"]],[18,"Likely R"],[]],["sen-nc","s","NC",0,"R1","Open seat (Tillis retiring)","R","open","Roy Cooper","Michael Whatley","","YDLDLDYDYDYDYDLDYDLD",[[1,"1001"]],[85,"Likely D"],[]],["sen-fl","s","FL",0,"R5","Ashley Moody (appointed)","R","appointed","Angie Nixon","Ashley Moody","Special election. Independent: Neil Gillespie","SRSRSRYRYRYRYRSRYRLR",[],[14,"Likely R"],[]],["sen-nh","s","NH",0,"D2","Open seat (Shaheen retiring)","D","open","Chris Pappas","John Sununu","","LDTUYDYDYDYDYDLDYDLD",[[2,"1014"]],[86,"Likely D"],[]],["sen-mn","s","MN",0,"D3","Open seat (Smith retiring)","D","open","Peggy Flanagan","Michele Tafoya","","YDLDYDLDYDYDYDYDYDTU",[[1,"1001"]],[88,"Likely D"],[]],["sen-ga","s","GA",0,"R1","Jon Ossoff","D","incumbent","Jon Ossoff","Mike Collins","","YDLDYDYDYDYDSDYDYDLD",[[1,"1001"]],[89,"Likely D"],[]],["sen-la","s","LA",0,"R11","Open seat (Cassidy lost renomination)","R","open","Jamie Davis","Julia Letlow","","SRSRSRYRSRYRYRSRSRSR",[],[7,"Likely R"],[]],["sen-ms","s","MS",0,"R11","Cindy Hyde-Smith","R","incumbent","Scott Colom","Cindy Hyde-Smith","Independent: Ty Pinkins","SRSRYRYRSRYRSRSRSRSR",[[2,"1014"]],[7,"Likely R"],[]],["sen-mt","s","MT",0,"R10","Open seat (Daines retiring)","R","open","Alani Bankhead","Kurt Alme","Independent: Seth Bodnar (endorsed by Jon Tester)","SRSRSRSRSRYRYRSRSRYR",[],[7,"Likely R"],[]],["sen-sd","s","SD",0,"R15","Mike Rounds","R","incumbent","-","Mike Rounds","Democratic nominee withdrew. Independent Brian Bengs is the main challenger","SRSRSRYRSRSRYRSRSRSR",[],[5,"Safe R"],[]],["sen-al","s","AL",0,"R15","Open seat (Tuberville running for governor)","R","open","Everett Wess","Barry Moore","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-ar","s","AR",0,"R15","Tom Cotton","R","incumbent","Hallie Shoffner","Tom Cotton","","SRSRSRYRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-id","s","ID",0,"R18","Jim Risch","R","incumbent","-","Jim Risch","Democratic nominee withdrew. Independents: Todd Achilles, Natalie Fleming; Libertarian: Matt Loesby","SRSRSRYRSRSRYRSRSRSR",[],[4,"Safe R"],[]],["sen-ky","s","KY",0,"R15","Open seat (McConnell retiring)","R","open","Charles Booker","Andy Barr","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-tn","s","TN",0,"R14","Bill Hagerty","R","incumbent","Marquita Bradshaw","Bill Hagerty","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-nj","s","NJ",0,"D4","Cory Booker","D","incumbent","Cory Booker","Justin Murphy","","SDSDSDSDSDSDSDSDSDSD",[],[97,"Safe D"],[]],["sen-nm","s","NM",0,"D4","Ben Ray Luján","D","incumbent","Ben Ray Luján","Larry Marker","","SDSDSDSDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["sen-ok","s","OK",0,"R17","Open seat (appointee Armstrong not running)","R","open","N'Kiyla Jasmine Thomas","Kevin Hern","","SRSRSRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["sen-va","s","VA",0,"D3","Mark Warner","D","incumbent","Mark Warner","Bert Mizusawa","","SDSDSDSDSDSDSDSDSDSD",[],[97,"Safe D"],[]],["sen-wv","s","WV",0,"R21","Shelley Moore Capito","R","incumbent","Rachel Fetty Anderson","Shelley Moore Capito","","SRSRSRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["sen-co","s","CO",0,"D6","John Hickenlooper","D","incumbent","John Hickenlooper","Mark Baisley","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-de","s","DE",0,"D8","Chris Coons","D","incumbent","Chris Coons","Michael Katz","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-il","s","IL",0,"D6","Open seat (Durbin retiring)","D","open","Juliana Stratton","Don Tracy","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-or","s","OR",0,"D8","Jeff Merkley","D","incumbent","Jeff Merkley","David Brock Smith","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-ri","s","RI",0,"D8","Jack Reed","D","incumbent","Jack Reed","Raymond McKay","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-wy","s","WY",0,"R23","Open seat (Lummis retiring)","R","open","James W. Byrd","Harriet Hageman","","SRSRSRSRSRSRSRSRSRSR",[],[2,"Safe R"],[]],["sen-ma","s","MA",0,"D14","Ed Markey","D","incumbent","Ed Markey","John Deaton","Independent: Shiva Ayyadurai","SDSDSDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["me-02","h","ME",2,"R4","Open seat (Golden retiring)","D","open","Matthew Dunlap","Paul LePage","","LRYRLRTULRLRLDTULRTU",[],[50,"Toss-up"],[]],["tx-15","h","TX",15,"R7","Monica De La Cruz","R","incumbent","","Monica De La Cruz","","TUTRTUTULDTULRLRLRLD",[],[50,"Toss-up"],[]],["gov-nv","g","NV",0,"R1","Joe Lombardo","R","incumbent","Aaron Ford","Joe Lombardo","","TUTRLRLRTUTULRTU",[],[50,"Toss-up"],[]],["gov-oh","g","OH",0,"R5","Open seat (DeWine term-limited)","R","open","Amy Acton","Vivek Ramaswamy","","TUTRLRTUTUTUTUTU",[],[50,"Toss-up"],[]],["wi-01","h","WI",1,"R2","Bryan Steil","R","incumbent","","Bryan Steil","","LRYRLRTULRLRLDYRLRTU",[],[51,"Toss-up"],[]],["mt-01","h","MT",1,"R5","Open seat (Zinke retiring)","R","open","Sam Forstag","Aaron Flint","","TULRLRTULRLRTULRLRTU",[[0,"1016"]],[48,"Toss-up"],[]],["tx-35","h","TX",35,"R4","New seat","","new","","","","LRLRLRTULDTUTULRLRTU",[],[53,"Toss-up"],[]],["gov-ak","g","AK",0,"R6","Open seat (Dunleavy term-limited)","R","open","Jonathan Kreiss-Tomkins","Dave Bronson, Treg Taylor, Bernadette Wilson","Three Republicans advanced under Alaska's top-four primary and ranked-choice voting","LRLRTUTUTULRLDLR",[],[45,"Toss-up"],[]],["co-05","h","CO",5,"R5","Jeff Crank","R","incumbent","Jessica Killin","Jeff Crank","","LRTRLRLRLRYRLDLRLRLR",[],[43,"Toss-up"],[]],["fl-07","h","FL",7,"R5","Open (Cory Mills lost renomination)","R","open","Bale Dalton","Ryan Elijah","","YRYRYRYDLRLRLRLRTULR",[],[42,"Toss-up"],[]],["nc-11","h","NC",11,"R5","Open seat (Edwards retiring)","R","open","Jamie Ager","Jennifer Balkcom","","TULRTUTULDTUTUTUTUTU",[],[58,"Toss-up"],[]],["fl-22","h","FL",22,"R4","New seat","","new","Pia Dandiya","Casey Askar","","TUTRTUTULRLRLDTULDTU",[],[59,"Toss-up"],[]],["oh-07","h","OH",7,"R5","Max Miller","R","incumbent","Brian Poindexter","Max Miller","","TUTUTUTUTUTULDTUTULD",[],[61,"Lean D"],[]],["mi-04","h","MI",4,"R3","Bill Huizenga","R","incumbent","Sean McCann","Bill Huizenga","","TUTRTUTUTULRLDTUTUTU",[],[62,"Lean D"],[]],["nc-01","h","NC",1,"R5","Don Davis","D","incumbent","Don Davis","Laurie Buckhout","","TUTRTUTULDTULDTULDTU",[],[62,"Lean D"],[]],["va-01","h","VA",1,"R3","Rob Wittman","R","incumbent","","Rob Wittman","","TULRTUTUTULRYDTUTUTU",[],[62,"Lean D"],[]],["ia-02","h","IA",2,"R4","Open seat (Hinson running for Senate)","R","open","Lindsay James","Joe Mitchell","","TUTRTULDLDTULDTUTUTU",[],[64,"Lean D"],[]],["gov-ga","g","GA",0,"R1","Open seat (Kemp term-limited)","R","open","Keisha Lance Bottoms","Rick Jackson","","TUTUTUTUTUTULDLD",[],[64,"Lean D"],[]],["gov-ks","g","KS",0,"R8","Open seat (Kelly term-limited)","D","open","Cindy Holscher","Ty Masterson","","LRTRLRTRLRLRTULR",[],[35,"Lean R"],[]],["gov-wi","g","WI",0,"EVEN","Open seat (Evers retiring)","D","open","David Crowley","Tom Tiffany","","TUTULDTUTUTUTULD",[],[65,"Lean D"],[]],["pa-01","h","PA",1,"D1","Brian Fitzpatrick","R","incumbent","Bob Harvie","Brian Fitzpatrick","","LRLRLRTUTULRYDLRTUTU",[],[67,"Lean D"],[]],["pa-08","h","PA",8,"R4","Rob Bresnahan","R","incumbent","Paige Cognetti","Rob Bresnahan","","TUTUTUTULDTUYDTULDTU",[],[67,"Lean D"],[]],["fl-09","h","FL",9,"R8","Darren Soto","D","incumbent","Darren Soto","Dan Green","","YRYRYRTULRLRYRLRTUTU",[],[32,"Lean R"],[]],["oh-09","h","OH",9,"R5","Marcy Kaptur","D","incumbent","Marcy Kaptur","Derek Merrin","","TUTRTULDYDLDLDTULDLD",[],[68,"Lean D"],[]],["gov-ia","g","IA",0,"R6","Open seat (Reynolds retiring)","R","open","Rob Sand","Zach Lahn","Lahn won the Republican nomination in a major upset","LDTDLDLDTULDYDTU",[],[69,"Lean D"],[]],["mi-10","h","MI",10,"R3","Open seat (James running for governor)","R","open","Christina Hines","Mike Bouchard","","TUTRTULDLDTUYDTULDLD",[],[71,"Lean D"],[]],["fl-14","h","FL",14,"R4","Kathy Castor","D","incumbent","Kathy Castor","Mike Beltran","","TUTUTUYDLDLDYDTUYDLD",[],[74,"Lean D"],[]],["wi-03","h","WI",3,"R3","Derrick Van Orden","R","incumbent","","Derrick Van Orden","","TUTUTULDLDYDYDTULDLD",[],[75,"Lean D"],[]],["gov-nh","g","NH",0,"D2","Kelly Ayotte","R","incumbent","Cinde Warmington","Kelly Ayotte","Community First: Jon Kiper","YRSRYRYRLRYRYRLR",[],[25,"Lean R"],[]],["tx-34","h","TX",34,"R3","Vicente Gonzalez","D","incumbent","Vicente Gonzalez","","","TUTULDLDYDLDLDLDLDLD",[],[76,"Lean D"],[]],["fl-25","h","FL",25,"R3","Jared Moskowitz","D","incumbent","Jared Moskowitz","Scott Singer","","TUTULDLDLDLDYDLDYDLD",[],[77,"Lean D"],[]],["gov-az","g","AZ",0,"R2","Katie Hobbs","D","incumbent","Katie Hobbs","Andy Biggs","No Labels: Teri Hourihan; Green: Risa Lombardo","LDTDLDLDLDLDYDLD",[],[77,"Lean D"],[]],["gov-vt","g","VT",0,"D17","Phil Scott","R","incumbent","Amanda Janoo","Phil Scott","","SRSRSRSRSRSRYRSR",[],[23,"Lean R"],[]],["mi-07","h","MI",7,"EVEN","Tom Barrett","R","incumbent","William Lawrence","Tom Barrett","","TUTUTUTULDLDYDTULDLD",[],[78,"Lean D"],[]],["pa-10","h","PA",10,"R3","Scott Perry","R","incumbent","","Scott Perry","","LDTUTUYDYDLDYDTUYDLD",[],[78,"Lean D"],[]],["ny-17","h","NY",17,"D1","Mike Lawler","R","incumbent","Cait Conley","Mike Lawler","","TUTUTULDLDTUYDLDLDTU",[],[79,"Lean D"],[]],["pa-07","h","PA",7,"R1","Ryan Mackenzie","R","incumbent","Bob Brooks","Ryan Mackenzie","","LDTULDLDYDLDYDTULDLD",[],[81,"Likely D"],[]],["gov-fl","g","FL",0,"R5","Open seat (DeSantis term-limited)","R","open","David Jolly","Byron Donalds","Several independents and a Libertarian are also on the ballot","YRYRYRLRYRSRYRLR",[],[19,"Likely R"],[]],["gov-mi","g","MI",0,"EVEN","Open seat (Whitmer term-limited)","D","open","Jocelyn Benson","John James","","LDTDLDYDLDLDYDLD",[],[81,"Likely D"],[]],["az-01","h","AZ",1,"R1","Open seat (Schweikert retiring)","R","open","Amish Shah","Jay Feely","","LDTUTUYDYDLDYDLDLDLD",[],[82,"Likely D"],[]],["co-08","h","CO",8,"EVEN","Gabe Evans","R","incumbent","Manny Rutinel","Gabe Evans","","TUTUTULDLDYDYDLDYDLD",[],[82,"Likely D"],[]],["gov-tx","g","TX",0,"R6","Greg Abbott","R","incumbent","Gina Hinojosa","Greg Abbott","","YRYRYRLRYRYRYRYR",[],[18,"Likely R"],[]],["ca-22","h","CA",22,"D1","David Valadao","R","incumbent","Randy Villegas","David Valadao","","TUTULDYDLDYDYDTUYDLD",[],[85,"Likely D"],[]],["gov-or","g","OR",0,"D8","Tina Kotek","D","incumbent","Tina Kotek","Christine Drazan","","LDLDYDLDSDYDYDYD",[],[92,"Likely D"],[]],["gov-sc","g","SC",0,"R8","Open seat (McMaster term-limited)","R","open","Jermaine Johnson","Alan Wilson","","SRSRSRSRYRSRSRYR",[],[8,"Likely R"],[]],["gov-ne","g","NE",0,"R10","Jim Pillen","R","incumbent","Lynne Walz","Jim Pillen","","SRSRSRSRSRSRSRYR",[],[6,"Likely R"],[]],["gov-me","g","ME",0,"D4","Open seat (Mills term-limited)","D","open","Hannah Pingree","Robert B. Charles","Independent: Rick Bennett","SDYDYDYDYDSDSDYD",[],[95,"Safe D"],[]],["gov-nm","g","NM",0,"D4","Open seat (Lujan Grisham term-limited)","D","open","Deb Haaland","Gregg Hull","","SDYDSDYDYDSDSDYD",[],[95,"Safe D"],[]],["gov-al","g","AL",0,"R15","Open seat (Ivey term-limited)","R","open","Doug Jones","Tommy Tuberville","","SRSRSRYRSRSRSRSR",[],[4,"Safe R"],[]],["gov-ar","g","AR",0,"R15","Sarah Huckabee Sanders","R","incumbent","Fredrick Love","Sarah Huckabee Sanders","","SRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["gov-mn","g","MN",0,"D3","Open seat (Walz retiring)","D","open","Amy Klobuchar","Lisa Demuth","","SDYDSDSDSDYDSDYD",[],[96,"Safe D"],[]],["gov-pa","g","PA",0,"R1","Josh Shapiro","D","incumbent","Josh Shapiro","Stacy Garrity","","SDSDSDSDSDSDSDYD",[],[96,"Safe D"],[]],["gov-sd","g","SD",0,"R15","Larry Rhoden","R","incumbent","Dan Ahlers","Larry Rhoden","","SRSRSRYRSRSRSRSR",[],[4,"Safe R"],[]],["gov-tn","g","TN",0,"R14","Open seat (Lee term-limited)","R","open","Jerri Green","Marsha Blackburn","","SRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["gov-co","g","CO",0,"D6","Open seat (Polis term-limited)","D","open","Phil Weiser","Victor Marx","Independent: Greg Lopez","SDSDSDYDSDSDSDYD",[],[97,"Safe D"],[]],["gov-id","g","ID",0,"R18","Brad Little","R","incumbent","Terri Pickens","Brad Little","","SRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["gov-il","g","IL",0,"D6","JB Pritzker","D","incumbent","JB Pritzker","Darren Bailey","","SDSDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["gov-ny","g","NY",0,"D8","Kathy Hochul","D","incumbent","Kathy Hochul","Bruce Blakeman","","SDYDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["gov-ok","g","OK",0,"R17","Open seat (Stitt term-limited)","R","open","Cyndi Munson","Mike Mazzei","","SRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["gov-ct","g","CT",0,"D8","Ned Lamont","D","incumbent","Ned Lamont","Ryan Fazio","","SDSDSDSDSDSDSDYD",[],[98,"Safe D"],[]],["gov-ri","g","RI",0,"D8","Open seat (McKee lost renomination)","D","open","Helena Foulkes","","Republican nominee not confirmed in my sources (Aaron Guckian and Elaine Pelino were both in the field). Independent: Ken Block","SDSDSDYDSDSDSDSD",[],[98,"Safe D"],[]],["gov-wy","g","WY",0,"R23","Open seat (Gordon term-limited)","R","open","Kenneth Casner","Eric Barlow","Constitution Party: Joseph Kibler","SRSRSRSRSRSRSRSR",[],[2,"Safe R"],[]],["gov-ca","g","CA",0,"D12","Open seat (Newsom term-limited)","D","open","Xavier Becerra","Steve Hilton","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-hi","g","HI",0,"D13","Josh Green","D","incumbent","Josh Green","Gary Cordery","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-md","g","MD",0,"D15","Wes Moore","D","incumbent","Wes Moore","Dan Cox","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-ma","g","MA",0,"D14","Maura Healey","D","incumbent","Maura Healey","Mike Minogue","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]]];
+var DATA=[["sen-ia","s","IA",0,"R6","Open seat (Ernst retiring)","R","open","Josh Turek","Ashley Hinson","","TUTRTUTUTUTUTUTULDTU",[],[54,"Toss-up"],[]],["sen-tx","s","TX",0,"R6","Open seat (Cornyn lost renomination)","R","open","James Talarico","Ken Paxton","","TUTRTUTULDTULDTULDTU",[[1,"1001"]],[58,"Toss-up"],[]],["sen-oh","s","OH",0,"R5","Jon Husted (appointed)","R","appointed","Sherrod Brown","Jon Husted","Special election","TUTUTULDTUTULDTULDTU",[],[60,"Lean D"],[]],["sen-ak","s","AK",0,"R6","Dan Sullivan","R","incumbent","Mary Peltola","Dan Sullivan","","TUTULDTULDLDLDTUTUTU",[[1,"1001"],[2,"1006"]],[61,"Lean D"],[["NYT/Siena","2026-06-29",593,45,47]]],["sen-ks","s","KS",0,"R8","Roger Marshall","R","incumbent","Adam Hamilton","Roger Marshall","","TUYRLRTULRYRLRLRLRTU",[],[32,"Lean R"],[]],["sen-me","s","ME",0,"D4","Susan Collins","R","incumbent","Troy Jackson","Susan Collins","Jackson replaced Graham Platner, who withdrew in July","TUTUTULDLDTULDTULDTU",[],[72,"Lean D"],[]],["sen-mi","s","MI",0,"EVEN","Open seat (Peters retiring)","D","open","Abdul El-Sayed","Mike Rogers","","TUTDLDLDLDLDLDTUYDTU",[[1,"1001"]],[74,"Lean D"],[]],["sen-ne","s","NE",0,"R10","Pete Ricketts","R","incumbent","-","Pete Ricketts","Osborn is endorsed by the Nebraska Democratic Party, which has no nominee on the ballot","YRLRYRLRLRYRYRYRYRTU",[[1,"1001"]],[20,"Likely R"],[]],["sen-sc","s","SC",0,"R8","Darline Graham (appointed after Lindsey Graham's death)","R","appointed","Annie Andrews","Darline Graham","","YRYRYRYRYRLRLRSRYRLR",[[2,"1006"]],[18,"Likely R"],[]],["sen-nc","s","NC",0,"R1","Open seat (Tillis retiring)","R","open","Roy Cooper","Michael Whatley","","YDLDLDYDYDYDYDLDYDLD",[[1,"1001"]],[85,"Likely D"],[]],["sen-fl","s","FL",0,"R5","Ashley Moody (appointed)","R","appointed","Angie Nixon","Ashley Moody","Special election","SRSRSRYRYRYRYRSRYRLR",[],[14,"Likely R"],[]],["sen-nh","s","NH",0,"D2","Open seat (Shaheen retiring)","D","open","Chris Pappas","John Sununu","","LDTUYDYDYDYDYDLDYDLD",[[2,"1014"]],[86,"Likely D"],[]],["sen-mn","s","MN",0,"D3","Open seat (Smith retiring)","D","open","Peggy Flanagan","Michele Tafoya","","YDLDYDLDYDYDYDYDYDTU",[[1,"1001"]],[88,"Likely D"],[]],["sen-ga","s","GA",0,"R1","Jon Ossoff","D","incumbent","Jon Ossoff","Mike Collins","","YDLDYDYDYDYDSDYDYDLD",[[1,"1001"]],[89,"Likely D"],[]],["sen-la","s","LA",0,"R11","Open seat (Cassidy lost renomination)","R","open","Jamie Davis","Julia Letlow","","SRSRSRYRSRYRYRSRSRSR",[],[7,"Likely R"],[]],["sen-ms","s","MS",0,"R11","Cindy Hyde-Smith","R","incumbent","Scott Colom","Cindy Hyde-Smith","","SRSRYRYRSRYRSRSRSRSR",[[2,"1014"]],[7,"Likely R"],[]],["sen-mt","s","MT",0,"R10","Open seat (Daines retiring)","R","open","Alani Bankhead","Kurt Alme","Bodnar is endorsed by Jon Tester","SRSRSRSRSRYRYRSRSRYR",[],[7,"Likely R"],[]],["sen-sd","s","SD",0,"R15","Mike Rounds","R","incumbent","-","Mike Rounds","The Democratic nominee withdrew","SRSRSRYRSRSRYRSRSRSR",[],[5,"Safe R"],[]],["sen-al","s","AL",0,"R15","Open seat (Tuberville running for governor)","R","open","Everett Wess","Barry Moore","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-ar","s","AR",0,"R15","Tom Cotton","R","incumbent","Hallie Shoffner","Tom Cotton","","SRSRSRYRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-id","s","ID",0,"R18","Jim Risch","R","incumbent","-","Jim Risch","The Democratic nominee withdrew","SRSRSRYRSRSRYRSRSRSR",[],[4,"Safe R"],[]],["sen-ky","s","KY",0,"R15","Open seat (McConnell retiring)","R","open","Charles Booker","Andy Barr","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-tn","s","TN",0,"R14","Bill Hagerty","R","incumbent","Marquita Bradshaw","Bill Hagerty","","SRSRSRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["sen-nj","s","NJ",0,"D4","Cory Booker","D","incumbent","Cory Booker","Justin Murphy","","SDSDSDSDSDSDSDSDSDSD",[],[97,"Safe D"],[]],["sen-nm","s","NM",0,"D4","Ben Ray Luján","D","incumbent","Ben Ray Luján","Larry Marker","","SDSDSDSDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["sen-ok","s","OK",0,"R17","Open seat (appointee Armstrong not running)","R","open","N'Kiyla Jasmine Thomas","Kevin Hern","","SRSRSRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["sen-va","s","VA",0,"D3","Mark Warner","D","incumbent","Mark Warner","Bert Mizusawa","","SDSDSDSDSDSDSDSDSDSD",[],[97,"Safe D"],[]],["sen-wv","s","WV",0,"R21","Shelley Moore Capito","R","incumbent","Rachel Fetty Anderson","Shelley Moore Capito","","SRSRSRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["sen-co","s","CO",0,"D6","John Hickenlooper","D","incumbent","John Hickenlooper","Mark Baisley","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-de","s","DE",0,"D8","Chris Coons","D","incumbent","Chris Coons","Michael Katz","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-il","s","IL",0,"D6","Open seat (Durbin retiring)","D","open","Juliana Stratton","Don Tracy","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-or","s","OR",0,"D8","Jeff Merkley","D","incumbent","Jeff Merkley","David Brock Smith","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-ri","s","RI",0,"D8","Jack Reed","D","incumbent","Jack Reed","Raymond McKay","","SDSDSDSDSDSDSDSDSDSD",[],[98,"Safe D"],[]],["sen-wy","s","WY",0,"R23","Open seat (Lummis retiring)","R","open","James W. Byrd","Harriet Hageman","","SRSRSRSRSRSRSRSRSRSR",[],[2,"Safe R"],[]],["sen-ma","s","MA",0,"D14","Ed Markey","D","incumbent","Ed Markey","John Deaton","","SDSDSDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["me-02","h","ME",2,"R4","Open seat (Golden retiring)","D","open","Matthew Dunlap","Paul LePage","","LRYRLRTULRLRLDTULRTU",[],[50,"Toss-up"],[]],["tx-15","h","TX",15,"R7","Monica De La Cruz","R","incumbent","Bobby Pulido","Monica De La Cruz","","TUTRTUTULDTULRLRLRLD",[],[50,"Toss-up"],[]],["gov-nv","g","NV",0,"R1","Joe Lombardo","R","incumbent","Aaron Ford","Joe Lombardo","","TUTRLRLRTUTULRTU",[],[50,"Toss-up"],[]],["gov-oh","g","OH",0,"R5","Open seat (DeWine term-limited)","R","open","Amy Acton","Vivek Ramaswamy","","TUTRLRTUTUTUTUTU",[],[50,"Toss-up"],[]],["wi-01","h","WI",1,"R2","Bryan Steil","R","incumbent","Mitchell Berman","Bryan Steil","","LRYRLRTULRLRLDYRLRTU",[],[51,"Toss-up"],[]],["mt-01","h","MT",1,"R5","Open seat (Zinke retiring)","R","open","Sam Forstag","Aaron Flint","","TULRLRTULRLRTULRLRTU",[[0,"1016"]],[48,"Toss-up"],[]],["tx-35","h","TX",35,"R4","New seat","","new","Johnny Garcia","Carlos De La Cruz","","LRLRLRTULDTUTULRLRTU",[],[53,"Toss-up"],[]],["gov-ak","g","AK",0,"R6","Open seat (Dunleavy term-limited)","R","open","Jonathan Kreiss-Tomkins","Dave Bronson, Treg Taylor, Bernadette Wilson","Three Republicans advanced under Alaska's top-four primary and ranked-choice voting","LRLRTUTUTULRLDLR",[],[45,"Toss-up"],[]],["co-05","h","CO",5,"R5","Jeff Crank","R","incumbent","Jessica Killin","Jeff Crank","","LRTRLRLRLRYRLDLRLRLR",[],[43,"Toss-up"],[]],["fl-07","h","FL",7,"R5","Open (Cory Mills lost renomination)","R","open","Bale Dalton","Ryan Elijah","","YRYRYRYDLRLRLRLRTULR",[],[42,"Toss-up"],[]],["nc-11","h","NC",11,"R5","Open seat (Edwards retiring)","R","open","Jamie Ager","Jennifer Balkcom","","TULRTUTULDTUTUTUTUTU",[],[58,"Toss-up"],[]],["fl-22","h","FL",22,"R4","New seat","","new","Pia Dandiya","Casey Askar","","TUTRTUTULRLRLDTULDTU",[],[59,"Toss-up"],[]],["oh-07","h","OH",7,"R5","Max Miller","R","incumbent","Brian Poindexter","Max Miller","","TUTUTUTUTUTULDTUTULD",[],[61,"Lean D"],[]],["mi-04","h","MI",4,"R3","Bill Huizenga","R","incumbent","Sean McCann","Bill Huizenga","","TUTRTUTUTULRLDTUTUTU",[],[62,"Lean D"],[]],["nc-01","h","NC",1,"R5","Don Davis","D","incumbent","Don Davis","Laurie Buckhout","","TUTRTUTULDTULDTULDTU",[],[62,"Lean D"],[]],["va-01","h","VA",1,"R3","Rob Wittman","R","incumbent","Shannon Taylor","Rob Wittman","","TULRTUTUTULRYDTUTUTU",[],[62,"Lean D"],[]],["ia-02","h","IA",2,"R4","Open seat (Hinson running for Senate)","R","open","Lindsay James","Joe Mitchell","","TUTRTULDLDTULDTUTUTU",[],[64,"Lean D"],[]],["gov-ga","g","GA",0,"R1","Open seat (Kemp term-limited)","R","open","Keisha Lance Bottoms","Rick Jackson","","TUTUTUTUTUTULDLD",[],[64,"Lean D"],[]],["gov-ks","g","KS",0,"R8","Open seat (Kelly term-limited)","D","open","Cindy Holscher","Ty Masterson","","LRTRLRTRLRLRTULR",[],[35,"Lean R"],[]],["gov-wi","g","WI",0,"EVEN","Open seat (Evers retiring)","D","open","David Crowley","Tom Tiffany","","TUTULDTUTUTUTULD",[],[65,"Lean D"],[]],["pa-01","h","PA",1,"D1","Brian Fitzpatrick","R","incumbent","Bob Harvie","Brian Fitzpatrick","","LRLRLRTUTULRYDLRTUTU",[],[67,"Lean D"],[]],["pa-08","h","PA",8,"R4","Rob Bresnahan","R","incumbent","Paige Cognetti","Rob Bresnahan","","TUTUTUTULDTUYDTULDTU",[],[67,"Lean D"],[]],["fl-09","h","FL",9,"R8","Darren Soto","D","incumbent","Darren Soto","Dan Green","","YRYRYRTULRLRYRLRTUTU",[],[32,"Lean R"],[]],["oh-09","h","OH",9,"R5","Marcy Kaptur","D","incumbent","Marcy Kaptur","Derek Merrin","","TUTRTULDYDLDLDTULDLD",[],[68,"Lean D"],[]],["gov-ia","g","IA",0,"R6","Open seat (Reynolds retiring)","R","open","Rob Sand","Zach Lahn","Lahn won the Republican nomination in a major upset","LDTDLDLDTULDYDTU",[],[69,"Lean D"],[]],["mi-10","h","MI",10,"R3","Open seat (James running for governor)","R","open","Christina Hines","Mike Bouchard","","TUTRTULDLDTUYDTULDLD",[],[71,"Lean D"],[]],["fl-14","h","FL",14,"R4","Kathy Castor","D","incumbent","Kathy Castor","Mike Beltran","","TUTUTUYDLDLDYDTUYDLD",[],[74,"Lean D"],[]],["wi-03","h","WI",3,"R3","Derrick Van Orden","R","incumbent","Rebecca Cooke","Derrick Van Orden","","TUTUTULDLDYDYDTULDLD",[],[75,"Lean D"],[]],["gov-nh","g","NH",0,"D2","Kelly Ayotte","R","incumbent","Cinde Warmington","Kelly Ayotte","","YRSRYRYRLRYRYRLR",[],[25,"Lean R"],[]],["tx-34","h","TX",34,"R3","Vicente Gonzalez","D","incumbent","Vicente Gonzalez","Eric Flores","","TUTULDLDYDLDLDLDLDLD",[],[76,"Lean D"],[]],["fl-25","h","FL",25,"R3","Jared Moskowitz","D","incumbent","Jared Moskowitz","Scott Singer","","TUTULDLDLDLDYDLDYDLD",[],[77,"Lean D"],[]],["gov-az","g","AZ",0,"R2","Katie Hobbs","D","incumbent","Katie Hobbs","Andy Biggs","","LDTDLDLDLDLDYDLD",[],[77,"Lean D"],[]],["gov-vt","g","VT",0,"D17","Phil Scott","R","incumbent","Amanda Janoo","Phil Scott","","SRSRSRSRSRSRYRSR",[],[23,"Lean R"],[]],["mi-07","h","MI",7,"EVEN","Tom Barrett","R","incumbent","William Lawrence","Tom Barrett","","TUTUTUTULDLDYDTULDLD",[],[78,"Lean D"],[]],["pa-10","h","PA",10,"R3","Scott Perry","R","incumbent","Janelle Stelson","Scott Perry","","LDTUTUYDYDLDYDTUYDLD",[],[78,"Lean D"],[]],["ny-17","h","NY",17,"D1","Mike Lawler","R","incumbent","Cait Conley","Mike Lawler","","TUTUTULDLDTUYDLDLDTU",[],[79,"Lean D"],[]],["pa-07","h","PA",7,"R1","Ryan Mackenzie","R","incumbent","Bob Brooks","Ryan Mackenzie","","LDTULDLDYDLDYDTULDLD",[],[81,"Likely D"],[]],["gov-fl","g","FL",0,"R5","Open seat (DeSantis term-limited)","R","open","David Jolly","Byron Donalds","","YRYRYRLRYRSRYRLR",[],[19,"Likely R"],[]],["gov-mi","g","MI",0,"EVEN","Open seat (Whitmer term-limited)","D","open","Jocelyn Benson","John James","","LDTDLDYDLDLDYDLD",[],[81,"Likely D"],[]],["az-01","h","AZ",1,"R1","Open seat (Schweikert retiring)","R","open","Amish Shah","Jay Feely","","LDTUTUYDYDLDYDLDLDLD",[],[82,"Likely D"],[]],["co-08","h","CO",8,"EVEN","Gabe Evans","R","incumbent","Manny Rutinel","Gabe Evans","","TUTUTULDLDYDYDLDYDLD",[],[82,"Likely D"],[]],["gov-tx","g","TX",0,"R6","Greg Abbott","R","incumbent","Gina Hinojosa","Greg Abbott","","YRYRYRLRYRYRYRYR",[],[18,"Likely R"],[]],["ca-22","h","CA",22,"D1","David Valadao","R","incumbent","Randy Villegas","David Valadao","","TUTULDYDLDYDYDTUYDLD",[],[85,"Likely D"],[]],["gov-or","g","OR",0,"D8","Tina Kotek","D","incumbent","Tina Kotek","Christine Drazan","","LDLDYDLDSDYDYDYD",[],[92,"Likely D"],[]],["gov-sc","g","SC",0,"R8","Open seat (McMaster term-limited)","R","open","Jermaine Johnson","Alan Wilson","","SRSRSRSRYRSRSRYR",[],[8,"Likely R"],[]],["gov-ne","g","NE",0,"R10","Jim Pillen","R","incumbent","Lynne Walz","Jim Pillen","","SRSRSRSRSRSRSRYR",[],[6,"Likely R"],[]],["gov-me","g","ME",0,"D4","Open seat (Mills term-limited)","D","open","Hannah Pingree","Robert B. Charles","","SDYDYDYDYDSDSDYD",[],[95,"Safe D"],[]],["gov-nm","g","NM",0,"D4","Open seat (Lujan Grisham term-limited)","D","open","Deb Haaland","Gregg Hull","","SDYDSDYDYDSDSDYD",[],[95,"Safe D"],[]],["gov-al","g","AL",0,"R15","Open seat (Ivey term-limited)","R","open","Doug Jones","Tommy Tuberville","","SRSRSRYRSRSRSRSR",[],[4,"Safe R"],[]],["gov-ar","g","AR",0,"R15","Sarah Huckabee Sanders","R","incumbent","Fredrick Love","Sarah Huckabee Sanders","","SRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["gov-mn","g","MN",0,"D3","Open seat (Walz retiring)","D","open","Amy Klobuchar","Lisa Demuth","","SDYDSDSDSDYDSDYD",[],[96,"Safe D"],[]],["gov-pa","g","PA",0,"R1","Josh Shapiro","D","incumbent","Josh Shapiro","Stacy Garrity","","SDSDSDSDSDSDSDYD",[],[96,"Safe D"],[]],["gov-sd","g","SD",0,"R15","Larry Rhoden","R","incumbent","Dan Ahlers","Larry Rhoden","","SRSRSRYRSRSRSRSR",[],[4,"Safe R"],[]],["gov-tn","g","TN",0,"R14","Open seat (Lee term-limited)","R","open","Jerri Green","Marsha Blackburn","","SRSRSRSRSRSRSRSR",[],[4,"Safe R"],[]],["gov-co","g","CO",0,"D6","Open seat (Polis term-limited)","D","open","Phil Weiser","Victor Marx","","SDSDSDYDSDSDSDYD",[],[97,"Safe D"],[]],["gov-id","g","ID",0,"R18","Brad Little","R","incumbent","Terri Pickens","Brad Little","","SRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["gov-il","g","IL",0,"D6","JB Pritzker","D","incumbent","JB Pritzker","Darren Bailey","","SDSDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["gov-ny","g","NY",0,"D8","Kathy Hochul","D","incumbent","Kathy Hochul","Bruce Blakeman","","SDYDSDSDSDSDSDYD",[],[97,"Safe D"],[]],["gov-ok","g","OK",0,"R17","Open seat (Stitt term-limited)","R","open","Cyndi Munson","Mike Mazzei","","SRSRSRSRSRSRSRSR",[],[3,"Safe R"],[]],["gov-ct","g","CT",0,"D8","Ned Lamont","D","incumbent","Ned Lamont","Ryan Fazio","","SDSDSDSDSDSDSDYD",[],[98,"Safe D"],[]],["gov-ri","g","RI",0,"D8","Open seat (McKee lost renomination)","D","open","Helena Foulkes","Aaron Guckian","","SDSDSDYDSDSDSDSD",[],[98,"Safe D"],[]],["gov-wy","g","WY",0,"R23","Open seat (Gordon term-limited)","R","open","Kenneth Casner","Eric Barlow","","SRSRSRSRSRSRSRSR",[],[2,"Safe R"],[]],["gov-ca","g","CA",0,"D12","Open seat (Newsom term-limited)","D","open","Xavier Becerra","Steve Hilton","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-hi","g","HI",0,"D13","Josh Green","D","incumbent","Josh Green","Gary Cordery","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-md","g","MD",0,"D15","Wes Moore","D","incumbent","Wes Moore","Dan Cox","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]],["gov-ma","g","MA",0,"D14","Maura Healey","D","incumbent","Maura Healey","Mike Minogue","","SDSDSDSDSDSDSDSD",[],[99,"Safe D"],[]]];
 var UNC=4.9;
 var NAMES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 /* Simplified state outlines (Albers projection). Each entry: [path, label x, label y, width]. */
@@ -266,14 +343,22 @@ function raceName(r){return r.chamber==="house"?NAMES[r.state]+" "+r.district:NA
 function tag(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":"House "+r.district}
 function tagLong(r){return r.chamber==="senate"?"Senate":r.chamber==="governor"?"Governor":"House district "+r.district}
 function visible(r){return r.chamber===S.filter}
+function forecastCall(r){var c=r.cons;return c?(c.score>.25?dSide(r):c.score<-.25?"R":"T"):null}
+function modelCall(r){var l=r.mine.label;return /^Toss/.test(l)?"T":/ D$/.test(l)?dSide(r):"R"}
 
-// ---- picks: artifact storage when available, otherwise just this session ----
-function savePicks(){try{if(window.storage)window.storage.set("mt_picks",JSON.stringify(S.picks),false).catch(function(){})}catch(e){}}
-function loadPicks(){try{if(window.storage)return window.storage.get("mt_picks",false).then(function(r){S.picks=JSON.parse(r.value)||{}}).catch(function(){})}catch(e){}return Promise.resolve()}
+// ---- picks: artifact storage inside Claude, otherwise this browser's local storage ----
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function savePicks(){try{if(window.storage){window.storage.set("mt_picks",JSON.stringify(S.picks),false).catch(function(){});return}}catch(e){}lsSet("mt_picks",S.picks)}
+function loadPicks(){try{if(window.storage)return window.storage.get("mt_picks",false).then(function(r){S.picks=JSON.parse(r.value)||{}}).catch(function(){})}catch(e){}S.picks=lsGet("mt_picks")||{};return Promise.resolve()}
 
 // ---- header and summary ----
 function renderStatic(){
-  $("banner").textContent="Real ratings collected from public pages dated Aug 11 to Oct 16, 2026. Blank means not collected yet, not no opinion. Individual polls and some candidate names are still missing.";
+  $("banner").textContent="Real ratings collected from public pages dated Aug 11 to Oct 16, 2026. Blank means not collected yet, not no opinion. Individual polls are still missing for most races.";
+  var left=Math.ceil((Date.UTC(2026,10,3,5)-Date.now())/864e5);
+  if(left>0){$("days").textContent=String(left);$("days-label").textContent=left===1?"day to Election Day":"days to Election Day"}
+  else{$("days").textContent=left===0?"Today":"Done";$("days-label").textContent=left===0?"is Election Day":"Election Day has passed"}
+  var js=$("joey-slot"),jd=h("div");jd.innerHTML=YaleAvatars.joey(48);js.appendChild(jd.firstChild);js.appendChild(document.createTextNode("Joey, expert"));
   $("env-note").textContent="Data as of 2026-10-17. National environment used by my model: Democrats +"+ENV+" on the generic ballot (average of RCP, Silver Bulletin, Decision Desk HQ and FiftyPlusOne as of Sept 25, 2026).";
   var sc=$("scale");sc.appendChild(h("em",{text:"Safe D"}));[3,2,1,.5,0,-.5,-1,-2,-3].forEach(function(s){var sp=h("span");sp.style.background=colorFor(s);sc.appendChild(sp)});sc.appendChild(h("em",{text:"Safe R"}))}
 function renderTally(){var t=$("tally");t.textContent="";
@@ -321,16 +406,33 @@ function raceList(){var w=h("div",{class:"rrows",role:"tablist","aria-label":NAM
     if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
     var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[
       h("span",{class:"rn",text:tagLong(r)}),chip,
-      h("span",{class:"rp"},[h("span",{class:"d",text:"D "+r.mine.dem+"%"}),"  ",h("span",{class:"r",text:"R "+r.mine.rep+"%"})])]);
+      h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:"r",text:"R "+r.mine.rep+"%"})])]);
     b.addEventListener("click",function(){selectRace(r.id)});w.appendChild(b)});return w}
 /* Verified Yale alumni on the 2026 ballot, from the Yale Alumni Magazine's lists of alumni in Congress and governors' offices. Not exhaustive. */
 var YALE_SET={"sen-nj-D":1,"sen-de-D":1,"sen-oh-D":1,"gov-mn-D":1,"gov-ct-D":1};
-function candidate(r,party,name){var av=h("div");av.innerHTML=YaleAvatars.make(r.id+"-"+party,{size:104,party:party,yale:YALE_SET[r.id+"-"+party]===1,label:(party==="D"?"Democratic donkey":"Republican elephant")+(YALE_SET[r.id+"-"+party]===1?", Yale alumnus":"")});
-  return h("div",{class:"cand"},[av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:party==="D"?"Democratic":"Republican"})])}
+/* Independents with a real shot (eagles). In Nebraska the independent takes the Democratic slot. */
+var IND={"sen-ne":"Dan Osborn","sen-mt":"Seth Bodnar"},NO_D={"sen-ne":1};
+var COWBOY={"sen-tx-D":1,"sen-tx-R":1,"gov-tx-D":1,"gov-tx-R":1};
+/* Joey's calls, keyed by race id: [pick D/R/I/T, short note]. Empty until Joey sends them. */
+var JOEY={};
+var PTY={D:"Democratic",R:"Republican",I:"Independent"},MASCOT={D:"Democratic donkey",R:"Republican elephant",I:"Independent eagle"};
+function dSide(r){return NO_D[r.id]?"I":"D"}
+function lineup(r){var c=[];if(!NO_D[r.id])c.push(["D",r.dn]);if(IND[r.id])c.push(["I",IND[r.id]]);c.push(["R",r.rn]);return c}
+function candidate(r,party,name){var k=r.id+"-"+party,y=YALE_SET[k]===1,av=h("div");
+  av.innerHTML=YaleAvatars.make(k,{size:104,party:party,yale:y,hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")});
+  return h("div",{class:"cand"},[av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:PTY[party]})])}
+function joeyBox(r){var j=JOEY[r.id],av=h("div");av.innerHTML=YaleAvatars.joey(56);
+  var txt=h("div",{},[h("b",{text:"Joey, former campaign expert"}),h("span",{class:"note",text:"75% win rate, by his own count"})]);
+  if(j){var who=j[0]==="T"?"Toss-up":PTY[j[0]]+(j[0]==="I"&&IND[r.id]?" ("+IND[r.id]+")":"");
+    txt.appendChild(h("p",{class:"call"},[h("b",{class:j[0].toLowerCase(),text:who})]));if(j[1])txt.appendChild(h("p",{class:"note",text:j[1]}))}
+  else txt.appendChild(h("p",{class:"note",text:"He hasn't made his call on this race yet."}));
+  return h("div",{class:"joey"},[av.firstChild,txt])}
 function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");box.textContent="";box.appendChild(stateHead(S.state));box.appendChild(raceList());
   box.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district<10?"0":"")+r.district+")":"")}));
   box.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
-  box.appendChild(h("div",{class:"faceoff"},[candidate(r,"D",r.dn),h("div",{class:"vs",text:"vs."}),candidate(r,"R",r.rn)]));
+  var lu=lineup(r);
+  box.appendChild(lu.length===3?h("div",{class:"faceoff three"},lu.map(function(x){return candidate(r,x[0],x[1])})):
+    h("div",{class:"faceoff"},[candidate(r,lu[0][0],lu[0][1]),h("div",{class:"vs",text:"vs."}),candidate(r,lu[1][0],lu[1][1])]));
   if(r.oth)box.appendChild(h("p",{class:"note",text:r.oth+"."}));
   if(YALE_SET[r.id+"-D"]||YALE_SET[r.id+"-R"])box.appendChild(h("p",{class:"note",text:"The Y patch means this candidate attended Yale, according to the Yale Alumni Magazine's list of alumni in office."}));
 
@@ -343,20 +445,25 @@ function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("de
 
   box.appendChild(h("h3",{text:"My prediction"}));
   var strip=h("div",{class:"strip",role:"img","aria-label":"Democrats "+m.dem+" percent, Republicans "+m.rep+" percent"}),filled=Math.round(m.dem/5);
-  for(var i=0;i<20;i++)strip.appendChild(h("span",{class:"bub "+(i<filled?"d":"r")}));
-  box.appendChild(h("p",{class:"call"},[h("b",{class:"d",text:"D "+m.dem+"%"}),h("b",{class:"r",text:"R "+m.rep+"%"}),h("span",{class:"note",text:m.label})]));
+  var ds=dSide(r),dl=ds.toLowerCase();
+  for(var i=0;i<20;i++)strip.appendChild(h("span",{class:"bub "+(i<filled?dl:"r")}));
+  box.appendChild(h("p",{class:"call"},[h("b",{class:dl,text:ds+" "+m.dem+"%"}),h("b",{class:"r",text:"R "+m.rep+"%"}),h("span",{class:"note",text:m.label.replace(/ D$/," "+ds)})]));
   box.appendChild(strip);
-  box.appendChild(h("p",{class:"note",text:"Experimental. It blends the outlets' ratings with the area's lean and the national environment, give or take "+m.unc+" points. It hasn't been checked against past elections, and it mostly echoes the forecasters."}));
+  box.appendChild(h("p",{class:"note",text:"Experimental. It blends the outlets' ratings with the area's lean and the national environment, give or take "+m.unc+" points. It hasn't been checked against past elections, and it mostly echoes the forecasters."+(ds==="I"?" In Nebraska the non-Republican side is independent Dan Osborn.":"")}));
+
+  box.appendChild(h("h3",{text:"Joey's call"}));
+  box.appendChild(joeyBox(r));
 
   box.appendChild(h("h3",{text:"Your pick"}));
   var picks=h("div",{class:"picks",role:"group","aria-label":"Your pick for this race"}),agree=h("p",{class:"agree"});
   function paint(){var p=S.picks[r.id];if(!p){agree.textContent="Make your call and I'll compare it to the forecasters and my model.";return}
-    var cs=c?(c.score>.25?"D":c.score<-.25?"R":"T"):null,ms=m.dem>=60?"D":m.dem<=40?"R":"T";
+    var cs=forecastCall(r),ms=modelCall(r);
     agree.textContent="Forecasters: "+(cs===null?"no data":cs===p?"you agree":"you disagree")+". My model: "+(ms===p?"you agree":"you disagree")+"."}
-  [["D","Democrat","d"],["R","Republican","r"],["T","Toss-up","t"]].forEach(function(o){
+  var opts=lineup(r).map(function(x){return[x[0],{D:"Democrat",R:"Republican",I:"Independent"}[x[0]],x[0]==="I"?"t":x[0].toLowerCase()]}).concat([["T","Toss-up","t"]]),keys=opts.map(function(o){return o[0]});
+  opts.forEach(function(o){
     var b=h("button",{type:"button","class":"pick "+o[2],"aria-pressed":String(S.picks[r.id]===o[0]),text:o[1]});
     b.addEventListener("click",function(){if(S.picks[r.id]===o[0])delete S.picks[r.id];else S.picks[r.id]=o[0];savePicks();
-      picks.querySelectorAll(".pick").forEach(function(pb,i){pb.setAttribute("aria-pressed",String(S.picks[r.id]===["D","R","T"][i]))});paint();renderYou()});
+      picks.querySelectorAll(".pick").forEach(function(pb,i){pb.setAttribute("aria-pressed",String(S.picks[r.id]===keys[i]))});paint();renderYou()});
     picks.appendChild(b)});
   box.appendChild(picks);box.appendChild(agree);paint();
 
@@ -365,8 +472,72 @@ function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("de
     box.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Pollster"}),h("th",{text:"Ended"}),h("th",{class:"num",text:"Sample"}),h("th",{class:"num",text:"Dem"}),h("th",{class:"num",text:"Rep"})])]),h("tbody",{},pr)])]))}
   else box.appendChild(h("p",{class:"note",text:"No individual polls collected for this race yet."}))}
 
+// ---- predict and compare ----
+var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-mi","sen-nc","sen-nh","sen-ga","sen-mn","sen-ne"]],
+  ["Governor",["gov-ga","gov-nv","gov-oh","gov-wi","gov-ak","gov-az","gov-ia","gov-mi","gov-or","gov-nh"]],
+  ["House",["ia-02","mi-10","mi-07","mi-04","ny-17","co-08","az-06","mt-01","pa-08","wi-03","oh-09","oh-07","tx-34","tx-15","va-02"]]];
+/* Prediction-only races that aren't among the 30 tracked House races, so they have no ratings. */
+var EXTRA={"az-06":{state:"AZ",district:6,dn:"JoAnna Mendoza",rn:"Juan Ciscomani"},"va-02":{state:"VA",district:2,dn:"Elaine Luria",rn:"Jen Kiggans"}};
+/* Real winners after Election Day, keyed by race id ("D", "R" or "I"). Filling this turns on the leaderboard. */
+var RESULTS={};
+var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",all:[]};
+function predRace(id){if(S.byId[id])return S.byId[id];var x=EXTRA[id];return{id:id,chamber:"house",state:x.state,district:x.district,dn:x.dn,rn:x.rn,cons:null,mine:null,extra:true}}
+function predName(r){return r.chamber==="house"?r.state+"-"+(r.district<10?"0":"")+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
+function choices(r){return lineup(r).map(function(x){var nm=x[1];if(r.id==="gov-ak"&&x[0]==="R")nm="Republican (3 on the ballot)";return[x[0],nm&&nm!=="-"?nm:PTY[x[0]]]})}
+function cleanName(s){return String(s||"").replace(/[^\p{L}\p{N} .'_-]/gu,"").replace(/\s+/g," ").trim().slice(0,30)}
+function closed(){return Date.now()>=CLOSE}
+function tagEl(v){var t={D:"Dem",R:"Rep",I:"Ind",T:"Toss-up"}[v]||"–";return h("span",{class:"tag "+(v?v.toLowerCase():""),text:t})}
+function listShared(){return window.storage.list("pred:",true).then(function(res){var keys=Array.isArray(res)?res:(res&&res.keys)||[];
+  return Promise.all(keys.map(function(k){k=typeof k==="string"?k:k.key;return window.storage.get(k,true).then(function(v){try{return JSON.parse(v.value)}catch(e){return null}}).catch(function(){return null})}))}).then(function(a){return a.filter(function(e){return e&&e.n&&e.p})})}
+function loadPred(){var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||""}$("pred-name").value=P.name;
+  if(!SHARED){var me=lsGet("mt_pred_self");P.all=me?[me]:[];return Promise.resolve()}
+  return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
+function crowd(id){var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
+function crowdCall(id){var c=crowd(id);if(!c.t)return null;var best=null,bv=-1,tie=false;["D","I","R"].forEach(function(k){if(c.n[k]>bv){bv=c.n[k];best=k;tie=false}else if(c.n[k]===bv&&bv>0)tie=true});return tie?"T":best}
+function score(get){var ok=0,n=0;Object.keys(RESULTS).forEach(function(id){n++;if(get(id)===RESULTS[id])ok++});return[ok,n]}
+function renderPred(){
+  $("pred-mode").textContent=SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
+    "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
+  var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
+  var lb=$("pred-lb");lb.textContent="";
+  if(Object.keys(RESULTS).length){
+    var rows=P.all.map(function(e){return[e.n,score(function(id){return e.p[id]})]});
+    rows.push(["The crowd",score(crowdCall)],["Forecasters' consensus",score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})],
+      ["My model",score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})],["Joey",score(function(id){return JOEY[id]&&JOEY[id][0]})]);
+    rows.sort(function(a,b){return b[1][0]-a[1][0]});
+    lb.appendChild(h("h3",{text:"Leaderboard"}));
+    lb.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},[h("th",{text:"Who"}),h("th",{class:"num",text:"Correct"})])]),
+      h("tbody",{},rows.map(function(x){return h("tr",{},[h("td",{text:x[0]}),h("td",{class:"num",text:x[1][0]+" of "+x[1][1]})])}))])]))}
+  var host=$("pred-tables"),hasRes=Object.keys(RESULTS).length>0;host.textContent="";
+  PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
+    var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
+    var body=g[1].map(function(id){var r=predRace(id),cell=h("td");
+      choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),text:c[1]});
+        b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),p:P.mine});
+          cell.querySelectorAll(".pp").forEach(function(pb){pb.setAttribute("aria-pressed",String(pb===b&&P.mine[id]===c[0]))})});cell.appendChild(b)});
+      var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
+      [["D","#3d7fd1"],["I","#978d85"],["R","#c9605a"]].forEach(function(x){if(cr.n[x[0]]){var i=h("i");i.style.width=(100*cr.n[x[0]]/cr.t)+"%";i.style.background=x[1];bar.appendChild(i)}});
+      var cc=h("td",{},[bar,h("span",{class:"note",text:cr.t?cr.t+(cr.t===1?" pick":" picks"):"No picks yet"})]);
+      var cells=[h("td",{text:predName(r)+(r.extra?" *":"")}),cell,cc,h("td",{},[tagEl(r.extra?null:forecastCall(r))]),h("td",{},[tagEl(r.extra?null:modelCall(r))]),h("td",{},[tagEl(JOEY[id]&&JOEY[id][0])])];
+      if(hasRes)cells.push(h("td",{},[tagEl(RESULTS[id])]));
+      return h("tr",{},cells)});
+    host.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{text:t})}))]),h("tbody",{},body)])]))});
+  host.appendChild(h("p",{class:"note",text:"* AZ-06 and VA-02 aren't among the 30 tracked House races, so they have no ratings or model call."}))}
+function savePred(){var msg=$("pred-msg"),nm=cleanName($("pred-name").value);
+  if(closed()){msg.textContent="Picks are closed.";return}
+  if(!nm){msg.textContent="Enter a name or nickname first.";return}
+  if(!Object.keys(P.mine).length){msg.textContent="Pick at least one race first.";return}
+  var entry={n:nm,p:P.mine,t:Date.now()};$("pred-name").value=nm;lsSet("mt_pred_draft",{n:nm,p:P.mine});
+  var done=function(){msg.textContent="Saved "+Object.keys(P.mine).length+" of 37 picks for "+nm+".";loadPred().then(renderPred)};
+  if(SHARED){window.storage.set("pred:"+nm.toLowerCase().replace(/[^a-z0-9]+/g,"-"),JSON.stringify(entry),true).then(done).catch(function(){msg.textContent="Couldn't save. Try again."})}
+  else{lsSet("mt_pred_self",entry);done()}}
+function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";if(id==="tab-predict")loadPred().then(renderPred)}
+
 // ---- boot ----
 document.querySelectorAll(".f").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
+document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
+$("pred-save").addEventListener("click",savePred);
 renderStatic();renderTally();renderMap();renderYou();
 loadPicks().then(renderYou);
 })();
