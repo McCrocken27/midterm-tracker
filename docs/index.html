@@ -801,9 +801,9 @@ function flag(kind){
   return'<rect x="0" y="0" width="74" height="46" rx="3" fill="'+c+'" stroke="#1c1118" stroke-width="2.5"/>'+
     '<path d="M37 7 l3 6.5 7 .7-5.3 4.7 1.6 6.9-6.3-3.7-6.3 3.7 1.6-6.9-5.3-4.7 7-.7z" fill="#fff"/>'+
     '<text x="37" y="41" text-anchor="middle" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="12" fill="#fff">'+(dem?"DEM":"GOP")+'</text>'}
-function eagleSVG(kind){
+function eagleSVG(kind,back){
   return'<svg xmlns="http://www.w3.org/2000/svg" width="220" height="150" viewBox="0 0 220 150" aria-hidden="true"><g class="bob">'+
-    '<path d="M116 92 L118 142" stroke="#7a5a3a" stroke-width="4" stroke-linecap="round"/><g transform="translate(118 92) rotate(8)">'+flag(kind)+'</g>'+
+    '<path d="M116 92 L118 142" stroke="#7a5a3a" stroke-width="4" stroke-linecap="round"/><g transform="translate(118 92) rotate(8)'+(back?' translate(74 0) scale(-1 1)':'')+'">'+flag(kind)+'</g>'+
     '<path d="M26 66 L4 58 L8 70 L2 80 L28 76 Z" fill="#fff" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
     '<ellipse cx="66" cy="70" rx="44" ry="20" fill="#6b4423" stroke="#1c1118" stroke-width="3"/>'+
     '<path d="M98 82 L106 96 M106 82 L114 94" stroke="#f2b632" stroke-width="5" stroke-linecap="round"/>'+
@@ -812,8 +812,8 @@ function eagleSVG(kind){
     '<path d="M126 50 C140 50 146 58 140 66 C136 62 132 62 128 64 Z" fill="#f2b632" stroke="#1c1118" stroke-width="3" stroke-linejoin="round"/>'+
     '<circle cx="117" cy="51" r="3.6" fill="#1c1118"/><path d="M110 45 L122 47" stroke="#1c1118" stroke-width="3" stroke-linecap="round"/>'+
     '</g></svg>'}
-function fly(kind){var kinds=["us","dem","gop"],k=kind||kinds[Math.floor(Math.random()*3)],d=document.createElement("div"),back=Math.random()<.4;
-  d.className="flyer"+(back?" rtl":"");d.innerHTML=eagleSVG(k);d.style.top=(8+Math.random()*60)+"vh";d.style.animationDuration=(9+Math.random()*5)+"s";
+function fly(kind,dir){var kinds=["us","dem","gop"],k=kind||kinds[Math.floor(Math.random()*3)],d=document.createElement("div"),back=dir===undefined?Math.random()<.4:!!dir;
+  d.className="flyer"+(back?" rtl":"");d.innerHTML=eagleSVG(k,back);d.style.top=(8+Math.random()*60)+"vh";d.style.animationDuration=(9+Math.random()*5)+"s";
   d.addEventListener("animationend",function(e){if(e.target===d)d.remove()});document.body.appendChild(d);return d}
 window.flyEagle=fly;
 function loop(){fly();setTimeout(loop,90000+Math.random()*60000)}
