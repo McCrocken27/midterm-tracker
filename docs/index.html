@@ -138,6 +138,10 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .info:hover{background:var(--light);color:#13153a}
 .bp{display:inline-block;margin-top:4px;font-size:.78rem;font-weight:800;color:var(--light);text-decoration:none;border-bottom:1px dotted var(--light)}.bp:hover{color:#fff}
 .cnlink{color:inherit;text-decoration:none}.cnlink:hover b{text-decoration:underline}
+.pred-auth{margin:10px 0 4px;padding:12px 14px;border:3px solid var(--line);border-radius:18px;background:var(--surface)}.pred-auth .pred-form{margin:0}
+#auth-pass{min-width:180px}.ask textarea{width:100%;font:inherit;padding:10px 14px;border:3px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);resize:vertical;margin:8px 0}
+.ask-answer{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:12px;border:3px solid var(--line);border-radius:16px;background:var(--th)}.ask-answer svg{flex:none}
+.ask details{margin-top:6px;font-size:.85rem;color:var(--muted)}.ask details li{margin:2px 0}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem}
 .cn{white-space:nowrap}.cn.d{color:var(--dc)}.cn.r{color:var(--rc)}.cn.i{color:var(--gray)}.cn b{font-weight:600}
 .badge{display:inline-block;font:700 .7rem/1 Georgia,serif;border-radius:50%;width:15px;height:15px;text-align:center;line-height:15px;margin-left:3px;vertical-align:1px}
@@ -261,7 +265,11 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <section aria-live="polite"><div id="detail" class="detail"><div class="empty"><h2>Pick a State</h2>
     <p>Select a highlighted state on the map to see its races, who the forecasters favor, and what my model says. You can lock in your own pick for each race.</p></div></div></section>
 </main>
-<section class="ask"><h2>Ask the forecast</h2><p class="note">The question-answering panel needs the Python server and an API key, so it isn't part of this page. It lives in the full project.</p></section>
+<section class="ask" id="ask"><h2>Ask Joey</h2>
+  <p class="note" id="ask-note">Asking Joey questions needs the project's Python server, so it isn't part of this public page. Run the full project (see the README) to chat with him.</p>
+  <form id="ask-form" hidden><textarea id="ask-q" maxlength="500" rows="2" placeholder="e.g. Who's favored in the Texas Senate race?"></textarea><button type="submit" class="save" id="ask-go">Ask Joey</button></form>
+  <div id="ask-out" aria-live="polite"></div>
+</section>
 </div>
 <div id="tab-vote" role="tabpanel" hidden>
   <section class="pred">
@@ -289,9 +297,19 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <section class="pred">
     <h2>Predict and Compare</h2>
     <p class="note">Pick the winner of 37 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
+    <div id="pred-auth" class="pred-auth" hidden>
+      <form id="auth-out" class="pred-form" autocomplete="on">
+        <label for="auth-nick"><b>Nickname</b></label><input id="auth-nick" maxlength="24" autocomplete="username" placeholder="e.g. Bulldog26">
+        <label for="auth-pass"><b>Password</b></label><input id="auth-pass" type="password" maxlength="128" autocomplete="current-password" placeholder="8+ characters">
+        <button type="button" id="auth-signup" class="save">Sign up</button><button type="button" id="auth-login" class="tab">Log in</button>
+        <span id="auth-msg" class="note" role="status"></span>
+      </form>
+      <div id="auth-in" class="pred-form" hidden><span id="auth-who"></span><button type="button" id="auth-logout" class="tab">Log out</button></div>
+      <p class="note">No email needed. Only your nickname and avatar are ever shown; your password is stored scrambled (hashed).</p>
+    </div>
     <div class="pred-form">
-      <label for="pred-name"><b>Your name or nickname</b></label>
-      <input id="pred-name" type="text" maxlength="30" autocomplete="nickname" placeholder="e.g. Bulldog26">
+      <span id="name-wrap"><label for="pred-name"><b>Your name or nickname</b></label>
+      <input id="pred-name" type="text" maxlength="30" autocomplete="nickname" placeholder="e.g. Bulldog26"></span>
       <button type="button" id="pred-save" class="save">Save my picks</button>
       <span id="pred-msg" class="note" role="status"></span>
     </div>
@@ -886,7 +904,7 @@ var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",avat
 function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
 function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
   var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));
-  b.disabled=closed();b.addEventListener("click",function(){P.avatar=a.id;draft();box.querySelectorAll(".av").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});renderYou()});box.appendChild(b)})}
+  b.disabled=closed();b.addEventListener("click",function(){P.avatar=a.id;draft();if(API.on&&API.user){api("/api/me/avatar",{method:"PUT",body:{avatar:a.id}}).then(function(){API.user.avatar=a.id;renderAuth()}).catch(function(){})}box.querySelectorAll(".av").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});renderYou()});box.appendChild(b)})}
 function predRace(id){if(S.byId[id])return S.byId[id];var x=EXTRA[id];return{id:id,chamber:"house",state:x.state,district:x.district,dn:x.dn,rn:x.rn,cons:null,mine:null,extra:true}}
 function predName(r){return r.chamber==="house"?r.state+"-"+(r.district<10?"0":"")+r.district:NAMES[r.state]+(r.chamber==="senate"?" Senate":" governor")}
 function choices(r){return lineup(r).map(function(x){var nm=x[1];if(r.id==="gov-ak"&&x[0]==="R")nm="Republican (3 on the ballot)";return[x[0],nm&&nm!=="-"?nm:PTY[x[0]]]})}
@@ -895,20 +913,23 @@ function closed(){return Date.now()>=CLOSE}
 function tagEl(v){var t={D:"Dem",R:"Rep",I:"Ind",T:"Toss-up"}[v]||"–";return h("span",{class:"tag "+(v?v.toLowerCase():""),text:t})}
 function listShared(){return window.storage.list("pred:",true).then(function(res){var keys=Array.isArray(res)?res:(res&&res.keys)||[];
   return Promise.all(keys.map(function(k){k=typeof k==="string"?k:k.key;return window.storage.get(k,true).then(function(v){try{return JSON.parse(v.value)}catch(e){return null}}).catch(function(){return null})}))}).then(function(a){return a.filter(function(e){return e&&e.n&&e.p})})}
-function loadPred(){var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||"";P.avatar=Labubus.has(d.a)?d.a:""}$("pred-name").value=P.name;
+function loadPred(){if(API.on){if(!API.user){var d0=lsGet("mt_pred_draft");if(d0){P.mine=d0.p||{};P.avatar=Labubus.has(d0.a)?d0.a:P.avatar}}
+    return Promise.all([api("/api/leaderboard"),api("/api/crowd")]).then(function(x){API.lb=x[0];API.crowd=x[1].crowd||{};Object.keys(RESULTS).forEach(function(k){delete RESULTS[k]});Object.assign(RESULTS,x[0].results||{})}).catch(function(){})}
+  var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||"";P.avatar=Labubus.has(d.a)?d.a:""}$("pred-name").value=P.name;
   if(!SHARED){var me=lsGet("mt_pred_self");P.all=me?[me]:[];return Promise.resolve()}
   return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
-function crowd(id){var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
+function crowd(id){if(API.on){var c=API.crowd[id]||{},nn={D:0,R:0,I:0},tt=0;Object.keys(c).forEach(function(k){if(nn[k]!==undefined){nn[k]=c[k];tt+=c[k]}});return{n:nn,t:tt}}var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
 function crowdCall(id){var c=crowd(id);if(!c.t)return null;var best=null,bv=-1,tie=false;["D","I","R"].forEach(function(k){if(c.n[k]>bv){bv=c.n[k];best=k;tie=false}else if(c.n[k]===bv&&bv>0)tie=true});return tie?"T":best}
 function score(get){var ok=0,n=0;Object.keys(RESULTS).forEach(function(id){n++;if(get(id)===RESULTS[id])ok++});return[ok,n]}
 function renderPred(){renderAvatars();
-  $("pred-mode").textContent=SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
+  $("pred-mode").textContent=API.on?"Your picks are saved to your account and count on the shared leaderboard. Only your nickname and avatar are shown, never your picks.":SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
   var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
   var lb=$("pred-lb");lb.textContent="";
   /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
   var live=Object.keys(RESULTS).length>0,PTS=10;
-  var rows=P.all.map(function(e){return{name:e.n,av:Labubus.has(e.a)?Labubus.make(e.a,40,e.n+"'s avatar"):"",pts:PTS*score(function(id){return e.p[id]})[0]}});
+  var rows=API.on?((API.lb&&API.lb.players)||[]).map(function(x){return{name:x.nickname,av:Labubus.has(x.avatar)?Labubus.make(x.avatar,40,x.nickname+"'s avatar"):"",pts:x.points||0}}):
+    P.all.map(function(e){return{name:e.n,av:Labubus.has(e.a)?Labubus.make(e.a,40,e.n+"'s avatar"):"",pts:PTS*score(function(id){return e.p[id]})[0]}});
   rows.push({name:"Joey (expert)",av:YaleAvatars.joey(40),pts:PTS*score(function(id){return joeyCall(predRace(id))})[0],bench:1});
   if(live)rows.push({name:"The crowd",pts:PTS*score(crowdCall)[0],bench:1},{name:"Forecasters' consensus",pts:PTS*score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})[0],bench:1},
     {name:"My model",pts:PTS*score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})[0],bench:1});
@@ -936,7 +957,10 @@ function renderPred(){renderAvatars();
       return h("tr",{},cells)});
     host.appendChild(h("div",{class:"table-wrap"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{text:t})}))]),h("tbody",{},body)])]))});
 }
-function savePred(){var msg=$("pred-msg"),nm=cleanName($("pred-name").value);
+function savePred(){var msg=$("pred-msg");
+  if(API.on){if(!API.user){msg.textContent="Sign up or log in first.";return}if(!Object.keys(P.mine).length){msg.textContent="Pick at least one race first.";return}
+    api("/api/picks",{method:"PUT",body:{picks:P.mine}}).then(function(j){msg.textContent="Saved "+Object.keys(j.picks).length+" of 37 picks to your account.";loadPred().then(renderPred)}).catch(function(e){msg.textContent=e.message});return}
+  var nm=cleanName($("pred-name").value);
   if(closed()){msg.textContent="Picks are closed.";return}
   if(!nm){msg.textContent="Enter a name or nickname first.";return}
   if(!P.avatar){msg.textContent="Pick an avatar first.";return}
@@ -945,6 +969,28 @@ function savePred(){var msg=$("pred-msg"),nm=cleanName($("pred-name").value);
   var done=function(){msg.textContent="Saved "+Object.keys(P.mine).length+" of 37 picks for "+nm+".";loadPred().then(renderPred)};
   if(SHARED){window.storage.set("pred:"+nm.toLowerCase().replace(/[^a-z0-9]+/g,"-"),JSON.stringify(entry),true).then(done).catch(function(){msg.textContent="Couldn't save. Try again."})}
   else{lsSet("mt_pred_self",entry);done()}}
+
+// ---- server mode: when the Python backend is running, use real accounts, shared picks and Ask Joey ----
+var API={on:false,user:null,crowd:{},lb:null};
+function api(path,opt){opt=opt||{};return fetch(path,{method:opt.method||"GET",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:opt.body?JSON.stringify(opt.body):undefined})
+  .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.detail||("Error "+r.status));return j})})}
+function apiInit(){if(location.protocol==="file:")return;fetch("/api/health").then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.ok)return;API.on=true;
+  return api("/api/me").then(function(m){setUser(m.user,m.picks)})}).catch(function(){})}
+function setUser(u,picks){API.user=u;if(u){P.name=u.nickname;P.avatar=u.avatar;if(picks)P.mine=picks}renderAuth();renderAsk();if(!$("tab-predict").hidden)loadPred().then(renderPred)}
+function renderAuth(){if(!API.on)return;$("pred-auth").hidden=false;$("name-wrap").hidden=true;$("auth-out").hidden=!!API.user;$("auth-in").hidden=!API.user;
+  if(API.user){var w=$("auth-who");w.textContent="";var s=h("span",{class:"lbav"});s.innerHTML=Labubus.make(API.user.avatar,32,"Your avatar");w.appendChild(s);w.appendChild(document.createTextNode("Logged in as "));w.appendChild(h("b",{text:API.user.nickname}))}}
+function authMsg(t){$("auth-msg").textContent=t}
+function doSignup(){var n=$("auth-nick").value,pw=$("auth-pass").value;if(!P.avatar){authMsg("Pick an avatar below first.");return}
+  api("/api/signup",{method:"POST",body:{nickname:n,password:pw,avatar:P.avatar}}).then(function(j){$("auth-pass").value="";authMsg("");setUser(j.user,P.mine)}).catch(function(e){authMsg(e.message)})}
+function doLogin(){api("/api/login",{method:"POST",body:{nickname:$("auth-nick").value,password:$("auth-pass").value}}).then(function(){$("auth-pass").value="";authMsg("");return api("/api/me")})
+  .then(function(m){setUser(m.user,m.picks)}).catch(function(e){authMsg(e.message)})}
+function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};setUser(null)})}
+function renderAsk(){if(!API.on)return;$("ask-form").hidden=!API.user;$("ask-note").textContent=API.user?"Ask Joey about any 2026 race. He only uses the site's data, and a checker makes sure every number he says is real.":"Log in on the Predict and Compare tab to ask Joey questions."}
+function askJoey(e){e.preventDefault();var q=$("ask-q").value.trim(),out=$("ask-out");if(!q)return;$("ask-go").disabled=true;out.textContent="Joey is thinking…";
+  api("/api/ask",{method:"POST",body:{question:q}}).then(function(j){out.textContent="";var box=h("div",{class:"ask-answer"}),av=h("div");av.innerHTML=YaleAvatars.joey(48);box.appendChild(av.firstChild);
+    var txt=h("div",{},[h("p",{text:j.answer})]);if(j.trace&&j.trace.length){var d=h("details",{},[h("summary",{text:"How Joey answered"+(j.cached?" (from the answer cache)":"")})]),ul=h("ul");
+      j.trace.forEach(function(t){var s=t.step;ul.appendChild(h("li",{text:s==="router"?"Router: "+t.intent+(t.race_ids&&t.race_ids.length?" → "+t.race_ids.join(", "):""):s==="researcher"?"Researcher: "+t.tool_calls+" tool call(s)":s==="verifier"?"Verifier: "+(t.unsupported_numbers.length?"caught "+t.unsupported_numbers.join(", ")+", retried":"every number checks out"):s==="output_filter"?"Output filter: "+t.result:s==="screen"?"Safety screen: blocked":s+": "+(t.result||"")}))});d.appendChild(ul);txt.appendChild(d)}
+    box.appendChild(txt);out.appendChild(box)}).catch(function(err){out.textContent=err.message}).then(function(){$("ask-go").disabled=false})}
 // ---- every House seat ----
 var YALE_NAMES={"Cory Booker":1,"Chris Coons":1,"Sherrod Brown":1,"Amy Klobuchar":1,"Ned Lamont":1};
 function hsRows(){var q=($("hs-q").value||"").toLowerCase().trim(),comp=$("hs-comp").checked,body=$("hs-body"),n=0;body.textContent="";
@@ -1042,6 +1088,8 @@ function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var o
 document.querySelectorAll(".f").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
+$("auth-signup").addEventListener("click",doSignup);$("auth-login").addEventListener("click",doLogin);$("auth-logout").addEventListener("click",doLogout);
+$("auth-out").addEventListener("submit",function(e){e.preventDefault();doLogin()});$("ask-form").addEventListener("submit",askJoey);apiInit();
 $("hs-q").addEventListener("input",hsRows);
 $("vote-form").addEventListener("submit",function(e){e.preventDefault();voteLookup()});$("hs-comp").addEventListener("change",hsRows);
 renderStatic();renderTally();renderMap();renderYou();

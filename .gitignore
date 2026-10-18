@@ -19,3 +19,7 @@ Thumbs.db
 .vscode/
 .idea/
 joey_calls_needed.md
+
+# local database (accounts, picks, token ledger) - never commit
+backend/data/
+*.db
