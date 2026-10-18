@@ -138,6 +138,8 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .info:hover{background:var(--light);color:#13153a}
 .bp{display:inline-block;margin-top:4px;font-size:.78rem;font-weight:800;color:var(--light);text-decoration:none;border-bottom:1px dotted var(--light)}.bp:hover{color:#fff}
 .cnlink{color:inherit;text-decoration:none}.cnlink:hover b{text-decoration:underline}
+[hidden]{display:none!important}
+.ghost{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:8px 18px;font-weight:900;box-shadow:0 4px 0 var(--yale)}.ghost:hover{transform:translateY(-2px)}
 .pred-auth{margin:10px 0 4px;padding:12px 14px;border:3px solid var(--line);border-radius:18px;background:var(--surface)}.pred-auth .pred-form{margin:0}
 #auth-pass{min-width:180px}.ask textarea{width:100%;font:inherit;padding:10px 14px;border:3px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);resize:vertical;margin:8px 0}
 .ask-answer{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:12px;border:3px solid var(--line);border-radius:16px;background:var(--th)}.ask-answer svg{flex:none}
@@ -301,10 +303,10 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
       <form id="auth-out" class="pred-form" autocomplete="on">
         <label for="auth-nick"><b>Nickname</b></label><input id="auth-nick" maxlength="24" autocomplete="username" placeholder="e.g. Bulldog26">
         <label for="auth-pass"><b>Password</b></label><input id="auth-pass" type="password" maxlength="128" autocomplete="current-password" placeholder="8+ characters">
-        <button type="button" id="auth-signup" class="save">Sign up</button><button type="button" id="auth-login" class="tab">Log in</button>
+        <button type="button" id="auth-signup" class="save">Sign up</button><button type="button" id="auth-login" class="ghost">Log in</button>
         <span id="auth-msg" class="note" role="status"></span>
       </form>
-      <div id="auth-in" class="pred-form" hidden><span id="auth-who"></span><button type="button" id="auth-logout" class="tab">Log out</button></div>
+      <div id="auth-in" class="pred-form" hidden><span id="auth-who"></span><button type="button" id="auth-logout" class="ghost">Log out</button></div>
       <p class="note">No email needed. Only your nickname and avatar are ever shown; your password is stored scrambled (hashed).</p>
     </div>
     <div class="pred-form">

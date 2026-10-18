@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2026 Midterm Tracker: Slides</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css">
+<style>
+  .reveal{font-family:"Segoe UI",system-ui,sans-serif;font-size:34px}
+  .reveal .slides section{text-align:left}
+  .reveal-viewport{background:radial-gradient(circle at 20% 10%,#2c2f6e,#13153a 70%)}
+  .reveal h1,.reveal h2{font-family:"Segoe UI",system-ui,sans-serif;font-weight:900;text-transform:none;color:#fff;letter-spacing:0}
+  .reveal h2{font-size:1.6em;border-bottom:6px solid transparent;border-image:repeating-linear-gradient(90deg,#b22234 0 26px,#fff 26px 52px) 6;padding-bottom:10px;margin-bottom:22px}
+  .reveal .r{color:#ff5b6b}.reveal .b{color:#8ec5ff}.reveal .y{color:#ffc83d}
+  .reveal ul{margin-left:1em}.reveal li{margin:.35em 0}
+  .reveal img.shot{border:4px solid #363b80;border-radius:14px;max-height:520px;margin:0}
+  .reveal .big{font-size:2.6em;font-weight:900;line-height:1}
+  .reveal .stat{display:inline-block;margin:0 40px 18px 0;vertical-align:top}
+  .reveal .stat small{display:block;font-size:.5em;color:#c9cdf2;margin-top:6px}
+  .reveal table{font-size:.62em;border-collapse:collapse}.reveal th,.reveal td{border:1px solid #363b80;padding:6px 12px}
+  .reveal .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .reveal .note{font-size:.55em;color:#c9cdf2}
+  .reveal .box{background:#1d2053;border:4px solid #363b80;border-radius:18px;padding:14px 20px;text-align:center;font-weight:800;font-size:.7em}
+  .reveal .code{background:#fff6d6;color:#3a2a00;border-color:#e0a800}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<section>
+  <h1 style="font-size:2.6em">&#9733; <span class="r">2026</span> Midterm <span class="b">Tracker</span> &#9733;</h1>
+  <p>Every race. Every forecaster. One map, plus a fact-checked AI named Joey.</p>
+  <p class="note">Joey Simone &middot; MGT 409 final project &middot; github.com/McCrocken27/midterm-tracker</p>
+</section>
+
+<section>
+  <h2>The problem</h2>
+  <ul>
+    <li>"Is my race close?" means checking <span class="y">10 forecaster sites</span>, several paywalled</li>
+    <li>Each uses different words: Tilt, Lean, Likely, Safe</li>
+    <li>None tells you <b>which races are on your ballot</b> or how to register</li>
+    <li>About <span class="y">10 to 15 minutes per race</span>, so most new voters just don't</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What's new</h2>
+  <ul>
+    <li><b>All 10 outlets side by side</b> for all 506 races (vs. one opinion per site)</li>
+    <li><b>Your ballot from your address</b>, plus the official registration link, with the address never stored</li>
+    <li><b>Prediction game</b>: accounts, Labubu avatars, leaderboard vs. the experts</li>
+    <li><b>Ask Joey</b>: unlike ChatGPT, every number is <span class="y">checked by code</span> against real data</li>
+  </ul>
+  <p class="note">Closest alternatives: 270toWin consensus maps, Wikipedia ratings tables, Ballotpedia, ChatGPT</p>
+</section>
+
+<section>
+  <h2>The agent team</h2>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:center">
+    <div class="box code">Safety screen<br><small>code</small></div>
+    <div class="box">Router<br><small>model</small></div>
+    <div class="box">Researcher<br><small>model + read-only tools</small></div>
+    <div class="box">Analyst "Joey"<br><small>model</small></div>
+    <div class="box code">Verifier<br><small>code</small></div>
+    <div class="box code">Output filter<br><small>code</small></div>
+  </div>
+  <ul style="margin-top:28px">
+    <li>gpt-6-luna via Portkey + PydanticAI</li>
+    <li>Agents <b>can't reach</b> accounts, passwords or picks</li>
+    <li>Results agent only <i>suggests</i> winners; a human approves</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Demo: one real question</h2>
+  <img class="shot" src="{{SRC:05_ask_joey_run}}" alt="Ask Joey answer with the step-by-step trace">
+  <p class="note">Router → sen-me &middot; Researcher: 1 tool call &middot; Verifier: every number checks out &middot; Output filter: ok</p>
+</section>
+
+<section>
+  <h2>Demo: the site</h2>
+  <div class="two">
+    <img class="shot" src="{{SRC:01_map}}" alt="Map with the Texas Senate race">
+    <img class="shot" src="{{SRC:08_vote}}" alt="Vote tab results">
+  </div>
+</section>
+
+<section>
+  <h2>Cost (real token counts)</h2>
+  <div class="stat"><div class="big">2,102</div><small>tokens per answered question<br>(1,810 in, 292 out)</small></div>
+  <div class="stat"><div class="big y">$0.0007 to $0.0036</div><small>per question (estimated prices)</small></div>
+  <div class="stat"><div class="big">$142 to $712</div><small>per month at 10,000 users</small></div>
+  <ul class="note" style="font-size:.6em">
+    <li>Attacks cost 0 tokens (code screen) &middot; off-topic: 312 &middot; repeat questions: 0 (cache)</li>
+    <li>Verifier is code, not a 4th model: saves about 1,000 tokens per question</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Safety, shown working</h2>
+  <div class="two">
+    <img class="shot" src="{{SRC:06_attack_blocked}}" alt="Attack blocked">
+    <ul style="font-size:.7em">
+      <li>Prompt injection blocked before any agent</li>
+      <li>No emails; hashed passwords and sessions; lockout</li>
+      <li>Poisoned results page can't crown a fake winner</li>
+      <li>Per-run caps + daily token budget</li>
+      <li><span class="y">31 tests pass</span>, 19 of them attacks</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Impact</h2>
+  <div class="stat"><div class="big">506</div><small>races, 10 outlets each</small></div>
+  <div class="stat"><div class="big">10 s</div><small>vs 10 to 15 min to compare forecasters</small></div>
+  <div class="stat"><div class="big">46 s</div><small>fresh clone to running app</small></div>
+  <p class="note">[Real user test: add the classmate's quote and timing here before presenting.]</p>
+</section>
+
+<section>
+  <h2>Next steps</h2>
+  <ul>
+    <li>Host it so friends can play the game from their phones</li>
+    <li>Auto-refresh ratings and polls, with human approval</li>
+    <li>Back-test the model on 2018 to 2024</li>
+    <li>Election night: Results agent + live leaderboard</li>
+  </ul>
+  <p style="margin-top:40px" class="b">&#9733; Thank you! Questions? &#9733;</p>
+</section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script>Reveal.initialize({hash:true,width:1280,height:720,margin:0.06,transition:"slide"});</script>
+</body>
+</html>
