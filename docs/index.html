@@ -78,6 +78,7 @@ h2{font:700 1.25rem/1.2 var(--serif);margin:0;color:var(--head)}
 .cand svg{width:104px;height:104px}
 .cand .nm{font-weight:600;line-height:1.25;min-height:2.5em}
 .cand .nm.none{font-weight:400;color:var(--muted);font-style:italic}
+.cand .noav{width:104px;height:104px;margin:0 auto}.faceoff.three .cand .noav{width:84px;height:84px}
 .cand .pty{font-size:.8rem;color:var(--muted)}
 h3{font:700 1.02rem/1.2 var(--serif);color:var(--head);margin:18px 0 8px}
 .call{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0}
@@ -1080,7 +1081,8 @@ function lineup(r){if(SAME[r.id]){var sp=SAME[r.id][0];return[[sp,sp==="R"?r.rn:
 /* Ballotpedia profile for a candidate (it lists their campaign website). Search link, so it works without guessing page titles. */
 function bpURL(n){return"https://ballotpedia.org/wiki/index.php?search="+encodeURIComponent(n)}
 function bpLink(n,txt){return n&&n!=="-"&&n.indexOf(" / ")<0?h("a",{href:bpURL(n),target:"_blank",rel:"noopener noreferrer",class:"bp",text:txt||"Ballotpedia \u2197",title:"Open "+n+" on Ballotpedia"}):null}
-function candidate(r,party,name){var k=r.id+"-"+party,y=isYale(r,party,name),nd=ND_NAMES[name]===1,av=h("div");
+/* no nominee: no mascot, just the note (keeps the space so the names still line up) */
+function candidate(r,party,name){if(name==="-")return h("div",{class:"cand"},[h("div",{class:"noav","aria-hidden":"true"}),h("div",{class:"nm none",text:"No nominee on the ballot"}),h("div",{class:"pty",text:PTY[party]})]);var k=r.id+"-"+party,y=isYale(r,party,name),nd=ND_NAMES[name]===1,av=h("div");
   av.innerHTML=YaleAvatars.make(k,{size:104,party:party.charAt(0),yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
   return h("div",{class:"cand"},[av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:PTY[party]}),bpLink(name)])}
 function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"Safe seat, so he's going with the favorite."]:null,av=h("div");av.innerHTML=YaleAvatars.joey(56);
