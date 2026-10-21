@@ -4,7 +4,9 @@ Rules enforced here (never trusted from the browser):
 - Only the 37 prediction races can be picked, and only with a key for a candidate on the ballot.
 - Picks lock at 6 AM Eastern on Nov 3, 2026, by the server's clock.
 - 10 points per race called correctly; points only show once results have been approved.
-- The leaderboard shows nickname, avatar and points. Nobody's individual picks are published.
+- The leaderboard shows nickname, avatar, points and badges. Nobody's individual picks are published.
+- Badges say what kind of player you are (for example "picked against the forecasters at least once")
+  without saying which races, so they don't give anyone's picks away.
 """
 
 from __future__ import annotations
@@ -69,6 +71,45 @@ def results() -> dict[str, str]:
     return {r["race_id"]: r["winner"] for r in rows}
 
 
+# Same rules as the BADGES list in docs/index.html. The last three only count once results are approved.
+BADGES = ["all37", "bold", "tossup", "upset", "sharp", "beatjoey"]
+
+
+def _favorite(race: dict) -> str | None:
+    """The forecasters' favorite as a pick key ("D", "R" or "I"), "T" for a toss-up, None if unrated."""
+    c = race.get("consensus")
+    if not c:
+        return None
+    if abs(c["score"]) < .25:
+        return "T"
+    keys = [x["key"] for x in race["candidates"]]
+    want = ["D", "I"] if c["score"] > 0 else ["R", "I"]
+    return next((k for k in want if k in keys), None)
+
+
+def badges(picks: dict[str, str], res: dict[str, str], joey_correct: int) -> list[str]:
+    all_races, pred = races.races(), races.prediction_races()
+    fav = {rid: _favorite(all_races[rid]) for rid in pred if rid in all_races}
+    out = []
+    if pred and all(rid in picks for rid in pred):
+        out.append("all37")
+    if any(fav.get(rid) not in (None, "T") and k != fav[rid] for rid, k in picks.items()):
+        out.append("bold")
+    tossups = [rid for rid, f in fav.items() if f == "T"]
+    if tossups and all(rid in picks for rid in tossups):
+        out.append("tossup")
+    if res:
+        decided = [rid for rid in picks if rid in res]
+        correct = [rid for rid in decided if picks[rid] == res[rid]]
+        if any(fav.get(rid) not in (None, "T") and fav[rid] != res[rid] for rid in correct):
+            out.append("upset")
+        if len(decided) >= 10 and len(correct) >= .8 * len(decided):
+            out.append("sharp")
+        if len(correct) > joey_correct:
+            out.append("beatjoey")
+    return out
+
+
 def leaderboard() -> dict:
     """Players with at least one pick. Points appear only once results exist."""
     res = results()
@@ -81,11 +122,14 @@ def leaderboard() -> dict:
     by_user: dict[int, dict[str, str]] = {}
     for r in rows:
         by_user.setdefault(r["user_id"], {})[r["race_id"]] = r["pick"]
+    all_races = races.races()
+    joey_correct = sum(1 for race_id, w in res.items() if all_races.get(race_id, {}).get("joey") == w)
     players = []
     for u in users:
         correct = sum(1 for race_id, w in res.items() if by_user.get(u["id"], {}).get(race_id) == w)
         players.append({"nickname": u["nickname"], "avatar": u["avatar"],
-                        "points": correct * POINTS_PER_CORRECT if live else None})
+                        "points": correct * POINTS_PER_CORRECT if live else None,
+                        "badges": badges(by_user.get(u["id"], {}), res, joey_correct)})
     if live:
         players.sort(key=lambda p: (-p["points"], p["nickname"].lower()))
     return {"live": live, "points_per_correct": POINTS_PER_CORRECT, "players": players, "results": res}

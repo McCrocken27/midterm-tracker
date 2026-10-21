@@ -96,3 +96,26 @@ def test_cross_site_write_blocked(client):
     signup(client)
     r = client.put("/api/picks", json={"picks": {"sen-tx": "R"}}, headers={"origin": "https://evil.example"})
     assert r.status_code == 403
+
+
+def test_badges_never_name_races(client):
+    import races
+    pred = races.prediction_races()
+    fav = {rid: game._favorite(races.races()[rid]) for rid in pred}
+    against = next(rid for rid, f in fav.items() if f in ("D", "R"))
+    other = next(k for k in races.valid_pick_keys(against) if k != fav[against])
+    signup(client); client.put("/api/picks", json={"picks": {against: other}})
+    lb = client.get("/api/leaderboard").json()
+    me = lb["players"][0]
+    assert me["badges"] == ["bold"] and against not in str(me)   # a badge, but not which race
+    game.approve_result(against, other, "test")                   # the upset comes true
+    me = client.get("/api/leaderboard").json()["players"][0]
+    assert "upset" in me["badges"] and me["points"] == 10
+
+
+def test_full_ballot_badge(client):
+    import races
+    picks = {rid: sorted(races.valid_pick_keys(rid))[0] for rid in races.prediction_races()}
+    signup(client); client.put("/api/picks", json={"picks": picks})
+    me = client.get("/api/leaderboard").json()["players"][0]
+    assert {"all37", "tossup"} <= set(me["badges"])

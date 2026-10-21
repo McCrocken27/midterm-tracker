@@ -130,7 +130,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .vote-race{font-size:1.1rem;color:var(--head)}.vote-cands{list-style:none;padding:0;margin:8px 0 4px}.vote-cands li{margin:4px 0;font-weight:700}
 .ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
-.bop{display:grid;gap:10px;margin:0 0 14px}
+.bop{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:0 0 14px;min-width:0}.layout>section{min-width:0}
 .bopc{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:10px 14px;box-shadow:0 4px 0 var(--line)}
 .bopc h3{margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;font-size:1rem;color:var(--head)}
 .bopc .tot{font-size:.92rem;font-weight:800}.bopc .tot .d{color:var(--dc)}.bopc .tot .r{color:var(--rc)}.bopc .tot .t{color:#7a6fae}.bopc .tot .i{color:#b8860b}
@@ -142,6 +142,24 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .wib{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:5px 14px;font-weight:800;cursor:pointer}
 .wib[aria-pressed="true"]{background:#b22234;color:#fff;border-color:#b22234}
 .wi{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 12px}.wi .wib{padding:3px 12px;font-size:.88rem}
+.wib.gold{background:#ffc83d;color:#1b2430;border-color:#b8860b}
+.night{background:var(--surface);border:3px solid #ffc83d;border-radius:18px;padding:10px 14px;box-shadow:0 4px 0 #b8860b}
+.night .nh{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.night .nh .note{margin:0}.night .wib{padding:3px 12px;font-size:.88rem}
+.live{background:#b22234;color:#fff;font-weight:900;border-radius:999px;padding:3px 10px;font-size:.78rem;letter-spacing:.06em}.live.pr{background:#5b5ea6}
+.live::before{content:"\25CF  ";animation:blink 1s infinite}@keyframes blink{50%{opacity:.2}}
+.ticker{display:flex;gap:8px;overflow:hidden;margin-top:8px;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent);mask-image:linear-gradient(90deg,#000 80%,transparent)}
+.tk{flex:none;background:var(--th);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.85rem;font-weight:700}
+.tk.d{border-color:#3d7fd1}.tk.r{border-color:#c9605a}.tk.i{border-color:#e3b341}.tk.me{background:#ffc83d;color:#1b2430;border-color:#b8860b}
+.tk.new{animation:tkin .5s ease-out}@keyframes tkin{from{transform:translateX(-30px);opacity:0}}
+.night .sum{margin:8px 0 0;font-weight:800;color:var(--head)}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:9px;height:14px;border-radius:2px;animation:fall linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+.bdgs{display:inline-flex;gap:2px;margin-left:4px}.bdg{font-size:1.05rem;line-height:1;cursor:help}
+.mybadges{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:6px 0 14px}
+.mb{background:var(--surface);border:3px solid var(--line);border-radius:14px;padding:8px 10px;font-size:.85rem}
+.mb b{display:block;color:var(--head)}.mb .ic{font-size:1.6rem;display:block;line-height:1.2}
+.mb.on{border-color:#ffc83d;box-shadow:0 3px 0 #b8860b}.mb.off{opacity:.55;filter:grayscale(1)}
+@media (prefers-reduced-motion:reduce){.tk.new,.live::before{animation:none}}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
@@ -331,6 +349,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <h3 id="av-h">Pick your avatar</h3>
     <div id="pred-avatars" class="avpick" role="radiogroup" aria-labelledby="av-h"></div>
     <p class="note" id="pred-mode"></p>
+    <div id="pred-badges"></div>
     <div id="pred-lb"></div>
     <div id="pred-tables"></div>
   </section>
@@ -768,36 +787,41 @@ function modelCall(r){if(SAME[r.id])return null;var l=r.mine.label;return /^Toss
 /* Joey's call: his own pick, or the favorite in any race the forecasters rate Safe. */
 /* ---- What If? simulator: your own winners, saved in this browser only ---- */
 var WI=lsGet("mt_whatif")||{};
-function wiSide(r){var o=WI[r.id];return o?(o==="d"?dSide(r):rSide(r)):null}
-function fillOf(r){var w=wiSide(r);if(w)return w==="D"?"#1f4f9a":w==="R"?"#a63a34":"#b8860b";return colorFor(r.cons&&r.cons.score)}
-function textFill(r){return wiSide(r)?"#fff":textOn(r.cons&&r.cons.score)}
+function wiSide(r){if(S.night)return null;var o=WI[r.id];return o?(o==="d"?dSide(r):rSide(r)):null}
+function nightWin(r){return S.night?S.night.res[r.id]||null:null}
+function fillOf(r){if(S.night){var nw=nightWin(r);return nw?(nw==="D"?"#1f4f9a":nw==="R"?"#a63a34":"#b8860b"):"#6b7088"}var w=wiSide(r);if(w)return w==="D"?"#1f4f9a":w==="R"?"#a63a34":"#b8860b";return colorFor(r.cons&&r.cons.score)}
+function textFill(r){if(S.night)return"#fff";return wiSide(r)?"#fff":textOn(r.cons&&r.cons.score)}
 function setWI(r,v){if(SAME[r.id])return;if(v)WI[r.id]=v;else delete WI[r.id];lsSet("mt_whatif",WI)}
 function cycleWI(r){var o=WI[r.id];setWI(r,!o?"d":o==="d"?"r":null)}
 function slotName(r,slot){var n=slot==="d"?r.dn:r.rn;return n==="-"?(IND[r.id]||"Independent"):n}
-function wiControl(r){if(SAME[r.id])return document.createTextNode("");var w=h("div",{class:"wi",role:"group","aria-label":"What if"},[h("b",{text:"What if?"})]);
+function wiControl(r){if(S.night||SAME[r.id])return document.createTextNode("");var w=h("div",{class:"wi",role:"group","aria-label":"What if"},[h("b",{text:"What if?"})]);
   [[null,"Go with the forecast"],["d",slotName(r,"d")+" wins"],["r",slotName(r,"r")+" wins"]].forEach(function(o){var on=(WI[r.id]||null)===o[0];
     var b=h("button",{type:"button",class:"wib","aria-pressed":String(on),text:o[1]});b.addEventListener("click",function(){setWI(r,o[0]);renderMap();selectRace(r.id)});w.appendChild(b)});return w}
 var HOLD=null;/* Senate seats not up in 2026: 53 R and 47 D (incl. 2 independents who caucus with D) minus the seats on the ballot */
 function holdovers(){if(HOLD)return HOLD;var up={D:0,R:0};S.races.forEach(function(r){if(r.chamber==="senate"&&up[r.party]!==undefined)up[r.party]++});HOLD={D:47-up.D,R:53-up.R};return HOLD}
 function bopCount(ch){var b={};S.races.forEach(function(r){if(r.chamber!==ch)return;var k,w=wiSide(r);
-  if(w)k=w==="I"?"I":w+"p";else if(SAME[r.id])k=SAME[r.id][0]+"s";
+  if(S.night){var nw=nightWin(r);k=nw?(nw==="I"?"Ic":nw+"c"):"U"}else if(w)k=w==="I"?"I":w+"p";else if(SAME[r.id])k=SAME[r.id][0]+"s";
   else{var s=r.cons?r.cons.score:0,a=Math.abs(s);if(a<.25)k="T";else{var side=s>0?dSide(r):rSide(r);k=side==="I"?"I":side+(a>=2.5?"s":a>=1.5?"y":"l")}}
   b[k]=(b[k]||0)+1});if(ch==="senate"){var ho=holdovers();b.Dh=ho.D;b.Rh=ho.R}return b}
 function stripes(a,b){return"repeating-linear-gradient(45deg,"+a+" 0 5px,"+b+" 5px 10px)"}
-var SEG=[["Dh","#0f2f66","#fff","Democrats not on the ballot"],["Ds",colorFor(3),"#fff","Safe D"],["Dy",colorFor(2),"#fff","Likely D"],["Dl",colorFor(1),"#1b2430","Lean or tilt D"],
-  ["Dp",stripes("#1f4f9a","#3d7fd1"),"#fff","Your What If: D"],["T","#a79fc7","#1b2430","Toss-up"],["I",stripes("#b8860b","#e3b341"),"#fff","Independent"],
-  ["Rp",stripes("#a63a34","#c9605a"),"#fff","Your What If: R"],["Rl",colorFor(-1),"#1b2430","Lean or tilt R"],["Ry",colorFor(-2),"#fff","Likely R"],["Rs",colorFor(-3),"#fff","Safe R"],["Rh","#6e211d","#fff","Republicans not on the ballot"]];
-function bopCard(title,ch,total,line){var b=bopCount(ch),D=0,R=0;Object.keys(b).forEach(function(k){if(k[0]==="D")D+=b[k];if(k[0]==="R")R+=b[k]});var T=b.T||0,I=b.I||0;
+var SEG=[["Dh","#0f2f66","#fff","Democrats not on the ballot"],["Dc","#1f4f9a","#fff","Called for D"],["Ds",colorFor(3),"#fff","Safe D"],["Dy",colorFor(2),"#fff","Likely D"],["Dl",colorFor(1),"#1b2430","Lean or tilt D"],
+  ["Dp",stripes("#1f4f9a","#3d7fd1"),"#fff","Your What If: D"],["T","#a79fc7","#1b2430","Toss-up"],["U","#6b7088","#fff","Not called yet"],["Ic","#b8860b","#fff","Called for an independent"],["I",stripes("#b8860b","#e3b341"),"#fff","Independent"],
+  ["Rp",stripes("#a63a34","#c9605a"),"#fff","Your What If: R"],["Rl",colorFor(-1),"#1b2430","Lean or tilt R"],["Ry",colorFor(-2),"#fff","Likely R"],["Rs",colorFor(-3),"#fff","Safe R"],["Rc","#a63a34","#fff","Called for R"],["Rh","#6e211d","#fff","Republicans not on the ballot"]];
+function bopCard(title,ch,total,line){var b=bopCount(ch),D=0,R=0;Object.keys(b).forEach(function(k){if(k[0]==="D")D+=b[k];if(k[0]==="R")R+=b[k]});var T=b.T||0,U=b.U||0,I=(b.I||0)+(b.Ic||0);
   var bar=h("div",{class:"bopbar",role:"img","aria-label":title+": "+D+" Democratic, "+T+" toss-up, "+(I?I+" independent, ":"")+R+" Republican"});
   SEG.forEach(function(sg){var n=b[sg[0]];if(!n)return;var i=h("i",{title:sg[3]+": "+n});i.style.width=(100*n/total)+"%";i.style.background=sg[1];i.style.color=sg[2];if(n/total>=.035)i.textContent=n;bar.appendChild(i)});
   if(line)bar.appendChild(h("span",{class:"mid",title:"Majority line"}));
-  var tot=h("span",{class:"tot"},[h("span",{class:"d",text:"D "+D}),"  ",h("span",{class:"t",text:"Toss-up "+T}),"  "].concat(I?[h("span",{class:"i",text:"I "+I}),"  "]:[]).concat([h("span",{class:"r",text:"R "+R})]));
+  var tot=h("span",{class:"tot"},[h("span",{class:"d",text:"D "+D}),"  ",h("span",{class:"t",text:S.night?"Not called "+U:"Toss-up "+T}),"  "].concat(I?[h("span",{class:"i",text:"I "+I}),"  "]:[]).concat([h("span",{class:"r",text:"R "+R})]));
   var lead=Object.keys(WI).some(function(id){return S.byId[id]&&S.byId[id].chamber===ch})?"With your What If picks, ":"If every race goes the way the forecasters lean, ",msg;
   if(ch==="senate")msg=D>=51?"Democrats would win the Senate.":R>=50?"Republicans would keep the Senate (VP Vance breaks 50-50 ties).":"control comes down to "+T+" toss-up"+(T===1?"":"s")+(I?" and "+I+" independent"+(I===1?"":"s"):"")+". Democrats need 51 seats, Republicans need 50.";
   else if(ch==="house")msg=D>=218?"Democrats would win the House.":R>=218?"Republicans would keep the House.":"control comes down to "+T+" toss-up"+(T===1?"":"s")+". It takes 218 seats.";
   else msg="Democrats would hold "+D+" of these 36 governor races and Republicans "+R+(T?", with "+T+" too close to call.":".");
   if(ch==="senate"&&D<51&&R<50)msg=msg.charAt(0).toUpperCase()+msg.slice(1),lead=lead.replace(/, $/,": ");
   if(ch==="house"&&D<218&&R<218)msg=msg.charAt(0).toUpperCase()+msg.slice(1),lead=lead.replace(/, $/,": ");
+  if(S.night){lead=S.night.practice?"Practice run: ":"Election Night: ";var left=U+" race"+(U===1?"":"s")+" still to call. ";
+    if(ch==="senate")msg=D>=51?"Democrats have won the Senate!":R>=50?"Republicans have kept the Senate!":left+"Democrats need 51, Republicans need 50.";
+    else if(ch==="house")msg=D>=218?"Democrats have won the House!":R>=218?"Republicans have kept the House!":left+"It takes 218.";
+    else msg="Democrats have won "+D+" governor races and Republicans "+R+". "+(U?left:"Every race is called.")}
   return h("div",{class:"bopc"},[h("h3",{},[h("span",{text:title}),tot]),bar,h("p",{text:lead+msg})])}
 function renderBOP(){var box=$("bop");if(!box)return;box.textContent="";
   var mode=h("button",{type:"button",class:"wib","aria-pressed":String(!!S.whatif),text:S.whatif?"What If? mode is ON":"Try What If? mode"});
@@ -805,9 +829,47 @@ function renderBOP(){var box=$("bop");if(!box)return;box.textContent="";
   var joey=h("button",{type:"button",class:"wib",text:"Fill in Joey's calls"});joey.addEventListener("click",function(){S.races.forEach(function(r){var c=joeyCall(r);if(!c||SAME[r.id])return;setWI(r,c===dSide(r)?"d":c===rSide(r)?"r":null)});renderMap();if(S.raceId)selectRace(S.raceId)});
   var reset=h("button",{type:"button",class:"wib",text:"Reset"});reset.addEventListener("click",function(){WI={};lsSet("mt_whatif",WI);renderMap();if(S.raceId)selectRace(S.raceId)});
   var n=Object.keys(WI).length;
-  box.appendChild(h("div",{class:"wibar"},[mode,joey,reset,h("p",{class:"note",text:(S.whatif?"What If? mode: click a state to flip its "+(S.filter==="governor"?"governor":"Senate")+" race (forecast, then D wins, then R wins, then back). For House seats, open a district and use its What if? buttons. ":"Pick your own winners and watch the bars move. ")+(n?n+" race"+(n===1?"":"s")+" set by you. ":"")+"Saved only in this browser."})]));
+  if(S.night)box.appendChild(nightPanel());else{var en=h("button",{type:"button",class:"wib gold",text:"\uD83C\uDF89 Election Night"});en.addEventListener("click",startNight);
+  box.appendChild(h("div",{class:"wibar"},[en,mode,joey,reset,h("p",{class:"note",text:(S.whatif?"What If? mode: click a state to flip its "+(S.filter==="governor"?"governor":"Senate")+" race (forecast, then D wins, then R wins, then back). For House seats, open a district and use its What if? buttons. ":"Pick your own winners and watch the bars move. ")+(n?n+" race"+(n===1?"":"s")+" set by you. ":"")+"Saved only in this browser."})]))}
   box.appendChild(S.filter==="house"?bopCard("House balance of power (435 seats)","house",435,true):S.filter==="governor"?bopCard("Governor races (36 on the ballot)","governor",36,false):bopCard("Senate balance of power (100 seats)","senate",100,true))}
-function pressState(st,race){if(S.whatif&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
+/* ---- Election Night mode: results come in state by state, east to west, like polls closing.
+   With real results it plays those back. Before Election Day it runs a clearly labeled practice:
+   your What If picks, else the forecasters' favorite, and Joey's call in toss-ups. Nothing is saved. */
+var CALM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;S.night=null;
+function myPicks(){return Object.keys(P.mine||{}).length?P.mine:((lsGet("mt_pred_draft")||{}).p||{})}
+function winnerName(r,w){if(SAME[r.id])return(w==="D"?"Democrat":"Republican")+" hold";return w===dSide(r)?slotName(r,"d"):w===rSide(r)?slotName(r,"r"):(IND[r.id]||"Independent")}
+function startNight(){var real=Object.keys(RESULTS).length>0,all={};
+  if(real)Object.keys(RESULTS).forEach(function(id){if(S.byId[id])all[id]=RESULTS[id]});
+  else S.races.forEach(function(r){var w=wiSide(r)||(SAME[r.id]?SAME[r.id][0]:null);if(!w){var f=forecastCall(r);w=f&&f!=="T"?f:joeyCall(r)}if(w&&w!=="T")all[r.id]=w});
+  var by={};Object.keys(all).forEach(function(id){var st=S.byId[id].state;(by[st]=by[st]||[]).push(id)});
+  var steps=Object.keys(by).sort(function(a,b){return(MAP.s[b]?MAP.s[b][1]:0)-(MAP.s[a]?MAP.s[a][1]:0)}).map(function(st){return by[st].sort(function(a,b){var A=S.byId[a],B=S.byId[b];return ORD[A.chamber]-ORD[B.chamber]||A.district-B.district})});
+  S.whatif=false;S.night={practice:!real,all:all,res:{},steps:steps,i:0,feed:[],fresh:0,hits:0,total:Object.keys(all).length,paused:false};
+  S.night.timer=setInterval(nightTick,1100);renderMap();if(S.raceId)selectRace(S.raceId)}
+function nightTick(){var N=S.night;if(!N||N.paused)return;if(N.i>=N.steps.length){clearInterval(N.timer);N.done=true;renderMap();return}
+  nightStep(N.steps[N.i++]);renderMap()}
+function nightStep(step){var N=S.night,mine=myPicks(),hit=false,quiet=0,st=null;N.fresh=0;
+  step.forEach(function(id){var r=S.byId[id],w=N.all[id],me=mine[id]&&mine[id]===w;N.res[id]=w;st=r.state;if(me){hit=true;N.hits++}
+    var big=r.chamber!=="house"||me||(r.cons&&Math.abs(r.cons.score)<1.5);
+    if(big){N.feed.unshift({t:(r.chamber==="house"?r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL"):raceName(r))+": "+winnerName(r,w)+" ("+w+")"+(me?" \u2B50 Your pick!":""),c:w.toLowerCase(),me:me});N.fresh++}else quiet++});
+  if(quiet){N.feed.unshift({t:NAMES[st]+": "+quiet+" more House seat"+(quiet===1?"":"s")+" called",c:""});N.fresh++}
+  N.feed=N.feed.slice(0,14);if(hit)confetti()}
+function nightAll(){var N=S.night;while(N.i<N.steps.length)nightStep(N.steps[N.i++]);N.fresh=0;clearInterval(N.timer);N.done=true;renderMap()}
+function stopNight(){if(!S.night)return;clearInterval(S.night.timer);S.night=null;renderMap();if(S.raceId)selectRace(S.raceId)}
+function confetti(){if(CALM)return;var box=h("div",{class:"confetti","aria-hidden":"true"}),C=["#b22234","#ffffff","#3c3b6e","#ffc83d","#63aaff"];
+  for(var k=0;k<90;k++){var i=h("i");i.style.left=(Math.random()*100)+"%";i.style.background=C[k%C.length];i.style.animationDuration=(1.6+Math.random())+"s";i.style.animationDelay=(Math.random()*.4)+"s";i.style.transform="rotate("+Math.round(Math.random()*90)+"deg)";box.appendChild(i)}
+  document.body.appendChild(box);setTimeout(function(){box.remove()},3400)}
+function nightPanel(){var N=S.night,called=Object.keys(N.res).length;
+  var pause=h("button",{type:"button",class:"wib",text:N.done?"Replay":N.paused?"Play":"Pause"});pause.addEventListener("click",function(){if(N.done){stopNight();startNight();return}N.paused=!N.paused;renderBOP()});
+  var all=h("button",{type:"button",class:"wib",text:"Show all now"});all.disabled=!!N.done;all.addEventListener("click",nightAll);
+  var exit=h("button",{type:"button",class:"wib gold",text:"Exit Election Night"});exit.addEventListener("click",stopNight);
+  var tick=h("div",{class:"ticker","aria-live":"off"},N.feed.map(function(f,k){return h("span",{class:"tk "+f.c+(f.me?" me":"")+(k<N.fresh?" new":""),text:(f.me?"":"\u2714 ")+f.t})}));
+  if(!N.feed.length)tick.appendChild(h("span",{class:"tk",text:"Polls are closing in the East. Results coming in..."}));
+  var mine=myPicks(),mp=Object.keys(mine).filter(function(id){return N.res[id]}),ok=mp.filter(function(id){return mine[id]===N.res[id]}).length;
+  return h("div",{class:"night"},[h("div",{class:"nh"},[h("span",{class:"live"+(N.practice?" pr":""),text:N.practice?"PRACTICE RUN":"LIVE RESULTS"}),
+      h("b",{text:(N.done?"All ":"")+called+" of "+N.total+" races called"}),pause,all,exit]),tick,
+    mp.length?h("p",{class:"sum",text:"Your picks so far: "+ok+" of "+mp.length+" right"+(ok?" \uD83C\uDF89":"")}):null,
+    h("p",{class:"note",text:N.practice?"Pretend results, not real ones: your What If picks, else the forecasters' favorite, and Joey's call in toss-ups. Real results replace this after Election Day.":"Results approved by a person after each race was called. They come in state by state, east to west."})])}
+function pressState(st,race){if(S.whatif&&!S.night&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
 function joeyCall(r){if(JOEY[r.id])return JOEY[r.id][0];if(SAME[r.id])return null;var c=r.cons;return c&&Math.abs(c.score)>=2.5?(c.score>0?dSide(r):rSide(r)):null}
 
 // ---- picks: artifact storage inside Claude, otherwise this browser's local storage ----
@@ -869,6 +931,7 @@ function renderNoType(st){S.raceId=null;var box=$("detail");box.textContent="";b
   box.appendChild(h("p",{class:"note",text:NAMES[st]+" has no "+TYPE[S.filter]+" race on the map this year. Its other races are listed below the map."}));renderMore()}
 function rowBtn(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});
   if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}var ww=wiSide(r);if(ww){chip.textContent="What if: "+ww+" wins";chip.className="chip-r";chip.style.background=fillOf(r);chip.style.color="#fff"}
+  if(S.night){var nw=nightWin(r);chip.className="chip-r";chip.textContent=nw?"Called: "+nw:"Not called yet";chip.style.background=fillOf(r);chip.style.color="#fff"}
   var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[h("span",{class:"rn",text:tagLong(r)}),chip,
     (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:SAME[r.id][0].toLowerCase(),text:SAME[r.id][0]+" vs. "+SAME[r.id][0]})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
   b.addEventListener("click",function(){var open=document.querySelector("#detail .rdetail");
@@ -1000,16 +1063,35 @@ function loadPred(){if(API.on){if(!API.user){var d0=lsGet("mt_pred_draft");if(d0
   return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
 function crowd(id){if(API.on){var c=API.crowd[id]||{},nn={D:0,R:0,I:0},tt=0;Object.keys(c).forEach(function(k){if(nn[k]!==undefined){nn[k]=c[k];tt+=c[k]}});return{n:nn,t:tt}}var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
 function crowdCall(id){var c=crowd(id);if(!c.t)return null;var best=null,bv=-1,tie=false;["D","I","R"].forEach(function(k){if(c.n[k]>bv){bv=c.n[k];best=k;tie=false}else if(c.n[k]===bv&&bv>0)tie=true});return tie?"T":best}
+/* ---- Badges: same rules as BADGES in backend/game.py. They say what kind of player you are, never which races you picked. ---- */
+var BADGE_LIST=[["all37","\uD83D\uDDF3\uFE0F","Full Ballot","Picked all 37 races"],["bold","\uD83E\uDD81","Bold Pick","Picked against the forecasters at least once"],
+  ["tossup","\uD83E\uDE99","Toss-up Tamer","Picked a side in every toss-up race"],["upset","\uD83C\uDFAF","Upset Caller","Got a race right that the forecasters had going the other way",1],
+  ["sharp","\uD83C\uDFF9","Sharpshooter","Got 80% or more right (10+ races decided)",1],["beatjoey","\uD83C\uDFC6","Beat Joey","Scored more points than Joey",1]];
+function predIds(){return PRED.reduce(function(a,g){return a.concat(g[1])},[])}
+function earnedBadges(p){p=p||{};var ids=predIds(),out=[],fav={};ids.forEach(function(id){fav[id]=S.byId[id]?forecastCall(S.byId[id]):null});
+  if(ids.every(function(id){return p[id]}))out.push("all37");
+  if(Object.keys(p).some(function(id){var f=fav[id];return f&&f!=="T"&&p[id]!==f}))out.push("bold");
+  var tu=ids.filter(function(id){return fav[id]==="T"});if(tu.length&&tu.every(function(id){return p[id]}))out.push("tossup");
+  if(Object.keys(RESULTS).length){var dec=Object.keys(p).filter(function(id){return RESULTS[id]}),ok=dec.filter(function(id){return p[id]===RESULTS[id]});
+    if(ok.some(function(id){var f=fav[id];return f&&f!=="T"&&f!==RESULTS[id]}))out.push("upset");
+    if(dec.length>=10&&ok.length>=.8*dec.length)out.push("sharp");
+    if(ok.length>score(function(id){return joeyCall(predRace(id))})[0])out.push("beatjoey")}return out}
+function badgeChips(ids){var s=h("span",{class:"bdgs"});BADGE_LIST.forEach(function(b){if(ids.indexOf(b[0])>=0)s.appendChild(h("span",{class:"bdg",title:b[2]+": "+b[3],"aria-label":b[2]+" badge",role:"img",text:b[1]}))});return s}
+function renderMyBadges(){var box=$("pred-badges");if(!box)return;box.textContent="";var got=earnedBadges(P.mine),live=Object.keys(RESULTS).length>0;
+  box.appendChild(h("h3",{text:"Your badges ("+got.length+" of "+BADGE_LIST.length+")"}));
+  box.appendChild(h("div",{class:"mybadges"},BADGE_LIST.map(function(b){var on=got.indexOf(b[0])>=0;
+    return h("div",{class:"mb "+(on?"on":"off")},[h("span",{class:"ic","aria-hidden":"true",text:b[1]}),h("b",{text:b[2]}),b[3]+(on?"":b[4]&&!live?" (unlocks after Election Day)":"")])})));
+  box.appendChild(h("p",{class:"note",text:"Badges show next to your name on the leaderboard. They never say which races you picked."}))}
 function score(get){var ok=0,n=0;Object.keys(RESULTS).forEach(function(id){n++;if(get(id)===RESULTS[id])ok++});return[ok,n]}
 function renderPred(){renderAvatars();
   $("pred-mode").textContent=API.on?"Your picks are saved to your account and count on the shared leaderboard. Only your nickname and avatar are shown, never your picks.":SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
   var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
-  var lb=$("pred-lb");lb.textContent="";
+  renderMyBadges();var lb=$("pred-lb");lb.textContent="";
   /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
   var live=Object.keys(RESULTS).length>0,PTS=10;
-  var rows=API.on?((API.lb&&API.lb.players)||[]).map(function(x){return{name:x.nickname,av:Labubus.has(x.avatar)?Labubus.make(x.avatar,40,x.nickname+"'s avatar"):"",pts:x.points||0}}):
-    P.all.map(function(e){return{name:e.n,av:Labubus.has(e.a)?Labubus.make(e.a,40,e.n+"'s avatar"):"",pts:PTS*score(function(id){return e.p[id]})[0]}});
+  var rows=API.on?((API.lb&&API.lb.players)||[]).map(function(x){return{name:x.nickname,av:Labubus.has(x.avatar)?Labubus.make(x.avatar,40,x.nickname+"'s avatar"):"",pts:x.points||0,bd:x.badges||[]}}):
+    P.all.map(function(e){return{name:e.n,av:Labubus.has(e.a)?Labubus.make(e.a,40,e.n+"'s avatar"):"",pts:PTS*score(function(id){return e.p[id]})[0],bd:earnedBadges(e.p)}});
   rows.push({name:"Joey (expert)",av:YaleAvatars.joey(40),pts:PTS*score(function(id){return joeyCall(predRace(id))})[0],bench:1});
   if(live)rows.push({name:"The crowd",pts:PTS*score(crowdCall)[0],bench:1},{name:"Forecasters' consensus",pts:PTS*score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})[0],bench:1},
     {name:"My model",pts:PTS*score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})[0],bench:1});
@@ -1018,14 +1100,14 @@ function renderPred(){renderAvatars();
   lb.appendChild(h("p",{class:"note",text:live?"10 points for every race called correctly. A toss-up pick counts as a miss.":"Points show up after Election Day: 10 for every race called correctly. For now, here's everyone who has made picks."}));
   var head=live?["#","Player","Points"]:["Player"];
   lb.appendChild(h("div",{class:"table-wrap lb"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{class:t==="Points"?"num":"",text:t})}))]),
-    h("tbody",{},rows.map(function(x,k){var who=h("td",{class:"lbwho"});if(x.av){var s=h("span",{class:"lbav"});s.innerHTML=x.av;who.appendChild(s)}who.appendChild(h("b",{text:x.name}));
+    h("tbody",{},rows.map(function(x,k){var who=h("td",{class:"lbwho"});if(x.av){var s=h("span",{class:"lbav"});s.innerHTML=x.av;who.appendChild(s)}who.appendChild(h("b",{text:x.name}));if(x.bd&&x.bd.length)who.appendChild(badgeChips(x.bd));
       var cells=[who];if(live){cells.unshift(h("td",{class:"num",text:String(k+1)}));cells.push(h("td",{class:"num lbpts",text:x.pts+" pts"}))}return h("tr",{},cells)}))])]));
   var host=$("pred-tables"),hasRes=Object.keys(RESULTS).length>0;host.textContent="";
   PRED.forEach(function(g){host.appendChild(h("h3",{text:g[0]+" ("+g[1].length+")"}));
     var head=["Race","Your pick","Crowd","Forecasters","My model","Joey"].concat(hasRes?["Result"]:[]);
     var body=g[1].map(function(id){var r=predRace(id),cell=h("td");
       choices(r).forEach(function(c){var b=h("button",{type:"button","class":"pp "+c[0].toLowerCase(),"aria-pressed":String(P.mine[id]===c[0]),"aria-label":c[1]+", "+PTY[c[0]]},[c[1]+" ",h("span",{class:"ptag",text:c[0]})].concat(badges(isYale(r,c[0],c[1]),ND_NAMES[c[1]]===1)));
-        b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];draft();
+        b.disabled=shut;b.addEventListener("click",function(){if(P.mine[id]===c[0])delete P.mine[id];else P.mine[id]=c[0];draft();renderMyBadges();
           cell.querySelectorAll(".pp").forEach(function(pb){pb.setAttribute("aria-pressed",String(pb===b&&P.mine[id]===c[0]))})});cell.appendChild(b)});
       var cr=crowd(id),bar=h("div",{class:"crowd",role:"img","aria-label":cr.t?"Crowd: "+cr.n.D+" Democrat, "+cr.n.I+" independent, "+cr.n.R+" Republican":"No picks yet"});
       [["D","#3d7fd1"],["I","#978d85"],["R","#c9605a"]].forEach(function(x){if(cr.n[x[0]]){var i=h("i");i.style.width=(100*cr.n[x[0]]/cr.t)+"%";i.style.background=x[1];bar.appendChild(i)}});

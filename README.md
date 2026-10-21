@@ -42,6 +42,8 @@ Then go to **Predict and Compare**, pick an avatar, and sign up with any nicknam
 
 - **Map** with Senate, Governor, and House layers, colored by the forecasters' consensus. Click a state to see its races; the race details open right under the race you click.
 - **Balance of Power and What If?:** a bar above the map shows how the Senate (counting seats not on the ballot), House, or governor races split if every race goes the way the forecasters lean. Turn on What If? mode to pick your own winners (or fill in Joey's calls) and watch the bars and map change. Picks stay in your browser.
+- **Election Night mode:** results come in state by state, east to west. The map fills in, a ticker lists winners, the bars count called seats, and confetti pops when one of your picks is right. Before results exist it runs a clearly labeled practice (your What If picks, else the forecasters' favorite, and Joey's call in toss-ups).
+- **Badges:** Full Ballot, Bold Pick, Toss-up Tamer, and (after results) Upset Caller, Sharpshooter, and Beat Joey. They show next to your name on the leaderboard and never say which races you picked. The server computes them (`backend/game.py`) with the same rules as the site.
 - **Predict and Compare:** nickname and password accounts with a Labubu avatar. Pick winners in 37 key races. The shared leaderboard shows only avatars and names until Election Day, then 10 points per correct call.
 - **Every House Seat:** all 435 districts, searchable. Names link to Ballotpedia, which lists each campaign's website.
 - **Vote:** enter an address to see your races and your state's official registration page. The address is sent once to the U.S. Census geocoder, cleared immediately, and never stored. Capped at 10 lookups per visit.
