@@ -130,6 +130,18 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .vote-race{font-size:1.1rem;color:var(--head)}.vote-cands{list-style:none;padding:0;margin:8px 0 4px}.vote-cands li{margin:4px 0;font-weight:700}
 .ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
+.bop{display:grid;gap:10px;margin:0 0 14px}
+.bopc{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:10px 14px;box-shadow:0 4px 0 var(--line)}
+.bopc h3{margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;font-size:1rem;color:var(--head)}
+.bopc .tot{font-size:.92rem;font-weight:800}.bopc .tot .d{color:var(--dc)}.bopc .tot .r{color:var(--rc)}.bopc .tot .t{color:#7a6fae}.bopc .tot .i{color:#b8860b}
+.bopbar{position:relative;display:flex;height:24px;border-radius:999px;overflow:hidden;margin:8px 0 6px;background:var(--line)}
+.bopbar i{display:flex;align-items:center;justify-content:center;font:800 .72rem/1 system-ui,sans-serif;font-style:normal;color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+.bopbar .mid{position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:#ffc83d;box-shadow:0 0 0 1.5px #1b2430}
+.bopc p{margin:0;font-size:.9rem}
+.wibar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.wibar .note{flex-basis:100%;margin:0}
+.wib{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:5px 14px;font-weight:800;cursor:pointer}
+.wib[aria-pressed="true"]{background:#b22234;color:#fff;border-color:#b22234}
+.wi{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 12px}.wi .wib{padding:3px 12px;font-size:.88rem}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
@@ -259,6 +271,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
         <button type="button" class="f on" data-f="senate" aria-pressed="true">Senate</button>
         <button type="button" class="f" data-f="governor" aria-pressed="false">Governor</button>
         <button type="button" class="f" data-f="house" aria-pressed="false">House</button></div></div>
+    <div id="bop" class="bop" aria-live="polite"></div>
     <div id="map" class="map" role="group" aria-label="Map of states. Select a state with tracked races."></div>
     <div id="more" class="more" aria-live="polite"></div>
     <div class="legend" aria-hidden="true"><span class="lg"><i class="dot big"></i> State color shows the forecasters' consensus for the selected race type</span><span class="lg"><i class="dot"></i> House district (House view)</span><span class="lg"><i class="dot big" style="background:var(--tint);border:1.5px solid var(--stroke)"></i> Gray-blue: House races only</span><span class="scale" id="scale"></span></div>
@@ -603,6 +616,7 @@ function bowtie(c){return'<path d="M136 326 L110 312 L110 340 Z M136 326 L162 31
 function flagPin(x,y){return'<g transform="translate('+x+' '+y+')"><rect x="-9" y="-6" width="18" height="12" rx="1.5" fill="#fff" stroke="'+INK+'" stroke-width="1.8"/><path d="M-9 -2 H9 M-9 2 H9" stroke="#c0392b" stroke-width="2"/><rect x="-9" y="-6" width="8" height="6" fill="#2d3e8f"/></g>'}
 function hatBrim(cx,cy,rx,ry,c){return'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+c+'"'+S+'/>'}
 var STAR='M0 -7 L2 -2 L7 -2 L3 1 L4.5 6 L0 3 L-4.5 6 L-3 1 L-7 -2 L-2 -2 Z';
+function yPin(x,y){return'<circle cx="'+x+'" cy="'+y+'" r="12" fill="#00356b" stroke="#fff" stroke-width="2.4"/><text x="'+x+'" y="'+(y+5.5)+'" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="15" fill="#fff">Y</text>'}
 
 var LIST=[
   {id:"joey",party:"N",name:"Joey",fur:"#d8b07a",face:"#fbe9c9",
@@ -615,6 +629,12 @@ var LIST=[
    /* white cap worn backwards: dome, thin edge, strap opening with hair poking through */
    head:'<path d="M58 168 C58 92 98 64 136 64 C174 64 214 92 214 168 Z" fill="#f7f7f5"'+S+'/><path d="M136 68 V158 M100 78 C92 104 90 134 92 160 M172 78 C180 104 182 134 180 160" fill="none" stroke="#d9dde3" stroke-width="3.5"/>'+
      '<path d="M56 166 Q136 150 216 166 L216 176 Q136 160 56 176 Z" fill="#e3e7ec"'+S+'/><path d="M104 168 C104 128 168 128 168 168 Z" fill="#9c6b3c"'+S+'/><path d="M104 150 H168" stroke="#8b9097" stroke-width="8" stroke-linecap="round"/>'},
+  {id:"vedant",party:"N",name:"Vedant",fur:"#2a2726",face:"#fbe9c9",
+   /* a made-up consultant: white collared sweater with black stripes, glasses, black hair, a chart pin and a Y */
+   body:'<path d="'+COAT+'" fill="#ffffff"'+S+'/>'+[350,378,406,434,462].map(function(y){var d=(y-336)*14/134;return'<rect x="'+(66-d)+'" y="'+(y-5)+'" width="'+(140+2*d)+'" height="10" fill="#1b2430"/>'}).join("")+
+     '<path d="'+COAT+'" fill="none"'+S+'/><path d="M110 314 L96 336 L130 334 Z M162 314 L176 336 L142 334 Z" fill="#ffffff"'+S+'/><path d="M136 334 V360" stroke="#1b2430" stroke-width="3"/><circle cx="136" cy="344" r="2.6" fill="#1b2430"/>'+
+     '<g transform="translate(176 380)"><rect x="-12" y="-12" width="24" height="24" rx="4" fill="#fff"'+S+'/><path d="M-6 6 V0 M0 6 V-5 M6 6 V-8" stroke="#2f8a3c" stroke-width="3.5" stroke-linecap="round"/></g>'+yPin(96,392),
+   head:glasses(26,"#1c1118")+'<path d="M60 186 C58 130 100 106 140 108 C180 108 214 134 212 184 C194 156 164 146 134 152 C108 146 78 156 60 186 Z" fill="#141212"'+S+'/>'},
   {id:"liberty",party:"N",name:"Statue of Liberty",fur:"#7fbfa6",face:"#d5eee2",
    body:'<path d="M50 470 C50 380 80 322 136 318 C192 322 222 380 222 470 Z" fill="#8fcfb5"'+S+'/><path d="M86 340 Q136 372 196 330 M78 380 Q140 410 206 372" fill="none" stroke="#5f9e86" stroke-width="4" stroke-linecap="round"/>'+
      '<rect x="168" y="372" width="34" height="44" rx="4" fill="#6fb39a"'+S+'/><path d="M175 386 H196 M175 398 H196" stroke="'+INK+'" stroke-width="2"/>',
@@ -633,6 +653,10 @@ var LIST=[
    body:suit("#b59b6a","#e9dcc0",null,'<path d="M112 318 L136 338 L160 318 L152 350 L136 342 L120 350 Z" fill="#c0392b"'+S+'/>'),
    head:glasses(28,"#c9a227")+'<path d="M94 276 C108 256 128 258 136 266 C144 258 164 256 178 276 C162 270 146 278 136 282 C126 278 110 270 94 276 Z" fill="#4a2e1a"'+S+'/>'+
      hatBrim(136,140,130,22,"#8a6a3e")+'<path d="M84 140 C84 96 104 72 136 72 C168 72 188 96 188 140 Z" fill="#8a6a3e"'+S+'/><path d="M116 78 L136 98 L156 78" fill="none"'+S+'/><rect x="86" y="120" width="100" height="12" fill="#5a3e22"/>'},
+  {id:"taft",party:"R",name:"William Howard Taft",fur:"#8f8a84",face:"#fbe9c9",
+   /* gray suit with a vest, a grand handlebar mustache, and his Yale Y */
+   body:suit("#6b6f76","#ffffff","#3a3f47",'<path d="M112 330 L136 392 L160 330 Z" fill="#8a8f98"'+S+'/>'+yPin(96,392)),
+   head:'<path d="M84 272 C98 256 124 260 136 268 C148 260 174 256 188 272 C202 280 206 266 198 260 C206 278 190 288 174 280 C160 274 148 280 136 282 C124 280 112 274 98 280 C82 288 66 278 74 260 C66 266 70 280 84 272 Z" fill="#7a5a3e"'+S+'/>'},
   {id:"fdr",party:"D",name:"Franklin D. Roosevelt",fur:"#8f9aa6",face:"#fbe9c9",
    body:'<path d="M30 470 C30 360 70 314 136 314 C202 314 242 360 242 470 Z" fill="#1d2b4a"'+S+'/><path d="M116 318 L136 364 L156 318 Z" fill="#fff"'+S+'/>'+bowtie("#7a2b27"),
    head:glasses(21,"#2b2b2b")+'<path d="M73 254 Q58 292 72 324" fill="none" stroke="#c9a227" stroke-width="2.6"/>'},
@@ -649,6 +673,14 @@ var LIST=[
    body:suit("#7a5a3e","#ffffff","#b03a2e",flagPin(176,350)),
    /* big dark pompadour */
    head:'<path d="M62 182 C56 128 98 102 140 104 C186 104 220 132 214 182 C196 150 170 140 140 146 C112 140 80 150 62 182 Z" fill="#3a2a1e"'+S+'/><path d="M88 150 C110 124 152 120 182 136 M100 168 C122 146 156 144 188 156" fill="none" stroke="#6b4e38" stroke-width="4" stroke-linecap="round"/>'},
+  {id:"clinton",party:"D",name:"Bill Clinton",fur:"#d9d9dc",face:"#fbe9c9",
+   /* navy suit, a saxophone, and his Yale Law Y */
+   body:suit("#1f2a44","#ffffff","#2d6cc0",flagPin(176,350)+yPin(96,392)+'<g transform="translate(196 350) rotate(18)"><path d="M10 0 V58 C10 74 32 76 34 62 L34 54" fill="none" stroke="#e3b341" stroke-width="9" stroke-linecap="round"/><path d="M28 50 C40 46 46 56 40 66 C34 74 22 72 24 62" fill="#e3b341"'+S+'/><path d="M6 -6 L14 -6" stroke="#1b2430" stroke-width="4" stroke-linecap="round"/><circle cx="10" cy="22" r="2.4" fill="#c99a2e"/><circle cx="10" cy="34" r="2.4" fill="#c99a2e"/></g>'),
+   head:'<path d="M62 182 C56 130 98 104 140 106 C184 106 218 132 214 182 C196 152 170 142 140 148 C112 142 80 152 62 182 Z" fill="#e4e4e7"'+S+'/>'},
+  {id:"bushw",party:"R",name:"George W. Bush",fur:"#b9bcc2",face:"#fbe9c9",
+   /* navy suit, a Texas cowboy hat, and his Yale Y */
+   body:suit("#1f2a44","#ffffff","#2d6cc0",flagPin(176,350)+yPin(96,392)),
+   head:hatBrim(136,142,132,22,"#7a4e2a")+'<path d="M80 142 C78 96 100 74 136 74 C172 74 194 96 192 142 Z" fill="#7a4e2a"'+S+'/><path d="M112 82 L136 100 L160 82" fill="none"'+S+'/><rect x="82" y="122" width="108" height="11" fill="#3a2414"/><path d="M8 130 C20 150 40 146 56 140 M264 130 C252 150 232 146 216 140" fill="none" stroke="#7a4e2a" stroke-width="10" stroke-linecap="round"/>'},
   {id:"obama",party:"D",name:"Barack Obama",fur:"#3d3a38",face:"#fbe9c9",
    body:suit("#1d2433","#ffffff","#4a7fc1",flagPin(176,350)),
    /* close-cropped hair with a little gray */
@@ -667,6 +699,10 @@ var LIST=[
    body:suit("#1f2a4a","#ffffff","#b03a2e",flagPin(176,350)),
    /* short dark beard along the jaw */
    head:'<path d="M40 236 C42 286 92 304 136 304 C180 304 230 286 232 236 C224 266 200 280 182 284 C176 302 96 302 90 284 C72 280 48 266 40 236 Z" fill="#4a3426"'+S+'/><path d="M110 268 Q136 256 162 268 Q136 263 110 268 Z" fill="#4a3426"'+S+'/>'},
+  {id:"desantis",party:"R",name:"Ron DeSantis",fur:"#2a2726",face:"#fbe9c9",
+   /* navy suit, short dark side-parted hair, a Florida orange pin, and his Yale Y */
+   body:suit("#1d2433","#ffffff","#b03a2e",yPin(96,392)+'<g transform="translate(176 352)"><circle r="10" fill="#ff9a1f"'+S+'/><path d="M0 -10 L2 -15" stroke="#5a3e22" stroke-width="3"/><path d="M2 -14 C8 -18 12 -14 10 -11 C6 -10 4 -11 2 -14 Z" fill="#3a9a4a"/></g>'),
+   head:'<path d="M64 182 C62 134 98 110 136 110 C176 110 210 134 208 182 C192 160 168 150 140 152 C112 150 82 160 64 182 Z" fill="#1c1a19"'+S+'/><path d="M150 112 C158 130 170 142 192 152" fill="none" stroke="#4a4442" stroke-width="3"/>'},
   {id:"harris",party:"D",name:"Kamala Harris",fur:"#3b2a22",face:"#fbe9c9",
    body:'<path d="'+COAT+'" fill="#1f2a44"'+S+'/><path d="M108 316 Q136 346 164 316 L158 380 L114 380 Z" fill="#f4efe6"'+S+'/>'+
      '<path d="M108 316 L92 340 L120 372 L126 336 Z M164 316 L180 340 L152 372 L146 336 Z" fill="#141c33"'+S+'/>'+
@@ -730,6 +766,48 @@ function visible(r){return r.chamber===S.filter}
 function forecastCall(r){if(SAME[r.id])return null;var c=r.cons;return c?(c.score>.25?dSide(r):c.score<-.25?rSide(r):"T"):null}
 function modelCall(r){if(SAME[r.id])return null;var l=r.mine.label;return /^Toss/.test(l)?"T":/ D$/.test(l)?dSide(r):rSide(r)}
 /* Joey's call: his own pick, or the favorite in any race the forecasters rate Safe. */
+/* ---- What If? simulator: your own winners, saved in this browser only ---- */
+var WI=lsGet("mt_whatif")||{};
+function wiSide(r){var o=WI[r.id];return o?(o==="d"?dSide(r):rSide(r)):null}
+function fillOf(r){var w=wiSide(r);if(w)return w==="D"?"#1f4f9a":w==="R"?"#a63a34":"#b8860b";return colorFor(r.cons&&r.cons.score)}
+function textFill(r){return wiSide(r)?"#fff":textOn(r.cons&&r.cons.score)}
+function setWI(r,v){if(SAME[r.id])return;if(v)WI[r.id]=v;else delete WI[r.id];lsSet("mt_whatif",WI)}
+function cycleWI(r){var o=WI[r.id];setWI(r,!o?"d":o==="d"?"r":null)}
+function slotName(r,slot){var n=slot==="d"?r.dn:r.rn;return n==="-"?(IND[r.id]||"Independent"):n}
+function wiControl(r){if(SAME[r.id])return document.createTextNode("");var w=h("div",{class:"wi",role:"group","aria-label":"What if"},[h("b",{text:"What if?"})]);
+  [[null,"Go with the forecast"],["d",slotName(r,"d")+" wins"],["r",slotName(r,"r")+" wins"]].forEach(function(o){var on=(WI[r.id]||null)===o[0];
+    var b=h("button",{type:"button",class:"wib","aria-pressed":String(on),text:o[1]});b.addEventListener("click",function(){setWI(r,o[0]);renderMap();selectRace(r.id)});w.appendChild(b)});return w}
+var HOLD=null;/* Senate seats not up in 2026: 53 R and 47 D (incl. 2 independents who caucus with D) minus the seats on the ballot */
+function holdovers(){if(HOLD)return HOLD;var up={D:0,R:0};S.races.forEach(function(r){if(r.chamber==="senate"&&up[r.party]!==undefined)up[r.party]++});HOLD={D:47-up.D,R:53-up.R};return HOLD}
+function bopCount(ch){var b={};S.races.forEach(function(r){if(r.chamber!==ch)return;var k,w=wiSide(r);
+  if(w)k=w==="I"?"I":w+"p";else if(SAME[r.id])k=SAME[r.id][0]+"s";
+  else{var s=r.cons?r.cons.score:0,a=Math.abs(s);if(a<.25)k="T";else{var side=s>0?dSide(r):rSide(r);k=side==="I"?"I":side+(a>=2.5?"s":a>=1.5?"y":"l")}}
+  b[k]=(b[k]||0)+1});if(ch==="senate"){var ho=holdovers();b.Dh=ho.D;b.Rh=ho.R}return b}
+function stripes(a,b){return"repeating-linear-gradient(45deg,"+a+" 0 5px,"+b+" 5px 10px)"}
+var SEG=[["Dh","#0f2f66","#fff","Democrats not on the ballot"],["Ds",colorFor(3),"#fff","Safe D"],["Dy",colorFor(2),"#fff","Likely D"],["Dl",colorFor(1),"#1b2430","Lean or tilt D"],
+  ["Dp",stripes("#1f4f9a","#3d7fd1"),"#fff","Your What If: D"],["T","#a79fc7","#1b2430","Toss-up"],["I",stripes("#b8860b","#e3b341"),"#fff","Independent"],
+  ["Rp",stripes("#a63a34","#c9605a"),"#fff","Your What If: R"],["Rl",colorFor(-1),"#1b2430","Lean or tilt R"],["Ry",colorFor(-2),"#fff","Likely R"],["Rs",colorFor(-3),"#fff","Safe R"],["Rh","#6e211d","#fff","Republicans not on the ballot"]];
+function bopCard(title,ch,total,line){var b=bopCount(ch),D=0,R=0;Object.keys(b).forEach(function(k){if(k[0]==="D")D+=b[k];if(k[0]==="R")R+=b[k]});var T=b.T||0,I=b.I||0;
+  var bar=h("div",{class:"bopbar",role:"img","aria-label":title+": "+D+" Democratic, "+T+" toss-up, "+(I?I+" independent, ":"")+R+" Republican"});
+  SEG.forEach(function(sg){var n=b[sg[0]];if(!n)return;var i=h("i",{title:sg[3]+": "+n});i.style.width=(100*n/total)+"%";i.style.background=sg[1];i.style.color=sg[2];if(n/total>=.035)i.textContent=n;bar.appendChild(i)});
+  if(line)bar.appendChild(h("span",{class:"mid",title:"Majority line"}));
+  var tot=h("span",{class:"tot"},[h("span",{class:"d",text:"D "+D}),"  ",h("span",{class:"t",text:"Toss-up "+T}),"  "].concat(I?[h("span",{class:"i",text:"I "+I}),"  "]:[]).concat([h("span",{class:"r",text:"R "+R})]));
+  var lead=Object.keys(WI).some(function(id){return S.byId[id]&&S.byId[id].chamber===ch})?"With your What If picks, ":"If every race goes the way the forecasters lean, ",msg;
+  if(ch==="senate")msg=D>=51?"Democrats would win the Senate.":R>=50?"Republicans would keep the Senate (VP Vance breaks 50-50 ties).":"control comes down to "+T+" toss-up"+(T===1?"":"s")+(I?" and "+I+" independent"+(I===1?"":"s"):"")+". Democrats need 51 seats, Republicans need 50.";
+  else if(ch==="house")msg=D>=218?"Democrats would win the House.":R>=218?"Republicans would keep the House.":"control comes down to "+T+" toss-up"+(T===1?"":"s")+". It takes 218 seats.";
+  else msg="Democrats would hold "+D+" of these 36 governor races and Republicans "+R+(T?", with "+T+" too close to call.":".");
+  if(ch==="senate"&&D<51&&R<50)msg=msg.charAt(0).toUpperCase()+msg.slice(1),lead=lead.replace(/, $/,": ");
+  if(ch==="house"&&D<218&&R<218)msg=msg.charAt(0).toUpperCase()+msg.slice(1),lead=lead.replace(/, $/,": ");
+  return h("div",{class:"bopc"},[h("h3",{},[h("span",{text:title}),tot]),bar,h("p",{text:lead+msg})])}
+function renderBOP(){var box=$("bop");if(!box)return;box.textContent="";
+  var mode=h("button",{type:"button",class:"wib","aria-pressed":String(!!S.whatif),text:S.whatif?"What If? mode is ON":"Try What If? mode"});
+  mode.addEventListener("click",function(){S.whatif=!S.whatif;renderBOP()});
+  var joey=h("button",{type:"button",class:"wib",text:"Fill in Joey's calls"});joey.addEventListener("click",function(){S.races.forEach(function(r){var c=joeyCall(r);if(!c||SAME[r.id])return;setWI(r,c===dSide(r)?"d":c===rSide(r)?"r":null)});renderMap();if(S.raceId)selectRace(S.raceId)});
+  var reset=h("button",{type:"button",class:"wib",text:"Reset"});reset.addEventListener("click",function(){WI={};lsSet("mt_whatif",WI);renderMap();if(S.raceId)selectRace(S.raceId)});
+  var n=Object.keys(WI).length;
+  box.appendChild(h("div",{class:"wibar"},[mode,joey,reset,h("p",{class:"note",text:(S.whatif?"What If? mode: click a state to flip its "+(S.filter==="governor"?"governor":"Senate")+" race (forecast, then D wins, then R wins, then back). For House seats, open a district and use its What if? buttons. ":"Pick your own winners and watch the bars move. ")+(n?n+" race"+(n===1?"":"s")+" set by you. ":"")+"Saved only in this browser."})]));
+  box.appendChild(S.filter==="house"?bopCard("House balance of power (435 seats)","house",435,true):S.filter==="governor"?bopCard("Governor races (36 on the ballot)","governor",36,false):bopCard("Senate balance of power (100 seats)","senate",100,true))}
+function pressState(st,race){if(S.whatif&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
 function joeyCall(r){if(JOEY[r.id])return JOEY[r.id][0];if(SAME[r.id])return null;var c=r.cons;return c&&Math.abs(c.score)>=2.5?(c.score>0?dSide(r):rSide(r)):null}
 
 // ---- picks: artifact storage inside Claude, otherwise this browser's local storage ----
@@ -768,18 +846,18 @@ function renderMap(){var host=$("map");host.textContent="";
     var g=sv("g",{"class":"st"+(!sen&&hou.length?" h":"")+(rs.length?" tr":"")+(all.length&&!rs.length?" dim":"")+(S.state===st?" sel":""),tabindex:"0",role:"button"});
     var tip=NAMES[st]+": "+(all.length?all.map(function(r){return tag(r)+" ("+(r.cons?r.cons.label:"no ratings")+")"}).join(", "):"no tracked races yet");
     g.setAttribute("aria-label",tip);var t=sv("title");t.textContent=tip;g.appendChild(t);
-    var p=sv("path",{d:m[0]});if(sen)p.style.fill=colorFor(sen.cons&&sen.cons.score);g.appendChild(p);
+    var p=sv("path",{d:m[0]});if(sen)p.style.fill=fillOf(sen);g.appendChild(p);
     var pos=SMALL[st],lx=pos?pos[0]:m[1],ly=pos?pos[1]:(hou.length?m[2]-5:m[2]+3);
     if(pos)g.appendChild(sv("line",{x1:m[1],y1:m[2],x2:lx-6,y2:ly-3,"class":"leader"}));
     var tx=sv("text",{x:lx,y:ly,"class":m[3]<35?"sm":""});tx.textContent=st;
-    tx.style.fill=(sen&&!pos)?textOn(sen.cons&&sen.cons.score):"var(--head)";g.appendChild(tx);
+    tx.style.fill=(sen&&!pos)?textFill(sen):"var(--head)";g.appendChild(tx);
     var per=hou.length>12?Math.ceil(Math.sqrt(hou.length*1.8)):4,gap=hou.length>12?6.4:9,rad=hou.length>12?2.6:3.7;
     hou.forEach(function(r,i){var row=Math.floor(i/per),inrow=Math.min(per,hou.length-row*per);
-      g.appendChild(sv("circle",{cx:m[1]+(i%per-(inrow-1)/2)*gap,cy:m[2]+7+row*gap,r:rad,fill:colorFor(r.cons&&r.cons.score),stroke:"#fff","stroke-width":hou.length>12?.8:1.2}))});
-    g.addEventListener("click",function(){selectState(st)});
-    g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();selectState(st)}});
+      g.appendChild(sv("circle",{cx:m[1]+(i%per-(inrow-1)/2)*gap,cy:m[2]+7+row*gap,r:rad,fill:fillOf(r),stroke:"#fff","stroke-width":hou.length>12?.8:1.2}))});
+    g.addEventListener("click",function(){pressState(st,sen)});
+    g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pressState(st,sen)}});
     svg.appendChild(g)});
-  host.appendChild(svg)}
+  host.appendChild(svg);renderBOP()}
 function setFilter(f,quiet){S.filter=f;document.querySelectorAll(".f").forEach(function(b){var on=b.dataset.f===f;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on))});renderMap();
   if(!quiet&&S.state){var v=stateRaces(S.state).filter(visible);if(v.length)selectRace(v[0].id);else renderNoType(S.state)}}
 
@@ -790,7 +868,7 @@ var TYPE={senate:"Senate",governor:"governor",house:"House"};
 function renderNoType(st){S.raceId=null;var box=$("detail");box.textContent="";box.appendChild(stateHead(st));
   box.appendChild(h("p",{class:"note",text:NAMES[st]+" has no "+TYPE[S.filter]+" race on the map this year. Its other races are listed below the map."}));renderMore()}
 function rowBtn(r){var c=r.cons,chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});
-  if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
+  if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}var ww=wiSide(r);if(ww){chip.textContent="What if: "+ww+" wins";chip.className="chip-r";chip.style.background=fillOf(r);chip.style.color="#fff"}
   var b=h("button",{type:"button",class:"rrow",role:"tab","aria-selected":String(r.id===S.raceId)},[h("span",{class:"rn",text:tagLong(r)}),chip,
     (SAME[r.id]?h("span",{class:"rp"},[h("span",{class:SAME[r.id][0].toLowerCase(),text:SAME[r.id][0]+" vs. "+SAME[r.id][0]})]):h("span",{class:"rp"},[h("span",{class:dSide(r).toLowerCase(),text:dSide(r)+" "+r.mine.dem+"%"}),"  ",h("span",{class:rSide(r).toLowerCase(),text:rSide(r)+" "+r.mine.rep+"%"})]))]);
   b.addEventListener("click",function(){var open=document.querySelector("#detail .rdetail");
@@ -849,7 +927,7 @@ function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"
 function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("detail");if(r.chamber!==S.filter)setFilter(r.chamber,true);renderMore();box.textContent="";box.appendChild(stateHead(S.state));var list=raceList(),det=h("div",{class:"rdetail"});box.appendChild(list);
   det.appendChild(h("h2",{class:"race-title",text:raceName(r)+(r.chamber==="house"?" ("+r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL")+")":"")}));
   det.appendChild(h("p",{class:"race-sub",text:r.incumbent+(r.status==="incumbent"&&r.party?" ("+r.party+")":"")+(r.cpvi?". "+(r.chamber==="house"?"District":"State")+" lean: "+r.cpvi:"")+"."}));
-  var lu=lineup(r);
+  det.appendChild(wiControl(r));var lu=lineup(r);
   det.appendChild(lu.length===3?h("div",{class:"faceoff three"},lu.map(function(x){return candidate(r,x[0],x[1])})):
     h("div",{class:"faceoff"},[candidate(r,lu[0][0],lu[0][1]),h("div",{class:"vs",text:"vs."}),candidate(r,lu[1][0],lu[1][1])]));
   if(r.oth)det.appendChild(h("p",{class:"note",text:r.oth+"."}));

@@ -32,7 +32,7 @@ LOCKOUT_SECONDS = 15 * 60
 MIN_PASSWORD = 8
 MAX_PASSWORD = 128
 NICK_RE = re.compile(r"^[A-Za-z0-9 ._'-]{2,24}$")
-AVATARS = {"joey", "liberty", "washington", "lincoln", "troosevelt", "fdr", "truman", "eisenhower", "jfk",
+AVATARS = {"joey", "liberty", "vedant", "taft", "clinton", "bushw", "desantis", "washington", "lincoln", "troosevelt", "fdr", "truman", "eisenhower", "jfk",
            "reagan", "obama", "trump", "biden", "vance", "harris"}
 
 
