@@ -1,293 +1,292 @@
 # Endorsements shown on the site
 
 The small Labubus next to a candidate's avatar show these endorsements. Every row was matched to a published source
-(collected Oct 21, 2026). Only endorsements for this 2026 race count; older endorsements and campaign appearances
+(collected Oct 21, 2026). Trump's House endorsements were then checked against a second, independent source (mostly his archived Truth Social posts); 232 of 233 held up (Derek Merrin, OH-09, is sourced to Trump's own Truth Social post) and the one that didn't (Chris Smith, NJ-04) was removed. Only endorsements for this 2026 race count; older endorsements and campaign appearances
 without an endorsement were left out. Lists may be incomplete: if no source we read named a candidate, they aren't shown.
 
-## Donald Trump (280)
+## Donald Trump (279)
 
-| Race | Candidate | Source |
-|---|---|---|
-| AK Senate | Dan Sullivan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL Governor | Tommy Tuberville | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL Senate | Barry Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-01 | Jerry Carl | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-02 | Rhett Marques | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-03 | Mike Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-04 | Robert Aderholt | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-05 | Dale Strong | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AL-06 | Gary Palmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR Governor | Sarah Huckabee Sanders | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR Senate | Tom Cotton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR-01 | Rick Crawford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR-02 | French Hill | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR-03 | Steve Womack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AR-04 | Bruce Westerman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ Governor | Andy Biggs | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-01 | Jay Feely | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-02 | Eli Crane | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-05 | Mark Lamb | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-06 | Juan Ciscomani | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-08 | Abraham Hamadeh | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| AZ-09 | Paul Gosar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA Governor | Steve Hilton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-01 | James Gallagher | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-05 | Tom McClintock | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-13 | Kevin Lincoln | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-20 | Vince Fong | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-23 | Jay Obernolte | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CA-48 | Jim Desmond | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CO-03 | Jeff Hurd | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CO-04 | Lauren Boebert | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CO-05 | Jeff Crank | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| CO-08 | Gabe Evans | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL Governor | Byron Donalds | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL Senate | Ashley Moody | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-01 | Jimmy Patronis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-02 | Austin Rogers | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-03 | Kat Cammack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-04 | Aaron Bean | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-05 | John Rutherford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-06 | Randy Fine | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-07 | Ryan Elijah | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-08 | Mike Haridopolos | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-09 | Dan Green | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-11 | Joe Strada | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-12 | Gus Bilirakis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-13 | Anna Paulina Luna | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-14 | Mike Beltran | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-15 | Laurel Lee | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-16 | Sydney Gruters | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-17 | Greg Steube | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-18 | Scott Franklin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-19 | Jim Schwartzel | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-21 | Brian Mast | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-22 | Casey Askar | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-25 | Scott Singer | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ |
-| FL-26 | Mario Díaz-Balart | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-27 | María Elvira Salazar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| FL-28 | Carlos Giménez | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA Governor | Rick Jackson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA Senate | Mike Collins | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-01 | Jim Kingston | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-03 | Brian Jack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-07 | Rich McCormick | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-08 | Austin Scott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-09 | Andrew Clyde | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-10 | Houston Gaines | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-11 | John Cowan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-12 | Rick Allen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| GA-14 | Clay Fuller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IA Governor | Zach Lahn | https://cbs2iowa.com/news/local/president-trump-endorses-zach-lahn-in-iowa-governors-race |
-| IA Senate | Ashley Hinson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IA-01 | Mariannette Miller-Meeks | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IA-02 | Joe Mitchell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IA-03 | Zach Nunn | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IA-04 | Chris McGowan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ID Governor | Brad Little | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ID Senate | Jim Risch | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ID-01 | Russ Fulcher | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ID-02 | Mike Simpson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IL Governor | Darren Bailey | https://chicago.suntimes.com/elections/2026/09/14/trump-endorses-bailey-pritzker-illinois-governor-race |
-| IL-12 | Mike Bost | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IL-15 | Mary Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IL-16 | Darin LaHood | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-01 | Barb Regnitz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-02 | Rudy Yakym | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-03 | Marlin Stutzman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-04 | Jim Baird | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-05 | Victoria Spartz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-06 | Jefferson Shreve | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-08 | Mark Messmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| IN-09 | Erin Houchin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KS Governor | Ty Masterson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KS Senate | Roger Marshall | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KS-01 | Tracey Mann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KS-02 | Derek Schmidt | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KS-04 | Ron Estes | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY Senate | Andy Barr | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY-01 | James Comer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY-02 | Brett Guthrie | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY-04 | Ed Gallrein | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY-05 | Hal Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| KY-06 | Ralph Alvarado | https://www.wkyt.com/2026/05/01/trump-endorses-barr-alvarado/ |
-| LA Senate | Julia Letlow | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| LA-01 | Steve Scalise | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| LA-03 | Clay Higgins | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| LA-04 | Mike Johnson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MD-01 | Andy Harris | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ME Senate | Susan Collins | https://www.nysun.com/article/trump-endorses-susan-collins-for-re-election-calling-her-a-sane-person |
-| ME-02 | Paul LePage | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI Governor | John James | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI Senate | Mike Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-01 | Jack Bergman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-02 | John Moolenaar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-04 | Bill Huizenga | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-05 | Tim Walberg | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-07 | Tom Barrett | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-09 | Lisa McClain | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MI-10 | Mike Bouchard Jr. | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MN-01 | Brad Finstad | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MN-06 | Tom Emmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MN-07 | Michelle Fischbach | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MN-08 | Pete Stauber | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-02 | Ann Wagner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-03 | Bob Onder | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-04 | Mark Alford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-05 | Rick Brattin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-07 | Eric Burlison | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MO-08 | Jason Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MS Senate | Cindy Hyde-Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MS-01 | Trent Kelly | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MS-03 | Michael Guest | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MS-04 | Mike Ezell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| MT Senate | Kurt Alme | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 |
-| MT-01 | Aaron Flint | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 |
-| MT-02 | Troy Downing | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC Senate | Michael Whatley | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-01 | Laurie Buckhout | https://www.cbs17.com/news/capitol-report/vp-vance-to-visit-rocky-mount-contentious-district-1-as-republicans-try-to-pickup-seat/amp/ |
-| NC-03 | Greg Murphy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-05 | Virginia Foxx | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-06 | Addison McDowell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-07 | David Rouzer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-08 | Mark Harris | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-09 | Richard Hudson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-10 | Pat Harrigan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-11 | Jennifer Balkcom | https://www.foxcarolina.com/2026/08/18/president-trump-endorses-jennifer-balkcom-ncs-11th-congressional-district/ |
-| NC-13 | Brad Knott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NC-14 | Tim Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| ND-00 | Julie Fedorchak | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NE Governor | Jim Pillen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NE Senate | Pete Ricketts | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NE-01 | Mike Flood | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NE-02 | Brinker Harding | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NE-03 | Adrian Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NH Senate | John Sununu | https://www.nbcnews.com/politics/2026-election/trump-endorses-john-sununu-new-hampshire-senate-race-rcna256966 |
-| NH-01 | Anthony DiLorenzo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NJ-02 | Jeff Van Drew | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NJ-04 | Chris Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NJ-07 | Thomas Kean Jr. | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NM-02 | Greg Cunningham | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NV Governor | Joe Lombardo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NV-01 | Carrie Buck | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NV-02 | David Flippo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NV-03 | Martin O'Donnell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY Governor | Bruce Blakeman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-01 | Nick LaLota | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-02 | Andrew Garbarino | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-03 | Mike LiPetri | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-04 | Jeanine Driscoll | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-11 | Nicole Malliotakis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-17 | Mike Lawler | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-19 | Peter Oberacker | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-21 | Anthony Constantino | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-23 | Nick Langworthy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| NY-24 | Claudia Tenney | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH Governor | Vivek Ramaswamy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH Senate | Jon Husted | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-01 | Eric Conroy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-02 | David Taylor | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-04 | Jim Jordan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-05 | Bob Latta | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-06 | Michael Rulli | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-07 | Max Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-08 | Warren Davidson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-09 | Derek Merrin | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-21-2026 |
-| OH-10 | Mike Turner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-12 | Troy Balderson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-14 | David Joyce | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OH-15 | Mike Carey | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK Governor | Mike Mazzei | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK Senate | Kevin Hern | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK-01 | Mark Tedford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK-02 | Josh Brecheen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK-03 | Frank Lucas | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK-04 | Tom Cole | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OK-05 | Stephanie Bice | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| OR-02 | Cliff Bentz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA Governor | Stacy Garrity | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-07 | Ryan Mackenzie | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-08 | Rob Bresnahan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-09 | Dan Meuser | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-10 | Scott Perry | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-11 | Lloyd Smucker | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-13 | John Joyce | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-14 | Guy Reschenthaler | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-15 | Glenn Thompson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| PA-16 | Mike Kelly | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC Governor | Alan Wilson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC Senate | Darline Graham | https://semafor.com/article/08/25/2026/graham-keeps-her-senate-seat-vindicating-trump |
-| SC-02 | Joe Wilson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC-03 | Sheri Biggs | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC-04 | William Timmons | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC-05 | Wes Climer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SC-07 | Russell Fry | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| SD Governor | Larry Rhoden | https://www.sdpb.org/politics/2026-08-27/trump-endorses-rhoden-in-south-dakota-governors-race |
-| SD Senate | Mike Rounds | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 |
-| SD-00 | Marty Jackley | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN Governor | Marsha Blackburn | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN Senate | Bill Hagerty | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-01 | Diana Harshbarger | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-02 | Tim Burchett | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-03 | Chuck Fleischmann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-04 | Scott DesJarlais | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-07 | Matt Van Epps | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-08 | David Kustoff | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TN-09 | Brent Taylor | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX Governor | Greg Abbott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX Senate | Ken Paxton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-01 | Nathaniel Moran | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-02 | Steve Toth | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-03 | Keith Self | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-04 | Pat Fallon | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-05 | Lance Gooden | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-06 | Jake Ellzey | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-08 | Jessica Hart Steinmann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-09 | Alex Mealer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-10 | Chris Gober | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-11 | August Pfluger | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-12 | Craig Goldman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-13 | Ronny Jackson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-14 | Randy Weber | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-15 | Monica De La Cruz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-17 | Pete Sessions | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-19 | Tom Sell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-21 | Mark Teixeira | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-22 | Trever Nehls | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-23 | Brandon Herrera | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-24 | Beth Van Duyne | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-25 | Roger Williams | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-26 | Brandon Gill | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-27 | Michael Cloud | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-28 | Tano Tijerina | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-31 | John Carter | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-32 | Jace Yarbrough | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-34 | Eric Flores | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-35 | Carlos De La Cruz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-36 | Brian Babin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| TX-38 | Jon Bonck | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| UT-02 | Blake Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| UT-03 | Celeste Maloy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| UT-04 | Mike Kennedy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| VA-01 | Rob Wittman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| VA-02 | Jen Kiggans | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| VA-05 | John McGuire | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| VA-06 | Ben Cline | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| VA-09 | Morgan Griffith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WA-03 | John Braun | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WA-04 | Amanda McKinney | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WA-05 | Michael Baumgartner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI Governor | Tom Tiffany | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-01 | Bryan Steil | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-03 | Derrick Van Orden | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-05 | Scott Fitzgerald | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-06 | Glenn Grothman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-07 | Michael Alfonso | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WI-08 | Tony Wied | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WV Senate | Shelley Moore Capito | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WV-01 | Carol Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WV-02 | Riley Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
-| WY Senate | Harriet Hageman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |
+| Race | Candidate | Source | Second source (House check) |
+|---|---|---|---|
+| AK Senate | Dan Sullivan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AL Governor | Tommy Tuberville | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AL Senate | Barry Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AL-01 | Jerry Carl | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.alreporter.com/2026/06/23/trump-endorses-carl-marques-in-alabama-congressional-races/ |
+| AL-02 | Rhett Marques | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.alreporter.com/2026/06/23/trump-endorses-carl-marques-in-alabama-congressional-races/ |
+| AL-03 | Mike Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| AL-04 | Robert Aderholt | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| AL-05 | Dale Strong | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| AL-06 | Gary Palmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://1819news.com/news/item/he-will-never-let-you-down-trump-endorses-aderholt-strong-palmer-rogers-for-reelection |
+| AR Governor | Sarah Huckabee Sanders | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AR Senate | Tom Cotton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AR-01 | Rick Crawford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.foxnews.com/politics/trump-backs-huckabee-sanders-bunch-house-republicans-re-election-midterms-horizon |
+| AR-02 | French Hill | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.foxnews.com/politics/trump-backs-huckabee-sanders-bunch-house-republicans-re-election-midterms-horizon |
+| AR-03 | Steve Womack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.foxnews.com/politics/trump-backs-huckabee-sanders-bunch-house-republicans-re-election-midterms-horizon |
+| AR-04 | Bruce Westerman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.foxnews.com/politics/trump-backs-huckabee-sanders-bunch-house-republicans-re-election-midterms-horizon |
+| AZ Governor | Andy Biggs | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| AZ-01 | Jay Feely | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396351 |
+| AZ-02 | Eli Crane | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396351 |
+| AZ-05 | Mark Lamb | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396351 |
+| AZ-06 | Juan Ciscomani | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396351 |
+| AZ-08 | Abraham Hamadeh | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396351 |
+| AZ-09 | Paul Gosar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-backs-america-first-patriot-paul-gosar-reelection |
+| CA Governor | Steve Hilton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| CA-01 | James Gallagher | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CA-05 | Tom McClintock | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CA-13 | Kevin Lincoln | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CA-20 | Vince Fong | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CA-23 | Jay Obernolte | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CA-48 | Jim Desmond | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-1-2026 |
+| CO-03 | Jeff Hurd | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.kunc.org/politics/2026-03-22/trump-changes-directions-endorses-hurd-for-3rd-congressional-district |
+| CO-04 | Lauren Boebert | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.coloradopolitics.com/2025/07/24/donald-trump-endorses-republican-lauren-boeberts-2026-reelection-bid-in-colorados-deep-red-4th-cd-2c9c1325-536e-4ee6-93bc-cc1a2fdf2d96 |
+| CO-05 | Jeff Crank | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://gazette.com/?p=1524743 |
+| CO-08 | Gabe Evans | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.denvergazette.com/2026/02/23/trump-pulls-endorsement-from-jeff-hurd-over-tariffs-backs-colorado-republicans-primary-challenger/ |
+| FL Governor | Byron Donalds | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| FL Senate | Ashley Moody | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| FL-01 | Jimmy Patronis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-02 | Austin Rogers | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-03 | Kat Cammack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-04 | Aaron Bean | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-05 | John Rutherford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-06 | Randy Fine | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-07 | Ryan Elijah | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-08 | Mike Haridopolos | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-09 | Dan Green | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-11 | Joe Strada | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-12 | Gus Bilirakis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-13 | Anna Paulina Luna | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-14 | Mike Beltran | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-15 | Laurel Lee | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-16 | Sydney Gruters | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-17 | Greg Steube | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-18 | Scott Franklin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-19 | Jim Schwartzel | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-21 | Brian Mast | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-22 | Casey Askar | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-25 | Scott Singer | https://floridianpress.com/2026/09/trump-announces-florida-republican-general-election-endorsements/ | https://flvoicenews.com/trump-endorses-eight-florida-gop-house-nominees-slams-democratic-opponents-as-radical/ |
+| FL-26 | Mario Díaz-Balart | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-27 | María Elvira Salazar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| FL-28 | Carlos Giménez | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://flvoicenews.com/trump-reiterates-endorsements-for-16-florida-republicans-omits-cory-mills-amid-investigations/ |
+| GA Governor | Rick Jackson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| GA Senate | Mike Collins | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| GA-01 | Jim Kingston | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-03 | Brian Jack | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-07 | Rich McCormick | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-08 | Austin Scott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-09 | Andrew Clyde | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-10 | Houston Gaines | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-11 | John Cowan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.griffindailynews.com/news/state/candidates-in-georgia-tennessee-u-s-house-races-get-trump-endorsements/article_47231b99-2f64-5bb8-adcf-a92b45acaeb3.html |
+| GA-12 | Rick Allen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| GA-14 | Clay Fuller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| IA Governor | Zach Lahn | https://cbs2iowa.com/news/local/president-trump-endorses-zach-lahn-in-iowa-governors-race |  |
+| IA Senate | Ashley Hinson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| IA-01 | Mariannette Miller-Meeks | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| IA-02 | Joe Mitchell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ktiv.com/2026/06/01/how-president-trump-tried-influence-key-iowa-primary-races/ |
+| IA-03 | Zach Nunn | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ktiv.com/2026/06/01/how-president-trump-tried-influence-key-iowa-primary-races/ |
+| IA-04 | Chris McGowan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ktiv.com/2026/06/01/how-president-trump-tried-influence-key-iowa-primary-races/ |
+| ID Governor | Brad Little | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| ID Senate | Jim Risch | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| ID-01 | Russ Fulcher | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| ID-02 | Mike Simpson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| IL Governor | Darren Bailey | https://chicago.suntimes.com/elections/2026/09/14/trump-endorses-bailey-pritzker-illinois-governor-race |  |
+| IL-12 | Mike Bost | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-march-18-2026 |
+| IL-15 | Mary Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-march-18-2026 |
+| IL-16 | Darin LaHood | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| IN-01 | Barb Regnitz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-july-13-2026 |
+| IN-02 | Rudy Yakym | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-april-10-2026 |
+| IN-03 | Marlin Stutzman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| IN-04 | Jim Baird | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| IN-05 | Victoria Spartz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| IN-06 | Jefferson Shreve | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| IN-08 | Mark Messmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-5-2026 |
+| IN-09 | Erin Houchin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| KS Governor | Ty Masterson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| KS Senate | Roger Marshall | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| KS-01 | Tracey Mann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| KS-02 | Derek Schmidt | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| KS-04 | Ron Estes | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| KY Senate | Andy Barr | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| KY-01 | James Comer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| KY-02 | Brett Guthrie | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| KY-04 | Ed Gallrein | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| KY-05 | Hal Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| KY-06 | Ralph Alvarado | https://www.wkyt.com/2026/05/01/trump-endorses-barr-alvarado/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-1-2026 |
+| LA Senate | Julia Letlow | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| LA-01 | Steve Scalise | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| LA-03 | Clay Higgins | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| LA-04 | Mike Johnson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-january-23-2026 |
+| MD-01 | Andy Harris | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| ME Senate | Susan Collins | https://www.nysun.com/article/trump-endorses-susan-collins-for-re-election-calling-her-a-sane-person |  |
+| ME-02 | Paul LePage | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-december-18-2025 |
+| MI Governor | John James | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| MI Senate | Mike Rogers | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-18-2026 |
+| MI-01 | Jack Bergman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| MI-02 | John Moolenaar | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-14-2025 |
+| MI-04 | Bill Huizenga | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| MI-05 | Tim Walberg | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| MI-07 | Tom Barrett | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| MI-09 | Lisa McClain | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| MI-10 | Mike Bouchard Jr. | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| MN-01 | Brad Finstad | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MN-06 | Tom Emmer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MN-07 | Michelle Fischbach | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MN-08 | Pete Stauber | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MO-02 | Ann Wagner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MO-03 | Bob Onder | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-14-2025 |
+| MO-04 | Mark Alford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MO-05 | Rick Brattin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-3-2026 |
+| MO-07 | Eric Burlison | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MO-08 | Jason Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| MS Senate | Cindy Hyde-Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| MS-01 | Trent Kelly | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| MS-03 | Michael Guest | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| MS-04 | Mike Ezell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| MT Senate | Kurt Alme | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 |  |
+| MT-01 | Aaron Flint | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 | https://www.presidency.ucsb.edu/documents/truth-social-posts-march-3-2026 |
+| MT-02 | Troy Downing | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| NC Senate | Michael Whatley | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| NC-01 | Laurie Buckhout | https://www.cbs17.com/news/capitol-report/vp-vance-to-visit-rocky-mount-contentious-district-1-as-republicans-try-to-pickup-seat/amp/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-march-11-2026 |
+| NC-03 | Greg Murphy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| NC-05 | Virginia Foxx | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-february-16-2026 |
+| NC-06 | Addison McDowell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| NC-07 | David Rouzer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| NC-08 | Mark Harris | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-february-16-2026 |
+| NC-09 | Richard Hudson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-25-2025 |
+| NC-10 | Pat Harrigan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-february-16-2026 |
+| NC-11 | Jennifer Balkcom | https://www.foxcarolina.com/2026/08/18/president-trump-endorses-jennifer-balkcom-ncs-11th-congressional-district/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-17-2026 |
+| NC-13 | Brad Knott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-february-16-2026 |
+| NC-14 | Tim Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-february-16-2026 |
+| ND-00 | Julie Fedorchak | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| NE Governor | Jim Pillen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| NE Senate | Pete Ricketts | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| NE-01 | Mike Flood | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| NE-02 | Brinker Harding | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-april-14-2026 |
+| NE-03 | Adrian Smith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| NH Senate | John Sununu | https://www.nbcnews.com/politics/2026-election/trump-endorses-john-sununu-new-hampshire-senate-race-rcna256966 |  |
+| NH-01 | Anthony DiLorenzo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-july-13-2026 |
+| NJ-02 | Jeff Van Drew | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-backs-jeff-van-drew-reelection-nj |
+| NJ-07 | Thomas Kean Jr. | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://newjerseyglobe.com/congress/in-a-first-trump-gives-tom-kean-jr-his-complete-and-total-endorsement/ |
+| NM-02 | Greg Cunningham | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-april-14-2026 |
+| NV Governor | Joe Lombardo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| NV-01 | Carrie Buck | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| NV-02 | David Flippo | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| NV-03 | Martin O'Donnell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| NY Governor | Bruce Blakeman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| NY-01 | Nick LaLota | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| NY-02 | Andrew Garbarino | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| NY-03 | Mike LiPetri | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-04 | Jeanine Driscoll | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-july-13-2026 |
+| NY-11 | Nicole Malliotakis | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-17 | Mike Lawler | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-19 | Peter Oberacker | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-21 | Anthony Constantino | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-23 | Nick Langworthy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| NY-24 | Claudia Tenney | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-22-2026 |
+| OH Governor | Vivek Ramaswamy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| OH Senate | Jon Husted | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| OH-01 | Eric Conroy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-april-14-2026 |
+| OH-02 | David Taylor | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-04 | Jim Jordan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-05 | Bob Latta | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-06 | Michael Rulli | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-07 | Max Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-08 | Warren Davidson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-09 | Derek Merrin | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-21-2026 |  |
+| OH-10 | Mike Turner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-12 | Troy Balderson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-14 | David Joyce | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OH-15 | Mike Carey | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-2-2025 |
+| OK Governor | Mike Mazzei | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| OK Senate | Kevin Hern | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| OK-01 | Mark Tedford | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/index%2ephp/politics-policy/trump-flips-endorsement-oklahoma-house-race-first-pick-drops-out |
+| OK-02 | Josh Brecheen | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| OK-03 | Frank Lucas | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| OK-04 | Tom Cole | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| OK-05 | Stephanie Bice | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| OR-02 | Cliff Bentz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-november-3-2025 |
+| PA Governor | Stacy Garrity | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| PA-07 | Ryan Mackenzie | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-08 | Rob Bresnahan | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-09 | Dan Meuser | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-10 | Scott Perry | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-11 | Lloyd Smucker | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-13 | John Joyce | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-14 | Guy Reschenthaler | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-15 | Glenn Thompson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| PA-16 | Mike Kelly | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://justthenews.com/politics-policy/trump-endorses-pennsylvania-house-republicans-ahead-primary |
+| SC Governor | Alan Wilson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| SC Senate | Darline Graham | https://semafor.com/article/08/25/2026/graham-keeps-her-senate-seat-vindicating-trump |  |
+| SC-02 | Joe Wilson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| SC-03 | Sheri Biggs | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| SC-04 | William Timmons | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| SC-05 | Wes Climer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| SC-07 | Russell Fry | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-june-8-2026 |
+| SD Governor | Larry Rhoden | https://www.sdpb.org/politics/2026-08-27/trump-endorses-rhoden-in-south-dakota-governors-race |  |
+| SD Senate | Mike Rounds | https://newsweek.com/full-list-donald-trump-endorsements-us-primaries-12019802 |  |
+| SD-00 | Marty Jackley | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-march-11-2026 |
+| TN Governor | Marsha Blackburn | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| TN Senate | Bill Hagerty | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| TN-01 | Diana Harshbarger | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-02 | Tim Burchett | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-03 | Chuck Fleischmann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-04 | Scott DesJarlais | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-07 | Matt Van Epps | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-08 | David Kustoff | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TN-09 | Brent Taylor | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396374 |
+| TX Governor | Greg Abbott | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| TX Senate | Ken Paxton | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| TX-01 | Nathaniel Moran | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-02 | Steve Toth | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://thehill.com/homenews/campaign/5966766-trump-endorses-seven-republicans/ |
+| TX-03 | Keith Self | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-04 | Pat Fallon | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-05 | Lance Gooden | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-06 | Jake Ellzey | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-08 | Jessica Hart Steinmann | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-09 | Alex Mealer | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-10 | Chris Gober | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-december-18-2025 |
+| TX-11 | August Pfluger | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-12 | Craig Goldman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-13 | Ronny Jackson | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-14 | Randy Weber | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-15 | Monica De La Cruz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396634 |
+| TX-17 | Pete Sessions | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-19 | Tom Sell | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.selltexastrue.com/endorsements |
+| TX-21 | Mark Teixeira | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-22 | Trever Nehls | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-23 | Brandon Herrera | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox26houston.com/news/president-trump-endorses-brandon-herrera-texas-23rd-district-following-tony-gonzales-withdrawal |
+| TX-24 | Beth Van Duyne | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-25 | Roger Williams | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-26 | Brandon Gill | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-27 | Michael Cloud | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-28 | Tano Tijerina | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396634 |
+| TX-31 | John Carter | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-32 | Jace Yarbrough | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-34 | Eric Flores | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-december-18-2025 |
+| TX-35 | Carlos De La Cruz | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/node/396634 |
+| TX-36 | Brian Babin | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| TX-38 | Jon Bonck | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.fox4news.com/news/trump-texas-2026-endorsements |
+| UT-02 | Blake Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ksl.com/article/news/politics/trump-endorses-republican-incumbents-ahead-of-utahs-congressional-primaries/51513457 |
+| UT-03 | Celeste Maloy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ksl.com/article/news/politics/trump-endorses-republican-incumbents-ahead-of-utahs-congressional-primaries/51513457 |
+| UT-04 | Mike Kennedy | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.ksl.com/article/news/politics/trump-endorses-republican-incumbents-ahead-of-utahs-congressional-primaries/51513457 |
+| VA-01 | Rob Wittman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.socialnews.xyz/2026/09/17/pretend-im-on-ballot-trump-urges-voters/ |
+| VA-02 | Jen Kiggans | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.socialnews.xyz/2026/09/17/pretend-im-on-ballot-trump-urges-voters/ |
+| VA-05 | John McGuire | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.socialnews.xyz/2026/09/17/pretend-im-on-ballot-trump-urges-voters/ |
+| VA-06 | Ben Cline | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://trumpstruth.org/statuses/40504 |
+| VA-09 | Morgan Griffith | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://trumpstruth.org/statuses/40503 |
+| WA-03 | John Braun | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://washingtonstatestandard.com/2026/04/14/trump-backs-braun-to-unseat-was-gluesenkamp-perez-in-us-house-race/ |
+| WA-04 | Amanda McKinney | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://washingtonstatestandard.com/2026/01/07/as-barbs-fly-and-trump-wades-in-a-central-wa-congressional-race-heats-up/ |
+| WA-05 | Michael Baumgartner | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.trumpstruth.org/statuses/41833 |
+| WI Governor | Tom Tiffany | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| WI-01 | Bryan Steil | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-11-2026 |
+| WI-03 | Derrick Van Orden | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.wispolitics.com/2025/van-orden-campaign-president-donald-trump-endorses-congressman-van-orden-for-re-election/ |
+| WI-05 | Scott Fitzgerald | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-11-2026 |
+| WI-06 | Glenn Grothman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-august-11-2026 |
+| WI-07 | Michael Alfonso | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://wisconsinexaminer.com/2026/01/29/president-donald-trump-endorses-duffys-son-in-law-in-republican-primary-for-7th-cd/ |
+| WI-08 | Tony Wied | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.wispolitics.com/2025/wied-campaign-president-donald-j-trump-gives-congressman-tony-wied-his-complete-and-total-endorsement-for-re-election-in-2026/ |
+| WV Senate | Shelley Moore Capito | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
+| WV-01 | Carol Miller | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-9-2025 |
+| WV-02 | Riley Moore | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ | https://www.presidency.ucsb.edu/documents/truth-social-posts-may-9-2025 |
+| WY Senate | Harriet Hageman | https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/ |  |
 
 Notes: Main list is the Washington Examiner endorsement tracker (Ballotpedia pages returned empty to the fetcher). Left out: SC-01 Jenny Costa Honeycutt (only a search snippet said a July Truth Social post backed her; not confirmed); Trump-endorsed primary losers are not in the file (Burt Jones GA gov, Randy Feenstra IA gov, Pamela Evette SC gov, Mike Lindell MN gov, Megan Degenfelder WY gov, Andy Ogles TN-05, Amir Hassan MI-08, Catalina Lauf FL-19, Chuck Edwards NC-11 withdrew); no Trump endorsement found for Ayotte (NH), Demuth (MN), Drazan (OR), Marx (CO), Barlow (WY), Charles (ME), Hull (NM), Calvert/Kim (CA-40), Valadao (CA-22), Begich (AK-00), Tafoya (MN Sen), Fitzpatrick (PA-01), and other R nominees not listed. Name variants matched: 'Ander Barr'=Andy Barr, 'Kevin Lincoln II'=Kevin Lincoln, 'Mike Bouchard'=Mike Bouchard Jr., 'Jessica Steinmann'=Jessica Hart Steinmann, 'Jennifer Kiggans'=Jen Kiggans, 'Marty O'Donnell'=Martin O'Donnell, 'Chris McGowen'=Chris McGowan, 'Marionette Miller-Meeks'=Mariannette Miller-Meeks. The Examiner summary listed 'Chris Sununu' for NH Senate; NBC/Boston Globe confirm Trump endorsed John E. Sununu (Feb 2026). Rick Jackson (GA) and Alan Wilson (SC) were endorsed after they beat Trump's earlier picks in runoffs. Examiner per-candidate entries were read through a summarizing fetch, so a few House incumbents rest on that one tracker.
 
