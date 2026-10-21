@@ -362,3 +362,45 @@ Notes: Obama reportedly taped ~24 ads for Senate/governor candidates (AP/Politic
 
 Notes: Left out: Mary Peltola (sen-ak) - Harris's PAC sent a fundraising email that TNR and some outlets called an endorsement, but Peltola's campaign rebuffed it. Left out because sources only describe campaign appearances or help, not an explicit endorsement: Jon Ossoff (sen-ga), Scott Colom (sen-ms), David Crowley (gov-wi), Angie Nixon (sen-fl, virtual event), Marni von Wilpert (ca-48, Harris campaigned for her). TNR (Aug 27, 2026) says Harris endorsed 'at least seven' congressional candidates but names only Jones, Pan, Martin and Koh; the others were not found. James Martin and Dan Koh were primary endorsements for the 2026 cycle; Koh's dates to Oct 2025. Ballotpedia's Harris endorsements page came back empty. Axios, The Hill, Texas Tribune and Mississippi Today pages were blocked (403) or not fetched, so their facts were checked through other pages that were read.
 
+## Bernie Sanders (17)
+
+| Race | Candidate | Source |
+|---|---|---|
+| CA-22 | Randy Villegas | https://abc17news.com/politics/national-politics/cnn-us-politics/2026/10/01/bernie-sanders-muscled-left-wing-hopefuls-through-primaries-democrats-say-he-needs-to-do-more-so-they-can-win-the-general/ |
+| CO-01 | Melat Kiros | https://www.coloradopolitics.com/2026/06/19/bernie-sanders-endorses-degette-challenger-melat-kiros-in-colorados-1st-cd-democratic-primary/ |
+| FL Senate | Angie Nixon | https://www.wlrn.org/government-politics/2026-08-20/progressive-icon-bernie-sanders-endorses-angie-nixon-in-u-s-senate-race-in-florida |
+| MA Senate | Ed Markey | https://www.edmarkey.com/bernie-sanders-endorses-ed-markey-for-re-election/ |
+| MI Senate | Abdul El-Sayed | https://vtdigger.org/2025/12/01/how-bernie-sanders-is-weighing-2026-endorsements/ |
+| MI-07 | William Lawrence | https://michiganadvance.com/2026/05/21/bernie-sanders-backs-lawrence-in-michigans-competitive-7th-district-democratic-primary/ |
+| MI-13 | Donavan McKinney | https://vtdigger.org/2025/12/01/how-bernie-sanders-is-weighing-2026-endorsements/ |
+| MN Senate | Peggy Flanagan | https://minnesotareformer.com/2025/11/10/sen-bernie-sanders-endorses-lt-gov-peggy-flanagan-for-senate/ |
+| MT-01 | Sam Forstag | https://inthesetimes.com/article/bernie-sanders-adam-hamawy-randy-villegas |
+| NJ-11 | Analilia Mejia | https://inthesetimes.com/article/bernie-sanders-adam-hamawy-randy-villegas |
+| NJ-12 | Adam Hamawy | https://inthesetimes.com/article/bernie-sanders-adam-hamawy-randy-villegas |
+| NY-07 | Claire Valdez | https://theintercept.com/2026/04/02/bernie-sanders-claire-valdez-congress-nyc |
+| NY-10 | Brad Lander | https://www.notus.org/2026-election/bernie-sanders-backs-brad-lander-primary-challenge-dan-goldman |
+| OH-07 | Brian Poindexter | https://abc17news.com/politics/national-politics/cnn-us-politics/2026/10/01/bernie-sanders-muscled-left-wing-hopefuls-through-primaries-democrats-say-he-needs-to-do-more-so-they-can-win-the-general/ |
+| PA-07 | Bob Brooks | https://abc17news.com/politics/national-politics/cnn-us-politics/2026/10/01/bernie-sanders-muscled-left-wing-hopefuls-through-primaries-democrats-say-he-needs-to-do-more-so-they-can-win-the-general/ |
+| TN-09 | Justin Pearson | https://ground.news/article/bernie-sanders-backs-justin-pearson-house-candidate-at-the-heart-of-tennessee-voting-rights-fight |
+| WI-03 | Rebecca Cooke | https://abc17news.com/politics/national-politics/cnn-us-politics/2026/10/01/bernie-sanders-muscled-left-wing-hopefuls-through-primaries-democrats-say-he-needs-to-do-more-so-they-can-win-the-general/ |
+
+Notes: Left out: Troy Jackson (sen-me) - Sanders endorsed him for GOVERNOR in 2025 and rallied/urged votes for him in the Senate race (Oct 10, 2026, Bangor), but BDN says no formal Senate endorsement; he only said on Meet the Press he would 'if he asks'. Darializa Avila Chevalier (ny-13) - Sanders rallied for her with Mamdani before the primary but no formal endorsement found. Adelita Grijalva (az-07) - endorsed for the 2025 special election only; no 2026 endorsement found. Val Hoyle (or-04) - voteforbernie.org tag, but only a 2022 Sanders event found. Sam Forstag was endorsed in the primary but later removed the endorsement from his site (per CNN) - included since the endorsement happened. Lander, Valdez, Pearson, Lawrence, Kiros, Markey confirmed via search-result headlines/snippets of the linked articles rather than full-page fetches. No Sanders endorsements found for Talarico, Stratton, Peltola, Sherrod Brown, Mai Vang, Connie Chan, Omar, Balint. berniesanders.com/endorsements returned 404. Sanders also endorsed 60+ state/local candidates (not in scope).
+
+## Alexandria Ocasio-Cortez (12)
+
+| Race | Candidate | Source |
+|---|---|---|
+| CA-22 | Randy Villegas | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| FL Senate | Angie Nixon | https://www.wlrn.org/government-politics/2026-09-02/alexandria-ocasio-cortez-endorses-angie-nixon |
+| MA Senate | Ed Markey | https://www.edmarkey.com/alexandria-ocasio-cortez-endorses-ed-markey/ |
+| MI Senate | Abdul El-Sayed | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| MN Senate | Peggy Flanagan | https://www.washingtonexaminer.com/news/campaigns/congressional/4731462/aoc-endorses-peggy-flanagan-in-minnesota-senate-race-likely-democrat-rating/ |
+| MT-01 | Sam Forstag | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| NJ-11 | Analilia Mejia | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| NJ-12 | Adam Hamawy | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| NY Governor | Kathy Hochul | https://www.yahoo.com/news/articles/aoc-ny-house-dems-endorse-041329125.html |
+| NY-10 | Brad Lander | https://www.jns.org/news/u-s-news/ocasio-cortez-endorses-brad-lander-for-congress |
+| PA-03 | Chris Rabb | https://www.newsweek.com/aocs-endorsement-power-full-list-of-candidates-and-a-look-at-her-record-12396901 |
+| TN-09 | Justin Pearson | https://theintercept.com/2026/06/25/aoc-endorses-justin-pearson-tennessee-congress/ |
+
+Notes: Kathy Hochul endorsement was a joint statement by New York's Democratic House delegation including AOC (Feb 2026); included but weaker than a solo endorsement. Brad Lander: JNS (Oct 20, 2026) says AOC endorsed him as Democratic nominee for a safe NY seat; district number not stated in article but Lander is the NY-10 nominee. Left out: Adelita Grijalva (AZ-07) - AOC endorsement found only for the 2025 special election; The Intercept lists her among AOC endorsees but no 2026-specific source. Claire Valdez (NY-07) and Darializa Avila Chevalier (NY-13) - UnHerd says AOC did not endorse them in primaries, only praised them after; no general-election endorsement found (Valdez's AOC endorsement was 2024 Assembly). Not found: Talarico, Troy Jackson, Melat Kiros, Donavan McKinney, Hakeem Jeffries (The Hill only says she did not back a challenge to him). Junaid Ahmed (IL-08) was endorsed but lost primary, not in list. Courage to Change 'Policy Pledge Distinctions' page explicitly says distinctions are not endorsements, so ignored. Ballotpedia endorsements page could not be read (empty fetch).
