@@ -294,7 +294,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <body>
 <header class="top"><div class="top-inner">
   <div class="sky" aria-hidden="true"></div>
-  <div><h1><span class="st" aria-hidden="true">&#9733;</span> <span class="w-r">2026</span> <span class="w-w">Midterm</span> <span class="w-b">Tracker</span> <span class="st" aria-hidden="true">&#9733;</span></h1><p class="sub">Every Senate and Governor Race, Plus All 435 House Races, With Every Forecaster Side by Side</p></div>
+  <div><h1><span class="st" aria-hidden="true">&#9733;</span> <span class="w-r">2026</span> <span class="w-w">Midterm</span> <span class="w-b">Tracker</span> <span class="st" aria-hidden="true">&#9733;</span></h1><p class="sub">Every House, Senate, and Governor Race, With Every Forecaster Side by Side</p></div>
   <div class="top-right"><div class="you" id="joey-slot"></div>
     <div class="countdown" aria-live="polite"><span class="days" id="days">17</span><span class="days-label" id="days-label">Days to Election Day</span></div></div>
 </div></header>
@@ -1414,7 +1414,7 @@ loadPicks().then(renderYou);
 (function(){"use strict";
 var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var sky=document.querySelector(".sky");
-if(sky)for(var i=0;i<14;i++){var s=document.createElement("i");s.textContent=i%3?"✦":"★";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*85)+"%";
+if(sky)for(var i=0;i<14;i++){var s=document.createElement("i");s.textContent=i%3?"✦":"★";s.style.left=(i%2?88+Math.random()*11:Math.random()*11)+"%";/* edges only, so nothing twinkles behind the title */s.style.top=(Math.random()*85)+"%";
   s.style.fontSize=(14+Math.random()*18)+"px";s.style.animationDelay=(Math.random()*3)+"s";sky.appendChild(s)}
 if(calm)return;
 function flag(kind){
