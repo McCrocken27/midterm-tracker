@@ -184,6 +184,13 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .qo:hover:not(:disabled){border-color:var(--yale)}.qo.right{border-color:#2f8a3c;background:#2f8a3c;color:#fff}.qo.wrong{border-color:#b22234;background:#b22234;color:#fff}.qo:disabled{cursor:default}
 .qwhy{margin:10px 0 0;font-size:.95rem}.qend{font:900 2rem var(--serif);color:var(--head);margin:4px 0}
 .sticker{display:inline-block;background:#ffc83d;color:#1b2430;border:3px solid #b8860b;border-radius:999px;padding:6px 14px;font-weight:900;transform:rotate(-3deg);margin:6px 0}
+.wgrid{display:grid;gap:8px;margin:6px 0 16px}
+.wrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.6fr) auto auto auto;gap:10px;align-items:center;background:var(--surface);border:3px solid var(--line);border-radius:16px;padding:8px 12px}
+.wrow .wn{font-weight:800;color:var(--head)}.wrow .wn small{display:block;font-weight:600;color:var(--muted);font-size:.78rem}
+.wrow .wc{font-size:.9rem}.wrow .wc .d{color:var(--dc);font-weight:700}.wrow .wc .r{color:var(--rc);font-weight:700}.wrow .wc .i{color:var(--gray);font-weight:700}
+.wrow .wj{font-size:.85rem;white-space:nowrap}.wbtn{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:3px 12px;font-weight:800;cursor:pointer;white-space:nowrap}
+@media (max-width:700px){.wrow{grid-template-columns:1fr auto;grid-template-areas:"n c" "w w" "j b"}.wrow .wn{grid-area:n}.wrow .chip-r{grid-area:c;justify-self:end}.wrow .wc{grid-area:w}.wrow .wj{grid-area:j}.wrow .wbtn{grid-area:b}}
+.wpick{font-size:.72rem;font-weight:800;background:#ffc83d;color:#1b2430;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
@@ -302,7 +309,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <nav class="tabs" role="tablist" aria-label="Sections">
   <button type="button" class="tab on" role="tab" aria-selected="true" aria-controls="tab-map" data-tab="tab-map">Map</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and Compare</button>
-  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-house" data-tab="tab-house">Every House Seat</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-watch" data-tab="tab-watch">Races to Watch</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-vote" data-tab="tab-vote">Vote</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-news" data-tab="tab-news">News</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-quiz" data-tab="tab-quiz">Quiz</button>
@@ -361,8 +368,17 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <div id="vote-out"></div>
   </section>
 </div>
+<div id="tab-watch" role="tabpanel" hidden>
+  <section class="pred">
+    <h2>Races to Watch</h2>
+    <p class="note" id="watch-note"></p>
+    <div id="watch-list"></div>
+    <p class="note">Want the full list? <button type="button" class="wbtn" id="watch-all">See every House seat (all 435)</button></p>
+  </section>
+</div>
 <div id="tab-house" role="tabpanel" hidden>
   <section class="pred">
+    <p><button type="button" class="wbtn" id="house-back">&larr; Back to Races to Watch</button></p>
     <h2>Every House Seat</h2>
     <p class="note">All 435 districts. Every seat has a full race panel on the map. The 144 that at least one forecaster rates competitive have real outlet ratings; every other seat is rated Safe by all of them, and Joey goes with that favorite.</p>
     <div class="pred-form"><label for="hs-q"><b>Search</b></label><input id="hs-q" type="search" placeholder="District, state, or candidate (e.g. TX-34, Ohio, Kiggans)"><label class="chk"><input type="checkbox" id="hs-comp"> Competitive only</label><span id="hs-count" class="note" role="status"></span></div>
@@ -990,6 +1006,19 @@ function quizRender(){var box=$("quiz");box.textContent="";var j=h("div");j.inne
     b.addEventListener("click",function(){QZ.picked=o;if(o===q[1][0])QZ.right++;quizRender()});return b})));
   if(done){box.appendChild(h("p",{class:"qwhy",text:q[2]}));var nx=h("button",{type:"button",class:"save",text:QZ.i+1<QZ.qs.length?"Next question":"See my score"});
     nx.addEventListener("click",function(){QZ.i++;QZ.picked=null;QZ.order=null;quizRender()});box.appendChild(nx);nx.focus()}}
+/* ---- Races to Watch: the 37 prediction races plus every race the forecasters rate Toss-up or Tilt, closest first ---- */
+function watchList(){var inPick={};predIds().forEach(function(id){inPick[id]=1});
+  return S.races.filter(function(r){return inPick[r.id]||(r.cons&&Math.abs(r.cons.score)<.75)}).map(function(r){return{r:r,pick:!!inPick[r.id]}})}
+function renderWatch(){var box=$("watch-list");box.textContent="";var all=watchList(),n=all.length;
+  $("watch-note").textContent="New to the midterms? Start here. These "+n+" races are the ones most likely to decide who controls Congress and the governors' offices: the 37 in Predict and Compare, plus every race the forecasters rate a Toss-up or Tilt. Closest races are first. Click a race to see everything about it on the map.";
+  [["senate","Senate"],["governor","Governor"],["house","House"]].forEach(function(g){var rs=all.filter(function(x){return x.r.chamber===g[0]}).sort(function(a,b){return Math.abs(a.r.cons?a.r.cons.score:0)-Math.abs(b.r.cons?b.r.cons.score:0)||raceName(a.r).localeCompare(raceName(b.r))});
+    if(!rs.length)return;box.appendChild(h("h3",{text:g[1]+" ("+rs.length+")"}));
+    box.appendChild(h("div",{class:"wgrid"},rs.map(function(x){var r=x.r,c=r.cons,lu=lineup(r).filter(function(y){return y[1]&&y[1]!=="-"});
+      var chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
+      var jc=joeyCall(r),go=h("button",{type:"button",class:"wbtn",text:"See race"});go.addEventListener("click",function(){openOnMap(r)});
+      var nm=h("div",{class:"wn"},[r.chamber==="house"?r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL"):raceName(r),x.pick?h("span",{class:"wpick",title:"You can pick this race in Predict and Compare",text:"PICK IT"}):null,h("small",{text:r.chamber==="house"?NAMES[r.state]:(r.status==="open"?"Open seat":r.incumbent)})]);
+      var who=h("div",{class:"wc"});lu.forEach(function(y,i){if(i)who.appendChild(document.createTextNode(" vs. "));who.appendChild(h("span",{class:y[0].charAt(0).toLowerCase(),text:y[1]+" ("+y[0].charAt(0)+")"}))});
+      return h("div",{class:"wrow"},[nm,who,chip,h("span",{class:"wj"},["Joey: ",tagEl(jc)]),go])})))})}
 function pressState(st,race){if(S.whatif&&!S.night&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
 function joeyCall(r){if(JOEY[r.id])return JOEY[r.id][0];if(SAME[r.id])return null;var c=r.cons;return c&&Math.abs(c.score)>=2.5?(c.score>0?dSide(r):rSide(r)):null}
 
@@ -1393,7 +1422,7 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
 function openOnMap(r){if(!S.byId[r.id])return;showTab("tab-map");S.state=r.state;selectRace(r.id);renderMap();
   var sel=document.querySelector('#detail .rrow[aria-selected="true"]');(sel||$("detail")).scrollIntoView({behavior:"smooth",block:"start"})}
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
-  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-watch").hidden=id!=="tab-watch";if(id==="tab-watch"&&!$("watch-list").firstChild)renderWatch();if(id==="tab-house"){var tw=document.querySelector('.tab[data-tab="tab-watch"]');tw.classList.add("on");tw.setAttribute("aria-selected","true")}$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
 // ---- boot ----
 document.querySelectorAll(".f[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
@@ -1403,7 +1432,7 @@ document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click"
 $("pred-save").addEventListener("click",savePred);
 $("auth-signup").addEventListener("click",doSignup);$("auth-login").addEventListener("click",doLogin);$("auth-logout").addEventListener("click",doLogout);
 $("auth-out").addEventListener("submit",function(e){e.preventDefault();doLogin()});$("ask-form").addEventListener("submit",askJoey);apiInit();
-$("hs-q").addEventListener("input",hsRows);
+$("hs-q").addEventListener("input",hsRows);$("watch-all").addEventListener("click",function(){showTab("tab-house");window.scrollTo(0,$("tab-house").getBoundingClientRect().top+scrollY-80)});$("house-back").addEventListener("click",function(){showTab("tab-watch")});
 $("vote-form").addEventListener("submit",function(e){e.preventDefault();voteLookup()});$("hs-comp").addEventListener("change",hsRows);
 renderStatic();renderTally();renderMap();renderYou();
 loadPicks().then(renderYou);
