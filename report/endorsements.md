@@ -404,3 +404,13 @@ Notes: Left out: Troy Jackson (sen-me) - Sanders endorsed him for GOVERNOR in 20
 | TN-09 | Justin Pearson | https://theintercept.com/2026/06/25/aoc-endorses-justin-pearson-tennessee-congress/ |
 
 Notes: Kathy Hochul endorsement was a joint statement by New York's Democratic House delegation including AOC (Feb 2026); included but weaker than a solo endorsement. Brad Lander: JNS (Oct 20, 2026) says AOC endorsed him as Democratic nominee for a safe NY seat; district number not stated in article but Lander is the NY-10 nominee. Left out: Adelita Grijalva (AZ-07) - AOC endorsement found only for the 2025 special election; The Intercept lists her among AOC endorsees but no 2026-specific source. Claire Valdez (NY-07) and Darializa Avila Chevalier (NY-13) - UnHerd says AOC did not endorse them in primaries, only praised them after; no general-election endorsement found (Valdez's AOC endorsement was 2024 Assembly). Not found: Talarico, Troy Jackson, Melat Kiros, Donavan McKinney, Hakeem Jeffries (The Hill only says she did not back a challenge to him). Junaid Ahmed (IL-08) was endorsed but lost primary, not in list. Courage to Change 'Policy Pledge Distinctions' page explicitly says distinctions are not endorsements, so ignored. Ballotpedia endorsements page could not be read (empty fetch).
+
+## Elon Musk (3)
+
+| Race | Candidate | Source |
+|---|---|---|
+| TX Senate | Ken Paxton | https://www.yahoo.com/news/politics/articles/musk-endorses-paxton-texas-senate-212340264.html |
+| OH Governor | Vivek Ramaswamy | https://www.yahoo.com/news/trump-musk-endorse-ramaswamy-ohio-134643502.html |
+| FL Governor | Byron Donalds | https://www.keysnews.com/news/elon-musk-backs-byron-donalds-for-florida-governor/article_569ce241-f67a-4eb6-885c-2a43630dd1ff.html |
+
+Notes: Donalds's endorsement was an X reply ("You certainly have my full support") that news coverage reports as an endorsement. America PAC spending without an endorsement is not counted.
