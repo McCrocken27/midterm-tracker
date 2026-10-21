@@ -87,7 +87,7 @@ def load() -> dict:
         if ch == "h":
             name = f"{names.get(st, st)} {dist if dist else 'at-large'} ({st}-{'AL' if not dist else str(dist).zfill(2)})"
         else:
-            name = f"{names.get(st, st)} {'Senate' if ch == 's' else 'governor'}"
+            name = f"{names.get(st, st)} {'Senate' if ch == 's' else 'Governor'}"
         races[rid] = {
             "id": rid, "name": name, "chamber": CHAMBER[ch], "state": st, "district": dist, "lean": lean_txt,
             "incumbent": inc, "status": status, "note": note,
