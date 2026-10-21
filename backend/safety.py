@@ -42,6 +42,22 @@ SECRET_PATTERNS = [
 ]
 
 
+# Names other players can see (league names) must be kid-friendly. Checked after removing spaces,
+# dots and number-for-letter swaps, so "b a d" or "b4d" style tricks are caught too.
+NOT_KID_FRIENDLY = ("fuck", "shit", "bitch", "cunt", "dick", "cock", "pussy", "asshole", "bastard", "slut", "whore",
+                    "nigg", "fag", "retard", "porn", "sex", "nazi", "hitler", "kkk", "rape", "penis", "vagina", "boob",
+                    "tits", "damn", "crap", "piss", "hell", "kill", "die", "hate", "stupid", "idiot", "dumb", "loser")
+
+
+def kid_friendly(text: str) -> bool:
+    t = (text or "").lower().translate(str.maketrans("013457@$!", "oieastasi"))
+    squashed = re.sub(r"[^a-z]", "", t)
+    words = set(re.findall(r"[a-z]+", t))
+    # whole words only, so "Grapefruit", "Hancock" or "Hello" are fine
+    short = {"hell", "die", "kill", "hate", "dumb", "crap", "damn", "sex", "kkk", "fag", "piss", "rape", "dick", "cock", "tits", "boob", "penis"}
+    return not any((w in words) if w in short else (w in squashed) for w in NOT_KID_FRIENDLY)
+
+
 def screen_question(q: str) -> tuple[bool, str]:
     """True if the question may go to the agents. Logs every block."""
     q = (q or "").strip()

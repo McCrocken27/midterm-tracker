@@ -19,6 +19,7 @@ import auth
 import config
 import db
 import game
+import leagues
 import races
 import safety
 
@@ -27,6 +28,7 @@ COOKIE = "mt_session"
 ask_per_user = safety.RateLimiter(config.ASK_PER_USER_PER_HOUR)
 ask_per_ip = safety.RateLimiter(config.ASK_PER_IP_PER_HOUR)
 signups_per_ip = safety.RateLimiter(10)
+league_joins = safety.RateLimiter(10)   # join attempts per person per hour, so codes can't be guessed
 
 
 @asynccontextmanager
@@ -177,6 +179,56 @@ def get_crowd() -> dict:
 @app.get("/api/leaderboard")
 def get_leaderboard() -> dict:
     return game.leaderboard()
+
+
+# ---------- private leagues ----------
+
+class LeagueIn(BaseModel):
+    name: str = Field(max_length=60)
+
+
+class JoinIn(BaseModel):
+    code: str = Field(max_length=20)
+
+
+def _league(call):
+    try:
+        return call()
+    except leagues.LeagueError as e:
+        raise HTTPException(e.status, e.message)
+
+
+@app.get("/api/leagues")
+def get_leagues(request: Request) -> dict:
+    return {"leagues": leagues.my_leagues(require_user(request)["id"])}
+
+
+@app.post("/api/leagues")
+def make_league(body: LeagueIn, request: Request) -> dict:
+    user = require_user(request)
+    return {"league": _league(lambda: leagues.create(user["id"], body.name))}
+
+
+@app.post("/api/leagues/join")
+def join_league(body: JoinIn, request: Request) -> dict:
+    user = require_user(request)
+    if not league_joins.allow(f"u{user['id']}") or not league_joins.allow("ip" + client_ip(request)):
+        db.log_safety("league_join_rate_limit", user["nickname"])
+        raise HTTPException(429, "Too many tries. Wait a bit and check the code with your friend.")
+    return {"league": _league(lambda: leagues.join(user["id"], body.code))}
+
+
+@app.post("/api/leagues/{league_id}/leave")
+def leave_league(league_id: int, request: Request) -> dict:
+    user = require_user(request)
+    _league(lambda: leagues.leave(user["id"], league_id))
+    return {"ok": True}
+
+
+@app.get("/api/leagues/{league_id}/leaderboard")
+def league_leaderboard(league_id: int, request: Request) -> dict:
+    user = require_user(request)
+    return _league(lambda: leagues.leaderboard(user["id"], league_id))
 
 
 # ---------- Ask Joey (the agents) ----------

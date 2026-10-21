@@ -168,6 +168,19 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .nc .nsum{margin:0;font-size:.88rem;color:var(--muted)}.nc .nm{font-size:.8rem;color:var(--muted)}
 .nchips{display:flex;flex-wrap:wrap;gap:6px}.nchip{background:var(--th);color:var(--head);border:2px solid var(--yale);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800;cursor:pointer}
 .rnews{list-style:none;padding:0;margin:4px 0 8px;display:grid;gap:6px}.rnews li{font-size:.9rem}.rnews a{font-weight:700;color:var(--head)}.rnews .nm{font-size:.78rem;color:var(--muted)}
+.lgbox{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:12px 14px;margin:6px 0 14px;box-shadow:0 4px 0 var(--line)}
+.lgbox h3{margin:0 0 6px}.lgrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.lgrow input{padding:6px 12px;border:3px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;min-width:0;flex:1 1 160px;max-width:260px}
+.lgcode{font:800 1.05rem ui-monospace,Consolas,monospace;letter-spacing:.12em;background:var(--th);border:2px dashed var(--yale);border-radius:10px;padding:2px 10px;color:var(--head)}
+.quiz{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 4px 0 var(--line);max-width:760px}
+.qjoey{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}.qjoey svg{flex:none}
+.qbub{background:var(--th);border:2px solid var(--line);border-radius:16px;padding:8px 12px;font-weight:700;color:var(--head);position:relative}
+.qq{font:800 1.2rem var(--serif);color:var(--head);margin:6px 0 10px}.qprog{font-size:.85rem;color:var(--muted);font-weight:700}
+.qopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.qo{background:var(--surface);color:var(--ink);border:3px solid var(--line);border-radius:14px;padding:10px 12px;font:700 1rem inherit;text-align:left;cursor:pointer}
+.qo:hover:not(:disabled){border-color:var(--yale)}.qo.right{border-color:#2f8a3c;background:#2f8a3c;color:#fff}.qo.wrong{border-color:#b22234;background:#b22234;color:#fff}.qo:disabled{cursor:default}
+.qwhy{margin:10px 0 0;font-size:.95rem}.qend{font:900 2rem var(--serif);color:var(--head);margin:4px 0}
+.sticker{display:inline-block;background:#ffc83d;color:#1b2430;border:3px solid #b8860b;border-radius:999px;padding:6px 14px;font-weight:900;transform:rotate(-3deg);margin:6px 0}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
@@ -289,6 +302,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-house" data-tab="tab-house">Every House Seat</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-vote" data-tab="tab-vote">Vote</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-news" data-tab="tab-news">News</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-quiz" data-tab="tab-quiz">Quiz</button>
 </nav>
 <div id="tab-map" role="tabpanel">
 <main class="layout">
@@ -312,6 +326,13 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <form id="ask-form" hidden><textarea id="ask-q" maxlength="500" rows="2" placeholder="e.g. Who's favored in the Texas Senate race?"></textarea><button type="submit" class="save" id="ask-go">Ask Joey</button></form>
   <div id="ask-out" aria-live="polite"></div>
 </section>
+</div>
+<div id="tab-quiz" role="tabpanel" hidden>
+  <section class="pred">
+    <h2>Civics Quiz with Joey</h2>
+    <p class="note">10 quick questions about how elections work. No account needed, and it uses no AI. Your best score is saved in this browser. Just for fun: quiz scores don't count on the leaderboard.</p>
+    <div id="quiz" class="quiz" aria-live="polite"></div>
+  </section>
 </div>
 <div id="tab-news" role="tabpanel" hidden>
   <section class="pred">
@@ -369,6 +390,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <div id="pred-avatars" class="avpick" role="radiogroup" aria-labelledby="av-h"></div>
     <p class="note" id="pred-mode"></p>
     <div id="pred-badges"></div>
+    <div id="pred-leagues"></div>
     <div id="pred-lb"></div>
     <div id="pred-tables"></div>
   </section>
@@ -906,6 +928,48 @@ function renderNews(){var box=$("news-list"),note=$("news-note");if(!box||!NEWS)
     var chips=h("div",{class:"nchips"},rs.map(function(id){var r=S.byId[id],b=h("button",{type:"button",class:"nchip",title:"See this race on the map",text:r.chamber==="house"?r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL"):raceName(r)});b.addEventListener("click",function(){openOnMap(r)});return b}));
     box.appendChild(h("article",{class:"nc"},[newsLink(n),n.sum?h("p",{class:"nsum",text:n.sum}):null,h("div",{class:"nm",text:n.src+" \u00B7 "+ago(n.d)}),rs.length?chips:null]));shown++});
   if(!shown)box.appendChild(h("p",{class:"note",text:NEWS.items.length?"No headlines match that. Try another search or filter.":""}))}
+/* ---- Civics quiz with Joey: no AI, no account. Answer is always the first option in each list (shuffled on screen). ---- */
+var QUIZ=[
+ ["How many senators does each state have?",["2","1","4","It depends on how many people live there"],"Every state gets 2, big or small. That's why the Senate has 100 members."],
+ ["How long is a senator's term?",["6 years","2 years","4 years","For life"],"About one-third of the Senate is up for election every two years."],
+ ["How long is a House member's term?",["2 years","6 years","4 years","1 year"],"That's why every one of the 435 House seats is on the ballot this year."],
+ ["How many voting members are in the House of Representatives?",["435","100","50","538"],"538 is the number of electoral votes for president, not House seats."],
+ ["How many House seats does a party need for a majority?",["218","200","435","51"],"218 is just over half of 435."],
+ ["If the Senate is tied 50 to 50, who breaks the tie?",["The Vice President","The President","The Speaker of the House","The oldest senator"],"The Vice President is also President of the Senate. Right now that's JD Vance."],
+ ["Why is it called a \"midterm\" election?",["It comes in the middle of a president's 4-year term","It's held in the middle of the year","Only half the states vote","It's the middle one of three elections"],"Presidents are elected every 4 years, and midterms come 2 years in."],
+ ["When is Election Day 2026?",["Tuesday, November 3","Monday, November 2","Tuesday, November 10","Saturday, October 31"],"Election Day is always the Tuesday after the first Monday in November."],
+ ["How old do you have to be to vote?",["18","16","21","25"],"The 26th Amendment set the voting age at 18 in 1971."],
+ ["How old do you have to be to become a U.S. senator?",["30","25","35","18"],"It's 25 for the House, 30 for the Senate, and 35 for president."],
+ ["Which state has the most House seats?",["California","Texas","Florida","New York"],"California has 52 seats. Texas is next with 38."],
+ ["Which of these states has just one House member?",["Wyoming","Ohio","Georgia","Arizona"],"Wyoming has one seat, called \"at-large,\" that covers the whole state."],
+ ["How often are House seats divided up among the states?",["Every 10 years, after the census","Every 2 years","Every 4 years","Never, it's always the same"],"The census counts everyone every 10 years, and states with more people get more seats."],
+ ["Which part of Congress votes to confirm Supreme Court justices?",["The Senate","The House","Both","Neither"],"The President picks a justice, and the Senate votes yes or no."],
+ ["What does \"incumbent\" mean?",["The person who already holds the office","A brand-new candidate","A poll worker","A kind of ballot"],"Incumbents running again usually have an edge, but not always!"],
+ ["On this site, what does \"toss-up\" mean?",["Either side could win","The race was canceled","A coin flip decides the winner","Nobody is running"],"Forecasters call a race a toss-up when it's too close to call."],
+ ["How many Senate races are on the ballot in 2026?",["35","100","50","33"],"There are 33 regular races plus 2 special elections, in Ohio and Florida."],
+ ["How many governor races are on the ballot in 2026?",["36","50","12","25"],"Most governors serve 4-year terms, and 36 states pick one this year."],
+ ["Bills that raise taxes have to start in which part of Congress?",["The House","The Senate","The Supreme Court","The President's office"],"The Constitution says bills for raising money start in the House."],
+ ["Can you vote before Election Day?",["In most states, yes: early voting or by mail","No, never","Only if you're a senator","Only in Alaska"],"Rules are different in each state. The Vote tab links to your state's official page."]];
+var QZ=null,YAY=["Nailed it!","You're a natural!","Joey approves!","Big brain move!","Correct-a-mundo!"];
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function quizStart(){QZ={qs:shuffle(QUIZ).slice(0,10),i:0,right:0,picked:null};quizRender()}
+function quizRender(){var box=$("quiz");box.textContent="";var j=h("div");j.innerHTML=YaleAvatars.joey(64);
+  if(QZ.i>=QZ.qs.length){var best=Math.max(QZ.right,+(lsGet("mt_quiz_best")||0));lsSet("mt_quiz_best",best);
+    var line=QZ.right>=9?"Wow! You could run a campaign!":QZ.right>=7?"Great job! You really know your stuff.":QZ.right>=4?"Nice try! Play again to beat your score.":"Every expert starts somewhere. Try again!";
+    box.appendChild(h("div",{class:"qjoey"},[j.firstChild,h("div",{class:"qbub",text:line})]));
+    box.appendChild(h("p",{class:"qend",text:QZ.right+" out of "+QZ.qs.length}));
+    if(QZ.right>=8){box.appendChild(h("span",{class:"sticker",text:"\uD83E\uDDE0 Civics Whiz"}));if(QZ.right===QZ.qs.length)confetti()}
+    box.appendChild(h("p",{class:"note",text:"Your best score: "+best+" out of 10."}));
+    var again=h("button",{type:"button",class:"save",text:"Play again"});again.addEventListener("click",quizStart);box.appendChild(again);return}
+  var q=QZ.qs[QZ.i],done=QZ.picked!==null,ok=done&&QZ.picked===q[1][0];
+  box.appendChild(h("div",{class:"qjoey"},[j.firstChild,h("div",{class:"qbub",text:!done?(QZ.i===0?"Hi, I'm Joey! Let's see what you know.":"Next one!"):ok?YAY[QZ.i%YAY.length]:"Not quite! It's: "+q[1][0]+"."})]));
+  box.appendChild(h("div",{class:"qprog",text:"Question "+(QZ.i+1)+" of "+QZ.qs.length+" \u00B7 "+QZ.right+" right so far"}));
+  box.appendChild(h("p",{class:"qq",text:q[0]}));
+  if(!QZ.order)QZ.order=shuffle(q[1]);
+  box.appendChild(h("div",{class:"qopts"},QZ.order.map(function(o){var b=h("button",{type:"button",class:"qo"+(done&&o===q[1][0]?" right":done&&o===QZ.picked?" wrong":""),text:o});b.disabled=done;
+    b.addEventListener("click",function(){QZ.picked=o;if(o===q[1][0])QZ.right++;quizRender()});return b})));
+  if(done){box.appendChild(h("p",{class:"qwhy",text:q[2]}));var nx=h("button",{type:"button",class:"save",text:QZ.i+1<QZ.qs.length?"Next question":"See my score"});
+    nx.addEventListener("click",function(){QZ.i++;QZ.picked=null;QZ.order=null;quizRender()});box.appendChild(nx);nx.focus()}}
 function pressState(st,race){if(S.whatif&&!S.night&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
 function joeyCall(r){if(JOEY[r.id])return JOEY[r.id][0];if(SAME[r.id])return null;var c=r.cons;return c&&Math.abs(c.score)>=2.5?(c.score>0?dSide(r):rSide(r)):null}
 
@@ -1094,7 +1158,9 @@ function tagEl(v){var t={D:"Dem",R:"Rep",I:"Ind",T:"Toss-up"}[v]||"–";return h
 function listShared(){return window.storage.list("pred:",true).then(function(res){var keys=Array.isArray(res)?res:(res&&res.keys)||[];
   return Promise.all(keys.map(function(k){k=typeof k==="string"?k:k.key;return window.storage.get(k,true).then(function(v){try{return JSON.parse(v.value)}catch(e){return null}}).catch(function(){return null})}))}).then(function(a){return a.filter(function(e){return e&&e.n&&e.p})})}
 function loadPred(){if(API.on){if(!API.user){var d0=lsGet("mt_pred_draft");if(d0){P.mine=d0.p||{};P.avatar=Labubus.has(d0.a)?d0.a:P.avatar}}
-    return Promise.all([api("/api/leaderboard"),api("/api/crowd")]).then(function(x){API.lb=x[0];API.crowd=x[1].crowd||{};Object.keys(RESULTS).forEach(function(k){delete RESULTS[k]});Object.assign(RESULTS,x[0].results||{})}).catch(function(){})}
+    var lbp=API.user&&API.lgSel?"/api/leagues/"+API.lgSel+"/leaderboard":"/api/leaderboard";
+    return Promise.all([api(lbp).catch(function(){API.lgSel=null;return api("/api/leaderboard")}),api("/api/crowd"),API.user?api("/api/leagues").catch(function(){return{leagues:[]}}):Promise.resolve({leagues:[]})])
+      .then(function(x){API.leagues=x[2].leagues||[];API.lb=x[0];API.crowd=x[1].crowd||{};Object.keys(RESULTS).forEach(function(k){delete RESULTS[k]});Object.assign(RESULTS,x[0].results||{})}).catch(function(){})}
   var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||"";P.avatar=Labubus.has(d.a)?d.a:""}$("pred-name").value=P.name;
   if(!SHARED){var me=lsGet("mt_pred_self");P.all=me?[me]:[];return Promise.resolve()}
   return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
@@ -1120,11 +1186,30 @@ function renderMyBadges(){var box=$("pred-badges");if(!box)return;box.textConten
     return h("div",{class:"mb "+(on?"on":"off")},[h("span",{class:"ic","aria-hidden":"true",text:b[1]}),h("b",{text:b[2]}),b[3]+(on?"":b[4]&&!live?" (unlocks after Election Day)":"")])})));
   box.appendChild(h("p",{class:"note",text:"Badges show next to your name on the leaderboard. They never say which races you picked."}))}
 function score(get){var ok=0,n=0;Object.keys(RESULTS).forEach(function(id){n++;if(get(id)===RESULTS[id])ok++});return[ok,n]}
+/* ---- Private leagues (server only): friends share a code and get their own leaderboard ---- */
+function renderLeagues(){var box=$("pred-leagues");if(!box)return;box.textContent="";var w=h("div",{class:"lgbox"},[h("h3",{text:"Private leagues"})]);box.appendChild(w);
+  if(!API.on){w.appendChild(h("p",{class:"note",text:"Make a league with a join code so you and your friends get your own leaderboard. Leagues need the project's server, because the leaderboard has to be shared, so they aren't on this public page. Run the full project (see the README) to try them."}));return}
+  if(!API.user){w.appendChild(h("p",{class:"note",text:"Log in to make a league or join one with a friend's code."}));return}
+  var msg=h("span",{class:"note",role:"status"}),view=h("div",{class:"lgrow",role:"group","aria-label":"Show leaderboard for"});
+  function show(id){API.lgSel=id;loadPred().then(renderPred)}
+  [{id:null,name:"Everyone"}].concat(API.leagues).forEach(function(l){var b=h("button",{type:"button",class:"wib","aria-pressed":String((API.lgSel||null)===l.id),text:l.name+(l.members?" ("+l.members+")":"")});b.addEventListener("click",function(){show(l.id)});view.appendChild(b)});
+  w.appendChild(view);
+  var cur=API.leagues.filter(function(l){return l.id===API.lgSel})[0];
+  if(cur){var copy=h("button",{type:"button",class:"wib",text:"Copy code"});copy.addEventListener("click",function(){(navigator.clipboard?navigator.clipboard.writeText(cur.code):Promise.reject()).then(function(){msg.textContent="Code copied!"}).catch(function(){msg.textContent="Copy it by hand: "+cur.code})});
+    var out=h("button",{type:"button",class:"wib",text:cur.owner?"Delete league":"Leave league"});out.addEventListener("click",function(){if(!confirm(cur.owner?"Delete "+cur.name+" for everyone in it?":"Leave "+cur.name+"?"))return;
+      api("/api/leagues/"+cur.id+"/leave",{method:"POST"}).then(function(){show(null)}).catch(function(e){msg.textContent=e.message})});
+    w.appendChild(h("div",{class:"lgrow"},[h("span",{text:"Join code:"}),h("span",{class:"lgcode",text:cur.code}),copy,out]));
+    w.appendChild(h("p",{class:"note",text:"Share this code only with friends you want in the league. Only members can see it."}))}
+  var nm=h("input",{maxlength:"30",placeholder:"League name","aria-label":"New league name"}),mk=h("button",{type:"button",class:"save",text:"Make a league"});
+  mk.addEventListener("click",function(){api("/api/leagues",{method:"POST",body:{name:nm.value}}).then(function(j){msg.textContent="Made "+j.league.name+"! Share the code with your friends.";show(j.league.id)}).catch(function(e){msg.textContent=e.message})});
+  var cd=h("input",{maxlength:"12",placeholder:"Join code, e.g. K7TQ2MXB","aria-label":"League join code",autocomplete:"off"}),jn=h("button",{type:"button",class:"ghost",text:"Join"});
+  jn.addEventListener("click",function(){api("/api/leagues/join",{method:"POST",body:{code:cd.value}}).then(function(j){msg.textContent="You joined "+j.league.name+"!";show(j.league.id)}).catch(function(e){msg.textContent=e.message})});
+  w.appendChild(h("div",{class:"lgrow"},[nm,mk]));w.appendChild(h("div",{class:"lgrow"},[cd,jn,msg]))}
 function renderPred(){renderAvatars();
   $("pred-mode").textContent=API.on?"Your picks are saved to your account and count on the shared leaderboard. Only your nickname and avatar are shown, never your picks.":SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
   var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
-  renderMyBadges();var lb=$("pred-lb");lb.textContent="";
+  renderMyBadges();renderLeagues();var lb=$("pred-lb");lb.textContent="";
   /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
   var live=Object.keys(RESULTS).length>0,PTS=10;
   var rows=API.on?((API.lb&&API.lb.players)||[]).map(function(x){return{name:x.nickname,av:Labubus.has(x.avatar)?Labubus.make(x.avatar,40,x.nickname+"'s avatar"):"",pts:x.points||0,bd:x.badges||[]}}):
@@ -1133,7 +1218,7 @@ function renderPred(){renderAvatars();
   if(live)rows.push({name:"The crowd",pts:PTS*score(crowdCall)[0],bench:1},{name:"Forecasters' consensus",pts:PTS*score(function(id){return S.byId[id]?forecastCall(S.byId[id]):null})[0],bench:1},
     {name:"My model",pts:PTS*score(function(id){return S.byId[id]?modelCall(S.byId[id]):null})[0],bench:1});
   if(live)rows.sort(function(a,b){return b.pts-a.pts||a.name.localeCompare(b.name)});else rows.sort(function(a,b){return(a.bench||0)-(b.bench||0)||a.name.localeCompare(b.name)});
-  lb.appendChild(h("h3",{text:"Leaderboard"}));
+  lb.appendChild(h("h3",{text:API.on&&API.lb&&API.lb.league?"Leaderboard: "+API.lb.league.name:"Leaderboard"}));
   lb.appendChild(h("p",{class:"note",text:live?"10 points for every race called correctly. A toss-up pick counts as a miss.":"Points show up after Election Day: 10 for every race called correctly. For now, here's everyone who has made picks."}));
   var head=live?["#","Player","Points"]:["Player"];
   lb.appendChild(h("div",{class:"table-wrap lb"},[h("table",{},[h("thead",{},[h("tr",{},head.map(function(t){return h("th",{class:t==="Points"?"num":"",text:t})}))]),
@@ -1170,7 +1255,7 @@ function savePred(){var msg=$("pred-msg");
   else{lsSet("mt_pred_self",entry);done()}}
 
 // ---- server mode: when the Python backend is running, use real accounts, shared picks and Ask Joey ----
-var API={on:false,user:null,crowd:{},lb:null};
+var API={on:false,user:null,crowd:{},lb:null,leagues:[],lgSel:null};
 function api(path,opt){opt=opt||{};return fetch(path,{method:opt.method||"GET",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:opt.body?JSON.stringify(opt.body):undefined})
   .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.detail||("Error "+r.status));return j})})}
 function apiInit(){if(location.protocol==="file:")return;fetch("/api/health").then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.ok)return;API.on=true;
@@ -1183,7 +1268,7 @@ function doSignup(){var n=$("auth-nick").value,pw=$("auth-pass").value;if(!P.ava
   api("/api/signup",{method:"POST",body:{nickname:n,password:pw,avatar:P.avatar}}).then(function(j){$("auth-pass").value="";authMsg("");setUser(j.user,P.mine)}).catch(function(e){authMsg(e.message)})}
 function doLogin(){api("/api/login",{method:"POST",body:{nickname:$("auth-nick").value,password:$("auth-pass").value}}).then(function(){$("auth-pass").value="";authMsg("");return api("/api/me")})
   .then(function(m){setUser(m.user,m.picks)}).catch(function(e){authMsg(e.message)})}
-function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};setUser(null)})}
+function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};API.lgSel=null;API.leagues=[];setUser(null)})}
 function renderAsk(){if(!API.on)return;$("ask-form").hidden=!API.user;$("ask-note").textContent=API.user?"Ask Joey about any 2026 race. He only uses the site's data, and a checker makes sure every number he says is real.":"Log in on the Predict and Compare tab to ask Joey questions."}
 function askJoey(e){e.preventDefault();var q=$("ask-q").value.trim(),out=$("ask-out");if(!q)return;$("ask-go").disabled=true;out.textContent="Joey is thinking…";
   api("/api/ask",{method:"POST",body:{question:q}}).then(function(j){out.textContent="";var box=h("div",{class:"ask-answer"}),av=h("div");av.innerHTML=YaleAvatars.joey(48);box.appendChild(av.firstChild);
@@ -1281,7 +1366,7 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
 function openOnMap(r){if(!S.byId[r.id])return;showTab("tab-map");S.state=r.state;selectRace(r.id);renderMap();
   var sel=document.querySelector('#detail .rrow[aria-selected="true"]');(sel||$("detail")).scrollIntoView({behavior:"smooth",block:"start"})}
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
-  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
 // ---- boot ----
 document.querySelectorAll(".f[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});

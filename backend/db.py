@@ -1,4 +1,4 @@
-"""SQLite storage: accounts, sessions, picks, approved results, result proposals,
+"""SQLite storage: accounts, sessions, picks, private leagues, approved results, result proposals,
 token usage and the safety log.
 
 Every query uses ? placeholders, so user input is never pasted into SQL.
@@ -60,6 +60,19 @@ CREATE TABLE IF NOT EXISTS token_usage (
     cached_tokens INTEGER NOT NULL,
     output_tokens INTEGER NOT NULL,
     requests INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS leagues (       -- private leagues; see leagues.py
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    code TEXT NOT NULL UNIQUE,
+    owner_id INTEGER NOT NULL REFERENCES users(id),
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS league_members (
+    league_id INTEGER NOT NULL REFERENCES leagues(id),
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    joined_at TEXT NOT NULL,
+    PRIMARY KEY (league_id, user_id)
 );
 CREATE TABLE IF NOT EXISTS safety_log (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

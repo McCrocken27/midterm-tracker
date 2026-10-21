@@ -27,6 +27,6 @@ def fresh_db(tmp_path, monkeypatch):
 def client():
     from fastapi.testclient import TestClient
     import main
-    main.ask_per_user.events.clear(); main.ask_per_ip.events.clear(); main.signups_per_ip.events.clear()
+    main.ask_per_user.events.clear(); main.ask_per_ip.events.clear(); main.signups_per_ip.events.clear(); main.league_joins.events.clear()
     with TestClient(main.app) as c:
         yield c

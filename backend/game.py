@@ -110,14 +110,17 @@ def badges(picks: dict[str, str], res: dict[str, str], joey_correct: int) -> lis
     return out
 
 
-def leaderboard() -> dict:
-    """Players with at least one pick. Points appear only once results exist."""
+def leaderboard(only: set[int] | None = None) -> dict:
+    """Players with at least one pick (or, for a league, every member). Points appear only once results exist."""
     res = results()
     live = bool(res)
     with db.connect() as conn:
         users = conn.execute(
             "SELECT users.id, users.nickname, users.avatar FROM users"
             " WHERE EXISTS (SELECT 1 FROM picks WHERE picks.user_id = users.id) ORDER BY users.nickname_key").fetchall()
+        if only is not None:
+            users = conn.execute("SELECT users.id, users.nickname, users.avatar FROM users ORDER BY users.nickname_key").fetchall()
+            users = [u for u in users if u["id"] in only]
         rows = conn.execute("SELECT user_id, race_id, pick FROM picks").fetchall()
     by_user: dict[int, dict[str, str]] = {}
     for r in rows:
