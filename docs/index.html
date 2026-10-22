@@ -134,6 +134,7 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .vote-race{font-size:1.1rem;color:var(--head)}.vote-cands{list-style:none;padding:0;margin:8px 0 4px}.vote-cands li{margin:4px 0;font-weight:700}
 .ptag.d{background:#2d6cc0}.ptag.r{background:#b22234}.ptag.i{background:#8a8f98}.vote-go{color:var(--head);font-weight:800;text-decoration:underline}
 a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
+.wihost{margin:0 0 12px}.wihost:empty{display:none}
 .bop{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:0 0 14px;min-width:0}.layout>section{min-width:0}
 .bopc{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:10px 14px;box-shadow:0 4px 0 var(--line)}
 .bopc h3{margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;font-size:1rem;color:var(--head)}
@@ -327,6 +328,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <div id="tab-map" role="tabpanel">
 <main class="layout">
   <section aria-labelledby="map-h">
+    <div id="wibar-host" class="wihost"></div>
     <div class="section-head"><h2 id="map-h">Where the Races Are</h2>
       <div class="filters" role="group" aria-label="Show on map">
         <button type="button" class="f on" data-f="senate" aria-pressed="true">Senate</button>
@@ -981,14 +983,14 @@ function bopCard(title,ch,total,line){var b=bopCount(ch),D=0,R=0;Object.keys(b).
     else if(ch==="house")msg=D>=218?"Democrats have won the House!":R>=218?"Republicans have kept the House!":left+"It takes 218.";
     else msg="Democrats have won "+D+" Governor races and Republicans "+R+". "+(U?left:"Every race is called.")}
   return h("div",{class:"bopc"},[h("h3",{},[h("span",{text:title}),tot]),bar,h("p",{text:lead+msg})])}
-function renderBOP(){var box=$("bop");if(!box)return;box.textContent="";
+function renderBOP(){var box=$("bop"),top=$("wibar-host");if(!box)return;box.textContent="";if(top)top.textContent="";else top=box;
   var mode=h("button",{type:"button",class:"wib","aria-pressed":String(!!S.whatif),text:S.whatif?"What If? mode is ON":"Try What If? mode"});
   mode.addEventListener("click",function(){S.whatif=!S.whatif;renderBOP()});
   var joey=h("button",{type:"button",class:"wib",text:"Fill in Joey's calls"});joey.addEventListener("click",function(){S.races.forEach(function(r){var c=joeyCall(r);if(!c||SAME[r.id])return;setWI(r,c===dSide(r)?"d":c===rSide(r)?"r":null)});renderMap();if(S.raceId)selectRace(S.raceId)});
   var reset=h("button",{type:"button",class:"wib",text:"Reset"});reset.addEventListener("click",function(){WI={};lsSet("mt_whatif",WI);renderMap();if(S.raceId)selectRace(S.raceId)});
   var n=Object.keys(WI).length;
-  if(S.night)box.appendChild(nightPanel());else{var en=h("button",{type:"button",class:"wib gold",text:"\uD83C\uDF89 Election Night"});en.addEventListener("click",startNight);
-  box.appendChild(h("div",{class:"wibar"},[en,mode,joey,reset,h("p",{class:"note",text:(S.whatif?"What If? mode: click a state to flip its "+(S.filter==="governor"?"Governor":"Senate")+" race (forecast, then D wins, then R wins, then back). For House seats, open a district and use its What if? buttons. ":"Pick your own winners and watch the bars move. ")+(n?n+" race"+(n===1?"":"s")+" set by you. ":"")+"Saved only in this browser."})]))}
+  if(S.night)top.appendChild(nightPanel());else{var en=h("button",{type:"button",class:"wib gold",text:"\uD83C\uDF89 Election Night"});en.addEventListener("click",startNight);
+  top.appendChild(h("div",{class:"wibar"},[en,mode,joey,reset,h("p",{class:"note",text:(S.whatif?"What If? mode: click a state to flip its "+(S.filter==="governor"?"Governor":"Senate")+" race (forecast, then D wins, then R wins, then back). For House seats, open a district and use its What if? buttons. ":"Pick your own winners and watch the bars move. ")+(n?n+" race"+(n===1?"":"s")+" set by you. ":"")+"Saved only in this browser."})]))}
   box.appendChild(S.filter==="house"?bopCard("House balance of power (435 seats)","house",435,true):S.filter==="governor"?bopCard("Governor races (36 on the ballot)","governor",36,false):bopCard("Senate balance of power (100 seats)","senate",100,true))}
 /* ---- Election Night mode: results come in state by state, east to west, like polls closing.
    With real results it plays those back. Before Election Day it runs a clearly labeled practice:
