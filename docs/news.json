@@ -1,5 +1,5 @@
 {
-"updated": "2026-10-22T16:47+00:00",
+"updated": "2026-10-22T20:44+00:00",
 "sources": [
 "Google News",
 "NPR",
@@ -7,10 +7,110 @@
 ],
 "items": [
 {
+"t": "Hottest 2026 Midterm Races—Texas Senate Race Tied In New Poll (Updated Daily)",
+"src": "Forbes",
+"url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWWxZZllpM05BYXBQYkthMVhfOWhsN2xjcUhSVjJ0MmszanRWQ0U0NlJ1eE1VRDhfR0R6NHBtT3RMdWVOcHdwRVBMTUdlR0xmM2dTbHVCYnVHQ1YxNk5sbm1UOFZ4UmxVcS02ekMyN1dOUEZFLWkyWFhjUHhkMWR2X0Z6ZzlHVFp0OVJieDlmREZEbHdqNzNnZlI0cW9wNzlnektRaWR3NV9CUG85MEJCalpSSXhSX2V0ejNQelAwOFJTNGp4TE1R?oc=5",
+"d": "2026-10-22T20:15+00:00",
+"sum": "",
+"races": [
+"sen-tx"
+]
+},
+{
+"t": "Kansas Sen. Roger Marshall in debate blames Ukraine war, not Iran war, for high diesel prices",
+"src": "PBS News",
+"url": "https://www.pbs.org/newshour/politics/kansas-sen-roger-marshall-in-debate-blames-ukraine-war-not-iran-war-for-high-diesel-prices",
+"d": "2026-10-22T20:03+00:00",
+"sum": "The answer, delivered during a debate with Democratic challenger Adam Hamilton, aligned Marshall with President Donald Trump's freshly antagonistic posture toward Ukraine, which has spent more than four years defending...",
+"races": [
+"sen-ks"
+]
+},
+{
+"t": "The midterm effect: What the 2026 election could mean for public policy",
+"src": "Brookings",
+"url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbGxuc1JOXzBTaW84TG1MaU9GQ3FJTUtjU1c1WThHWFlERlZHWGJ1MzJtOFlLaWRaWk5DVTZQZjk2bEQ1bUxLUVJzZmVkYWNodldsQUVCdmoyc3kwRkpTNHB0RTVoT3NjVmI5azZ2cG1hWU45TTVaVlFHNjhLVkc2QVZseGVtaEk1TlZvYjhILTVpTHo3TDRFUERCOWNDcjhPNUNFaU1xc3Z6Zw?oc=5",
+"d": "2026-10-22T19:35+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "In reliably blue Minnesota, could Democrats do the unthinkable and lose a Senate seat?",
+"src": "The Guardian",
+"url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRVlMY3hWYjZTcnl6dEhVTzVfQW9iMmhVVTlqaXVnSmxYWDFfanF2bWViSnEwY1EySXV1RkJCSzhhR2NBbGJEM0lwOVZ2WEhiTkZLS0pROVFINTJWYW1ZWmpvMWtNcGtpTWUxWGkwSUpVcWgxN3M0X0VKdHJHVjJqQ1AxMWZMR29QWkl6WVdPTHBBMTVRVFdTQzRsY3h4QVph?oc=5",
+"d": "2026-10-22T19:20+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Who will win the 2026 midterm elections? Polls and predictions",
+"src": "The Times",
+"url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUnpCV1NDNnk4SXdjQkEzNjhGZUIwTWJhVDlQZS1NZGRnNzdDamRHR0Q3M0w4djlsT1BvZWIxaWpVakVYbk5rUHJfZkJlQ18wNlBjZmM3cEp2ekhPNG1jd09CWFJUQWVORVhxRjh2UjBuQVkydGxLd05UR3JCVEYzVXltcEpSRWVXQlVoZEdsNmJaVFM1ZTZFcERta19lVWtZZGs0dlhEMlUybGItRGwtN0xXVQ?oc=5",
+"d": "2026-10-22T18:42+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Midterms 2026: Congress Polls and More",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9qM2xEd3lHR1dpU2xwT1JLcDEyUXlVS0xaeGptQzlscXNJSHc1VVVXQnZpY2FfN0NYdlFLMGZfWW9SSDFLT3NQVEF5cDlKZUlaVGNmZW5VUlR6LXI1MGtGeHJZWU1icGs?oc=5",
+"d": "2026-10-22T18:32+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Tracking the 2026 Early Vote: Midterm Elections",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
+"d": "2026-10-22T18:32+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Battleground: Midterm Voter Trends",
+"src": "FOX 29 Philadelphia",
+"url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTDdlZXVNa2hWM21wN0gtSERfdlVEcXpOX1BQdGVsYVZJQmVoWms4Y2pCS094ZmU4ZGQ5UjhJbnI1SG1zTDN0X3Z5RjdDZml6bkJoQnZhU2tuLURvNFQwQU5leV85T1BPbGhKMndDTXl5alZlRTBtbHA5SGV0QjFFdGpRWUtoajc3REHSAY8BQVVfeXFMTlB5VTNjdDNablZzMHVjaURTekpncHNZQm56NUVkcVlvYUFkekJVSl85bnZmSmY4RGh6T25TYThrVnBWYkFObFFHbEI1TEFVYk9hM1pPNnF1dXlpV2dPMTBkMC04eUhhQ3NSV0JYVXVDbkktRWJORGltV1hTY0hJZ0xKYkZwbFJTRzhRMWZzdms?oc=5",
+"d": "2026-10-22T18:01+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Biden-appointed judge blocks voter-fraud probes in battleground states just days before midterms",
+"src": "Fox News",
+"url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPb0F5WklJeW5xZVJNNEdVaXNBRVhLSHJXR2s2VjhRTUx3ai03b3dtMG1rSmEtNUJuTEFmLU1QTnJseGFCdG42VEhRMkQzU0xFYkt0amVJcDExbjRZTzBGUFZ5aXQzemgxUmQySEJ3ZEs3Ym9kdVdyZTRLSldqd0c4RWlHTlc4TkNaVU9adnpfQ3dIWkloNXdJSVpzcnlhLVQtZlRpY0VqYXY1eC1wcVRHQS10S1pZdTUwczMyRVl30gHDAUFVX3lxTE5SemxJNXc5eDROYVB6X0FaeFpzT2VjZGZfNEVhSDgtTGptQ2RjNDNBZWozN1dGaWVmLUIwcTFQbmpiS3ExSE9WdVNTM1kyU1NSM3YtU0NSeW9VMUNTNDdxb0o0WkQtSmxOc3VoMDZLNXd2bWlGS2dsSlM4UXM5YnRqS1gxX2JHWmpKbmZHSnoteFhNZ1hOVF94TWl6RUtqWm9JbjNjSEJrSmxWd0N1NDFranN2UUpaQzZ4SlN3X3JTZlZfRQ?oc=5",
+"d": "2026-10-22T16:53+00:00",
+"sum": "",
+"races": []
+},
+{
 "t": "The 2026 midterms are just 12 days away. Which party has a better chance of winning? Here's what the latest polls say.",
 "src": "Yahoo",
 "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNdHhTNlV5cVdhM1dsVkxJcGpWSE5DMERzYWYwYnpPV1YzM0hBS3lEVWpoeVc1Y3R4aUdKOHlBdDZ2Zkw2eTN3dlBST3ZKdHZvTmsxQ2V3bjlaNUtOMFVlLWdGbDAtMmNRQV91bUxnWDZXQWFLbldLd05HUXo0UUFKdXVaYU9TaUt4Z1hJQmozTGxjcndHSVpTR0Fqc05yZFVrTXIwWXNYc3ZxOEktNWFCQ1laTDVkRXJHeEs0cEV4b2JPUG5wMjhkUHhaZWlLc2ZaOHZlZEQ1TGZ4UXJsY2tHa3IzdlZ3dnNSMlVBd3J0MjhjVU9VWTR0aDhpQWQ5azR3SHBKM3RyVGJfUQ?oc=5",
 "d": "2026-10-22T16:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "How Kotek and Drazan would tackle Oregon affordability: The latest on Oregon’s 2026 election",
+"src": "OregonLive.com",
+"url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZTJ1Y1FwTXY3MjBWVElCTjBrcWVMbGhFX2dGOFp3MFJqMXFXbEJ0VGJ2dnF0cm5vVk1RVDhiSnJkSHJOcmhiNXk5eUd2eFo3eVhvRjJleUllb0lpYmoyaG9OREFlalBtWXBWR2ZBcVR5Rmo4cnU3QnFQc2VVWTVYSklQeFg2eHd1SERSQm0tY3BDS1ktM2djSktCSWJWTGpvRzhYTEJTa2NXUzFNa2g0eVhfNFJQZnkzajVqRVVfM1hWQWdSMllIYmhKRXo1NHBvcGk2Yy13?oc=5",
+"d": "2026-10-22T15:46+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "FLIPR 2026 midterm election forecast",
+"src": "Silver Bulletin",
+"url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GWjFMc2tINlY1LWQ1RGZtUUJpZlZlN21hNF9iYU1TME9sSmhNclhGM3pmZW54a1JMX0F1TUZSeEtXWDlidVVDRWpUVUtoT0IzdEMyODhrWVRvSlRKd3pDdkdIOUpodHN5aHlJU2lZbWpweWt0a2ZScENITkJzdnc?oc=5",
+"d": "2026-10-22T15:33+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "How and when to vote early in Maryland's 2026 midterm elections",
+"src": "CBS News",
+"url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE00eS1KRHBPWHhLcGVuenRPUnd3RmxmOEticlAtU3pNaXJTeWxfc2pmSXBiYnNtX0t6YlVEVWdtS1YxNzhkN3U3RXhTbENFZHgzM05OaXJjWU5jQW0tU1BRdkJuUy1rVTBNOXB4c3pFTTFkeGF5Mm4xckhjT3Bfdw?oc=5",
+"d": "2026-10-22T15:33+00:00",
 "sum": "",
 "races": []
 },
@@ -23,20 +123,22 @@
 "races": []
 },
 {
-"t": "Montana Midterm Elections 2026: Key Races, Candidates and Past Results",
+"t": "Republicans seek inroads with Black voters in Michigan’s tight Senate race",
 "src": "NBC News",
-"url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5sRVpNR3ZiQ2RBMEJZSzBrazZneVlmS2VFcERuVDdab190WkJvZ0Z0ek85SUF2TUhheWp1ak1pczBCSDE5MHlaei13WWZNRXk1cXVETHBHOVZ3TEpseDJNYmxVc0FESEw2b1gyckNKbmE?oc=5",
-"d": "2026-10-22T14:30+00:00",
+"url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNEVYWDhhbDcySEdSdTkwLVhtZ3JoUWtJbjlyd1RCcVptRkxLZTNGd21GN2ZodjJpVVFva0pKNjRqTkhhUGFQQzFzam8yenRlVFpHTURVVVlsR21ZeUZTeWk2QmMzRjZoQVZOd0VEWWRfcG1NVEdrNWIyNmpYVWVFRTYxQkRKM3BFbU1BdE1RY29mTVhDUEJBSHZUaVN3bE43b1YxRElXaDJtc0pGdERZSw?oc=5",
+"d": "2026-10-22T15:24+00:00",
 "sum": "",
 "races": []
 },
 {
-"t": "Who will win the 2026 midterm elections? Polls and predictions",
-"src": "The Times",
-"url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUnpCV1NDNnk4SXdjQkEzNjhGZUIwTWJhVDlQZS1NZGRnNzdDamRHR0Q3M0w4djlsT1BvZWIxaWpVakVYbk5rUHJfZkJlQ18wNlBjZmM3cEp2ekhPNG1jd09CWFJUQWVORVhxRjh2UjBuQVkydGxLd05UR3JCVEYzVXltcEpSRWVXQlVoZEdsNmJaVFM1ZTZFcERta19lVWtZZGs0dlhEMlUybGItRGwtN0xXVQ?oc=5",
-"d": "2026-10-22T14:12+00:00",
+"t": "Josh Shapiro continues to lead Stacy Garrity in new Pennsylvania Governor’s race poll",
+"src": "ABC27",
+"url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNEtYTHFjdWNnX3hTSk9PZlNPd0s3ZHJDVUR1WVpaZHM2bFBaLWhsNmcwXzQweXAza2tlM3NVenFkOUdlMVBCN09fdC04TFk2eW4xSGkwa05odjlzcmJobkI4c3VlT2dBeVhlQnFKQTBYWldyT2g4YVdMbXN0N09kc1R5d0ZCbDRKY1VkU3Qwd1FIN294QkxWU2ZsTS1NaDdoU0s3Sk5DTU5EeDUwa3J3SVJzZlo5Slg5ZVhiVDNJeEFndHB2NDlwenZrQk9XQkNSUlF4adIB2gFBVV95cUxQeTV6TzVlWE9jQmxMM1NKMXk3Si1VVmcxT21abnRCbjhOT295cWtIWThLMzdhckhFZEg4NWY3a3ZOajQ1U28zb3dESEhLa1Q5WDlQY1lUbGlzcU5CNHpfMm5iejNXZDdGcmhXWjE1OFgtUXRhZTBSNFo4bXpMUm1CZmQ5a01CeXlVMnQ3TGhHU0xnRzFEdlBXem1HMVBWT2ZWNVFKQ21lQlMtRzBZLWtoRXYzd3ZlN0dVTFVGbktuSGFqaVRUM3FuSG9Bdi1KR3FOVXFZb2RTeFl1QQ?oc=5",
+"d": "2026-10-22T14:55+00:00",
 "sum": "",
-"races": []
+"races": [
+"gov-pa"
+]
 },
 {
 "t": "WATCH LIVE: Trump rallies in Iowa with GOP Senate candidate Ashley Hinson",
@@ -59,9 +161,9 @@
 ]
 },
 {
-"t": "Tracking the 2026 Early Vote: Midterm Elections",
+"t": "Mississippi Midterm Elections 2026: Key Races, Candidates and Past Results",
 "src": "NBC News",
-"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
+"url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5uREVmbVFza08xUlVkcmdQOTVEUDRYTUxJWFlHcXB0WnhDcnk4blFsd1JINEtQSUxRWnNhM0ljZDNiNWh1RDZPdXE0QUQtZVZwTnhiTUlpUnBlWlR0MlU0ZVJKM2ZxMmFhS3JiWkdIS3o0MjhiUmc?oc=5",
 "d": "2026-10-22T13:30+00:00",
 "sum": "",
 "races": []
@@ -71,22 +173,6 @@
 "src": "FairVote",
 "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYmdJSjFWUWNHZFd3NEI1OXY0d0dadTkweVhsOFNzdXZrcTBITFJ3bnl3Y0ljRXdqMzFXajRFalpGbVZuMHpOcjJOWWtVbzFYb0R6NGFobC1QRW8ybEozMDZrRmdSZ3UzT1dIUmlmMUZqcjN4VjFXQ3ZiWnRpOTNQb2VzeDlPM2lfazIycWhVSEhWc0hpYkNRZQ?oc=5",
 "d": "2026-10-22T13:28+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "In reliably blue Minnesota, could Democrats do the unthinkable and lose a Senate seat?",
-"src": "The Guardian",
-"url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRVlMY3hWYjZTcnl6dEhVTzVfQW9iMmhVVTlqaXVnSmxYWDFfanF2bWViSnEwY1EySXV1RkJCSzhhR2NBbGJEM0lwOVZ2WEhiTkZLS0pROVFINTJWYW1ZWmpvMWtNcGtpTWUxWGkwSUpVcWgxN3M0X0VKdHJHVjJqQ1AxMWZMR29QWkl6WVdPTHBBMTVRVFdTQzRsY3h4QVph?oc=5",
-"d": "2026-10-22T13:28+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "FLIPR 2026 midterm election forecast",
-"src": "Silver Bulletin",
-"url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GWjFMc2tINlY1LWQ1RGZtUUJpZlZlN21hNF9iYU1TME9sSmhNclhGM3pmZW54a1JMX0F1TUZSeEtXWDlidVVDRWpUVUtoT0IzdEMyODhrWVRvSlRKd3pDdkdIOUpodHN5aHlJU2lZbWpweWt0a2ZScENITkJzdnc?oc=5",
-"d": "2026-10-22T12:44+00:00",
 "sum": "",
 "races": []
 },
@@ -103,14 +189,6 @@
 "src": "CNBC",
 "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYU5WTTR4TElYVkE0Y1VDcVYzaFd4TTJFQVpocWwzNXJteW1yQnZpMG12VEpPRFBSTGJhNmN2cXg1S2JJSUFYa3IxSUc2cjhZUGdKNmdOaG8weS14WExhY0lNeTAyLWt1bjZzQmVjMFI4eFo2SEVfaGRFa0VzRzVjWG1HYm9ZTXJ40gGOAUFVX3lxTFB1S0lOdlBBMm03Z3hDaFlqbzFkZTNkSl90OFBuU2Y4OERVX052VFdhRzZDMEZxNm4zU3RMaHZvUHlqT01XYUxBSFVJaER3TEdPWXkzR1BySGxhRERqMHB4b3RjMGxObUw0MkJheGRnNnE3bUJ2Q0g1a0dZSjRrY3FfVW5aazVSeFVTckJVTUE?oc=5",
 "d": "2026-10-22T11:40+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "How and when to vote early in Maryland's 2026 midterm elections",
-"src": "CBS News",
-"url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE00eS1KRHBPWHhLcGVuenRPUnd3RmxmOEticlAtU3pNaXJTeWxfc2pmSXBiYnNtX0t6YlVEVWdtS1YxNzhkN3U3RXhTbENFZHgzM05OaXJjWU5jQW0tU1BRdkJuUy1rVTBNOXB4c3pFTTFkeGF5Mm4xckhjT3Bfdw?oc=5",
-"d": "2026-10-22T10:28+00:00",
 "sum": "",
 "races": []
 },
@@ -139,6 +217,16 @@
 "races": []
 },
 {
+"t": "Political communications expert discusses Vivek Ramaswamy's controversial ad",
+"src": "NPR",
+"url": "https://www.npr.org/2026/10/22/nx-s1-6010620/political-communications-expert-discusses-vivek-ramaswamys-controversial-ad",
+"d": "2026-10-22T08:57+00:00",
+"sum": "NPR's Steve Inskeep speaks with political communications expert Jacob Neiheisel from the University of Buffalo about Vivek Ramaswamy's controversial ad.",
+"races": [
+"gov-oh"
+]
+},
+{
 "t": "George W Bush’s brother backs Democrat James Talarico in Texas Senate race",
 "src": "Al Jazeera",
 "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNa2ZvcnJJeHRlaEJyWTdiZV9nTjJ4dWRJcGI2eVdmN3pMSXp5SVBaZTRuN24wbTJlRVQyZkVNSG5OSHBYRFJkanNVSGVObDIwb2pKamw0NGZSNjM0dkh0SV9sMHJjOHhsX3JLY0xZbHVoX1k1b01Ud1lDSVZwSHpFN082c0dlM2ZGVTNjdk9OV2ZCRkcyLVhGUHlvYlloanJfcG5UZ1dDa3ROS2RNeFRZ0gG0AUFVX3lxTE9mWS1MLTJkMTh2aEl6THFYc2VFVEtTcU9iZGFYTlQ1bXFEQ0NQSzJGYXJNWVlIN1ZZTFRuc3RPZ0xzTU1ucENiREptaUYtTnJMcDNVdnR0ZUZxU2YzamhwR2JDSThfcUwzTUQ1ZXJZZi02QzNxSl93b2x1MFNNMFlLWjY4bjNLWlFtaExQbE9NbVJ5ZWJpX3hEM2s4a0lOVy1YTHZXczRmekhWYzN0NklvSlJGWg?oc=5",
@@ -163,16 +251,6 @@
 "d": "2026-10-22T03:53+00:00",
 "sum": "",
 "races": []
-},
-{
-"t": "Abbott Extends Lead Over Hinojosa in Texas Governor Race",
-"src": "ActiVote",
-"url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9haENPZzhXbVFiamIzbGYtSmNvZWJRdmN1YTF4WUtHUFAydnZtUFlRUER6TzE4NmszRUpPV1diOXBrZFhZdmRBOUx0ajZlQVF5V1B5LTZONlpPVDN2?oc=5",
-"d": "2026-10-22T03:16+00:00",
-"sum": "",
-"races": [
-"gov-tx"
-]
 },
 {
 "t": "Election 2026: Here's where California gubernatorial candidates Steve Hilton and Xavier Becerra stand on housing and homelessness",
@@ -210,8 +288,8 @@
 },
 {
 "t": "Trump Promised To Visit Battleground Districts But Finds Himself In South Carolina Instead",
-"src": "HuffPost",
-"url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNbzRBMjViUDYyV3EyRi1zNVZZdUJyM0tra1BDRjhhNnQ3QmdZdlplVHpDMHRuQ2IzT1ZDal9xNDhvWjZhOWQydXNBSjVNOG1WUjhXaGQySHlvaW5UOVFvTnlSb0RCbFBvdUl0cXRNTlBNVGpWdWFjMjJIckpqSTJLMHF2aWnSAYoBQVVfeXFMTUtlejBhUWxOWmowYzVYaDlVeU5PU3NuWFdkTHNaN0JMbkdtRGdEcVhSa2R5eDl3MWhKWURNSENvZGRYVWZBT1FKbHJTTjV3bVNvMmo5R3FhdjJIWUFON3N3N1Z5azJMSnJYazFKQ2oyOXpZLVJtM2J5WGJ2OUZBSGFudE82SWYycTJR?oc=5",
+"src": "Yahoo",
+"url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRUZsbkxPUU9ZbGpkQkxpdzgzUFc0MzVVVU1EOWtZbmt0VmR3alNES29PMHJTUERVY0JPcUpXNzY2WDNXZ2FRUVE1a1NLSHlGZTlwZ01FN2g0blE4ZUFUWmF4Z244cFQ1ekY0a3lteXhqU1A3OGhSTXVRSUkxclBFSElDZnMyQ0hsZTVTRGRWYmV2MGdNVW00cmRteWdPT0lra3c0N0tR?oc=5",
 "d": "2026-10-22T00:31+00:00",
 "sum": "",
 "races": []
@@ -273,22 +351,30 @@
 "races": []
 },
 {
+"t": "What the polls are telling us about the 2026 midterms",
+"src": "Texas Public Radio | TPR",
+"url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdzFRMFl0SENid2NlVDBGMWJIRFJyWGpLcWZYNkQwY3NFNElfcmkyZXZ6cDgtWktqSXFoeGQ3amZQWkgtMnFXUXc0RUxQN3ZJVFNGZk9uV2c0QkJieGtCQTIyUmZ0SWw1OU9LcmF6RXVQVnJtZjhyejVaSWJOcU5STGNjaThsY2k3Tk1VWmtwMUt5azFRb0M3Wjl2S3hfN3d1dkd4OHdR?oc=5",
+"d": "2026-10-21T22:02+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Fox News Poll: Texas Senate race galloping toward a photo finish",
+"src": "Fox News",
+"url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTTBuV1lycmk2czl4d1haYVdvc3lFTkNsZnFiTXBXUThJUUhKU2ZrNmdaN29xaU9lYWFsVkhKc2tSU19pSXF1dmk2cHNEaExBSzlMQldFLVlSMnR5eUZ0WFRLY015Zko3Q25BZC1wQ1p5bzItcHlkSEp2YXpjM2RWSlRPSUVTVW9aeEFTLXNTaVBWOW9YYkFLa2RR0gGfAUFVX3lxTFBuSFV4c3V3S3FLVkprT3VyUHlMU2JscUpNaTN5VmZJLW5PU0sxMzJmX0lYWnZ5UE5mVXc4ZTF4elItc2xjYmFoYTRyb3JsdFEyblRfVlNNZTFNaklsdnVEUTVlUU94QzQzNDFLVVlGd00tbTRWRVZnbHJtS2luLVl0N3JRUzhhS0NKbkFXLUNWNWUtQkc3aXJya0xXLUlSbw?oc=5",
+"d": "2026-10-21T22:00+00:00",
+"sum": "",
+"races": [
+"sen-tx"
+]
+},
+{
 "t": "2026 elections: 4 candidates make their case to voters in Illinois' 4th Congressional District race",
 "src": "ABC7 Chicago",
 "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYVJvZzdBWTFWN3dRbjhjSzBzZTRJNVdYMHZObXJpeVBWMEpHTWgxcW13c3JsRUlmUVl4OHR3QXl4RzgxeGFiaWg4WDdrVjdQRjh4SjY2Ym1NX2dsQnBqNHlEOFJnTF9uTHpiNEtGcU5JREVoblh3SGJoUUNMeUczVzVuZmtyRXRURnM0LVlBMko0STcxZzFoVmhvY3pVVDJURlNPS0ZwdDFWWV9jR2NQVl9jTk1KQzIwaEdySFNmMEg1Zw?oc=5",
 "d": "2026-10-21T21:59+00:00",
 "sum": "",
 "races": []
-},
-{
-"t": "Candidates lock in for final sprint in Texas U.S. Senate race",
-"src": "NPR",
-"url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPRlQ3d3dQeWM4RXRfaTZKR0tsUkxZWTRtdGRwSWdBSUNJOVhuSDRNQWkweGFqSVY0MlZ0SkJHZG41ckFpVy04UjRGQndiU2xBaGRuNlJDb0NzVXQ3ZkpVMGVyUGxLVklvRXRXYk9FLVhDNVJKV1loNVVxY3gyTWV4VnNVOWNpdWd1eTNzVWNyLXFhQXQ3bE5WdnkwWVI1UGVfdGFuWmZULVE?oc=5",
-"d": "2026-10-21T21:56+00:00",
-"sum": "",
-"races": [
-"sen-tx"
-]
 },
 {
 "t": "Can GOP nominee Dan Cox defy Maryland's Democratic stronghold in 2026 governor race?",
@@ -409,16 +495,6 @@
 "races": []
 },
 {
-"t": "Ramaswamy campaign says it produced ad with Amy Acton's mother and will spend millions to promote it",
-"src": "PBS News",
-"url": "https://www.pbs.org/newshour/politics/ramaswamy-campaign-says-it-produced-ad-with-amy-actons-mother-and-will-spend-millions-to-promote-it",
-"d": "2026-10-21T18:51+00:00",
-"sum": "Questions about the video will likely shadow Republican Vivek Ramaswamy, a biotech billionaire who previously ran for president but has never before held public office, in the final two weeks of the contest.",
-"races": [
-"gov-oh"
-]
-},
-{
 "t": "Ask an Expert: Religion, politics and the 2026 midterm elections",
 "src": "The Pennsylvania State University",
 "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc21lUWloWHhzOGIyTXYxMGdXNkN5WTA3anJ2SVB2ajJtQmpyMmV3M3cyS0VkWXd5bmNsaXVoSmhoa0NERlhYeGZzaGFoM3FSbGdzQzNtOHhZQzUyZXFoQ3Qzb2pabWVNOWE0b1pKNmtvUGo2WmNpREZUem1FdExyZGVLU0d3bExEZUpjVElYVEMyZTNsNkpoTkVEaw?oc=5",
@@ -451,90 +527,6 @@
 "d": "2026-10-21T18:01+00:00",
 "sum": "",
 "races": []
-},
-{
-"t": "Spending tops $20M in Washington state’s hottest congressional race",
-"src": "Oregon Public Broadcasting - OPB",
-"url": "https://news.google.com/rss/articles/CBMingFBVV95cUxORl8wUkNPTmZYSjIyeTRRM1F5Q1pDT3RGX00tNlFfNmhobmJ6VUlZbGNySWxKaGtiUGlVdzNGZ09OWXlzcDdGVUxCTG01V2tGMVJtWHNfOGNrTjZZVGkxWkl2OGl4cEotRnoyR0x6akxCZ0xoNVY1TlFBRjBzbUM1TWhENXNLQ3dtSzhST1dvX0hMVWxmWDl3X1dGM0JnZw?oc=5",
-"d": "2026-10-21T17:23+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "2026 Midterms: Maine Senate race",
-"src": "LiveNOW from FOX",
-"url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE11bWJabTdzWjNWWWNzWjFuVmlES0VGNWhITzZyd01Id1RSbUZBOGVwc0hHRG0xSlRYYnhrMF9uTG1lVU51SXZCWUFiTGdhQ2NCajh3eC1QS2dHMUpnR0I0cnRQWlRHVGw5NDNIdXQzdWvSAXZBVV95cUxOSVJ3bE1FbTd3blFmOUkwRVBUd2YtOWc3YjU3Ui1zcFZNSFJpSGtHR3U2UFdWcVkzN3VPS2FoZG1vLTFVUUV4MlF5UnUyZ1g2RkpZeWdpblYxUnBMUVc4MnRKTjQ0SFRDTFpobGpLY1RMUWxlSDNR?oc=5",
-"d": "2026-10-21T17:08+00:00",
-"sum": "",
-"races": [
-"sen-me"
-]
-},
-{
-"t": "More than 14 million Americans have already voted ahead of midterms",
-"src": "Spectrum News",
-"url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQRW02OUVPODhBQ1JaSmVhOWR5Zlg4Zml0cHhLNmtRVDhRVTNUYkdpWFY3Zjl1am9xNjZCTWM0eDRPNUdpNUUxcFNiYkVqYTZmUXFObkJpaTBPQ0U1a3lwZ0pqQXQtMkV5MWU5ei1Ob0FnZ2pFX2hXU3BZVnktbktoQVlyOGpzemtMN2NEa0Y5a0dSbk0?oc=5",
-"d": "2026-10-21T16:50+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "Iowa’s 2026 Senate race: What to know about Josh Turek vs Ashley Hinson",
-"src": "LiveNOW from FOX",
-"url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAzM3Jkc0ZURnFVNHJ5M2FlZF9sbGM0V0ZGR3hXMnJodUk5dnJFS0ZOLWg4NWpDUm9CUy1tS195OFlfT01mMGlQMUc0ZHpvVXVvYU16dFdVUno3R3VoSWRsUEpjWGRIeW9WbUQ0dG5LT1ZvV0xIT3ZGb1hTdkUzZw?oc=5",
-"d": "2026-10-21T16:43+00:00",
-"sum": "",
-"races": [
-"sen-ia"
-]
-},
-{
-"t": "Midterms 2026: Congress Polls and More",
-"src": "NBC News",
-"url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9qM2xEd3lHR1dpU2xwT1JLcDEyUXlVS0xaeGptQzlscXNJSHc1VVVXQnZpY2FfN0NYdlFLMGZfWW9SSDFLT3NQVEF5cDlKZUlaVGNmZW5VUlR6LXI1MGtGeHJZWU1icGs?oc=5",
-"d": "2026-10-21T16:32+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "New poll shows Florida governor race 'too close to call'",
-"src": "Tallahassee Democrat",
-"url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNOGY2TVJRRTNFU1dWSXptOWl2czlFVnY2eW1HeEstUlhhSzRyNVRudmthNHlycmpzc0JMMnFtYUpmSFBQb0JpcjFTT1BreFlZdlJXQVF6WGFkT24zRi1OakVDTzBFTHV3Z3liajROVi1hdmxoMk9IN2xuYTZ2RDJ3UDhfN2lBUlhQTzFuVU55Yzl1OXltcHByZXNzR1RubTBvOXFUbmp1YkVyNDVfMnllRExMRDBTaWZKOGNiVWpyc2k4SEtZYUowQXBjU3NWbVdKa0E?oc=5",
-"d": "2026-10-21T16:20+00:00",
-"sum": "",
-"races": [
-"gov-fl"
-]
-},
-{
-"t": "Bottoms, Jackson enter homestretch of Georgia governor's race",
-"src": "WABE",
-"url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQTnA5aW8xY2g5TVlQUXJ4X0ppRENDZU1uQTNIdU5Ua05BUEtUcTdnR1Roa3dvQ29IZnJrb2YzenZmNE1qa3VQTTNKekdJVFl3QS1KcFZrTElPY0RRd3drMWEtX0tPRk1XZnVyaXRVdGJBNzl0dEg4OGR3Nk43MG5obmI1WjNoVTFB?oc=5",
-"d": "2026-10-21T16:10+00:00",
-"sum": "",
-"races": [
-"gov-ga"
-]
-},
-{
-"t": "Senator Jon Husted on Battleground",
-"src": "LiveNOW from FOX",
-"url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9XTlV3THpCTl84NWpWSXpJUm5JODg1SFYxeXRtTlFEbkxwNUk0VVdaYjVyWFB2RHYtN08tcVlJam9ORDdMNEJFblR4VlFYZzlQcER0WkxVTlJsRktEM0ZPb0NR0gFnQVVfeXFMTXUtU2J2ZXNic1dPVkFldjdsX3R1VkhpSVJGZFR0RzRaX21WSUs5S0hqTm00aERhVkwwZXhyYTZ1Zlc5UTRDMzg3QzZyMzJDV3ktYXpXbzlCd09yVEp2YnFsaV9fZ1ZQaw?oc=5",
-"d": "2026-10-21T16:07+00:00",
-"sum": "",
-"races": [
-"sen-oh"
-]
-},
-{
-"t": "A closer look at Michigan's Senate race",
-"src": "LiveNOW from FOX",
-"url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPdFBKblc2ZFhxSml0TjU1OGJuMXBkZ1FnMVAtLTBOZlFSRTFhVHZ0QWVJTUNXTDNiUkVoVmhVbkJUanFBUllCSXZGb20xM3hyRGdFcGthOUMyRmtGVmQ0MFA1cVFzVEtPSHQ1OXVIenJoVHRzdEprZEx2MG5kUUtkRE1wRVJQXzlLLVNmZ2xVSzFQbjBrZ0xXaDNNX21lUXlyQ1dHbUxMb9IBrAFBVV95cUxNYWIzOHFWZ3Q2RnNiNm0ydndNUWs1M21hOVRNay1FVHAtNWcxZUlXUU8zR25oaXhpd3B3WHh1cW42MF9OQkxDY0hlaWlCeHBUcVBDNDV2VDY4SXkyeTI2WVVXSVppTFcyeWtyRXJRQWFHeVdhVVQxZ1BNUGlOLXY1SjNvdFlzTE9fOUItQndNZW5vV0Q5bkEyYnRJUzdWckhqYVp4Skw0U3JMZ2Rf?oc=5",
-"d": "2026-10-21T15:47+00:00",
-"sum": "",
-"races": [
-"sen-mi"
-]
 }
 ]
 }
