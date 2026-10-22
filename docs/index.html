@@ -81,6 +81,7 @@ h2{font:700 1.25rem/1.2 var(--serif);margin:0;color:var(--head)}
 .cand .noav{width:104px;height:104px;margin:0 auto}.faceoff.three .cand .noav{width:84px;height:84px}
 .avrow{display:flex;align-items:center;justify-content:center;gap:6px}.faceoff>.cand:first-child .avrow{flex-direction:row-reverse}
 .endr{display:flex;flex-direction:column;flex-wrap:wrap;max-height:108px;gap:2px}.cand .endr svg,.faceoff.three .cand .endr svg{width:26px;height:34px}.endr span{display:block;line-height:0;cursor:help;border-radius:8px}.endr span:focus-visible{outline:3px solid var(--focus)}
+.incstar{color:#ffffff;font-size:.62em;vertical-align:super;margin-left:2px;cursor:help}
 .cand .pty{font-size:.8rem;color:var(--muted)}
 h3{font:700 1.02rem/1.2 var(--serif);color:var(--head);margin:18px 0 8px}
 .call{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0}
@@ -420,7 +421,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <p>Race to the WH is included for Governor races only. It, the New York Times, and CNN are not shown for Senate or House races because I found no per-race ratings from them that I could collect. Ratings are dated Aug 11 to Oct 16, 2026, and each outlet's date is shown in the race details.</p>
   <p>Only major candidates are shown: a major-party nominee, or anyone with better than a 20% chance of winning.</p>
   <p>Joey is a made-up character, not a real analyst. His 75% win rate is by his own count.</p>
-  <p>Candidate names link to Ballotpedia, which lists each campaign's official website. The small Labubus next to a candidate show endorsements from Donald Trump, Americans for Prosperity (the Statue of Liberty), Barack Obama, Kamala Harris, Bernie Sanders, Alexandria Ocasio-Cortez, and Elon Musk (plus Nancy Pelosi and Steny Hoyer for the candidates running to replace them), as published by October 2026. Hover over one to see who it is.</p>
+  <p>A small white star after a name marks the incumbent, the person who holds the seat now. Candidate names link to Ballotpedia, which lists each campaign's official website. The small Labubus next to a candidate show endorsements from Donald Trump, Americans for Prosperity (the Statue of Liberty), Barack Obama, Kamala Harris, Bernie Sanders, Alexandria Ocasio-Cortez, and Elon Musk (plus Nancy Pelosi and Steny Hoyer for the candidates running to replace them), as published by October 2026. Hover over one to see who it is.</p>
   <p>Forecasts are probabilities, not predictions. Avatars are party mascots (donkeys for Democrats, elephants for Republicans, eagles for independents), not likenesses. A shamrock marks a verified Notre Dame alumnus. A Y patch marks a candidate the Yale Alumni Magazine lists as a Yale alumnus. Its lists cover people in Congress and Governors' offices, so a missing Y does not mean someone didn't attend Yale.</p>
 </footer>
 
@@ -1163,7 +1164,7 @@ function endorseCol(k){var e=ENDORSE[k];if(!e||!e.length||!window.Labubus)return
   ENDORSERS.forEach(function(x){if(e.indexOf(x[0])<0)return;var t="Endorsed by "+x[2],s=h("span",{title:t,tabindex:"0"});s.innerHTML=Labubus.make(x[1],26,t);col.appendChild(s)});return col}
 function candidate(r,party,name){if(name==="-")return h("div",{class:"cand"},[h("div",{class:"noav","aria-hidden":"true"}),h("div",{class:"nm none",text:"No nominee on the ballot"}),h("div",{class:"pty",text:PTY[party]})]);var k=r.id+"-"+party,y=isYale(r,party,name),nd=ND_NAMES[name]===1,av=h("div");
   av.innerHTML=YaleAvatars.make(k,{size:104,party:party.charAt(0),yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
-  var ec=endorseCol(k);return h("div",{class:"cand"},[ec?h("div",{class:"avrow"},[av.firstChild,ec]):av.firstChild,h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")}),h("div",{class:"pty",text:PTY[party]}),bpLink(name)])}
+  var ec=endorseCol(k);return h("div",{class:"cand"},[ec?h("div",{class:"avrow"},[av.firstChild,ec]):av.firstChild,(function(){var d=h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")});if(name&&name!=="-"&&String(r.incumbent||"").replace(/\s*\(.*$/,"")===name)d.appendChild(h("span",{class:"incstar",title:"Incumbent: currently holds this seat","aria-label":"incumbent",text:" ★"}));return d})(),h("div",{class:"pty",text:PTY[party]}),bpLink(name)])}
 function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"Safe seat, so he's going with the favorite."]:null,av=h("div");av.innerHTML=YaleAvatars.joey(56);
   var txt=h("div",{},[h("b",{text:"Joey, former campaign expert"}),h("span",{class:"note",text:"75% win rate, by his own count"})]);
   if(j){var who=j[0]==="T"?"Toss-up":SAME[r.id]?(lineup(r).filter(function(x){return x[0]===j[0]})[0]||[0,"?"])[1]+" ("+SAME[r.id][0]+")":PTY[j[0]]+(j[0]==="I"&&IND[r.id]?" ("+IND[r.id]+")":"");
