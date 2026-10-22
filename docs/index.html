@@ -446,7 +446,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <div id="tab-predict" role="tabpanel" hidden>
   <section class="pred">
     <h2>Predict and Compare</h2>
-    <p class="note">Pick the winner of 37 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
+    <p class="note">Pick the winner of 50 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
     <div id="pred-auth" class="pred-auth" hidden>
       <form id="auth-out" class="pred-form" autocomplete="on">
         <label for="auth-nick"><b>Nickname</b></label><input id="auth-nick" maxlength="24" autocomplete="username" placeholder="e.g. Bulldog26">
@@ -460,7 +460,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <div class="pred-form">
       <span id="name-wrap"><label for="pred-name"><b>Your name or nickname</b></label>
       <input id="pred-name" type="text" maxlength="30" autocomplete="nickname" placeholder="e.g. Bulldog26"></span>
-      <button type="button" id="pred-save" class="save">Save my picks</button>
+      <button type="button" id="pred-save" class="save">Save my picks</button><button type="button" id="pred-del" class="ghost">Delete my saved picks</button>
       <span id="pred-msg" class="note" role="status"></span>
     </div>
     <h3 id="av-h">Pick your avatar</h3>
@@ -1091,7 +1091,7 @@ function quizRender(){var box=$("quiz");box.textContent="";var j=h("div");j.inne
 function watchList(){var inPick={};predIds().forEach(function(id){inPick[id]=1});
   return S.races.filter(function(r){return inPick[r.id]||(r.cons&&Math.abs(r.cons.score)<.75)}).map(function(r){return{r:r,pick:!!inPick[r.id]}})}
 function renderWatch(){var box=$("watch-list");box.textContent="";var all=watchList(),n=all.length;
-  $("watch-note").textContent="New to the midterms? Start here. These "+n+" races are the ones most likely to decide who controls Congress and the Governors' offices: the 37 in Predict and Compare, plus every race the forecasters rate a Toss-up or Tilt. Closest races are first. Click a race to see everything about it on the map.";
+  $("watch-note").textContent="New to the midterms? Start here. These "+n+" races are the ones most likely to decide who controls Congress and the Governors' offices: the 50 in Predict and Compare, plus every race the forecasters rate a Toss-up or Tilt. Closest races are first. Click a race to see everything about it on the map.";
   [["senate","Senate"],["governor","Governor"],["house","House"]].forEach(function(g){var rs=all.filter(function(x){return x.r.chamber===g[0]}).sort(function(a,b){return Math.abs(a.r.cons?a.r.cons.score:0)-Math.abs(b.r.cons?b.r.cons.score:0)||raceName(a.r).localeCompare(raceName(b.r))});
     if(!rs.length)return;box.appendChild(h("h3",{text:g[1]+" ("+rs.length+")"}));
     box.appendChild(h("div",{class:"wgrid"},rs.map(function(x){var r=x.r,c=r.cons,lu=lineup(r).filter(function(y){return y[1]&&y[1]!=="-"});
@@ -1337,7 +1337,7 @@ function selectRace(id){S.raceId=id;var r=S.byId[id],c=r.cons,m=r.mine,box=$("de
 // ---- predict and compare ----
 var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-mi","sen-nc","sen-nh","sen-ga","sen-mn","sen-ne"]],
   ["Governor",["gov-ga","gov-nv","gov-oh","gov-wi","gov-ak","gov-az","gov-ia","gov-mi","gov-or","gov-nh"]],
-  ["House",["ia-02","mi-10","mi-07","mi-04","ny-17","co-08","az-06","mt-01","pa-08","wi-03","oh-09","oh-07","tx-34","tx-15","va-02"]]];
+  ["House",["ia-02","mi-10","mi-07","mi-04","ny-17","co-08","az-06","mt-01","pa-08","wi-03","oh-09","oh-07","tx-34","tx-15","va-02","va-01","fl-22","nc-11","pa-01","nc-01","tx-35","me-02","wi-01","fl-07","fl-14","co-05","ky-06","ca-22"]]];
 /* Prediction-only races that aren't among the 30 tracked House races, so they have no ratings. */
 var EXTRA={};
 /* Real winners after Election Day, keyed by race id ("D", "R" or "I"). Filling this turns on the leaderboard. */
@@ -1365,7 +1365,7 @@ function loadPred(){if(API.on){if(!API.user){var d0=lsGet("mt_pred_draft");if(d0
 function crowd(id){if(API.on){var c=API.crowd[id]||{},nn={D:0,R:0,I:0},tt=0;Object.keys(c).forEach(function(k){if(nn[k]!==undefined){nn[k]=c[k];tt+=c[k]}});return{n:nn,t:tt}}var n={D:0,R:0,I:0},t=0;P.all.forEach(function(e){var v=e.p[id];if(n[v]!==undefined){n[v]++;t++}});return{n:n,t:t}}
 function crowdCall(id){var c=crowd(id);if(!c.t)return null;var best=null,bv=-1,tie=false;["D","I","R"].forEach(function(k){if(c.n[k]>bv){bv=c.n[k];best=k;tie=false}else if(c.n[k]===bv&&bv>0)tie=true});return tie?"T":best}
 /* ---- Badges: same rules as BADGES in backend/game.py. They say what kind of player you are, never which races you picked. ---- */
-var BADGE_LIST=[["all37","\uD83D\uDDF3\uFE0F","Full Ballot","Picked all 37 races"],["bold","\uD83E\uDD81","Bold Pick","Picked against the forecasters at least once"],
+var BADGE_LIST=[["all37","\uD83D\uDDF3\uFE0F","Full Ballot","Picked all 50 races"],["bold","\uD83E\uDD81","Bold Pick","Picked against the forecasters at least once"],
   ["tossup","\uD83E\uDE99","Toss-up Tamer","Picked a side in every toss-up race"],["upset","\uD83C\uDFAF","Upset Caller","Got a race right that the forecasters had going the other way",1],
   ["sharp","\uD83C\uDFF9","Sharpshooter","Got 80% or more right (10+ races decided)",1],["beatjoey","\uD83C\uDFC6","Beat Joey","Scored more points than Joey",1]];
 function predIds(){return PRED.reduce(function(a,g){return a.concat(g[1])},[])}
@@ -1406,7 +1406,7 @@ function renderLeagues(){var box=$("pred-leagues");if(!box)return;box.textConten
 function renderPred(){renderAvatars();
   $("pred-mode").textContent=API.on?"Your picks are saved to your account and count on the shared leaderboard. Only your nickname and avatar are shown, never your picks.":SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
-  var shut=closed();$("pred-save").disabled=shut;$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
+  var shut=closed();$("pred-save").disabled=shut;$("pred-del").hidden=!!API.on||!lsGet("mt_pred_self");$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
   renderMyBadges();renderLeagues();var lb=$("pred-lb");lb.textContent="";
   /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
   var live=Object.keys(RESULTS).length>0,PTS=10;
@@ -1441,14 +1441,14 @@ function renderPred(){renderAvatars();
 }
 function savePred(){var msg=$("pred-msg");
   if(API.on){if(!API.user){msg.textContent="Sign up or log in first.";return}if(!Object.keys(P.mine).length){msg.textContent="Pick at least one race first.";return}
-    api("/api/picks",{method:"PUT",body:{picks:P.mine}}).then(function(j){msg.textContent="Saved "+Object.keys(j.picks).length+" of 37 picks to your account.";loadPred().then(renderPred)}).catch(function(e){msg.textContent=e.message});return}
+    api("/api/picks",{method:"PUT",body:{picks:P.mine}}).then(function(j){msg.textContent="Saved "+Object.keys(j.picks).length+" of "+predIds().length+" picks to your account.";loadPred().then(renderPred)}).catch(function(e){msg.textContent=e.message});return}
   var nm=cleanName($("pred-name").value);
   if(closed()){msg.textContent="Picks are closed.";return}
   if(!nm){msg.textContent="Enter a name or nickname first.";return}
   if(!P.avatar){msg.textContent="Pick an avatar first.";return}
   if(!Object.keys(P.mine).length){msg.textContent="Pick at least one race first.";return}
   var entry={n:nm,a:P.avatar,p:P.mine,t:Date.now()};$("pred-name").value=nm;draft();
-  var done=function(){msg.textContent="Saved "+Object.keys(P.mine).length+" of 37 picks for "+nm+".";loadPred().then(renderPred)};
+  var done=function(){msg.textContent="Saved "+Object.keys(P.mine).length+" of "+predIds().length+" picks for "+nm+".";loadPred().then(renderPred)};
   if(SHARED){window.storage.set("pred:"+nm.toLowerCase().replace(/[^a-z0-9]+/g,"-"),JSON.stringify(entry),true).then(done).catch(function(){msg.textContent="Couldn't save. Try again."})}
   else{lsSet("mt_pred_self",entry);done()}}
 
@@ -1572,6 +1572,8 @@ document.querySelectorAll(".nf").forEach(function(b){b.addEventListener("click",
 $("news-q").addEventListener("input",renderNews);loadNews().then(function(){if(S.raceId)selectRace(S.raceId)});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
+/* clears the picks this browser saved (the public page has no server), so you can start over */
+$("pred-del").addEventListener("click",function(){if(!confirm("Delete the picks saved in this browser?"))return;try{localStorage.removeItem("mt_pred_self");localStorage.removeItem("mt_pred_draft")}catch(e){}P.mine={};P.name="";$("pred-name").value="";$("pred-msg").textContent="Your saved picks were deleted.";loadPred().then(renderPred);renderYou()});
 $("auth-signup").addEventListener("click",doSignup);$("auth-login").addEventListener("click",doLogin);$("auth-logout").addEventListener("click",doLogout);
 $("auth-out").addEventListener("submit",function(e){e.preventDefault();doLogin()});$("ask-form").addEventListener("submit",askJoey);apiInit();
 $("hs-q").addEventListener("input",hsRows);document.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.go);window.scrollTo(0,0)})});$("watch-all").addEventListener("click",function(){showTab("tab-house");window.scrollTo(0,$("tab-house").getBoundingClientRect().top+scrollY-80)});$("house-back").addEventListener("click",function(){showTab("tab-watch")});

@@ -1,7 +1,7 @@
 """The prediction game: picks, the crowd view, approved results and the leaderboard.
 
 Rules enforced here (never trusted from the browser):
-- Only the 37 prediction races can be picked, and only with a key for a candidate on the ballot.
+- Only the 50 prediction races can be picked, and only with a key for a candidate on the ballot.
 - Picks lock at 6 AM Eastern on Nov 3, 2026, by the server's clock.
 - 10 points per race called correctly; points only show once results have been approved.
 - The leaderboard shows nickname, avatar, points and badges. Nobody's individual picks are published.

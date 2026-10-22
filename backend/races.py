@@ -1,7 +1,7 @@
 """Race data for the backend and the agents' tools.
 
 The website (docs/index.html) is the single source of truth: this module reads the same
-race list, ratings, model numbers, Joey's calls and the 37 prediction races straight out
+race list, ratings, model numbers, Joey's calls and the 50 prediction races straight out
 of the page when the server starts, so the site and the backend can never disagree.
 
 Everything here is read-only. Nothing in this module can see accounts, passwords or picks.
