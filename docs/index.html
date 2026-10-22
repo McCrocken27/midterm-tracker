@@ -190,7 +190,7 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .wrow .wc{font-size:.9rem}.wrow .wc .d{color:var(--dc);font-weight:700}.wrow .wc .r{color:var(--rc);font-weight:700}.wrow .wc .i{color:var(--gray);font-weight:700}
 .wrow .wj{font-size:.85rem;white-space:nowrap}.wbtn{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:3px 12px;font-weight:800;cursor:pointer;white-space:nowrap}
 @media (max-width:700px){.wrow{grid-template-columns:1fr auto;grid-template-areas:"n c" "w w" "j b"}.wrow .wn{grid-area:n}.wrow .chip-r{grid-area:c;justify-self:end}.wrow .wc{grid-area:w}.wrow .wj{grid-area:j}.wrow .wbtn{grid-area:b}}
-.wc .endr.inl{display:inline-flex;flex-direction:row;flex-wrap:nowrap;max-height:none;vertical-align:middle;margin:0 2px 0 4px;gap:1px}.wc .endr.inl svg{width:20px;height:26px}
+.wc .endr.inl{display:inline-flex;flex-direction:row;flex-wrap:nowrap;max-height:none;vertical-align:middle;margin:0 2px 0 4px;gap:1px}.wc .endr.inl.bef{margin:0 4px 0 0}.wc .endr.inl svg{width:20px;height:26px}
 .wpick{font-size:.72rem;font-weight:800;background:#ffc83d;color:#1b2430;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
@@ -1041,7 +1041,9 @@ function renderWatch(){var box=$("watch-list");box.textContent="";var all=watchL
       var chip=h("span",{class:"chip-r"+(c?"":" na"),text:c?c.label:"No ratings"});if(c){chip.style.background=colorFor(c.score);chip.style.color=textOn(c.score)}
       var jc=joeyCall(r),go=h("button",{type:"button",class:"wbtn",text:"See race"});go.addEventListener("click",function(){openOnMap(r)});
       var nm=h("div",{class:"wn"},[r.chamber==="house"?r.state+"-"+(r.district?(r.district<10?"0":"")+r.district:"AL"):raceName(r),x.pick?h("span",{class:"wpick",title:"You can pick this race in Predict and Compare",text:"PICK IT"}):null,h("small",{text:r.chamber==="house"?NAMES[r.state]:(r.status==="open"?"Open seat":r.incumbent)})]);
-      var who=h("div",{class:"wc"});lu.forEach(function(y,i){if(i)who.appendChild(document.createTextNode(" vs. "));who.appendChild(h("span",{class:y[0].charAt(0).toLowerCase(),text:y[1]+" ("+y[0].charAt(0)+")"}));var ec=endorseCol(r.id+"-"+y[0]);if(ec){ec.classList.add("inl");who.appendChild(ec)}});
+      var who=h("div",{class:"wc"});lu.forEach(function(y,i){if(i)who.appendChild(document.createTextNode(" vs. "));/* the left-hand candidate (usually the Democrat) gets their Labubus before the name, the other after, like the map */
+      var ec=endorseCol(r.id+"-"+y[0]);if(ec)ec.classList.add("inl",i?"aft":"bef");if(ec&&!i)who.appendChild(ec);
+      who.appendChild(h("span",{class:y[0].charAt(0).toLowerCase(),text:y[1]+" ("+y[0].charAt(0)+")"}));if(ec&&i)who.appendChild(ec)});
       return h("div",{class:"wrow"},[nm,who,chip,h("span",{class:"wj"},["Joey: ",tagEl(jc)]),go])})))})}
 function pressState(st,race){if(S.whatif&&!S.night&&race&&S.filter!=="house")cycleWI(race);selectState(st)}
 function joeyCall(r){if(JOEY[r.id])return JOEY[r.id][0];if(SAME[r.id])return null;var c=r.cons;return c&&Math.abs(c.score)>=2.5?(c.score>0?dSide(r):rSide(r)):null}
