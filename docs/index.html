@@ -1162,8 +1162,67 @@ var ENDORSE={"al-01-R":["trump"],"al-02-R":["trump"],"al-03-R":["trump"],"al-04-
 var ENDORSERS=[["trump","trump","Donald Trump"],["afp","liberty","Americans for Prosperity"],["obama","obama","Barack Obama"],["harris","harris","Kamala Harris"],["bernie","bernie","Bernie Sanders"],["aoc","aoc","Alexandria Ocasio-Cortez"],["musk","musk","Elon Musk"],["pelosi","pelosi","Nancy Pelosi"],["hoyer","hoyer","Steny Hoyer"]];
 function endorseCol(k){var e=ENDORSE[k];if(!e||!e.length||!window.Labubus)return null;var col=h("div",{class:"endr"});
   ENDORSERS.forEach(function(x){if(e.indexOf(x[0])<0)return;var t="Endorsed by "+x[2],s=h("span",{title:t,tabindex:"0"});s.innerHTML=Labubus.make(x[1],26,t);col.appendChild(s)});return col}
+/* What each avatar prop means, shown when you hover over a donkey, elephant or eagle.
+   General meanings by prop, plus notes about the specific person where the prop is about them. */
+var PROP_NOTE={
+  "pin:apple":"Apple pin","pin:basketball":"Basketball pin","pin:cactus":"Saguaro cactus pin, for Arizona","pin:canary":"Canary pin",
+  "pin:chart":"Chart pin","pin:checker":"Checkered-flag pin","pin:chile":"Chile pepper pin, for New Mexico","pin:corn":"Corn pin, for a big farm state",
+  "pin:cow":"Cow pin","pin:crab":"Blue crab pin, for Maryland","pin:crystal":"Crystal pin","pin:fish":"Salmon pin","pin:fleur":"Fleur-de-lis pin, for Louisiana",
+  "pin:horseshoe":"Horseshoe pin, for Kentucky's horse country","pin:keystone":"Keystone pin, for Pennsylvania, the Keystone State","pin:lobster":"Lobster pin, for Maine",
+  "pin:lonestar":"Lone Star pin, for Texas","pin:loon":"Loon pin, for Minnesota's state bird","pin:magnolia":"Magnolia pin, for Mississippi, the Magnolia State",
+  "pin:mountain":"Mountain pin","pin:orange":"Orange pin, for Florida","pin:palmetto":"Palmetto tree pin, for South Carolina","pin:peach":"Peach pin, for Georgia, the Peach State",
+  "pin:pine":"Evergreen tree pin, for Oregon's forests","pin:poppy":"Poppy pin, for California's state flower",
+  "pin:scales":"Scales-of-justice pin: has served as an attorney general or prosecutor","pin:service":"Service pin: served in the U.S. military",
+  "pin:shield":"Shield pin","pin:star":"Star pin","pin:valor":"Military medal pin",
+  "hand:clapper":"Movie clapperboard","hand:fries":"French fries","hand:gavel":"Judge's gavel","hand:guitar":"Guitar","hand:magnifier":"Magnifying glass",
+  "hand:mic":"Microphone","hand:mug":"A \"World's Best Boss\" mug, just for fun","hand:papers":"A big stack of papers","hand:phone":"Cell phone",
+  "hat:cap":"Ball cap","hat:cheese":"Cheesehead hat, for Wisconsin","hat:cowboy":"Cowboy hat, for ranch country","hat:fbi":"FBI cap","hat:halo":"Space-armor helmet",
+  "hat:hard":"Hard hat","hat:maga":"Red \"MAGA\" cap, for his strong support of Trump's movement","hat:trucker":"Trucker hat","hat:usmc":"U.S. Marine Corps cap",
+  "neck:medal":"Medal","neck:steth":"Stethoscope: a doctor","neck:whistle":"Coach's whistle",
+  "outfit:flannel":"Flannel shirt","outfit:opencollar":"Open collar, no tie","outfit:redtie":"A red tie","outfit:shirtsleeves":"Shirtsleeves, no suit jacket","outfit:work":"Work clothes",
+  "ears:hoops":"Gold hoop earrings"};
+var PERSON_NOTE={
+  "James Talarico|pin:apple":"Apple pin: he's a former middle-school teacher","Bruce Blakeman|pin:apple":"Apple pin, for New York, the Big Apple",
+  "Maura Healey|pin:basketball":"Basketball pin: she played pro basketball in Austria after captaining Harvard's team",
+  "Sherrod Brown|pin:canary":"Canary pin: he wears one almost every day for workers' safety, like the canaries miners once carried to warn of bad air",
+  "Ryan Fazio|pin:chart":"Chart pin, for his career in finance and energy markets",
+  "Phil Scott|pin:checker":"Checkered-flag pin: he's a longtime stock-car racer",
+  "David Valadao|pin:cow":"Cow pin: he's a dairy farmer",
+  "John Hickenlooper|pin:crystal":"Crystal pin: he worked as a geologist before he started a brewpub and got into politics",
+  "Mary Peltola|pin:fish":"Salmon pin: she has worked as a commercial fisher and fights for Alaska's salmon runs",
+  "Deb Haaland|pin:mountain":"Mountain pin, for her time leading the Interior Department, which runs the national parks and public lands",
+  "Brian Fitzpatrick|pin:shield":"Shield pin: he's a former FBI special agent",
+  "Joe Lombardo|pin:star":"Sheriff's star: he was the sheriff of Las Vegas",
+  "Dan Sullivan|pin:valor":"Military medal pin, for his service as a Marine Corps Reserve officer",
+  "Jon Ossoff|hand:clapper":"Movie clapperboard: he ran a company that makes investigative documentaries",
+  "Kevin Hern|hand:fries":"French fries: he owned McDonald's restaurants before Congress",
+  "Greg Abbott|hand:gavel":"Judge's gavel: he served on the Texas Supreme Court",
+  "Bobby Pulido|hand:guitar":"Guitar: he's a Tejano music star",
+  "Rob Sand|hand:magnifier":"Magnifying glass: as Iowa's state auditor, he looks for waste and fraud",
+  "Ashley Hinson|hand:mic":"Microphone: she was a TV news anchor","Sarah Huckabee Sanders|hand:mic":"Microphone: she was the White House press secretary",
+  "Michele Tafoya|hand:mic":"Microphone: she was an NFL sideline reporter",
+  "Hakeem Jeffries|hand:papers":"A big stack of papers, for his record-long 8-hour-plus House floor speech in 2025",
+  "Cory Booker|hand:papers":"A big stack of papers, for his record 25-hour Senate floor speech in 2025",
+  "Mark Warner|hand:phone":"Cell phone: he made his fortune in the early cell-phone business",
+  "Pete Ricketts|hat:cap":"Ball cap: his family owns the Chicago Cubs",
+  "Mike Rogers|hat:fbi":"FBI cap: he's a former FBI special agent",
+  "Martin O'Donnell|hat:halo":"Space-armor helmet: he composed the music for the Halo video games",
+  "Dan Osborn|hat:hard":"Hard hat: he's an industrial mechanic and union leader","Dan Osborn|outfit:work":"Work clothes, for his years as an industrial mechanic",
+  "Mike Collins|hat:trucker":"Trucker hat: he ran a trucking company",
+  "Dan Sullivan|hat:usmc":"U.S. Marine Corps cap: he's a colonel in the Marine Corps Reserve",
+  "Josh Turek|neck:medal":"Medal: he won two Paralympic gold medals in basketball",
+  "Jocelyn Benson|neck:medal":"Medal: she's a marathon runner",
+  "Tommy Tuberville|neck:whistle":"Coach's whistle: he was a college football head coach",
+  "Troy Jackson|outfit:flannel":"Flannel shirt: he worked as a logger in northern Maine",
+  "Jim Jordan|outfit:shirtsleeves":"Shirtsleeves, no suit jacket: his well-known look on Capitol Hill"};
+function lookNotes(r,party,name){var L=YaleAvatars.lookFor(name,r.chamber==="house")||{},out=[];
+  ["pin","hand","neck","hat","outfit","ears"].forEach(function(k){var v=L[k];if(!v)return;var key=k+":"+v;
+    if(k==="pin"&&/^st:/.test(v)){out.push("State pin, shaped like "+NAMES[v.slice(3)]);return}
+    var t=PERSON_NOTE[name+"|"+key]||PROP_NOTE[key];if(t)out.push(t)});
+  if(COWBOY[r.id+"-"+party]&&!L.hat)out.push("Cowboy hat, for Texas");
+  return out}
 function candidate(r,party,name){if(name==="-")return h("div",{class:"cand"},[h("div",{class:"noav","aria-hidden":"true"}),h("div",{class:"nm none",text:"No nominee on the ballot"}),h("div",{class:"pty",text:PTY[party]})]);var k=r.id+"-"+party,y=isYale(r,party,name),nd=ND_NAMES[name]===1,av=h("div");
-  av.innerHTML=YaleAvatars.make(k,{size:104,party:party.charAt(0),yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:MASCOT[party]+(y?", Yale alumnus":"")+(nd?", Notre Dame alumnus":"")});
+  av.innerHTML=YaleAvatars.make(k,{size:104,party:party.charAt(0),yale:y,nd:nd,look:YaleAvatars.lookFor(name,r.chamber==="house"),hat:COWBOY[k]?"cowboy":"",label:[name+": "+MASCOT[party]].concat(y?["Y patch: a Yale alumnus"]:[],nd?["Shamrock: a Notre Dame alumnus"]:[],lookNotes(r,party,name)).join("\n").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")});
   var ec=endorseCol(k);return h("div",{class:"cand"},[ec?h("div",{class:"avrow"},[av.firstChild,ec]):av.firstChild,(function(){var d=h("div",{class:"nm"+(name&&name!=="-"?"":" none"),text:name==="-"?"No nominee on the ballot":(name||"Name not collected yet")});if(name&&name!=="-"&&String(r.incumbent||"").replace(/\s*\(.*$/,"")===name)d.appendChild(h("span",{class:"incstar",title:"Incumbent: currently holds this seat","aria-label":"incumbent",text:" ★"}));return d})(),h("div",{class:"pty",text:PTY[party]}),bpLink(name)])}
 function joeyBox(r){var jc=joeyCall(r),j=jc?[jc,JOEY[r.id]?(JOEY[r.id][1]||""):"Safe seat, so he's going with the favorite."]:null,av=h("div");av.innerHTML=YaleAvatars.joey(56);
   var txt=h("div",{},[h("b",{text:"Joey, former campaign expert"}),h("span",{class:"note",text:"75% win rate, by his own count"})]);
