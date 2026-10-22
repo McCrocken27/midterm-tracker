@@ -417,3 +417,10 @@ Notes: Kathy Hochul endorsement was a joint statement by New York's Democratic H
 | FL Governor | Byron Donalds | https://www.keysnews.com/news/elon-musk-backs-byron-donalds-for-florida-governor/article_569ce241-f67a-4eb6-885c-2a43630dd1ff.html |
 
 Notes: Donalds's endorsement was an X reply ("You certainly have my full support") that news coverage reports as an endorsement. America PAC spending without an endorsement is not counted.
+
+## Nancy Pelosi and Steny Hoyer (shown only for their chosen successors)
+
+| Race | Candidate | Endorser | Source |
+|---|---|---|---|
+| CA-11 | Connie Chan | Nancy Pelosi (May 18, 2026) | https://www.kqed.org/news/12084132/nancy-pelosi-endorses-san-francisco-supervisor-connie-chan-for-congress |
+| MD-05 | Adrian Boafo | Steny Hoyer (Jan 23, 2026) | https://www.thebanner.com/politics-power/national-politics/steny-hoyer-adrian-boafo-endorsement-IKBFRSKKKZDAZPSDSCPOLFQZQ4/ |
