@@ -193,6 +193,13 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 @media (max-width:700px){.wrow{grid-template-columns:1fr auto;grid-template-areas:"n c" "w w" "j b"}.wrow .wn{grid-area:n}.wrow .chip-r{grid-area:c;justify-self:end}.wrow .wc{grid-area:w}.wrow .wj{grid-area:j}.wrow .wbtn{grid-area:b}}
 .wc .endr.inl{display:inline-flex;flex-direction:row;flex-wrap:nowrap;max-height:none;vertical-align:middle;margin:0 2px 0 4px;gap:1px}.wc .endr.inl.bef{margin:0 4px 0 0}.wc .endr.inl svg{width:20px;height:26px}
 .wpick{font-size:.72rem;font-weight:800;background:#ffc83d;color:#1b2430;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+.learn{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin:10px 0 16px;align-items:start}
+.lcard{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:0 4px 0 var(--line)}
+.lcard h3{margin:0 0 6px;color:var(--head);font-size:1.1rem}.lcard p{margin:0 0 8px;line-height:1.5}.lcard ul{margin:0 0 6px;padding-left:20px;line-height:1.5}.lcard li{margin-bottom:4px}
+.lcard .big{font:900 1.6rem var(--serif);color:var(--head);display:block}
+.lnums{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}.lnums div{flex:1 1 90px;background:var(--th);border-radius:12px;padding:8px 10px;text-align:center;font-size:.85rem}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px 18px;margin:6px 0 0}.gloss p{margin:0}.gloss b{color:var(--head)}
+.lgo{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
 .more{margin-top:14px}.more:empty{display:none}.more h3{margin:0 0 8px}
 .lb td{vertical-align:middle}.lbwho{display:flex;align-items:center;gap:8px}.lbpts{font-weight:900;color:var(--head)}
 .rdetail{border:3px solid #b22234;border-top:0;border-radius:0 0 18px 18px;margin:-10px 0 4px;padding:16px 14px 12px;background:var(--surface)}
@@ -310,6 +317,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <div id="banner" class="banner" role="status"></div>
 <nav class="tabs" role="tablist" aria-label="Sections">
   <button type="button" class="tab on" role="tab" aria-selected="true" aria-controls="tab-map" data-tab="tab-map">Map</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-learn" data-tab="tab-learn">What are the Midterms?</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and Compare</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-watch" data-tab="tab-watch">Races to Watch</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-vote" data-tab="tab-vote">Vote</button>
@@ -338,6 +346,54 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <form id="ask-form" hidden><textarea id="ask-q" maxlength="500" rows="2" placeholder="e.g. Who's favored in the Texas Senate race?"></textarea><button type="submit" class="save" id="ask-go">Ask Joey</button></form>
   <div id="ask-out" aria-live="polite"></div>
 </section>
+</div>
+<div id="tab-learn" role="tabpanel" hidden>
+  <section class="pred">
+    <h2>What are the Midterms?</h2>
+    <p class="note">New to elections? Start here. Two minutes of reading and you'll know what's going on.</p>
+    <div class="learn">
+      <div class="lcard"><h3>&#128197; What they are</h3>
+        <p>Americans pick a president every 4 years. The <b>midterms</b> are the big national election that happens halfway through, 2 years into a president's term.</p>
+        <p>This year's Election Day is <b>Tuesday, November 3, 2026</b>. The president isn't on the ballot, but a lot of other important jobs are.</p></div>
+      <div class="lcard"><h3>&#128499;&#65039; What's on the ballot</h3>
+        <div class="lnums"><div><span class="big">435</span>House seats: every single one</div><div><span class="big">35</span>Senate seats (out of 100)</div><div><span class="big">36</span>Governor races</div></div>
+        <ul><li><b>The House of Representatives:</b> 435 members, each representing one district. They serve 2-year terms, so all of them are up every 2 years.</li>
+          <li><b>The Senate:</b> 100 members, 2 per state. They serve 6-year terms, so only about a third are up at a time. This year there are 33 regular races plus 2 special elections (Ohio and Florida) to fill seats that opened early.</li>
+          <li><b>Governors:</b> the leaders of each state. 36 states choose one this year.</li></ul>
+        <p>Many places also vote on state lawmakers, mayors, judges and ballot questions.</p></div>
+      <div class="lcard"><h3>&#9878;&#65039; Why they matter</h3>
+        <ul><li><b>Control of Congress.</b> Whichever party wins a majority runs that chamber: it picks the leaders, decides which bills get a vote, and controls the committees. In the House, a majority is <b>218</b> seats. In the Senate it's <b>51</b>, or 50 if the Vice President (who breaks ties) is from your party.</li>
+          <li><b>Passing laws.</b> A bill has to pass both the House and the Senate before the president can sign it. If the president's party loses either one, it gets much harder to pass their plans.</li>
+          <li><b>The Senate's special jobs.</b> The Senate votes to confirm Supreme Court justices, federal judges and the president's Cabinet picks.</li>
+          <li><b>Governors run states.</b> They shape school funding, roads, state budgets and public safety, and they can sign or veto state laws.</li>
+          <li><b>A check on the president.</b> Midterms are a chance for voters to weigh in on how things are going. In most midterms since World War II, the president's party has lost seats in the House.</li></ul>
+        <p>Right now, Republicans control both the House and the Senate. This election decides whether that stays the same.</p></div>
+      <div class="lcard"><h3>&#9989; Who can vote, and how</h3>
+        <ul><li>You must be a U.S. citizen and at least 18 on Election Day.</li>
+          <li>Most states require you to <b>register</b> first, and some deadlines are weeks before the election.</li>
+          <li>Many states let you vote early in person or by mail. The rules are different in every state.</li></ul>
+        <p>The <b>Vote</b> tab shows the races on your ballot and links to your state's official election page.</p></div>
+      <div class="lcard"><h3>&#128506;&#65039; How to read this site</h3>
+        <ul><li><b>Forecasters</b> are experts and news outlets (like the Cook Political Report) who rate how likely each side is to win.</li>
+          <li>Their ratings go from <b>Safe</b> (very likely) to <b>Likely</b>, <b>Lean</b>, <b>Tilt</b>, and <b>Toss-up</b> (could go either way). The map colors show those ratings: darker means safer.</li>
+          <li>The <b>donkeys</b> are Democrats, <b>elephants</b> are Republicans and <b>eagles</b> are independents. Hover over one to see what its pins and props mean.</li>
+          <li><b>Joey</b> is a made-up "expert" who makes his own calls for fun. He's not a real analyst.</li>
+          <li>Forecasts are chances, not promises. Upsets happen!</li></ul></div>
+      <div class="lcard"><h3>&#128218; Words to know</h3>
+        <div class="gloss">
+          <p><b>Incumbent:</b> the person who holds the seat now (marked with a small white star on the map).</p>
+          <p><b>Open seat:</b> no incumbent is running, so it's a new matchup.</p>
+          <p><b>Nominee:</b> the candidate a party picked, usually in a <b>primary</b> election earlier in the year.</p>
+          <p><b>District:</b> the area a House member represents. States with few people have just one, called <b>at-large</b>.</p>
+          <p><b>Majority:</b> more than half the seats, which lets a party run the chamber.</p>
+          <p><b>Toss-up:</b> a race experts think either side could win.</p>
+          <p><b>Special election:</b> an election to fill a seat that opened up early.</p>
+          <p><b>Endorsement:</b> when a well-known person or group publicly backs a candidate.</p></div></div>
+    </div>
+    <h3>Ready to explore?</h3>
+    <div class="lgo"><button type="button" class="wbtn" data-go="tab-watch">See the Races to Watch</button><button type="button" class="wbtn" data-go="tab-map">Explore the map</button>
+      <button type="button" class="wbtn" data-go="tab-vote">Find what's on your ballot</button><button type="button" class="wbtn" data-go="tab-quiz">Test yourself with Joey's quiz</button></div>
+  </section>
 </div>
 <div id="tab-quiz" role="tabpanel" hidden>
   <section class="pred">
@@ -1508,7 +1564,7 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
 function openOnMap(r){if(!S.byId[r.id])return;showTab("tab-map");S.state=r.state;selectRace(r.id);renderMap();
   var sel=document.querySelector('#detail .rrow[aria-selected="true"]');(sel||$("detail")).scrollIntoView({behavior:"smooth",block:"start"})}
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
-  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-watch").hidden=id!=="tab-watch";if(id==="tab-watch"&&!$("watch-list").firstChild)renderWatch();if(id==="tab-house"){var tw=document.querySelector('.tab[data-tab="tab-watch"]');tw.classList.add("on");tw.setAttribute("aria-selected","true")}$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-watch").hidden=id!=="tab-watch";if(id==="tab-watch"&&!$("watch-list").firstChild)renderWatch();if(id==="tab-house"){var tw=document.querySelector('.tab[data-tab="tab-watch"]');tw.classList.add("on");tw.setAttribute("aria-selected","true")}$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";$("tab-learn").hidden=id!=="tab-learn";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
 // ---- boot ----
 document.querySelectorAll(".f[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
@@ -1518,7 +1574,7 @@ document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click"
 $("pred-save").addEventListener("click",savePred);
 $("auth-signup").addEventListener("click",doSignup);$("auth-login").addEventListener("click",doLogin);$("auth-logout").addEventListener("click",doLogout);
 $("auth-out").addEventListener("submit",function(e){e.preventDefault();doLogin()});$("ask-form").addEventListener("submit",askJoey);apiInit();
-$("hs-q").addEventListener("input",hsRows);$("watch-all").addEventListener("click",function(){showTab("tab-house");window.scrollTo(0,$("tab-house").getBoundingClientRect().top+scrollY-80)});$("house-back").addEventListener("click",function(){showTab("tab-watch")});
+$("hs-q").addEventListener("input",hsRows);document.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.go);window.scrollTo(0,0)})});$("watch-all").addEventListener("click",function(){showTab("tab-house");window.scrollTo(0,$("tab-house").getBoundingClientRect().top+scrollY-80)});$("house-back").addEventListener("click",function(){showTab("tab-watch")});
 $("vote-form").addEventListener("submit",function(e){e.preventDefault();voteLookup()});$("hs-comp").addEventListener("change",hsRows);
 renderStatic();renderTally();renderMap();renderYou();
 loadPicks().then(renderYou);
