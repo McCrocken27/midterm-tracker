@@ -47,10 +47,12 @@
 <section>
   <h2>What's new</h2>
   <ul>
-    <li><b>All 10 outlets side by side</b> for all 506 races (vs. one opinion per site)</li>
-    <li><b>Your ballot from your address</b>, plus the official registration link, with the address never stored</li>
-    <li><b>Prediction game</b>: accounts, Labubu avatars, leaderboard vs. the experts</li>
-    <li><b>Ask Joey</b>: unlike ChatGPT, every number is <span class="y">checked by code</span> against real data</li>
+    <li><b>All 10 outlets side by side</b> for all 506 races, plus <b>sourced endorsements</b> for 320 candidates</li>
+    <li><b>A path for newcomers</b>: "What are the Midterms?" + <span class="y">Races to Watch</span></li>
+    <li><b>Your ballot from your address</b>, address never stored</li>
+    <li><b>Prediction game</b> (50 races): Labubu avatars, badges, private leagues, leaderboard vs. the experts</li>
+    <li><b>What If, Election Night, News, Quiz</b>: all with 0 AI tokens</li>
+    <li><b>Ask Joey</b>: every number is <span class="y">checked by code</span> against real data</li>
   </ul>
   <p class="note">Closest alternatives: 270toWin consensus maps, Wikipedia ratings tables, Ballotpedia, ChatGPT</p>
 </section>
@@ -81,8 +83,8 @@
 <section>
   <h2>Demo: the site</h2>
   <div class="two">
-    <img class="shot" src="{{SRC:01_map}}" alt="Map with the Texas Senate race">
-    <img class="shot" src="{{SRC:08_vote}}" alt="Vote tab results">
+    <img class="shot" src="{{SRC:01_map}}" alt="Map with the Maine Senate race, endorsements and the incumbent star">
+    <img class="shot" src="{{SRC:09_watch}}" alt="Races to Watch list">
   </div>
 </section>
 
@@ -106,7 +108,8 @@
       <li>No emails; hashed passwords and sessions; lockout</li>
       <li>Poisoned results page can't crown a fake winner</li>
       <li>Per-run caps + daily token budget</li>
-      <li><span class="y">31 tests pass</span>, 19 of them attacks</li>
+      <li>Leagues: unguessable codes, kid-friendly names; news: kid-friendly filter</li>
+      <li><span class="y">42 tests pass</span>, 19 of them attacks</li>
     </ul>
   </div>
 </section>
@@ -116,6 +119,8 @@
   <div class="stat"><div class="big">506</div><small>races, 10 outlets each</small></div>
   <div class="stat"><div class="big">10 s</div><small>vs 10 to 15 min to compare forecasters</small></div>
   <div class="stat"><div class="big">46 s</div><small>fresh clone to running app</small></div>
+  <div class="stat"><div class="big">320</div><small>candidates with sourced endorsements</small></div>
+  <div class="stat"><div class="big">50</div><small>races in the prediction game</small></div>
   <p class="note">[Real user test: add the classmate's quote and timing here before presenting.]</p>
 </section>
 
@@ -125,7 +130,7 @@
     <li>Host it so friends can play the game from their phones</li>
     <li>Auto-refresh ratings and polls, with human approval</li>
     <li>Back-test the model on 2018 to 2024</li>
-    <li>Election night: Results agent + live leaderboard</li>
+    <li>Election night: feed real results into the practice-tested Election Night view and the leaderboard (Results agent + human approval)</li>
   </ul>
   <p style="margin-top:40px" class="b">&#9733; Thank you! Questions? &#9733;</p>
 </section>
