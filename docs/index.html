@@ -213,7 +213,8 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .cnlink{color:inherit;text-decoration:none}.cnlink:hover b{text-decoration:underline}
 [hidden]{display:none!important}
 .ghost{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:8px 18px;font-weight:900;box-shadow:0 4px 0 var(--yale)}.ghost:hover{transform:translateY(-2px)}
-.pred-auth{margin:10px 0 4px;padding:12px 14px;border:3px solid var(--line);border-radius:18px;background:var(--surface)}.pred-auth .pred-form{margin:0}
+.step{margin:0 0 8px;font-weight:800;color:var(--head)}
+.pred-auth{margin:10px 0 4px;border-color:#ffc83d!important;padding:12px 14px;border:3px solid var(--line);border-radius:18px;background:var(--surface)}.pred-auth .pred-form{margin:0}
 #auth-pass{min-width:180px}.ask textarea{width:100%;font:inherit;padding:10px 14px;border:3px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);resize:vertical;margin:8px 0}
 .ask-answer{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:12px;border:3px solid var(--line);border-radius:16px;background:var(--th)}.ask-answer svg{flex:none}
 .ask details{margin-top:6px;font-size:.85rem;color:var(--muted)}.ask details li{margin:2px 0}
@@ -431,11 +432,11 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <p class="note">Enter your home address to see the Senate, Governor, and House races on your ballot, who's running, and how to register in your state.</p>
     <form id="vote-form" class="pred-form" autocomplete="off">
       <label for="vote-addr"><b>Your address</b></label>
-      <input id="vote-addr" type="text" name="vote-addr-nosave" autocomplete="off" spellcheck="false" maxlength="200" placeholder="e.g. 165 Whitney Ave, New Haven, CT 06511">
+      <input id="vote-addr" type="text" name="vote-addr-nosave" autocomplete="off" spellcheck="false" maxlength="200" placeholder="Street, city, state">
       <button type="submit" class="save">Find My Races</button>
-      <span class="note" style="flex-basis:100%">Type your full street address with city and state (ZIP code optional). It's sent once to the U.S. Census to find your districts, then erased.</span>
       <span id="vote-msg" class="note" role="status"></span>
     </form>
+    <p class="note" style="margin:2px 0 0"><b>What to type:</b> your full street address with city and state, like <i>165 Whitney Ave, New Haven, CT</i> (ZIP code optional).</p>
     <p class="note">Privacy: your address is sent once to the U.S. Census Bureau's free address lookup to find your district, then cleared from this page right away. It's never saved, and you can do up to 10 lookups per visit.</p>
     <div id="vote-out"></div>
   </section>
@@ -462,6 +463,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <h2>Predict and Compare</h2>
     <p class="note">Pick the winner of 50 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
     <div id="pred-auth" class="pred-auth" hidden>
+      <h3 class="step" id="auth-step">Step 1: Sign up (new here) or log in</h3>
       <form id="auth-out" class="pred-form" autocomplete="on">
         <label for="auth-nick"><b>Nickname</b></label><input id="auth-nick" maxlength="24" autocomplete="username" placeholder="e.g. Bulldog26">
         <label for="auth-pass"><b>Password</b></label><input id="auth-pass" type="password" maxlength="128" autocomplete="current-password" placeholder="8+ characters">
@@ -472,7 +474,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
       <p class="note">No email needed. Only your nickname and avatar are ever shown; your password is stored scrambled (hashed).</p>
     </div>
     <div class="pred-form">
-      <span id="name-wrap"><label for="pred-name"><b>Your name or nickname</b></label>
+      <span id="name-wrap"><span class="step" style="display:block;flex-basis:100%">No sign-up needed on this page: type a nickname, pick your races below, then click <b>Save my picks</b>.</span><label for="pred-name"><b>Your name or nickname</b></label>
       <input id="pred-name" type="text" maxlength="30" autocomplete="nickname" placeholder="e.g. Bulldog26"></span>
       <button type="button" id="pred-save" class="save">Save my picks</button><button type="button" id="pred-del" class="ghost">Delete my saved picks</button>
       <span id="pred-msg" class="note" role="status"></span>
@@ -1478,7 +1480,7 @@ function api(path,opt){opt=opt||{};return fetch(path,{method:opt.method||"GET",c
 function apiInit(){if(location.protocol==="file:")return;fetch("/api/health").then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.ok)return;API.on=true;
   return api("/api/me").then(function(m){setUser(m.user,m.picks)})}).catch(function(){})}
 function setUser(u,picks){API.user=u;if(u){P.name=u.nickname;P.avatar=u.avatar;if(picks)P.mine=picks}renderAuth();renderAsk();if(!$("tab-predict").hidden)loadPred().then(renderPred)}
-function renderAuth(){var ln=$("pred-login-note");if(ln)ln.hidden=!(API.on&&!API.user);if(!API.on)return;$("pred-auth").hidden=false;$("name-wrap").hidden=true;$("auth-out").hidden=!!API.user;$("auth-in").hidden=!API.user;
+function renderAuth(){var st=$("auth-step");if(st)st.textContent=API.user?"You're logged in":"Step 1: Sign up (new here) or log in";var ln=$("pred-login-note");if(ln)ln.hidden=!(API.on&&!API.user);if(!API.on)return;$("pred-auth").hidden=false;$("name-wrap").hidden=true;$("auth-out").hidden=!!API.user;$("auth-in").hidden=!API.user;
   if(API.user){var w=$("auth-who");w.textContent="";var s=h("span",{class:"lbav"});s.innerHTML=Labubus.make(API.user.avatar,32,"Your avatar");w.appendChild(s);w.appendChild(document.createTextNode("Logged in as "));w.appendChild(h("b",{text:API.user.nickname}))}}
 function authMsg(t){$("auth-msg").textContent=t}
 function doSignup(){var n=$("auth-nick").value,pw=$("auth-pass").value;if(!P.avatar){authMsg("Pick an avatar below first.");return}
