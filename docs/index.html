@@ -103,7 +103,8 @@ th{font-weight:600;background:var(--th)}td.num,th.num{text-align:right}
 .pick[aria-pressed="true"].r{background:#b2403a;border-color:#b2403a;color:#fff}
 .pick[aria-pressed="true"].t{background:var(--gray);border-color:var(--gray);color:#fff}
 .agree{margin:8px 0 0;font-size:.9rem;color:var(--muted)}
-.ask{max-width:1192px;margin:8px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 20px}
+.askintro{display:flex;gap:12px;align-items:center;margin:4px 0 10px}.askintro p{margin:0}.askintro svg{flex:none}
+.ask{max-width:1192px;margin:16px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 20px}
 .ask h2{font-size:1.1rem}.ask p{margin:6px 0 0}
 .foot{max-width:1240px;margin:0 auto;padding:18px 24px 40px;color:var(--muted);font-size:.88rem}.foot p{margin:0 0 4px}
 .tabs{max-width:1192px;margin:16px auto 0;display:flex;gap:6px;border-bottom:2px solid var(--line)}
@@ -322,6 +323,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-learn" data-tab="tab-learn">What are the Midterms?</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-predict" data-tab="tab-predict">Predict and Compare</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-watch" data-tab="tab-watch">Races to Watch</button>
+  <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-ask" data-tab="tab-ask">Ask Joey</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-vote" data-tab="tab-vote">Vote</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-news" data-tab="tab-news">News</button>
   <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-quiz" data-tab="tab-quiz">Quiz</button>
@@ -344,8 +346,11 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
   <section aria-live="polite"><div id="detail" class="detail"><div class="empty"><h2>Pick a State</h2>
     <p>Select a highlighted state on the map to see its races, who the forecasters favor, and what my model says. You can lock in your own pick for each race.</p></div></div></section>
 </main>
+</div>
+<div id="tab-ask" role="tabpanel" hidden>
 <section class="ask" id="ask"><h2>Ask Joey</h2>
-  <p class="note" id="ask-note">Asking Joey questions needs the project's Python server, so it isn't part of this public page. Run the full project (see the README) to chat with him.</p>
+  <div class="askintro"><span id="ask-joey-av"></span><p>Ask about any 2026 race, like "Who's favored in the Ohio Senate race?" Joey is a team of AI agents that only use this site's data, and a checker makes sure every number in his answer is real.</p></div>
+  <button type="button" class="wbtn" id="ask-login" hidden>Sign up or log in</button><p class="note" id="ask-note">Asking Joey questions needs the project's Python server, so it isn't part of this public page. Run the full project (see the README) to chat with him.</p>
   <form id="ask-form" hidden><textarea id="ask-q" maxlength="500" rows="2" placeholder="e.g. Who's favored in the Texas Senate race?"></textarea><button type="submit" class="save" id="ask-go">Ask Joey</button></form>
   <div id="ask-out" aria-live="polite"></div>
 </section>
@@ -428,6 +433,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
       <label for="vote-addr"><b>Your address</b></label>
       <input id="vote-addr" type="text" name="vote-addr-nosave" autocomplete="off" spellcheck="false" maxlength="200" placeholder="e.g. 165 Whitney Ave, New Haven, CT 06511">
       <button type="submit" class="save">Find My Races</button>
+      <span class="note" style="flex-basis:100%">Type your full street address with city and state (ZIP code optional). It's sent once to the U.S. Census to find your districts, then erased.</span>
       <span id="vote-msg" class="note" role="status"></span>
     </form>
     <p class="note">Privacy: your address is sent once to the U.S. Census Bureau's free address lookup to find your district, then cleared from this page right away. It's never saved, and you can do up to 10 lookups per visit.</p>
@@ -1480,7 +1486,7 @@ function doSignup(){var n=$("auth-nick").value,pw=$("auth-pass").value;if(!P.ava
 function doLogin(){api("/api/login",{method:"POST",body:{nickname:$("auth-nick").value,password:$("auth-pass").value}}).then(function(){$("auth-pass").value="";authMsg("");return api("/api/me")})
   .then(function(m){setUser(m.user,m.picks)}).catch(function(e){authMsg(e.message)})}
 function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};try{localStorage.removeItem("mt_pred_draft")}catch(e){}/* a shared computer shouldn't show the last player's picks */API.lgSel=null;API.leagues=[];setUser(null)})}
-function renderAsk(){if(!API.on)return;$("ask-form").hidden=!API.user;$("ask-note").textContent=API.user?"Ask Joey about any 2026 race. He only uses the site's data, and a checker makes sure every number he says is real.":"Log in on the Predict and Compare tab to ask Joey questions."}
+function renderAsk(){if(!API.on)return;$("ask-form").hidden=!API.user;$("ask-note").textContent=API.user?"Type your question below.":"Sign up or log in first (it takes 20 seconds), then come back here to ask.";var go=$("ask-login");if(go)go.hidden=!!API.user}
 function askJoey(e){e.preventDefault();var q=$("ask-q").value.trim(),out=$("ask-out");if(!q)return;$("ask-go").disabled=true;out.textContent="Joey is thinking…";
   api("/api/ask",{method:"POST",body:{question:q}}).then(function(j){out.textContent="";var box=h("div",{class:"ask-answer"}),av=h("div");av.innerHTML=YaleAvatars.joey(48);box.appendChild(av.firstChild);
     var txt=h("div",{},[h("p",{text:j.answer})]);if(j.trace&&j.trace.length){var d=h("details",{},[h("summary",{text:"How Joey answered"+(j.cached?" (from the answer cache)":"")})]),ul=h("ul");
@@ -1577,7 +1583,7 @@ function voteShow(res){var m=res&&res.result&&res.result.addressMatches||[];
 function openOnMap(r){if(!S.byId[r.id])return;showTab("tab-map");S.state=r.state;selectRace(r.id);renderMap();
   var sel=document.querySelector('#detail .rrow[aria-selected="true"]');(sel||$("detail")).scrollIntoView({behavior:"smooth",block:"start"})}
 function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",String(on))});
-  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-watch").hidden=id!=="tab-watch";if(id==="tab-watch"&&!$("watch-list").firstChild)renderWatch();if(id==="tab-house"){var tw=document.querySelector('.tab[data-tab="tab-watch"]');tw.classList.add("on");tw.setAttribute("aria-selected","true")}$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";$("tab-learn").hidden=id!=="tab-learn";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
+  $("tab-map").hidden=id!=="tab-map";$("tab-predict").hidden=id!=="tab-predict";$("tab-house").hidden=id!=="tab-house";$("tab-watch").hidden=id!=="tab-watch";if(id==="tab-watch"&&!$("watch-list").firstChild)renderWatch();if(id==="tab-house"){var tw=document.querySelector('.tab[data-tab="tab-watch"]');tw.classList.add("on");tw.setAttribute("aria-selected","true")}$("tab-vote").hidden=id!=="tab-vote";$("tab-news").hidden=id!=="tab-news";$("tab-quiz").hidden=id!=="tab-quiz";$("tab-learn").hidden=id!=="tab-learn";$("tab-ask").hidden=id!=="tab-ask";if(id==="tab-quiz"&&!$("quiz").firstChild)quizStart();if(id==="tab-news")loadNews().then(renderNews);if(id==="tab-predict")loadPred().then(renderPred);if(id==="tab-house"&&!$("hs-body").firstChild)hsRows()}
 
 // ---- boot ----
 document.querySelectorAll(".f[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
@@ -1585,6 +1591,8 @@ document.querySelectorAll(".nf").forEach(function(b){b.addEventListener("click",
 $("news-q").addEventListener("input",renderNews);loadNews().then(function(){if(S.raceId)selectRace(S.raceId)});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
+$("ask-login").addEventListener("click",function(){showTab("tab-predict");setTimeout(function(){var a=$("pred-auth");a.scrollIntoView({behavior:"smooth",block:"center"});$("auth-nick").focus()},200)});
+(function(){var j=$("ask-joey-av");if(j&&window.YaleAvatars)j.innerHTML=YaleAvatars.joey(56)})();
 $("pred-login-go").addEventListener("click",function(){var a=$("pred-auth");a.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(function(){$("auth-nick").focus()},400)});
 /* clears the picks this browser saved (the public page has no server), so you can start over */
 $("pred-del").addEventListener("click",function(){if(!confirm("Delete the picks saved in this browser?"))return;try{localStorage.removeItem("mt_pred_self");localStorage.removeItem("mt_pred_draft")}catch(e){}P.mine={};P.name="";$("pred-name").value="";$("pred-msg").textContent="Your saved picks were deleted.";loadPred().then(renderPred);renderYou()});

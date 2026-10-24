@@ -34,7 +34,7 @@ You need Python 3.11 or newer and the course `PORTKEY_API_KEY`.
    - Mac / Linux: `.venv/bin/python -m uvicorn main:app --port 8000`
 5. **Open http://127.0.0.1:8000.** To check the setup, open http://127.0.0.1:8000/api/health. It should say `"key_found": true`.
 
-Then go to **Predict and Compare**, pick an avatar, and sign up with any nickname and password (no email). Make picks, press **Save my picks**, and you're on the shared leaderboard. Once you're logged in, the **Ask Joey** box at the bottom of the Map tab works.
+Then go to **Predict and Compare**, pick an avatar, and sign up with any nickname and password (no email). Make picks, press **Save my picks**, and you're on the shared leaderboard. Once you're logged in, open the **Ask Joey** tab and ask about any race.
 
 **Run the tests** (no key needed, and no model calls): `.\.venv\Scripts\python -m pytest` (Mac: `.venv/bin/python -m pytest`)
 
