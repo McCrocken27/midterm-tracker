@@ -147,7 +147,7 @@
 <table>
 <tr><th>Part</th><th>Type</th><th>What it does</th></tr>
 <tr><td>News collector (<code>backend/news.py</code>)</td><td>code, scheduled GitHub Action every 4 hours</td><td>Reads free RSS feeds, keeps only 2026-race stories from the last 14 days, drops paywalled, social-media and not-kid-friendly items, tags each story with its race, writes <code>docs/news.json</code>.</td></tr>
-<tr><td>Endorsement research</td><td>AI research agents, during development only</td><td>Parallel research agents compiled each endorser's 2026 list against the site's exact candidate list, with a source for every entry. I then had four more agents check Trump's 233 House endorsements against a second, independent source: 232 held up and the one that didn't was removed. All sources are in <code>report/endorsements.md</code>.</td></tr>
+<tr><td>Endorsement research</td><td>AI research agents, during development only</td><td>Parallel research agents compiled each endorser's 2026 list against the site's exact candidate list, with a source for every entry. I then had four more agents check Trump's 233 House endorsements against a second, independent source: 232 held up and the one that didn't was removed. All sources are in <code>report/endorsements.md</code>. The same process found 92 House veterans for the service pins (<code>report/veterans.md</code>).</td></tr>
 <tr><td>Ratings and endorsement refresh (Oct 24)</td><td>AI research agents, then my review</td><td>Two agents looked for forecaster rating changes and new endorsements since the last snapshot. I applied only changes confirmed by an outlet post or news story with a date (31 rating changes, 13 new endorsements) and skipped 67 changes that came only from a summarized Wikipedia table.</td></tr>
 </table>
 
