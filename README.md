@@ -93,4 +93,4 @@ cd backend
 
 ## Data
 
-Statewide ratings were collected from public pages (Cook, Inside Elections, Sabato, The Economist, Split Ticket, Decision Desk HQ, FiftyPlusOne, Fox News, Silver Bulletin, RealClearPolitics, and Race to the WH for governors), dated Aug 11 to Oct 16, 2026. House ratings and nominees come from Wikipedia's 2026 House election pages. Seats not on Wikipedia's competitive list are rated Safe by every outlet. The model prediction is experimental: for the House, Dem % = 67.8 + 15.7 × rating score + 2.1 × district lean. Joey is a made-up character, not a real analyst.
+Statewide ratings were collected from public pages (Cook, Inside Elections, Sabato, The Economist, Split Ticket, Decision Desk HQ, FiftyPlusOne, Fox News, Silver Bulletin, RealClearPolitics, and Race to the WH for governors), dated Aug 11 to Oct 22, 2026. House ratings and nominees come from Wikipedia's 2026 House election pages. Seats not on Wikipedia's competitive list are rated Safe by every outlet. The model prediction is experimental: for the House, Dem % = 67.8 + 15.7 × rating score + 2.1 × district lean. Joey is a made-up character, not a real analyst.

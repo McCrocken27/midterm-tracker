@@ -69,7 +69,7 @@
 <tr><td>Ballotpedia / Vote.org</td><td>Candidate profiles, registration help</td><td>No forecaster comparison or prediction game</td></tr>
 <tr><td>ChatGPT and similar chatbots</td><td>Answer anything conversationally</td><td>Can make up ratings or numbers; no live race data; no guarantee the numbers are real</td></tr>
 </table>
-<p><b>What's different:</b> (1) all ten outlets <i>side by side for every race</i>, each with its date, plus a consensus; (2) an address lookup that shows <i>your</i> races and your state's official registration page, without storing the address; (3) a shared <b>prediction game</b> (50 races) with accounts, Labubu avatars, badges, private leagues and a leaderboard that scores players against the forecasters, the model and Joey; (4) <b>Ask Joey</b>, an agent team whose answers are <b>checked by code</b>: every number must exist in the site's data, unlike a general chatbot; (5) <b>a path for newcomers</b>: a "What are the Midterms?" explainer and a "Races to Watch" list of the 50 closest and most important races; (6) <b>sourced endorsements</b>: small Labubus beside each candidate show who endorsed them (Trump, Americans for Prosperity, Obama, Harris, Sanders, Ocasio-Cortez, Musk, and Pelosi and Hoyer for their successors), 320 candidates in all, every one tied to a published source; (7) a <b>filtered news feed</b> of midterm-only, kid-friendly, non-paywalled headlines; (8) <b>Balance of Power, What If and Election Night</b> views that show how control of Congress depends on each race. The kid-friendly design (party-mascot avatars that look like the candidates, flying eagles) is deliberate: the audience is new voters.</p>
+<p><b>What's different:</b> (1) all ten outlets <i>side by side for every race</i>, each with its date, plus a consensus; (2) an address lookup that shows <i>your</i> races and your state's official registration page, without storing the address; (3) a shared <b>prediction game</b> (50 races) with accounts, Labubu avatars, badges, private leagues and a leaderboard that scores players against the forecasters, the model and Joey; (4) <b>Ask Joey</b>, an agent team whose answers are <b>checked by code</b>: every number must exist in the site's data, unlike a general chatbot; (5) <b>a path for newcomers</b>: a "What are the Midterms?" explainer and a "Races to Watch" list of the 50 closest and most important races; (6) <b>sourced endorsements</b>: small Labubus beside each candidate show who endorsed them (Trump, Americans for Prosperity, Obama, Harris, Sanders, Ocasio-Cortez, Musk, and Pelosi and Hoyer for their successors), 332 candidates in all, every one tied to a published source; (7) a <b>filtered news feed</b> of midterm-only, kid-friendly, non-paywalled headlines; (8) <b>Balance of Power, What If and Election Night</b> views that show how control of Congress depends on each race. The kid-friendly design (party-mascot avatars that look like the candidates, flying eagles) is deliberate: the audience is new voters.</p>
 <h3>Features added for new voters</h3>
 <div class="grid2">
 {{IMG:09_watch|Races to Watch: the 50 races most likely to decide control, closest first, with endorsement Labubus, the rating, Joey's call and a "See race" button.}}
@@ -148,6 +148,7 @@
 <tr><th>Part</th><th>Type</th><th>What it does</th></tr>
 <tr><td>News collector (<code>backend/news.py</code>)</td><td>code, scheduled GitHub Action every 4 hours</td><td>Reads free RSS feeds, keeps only 2026-race stories from the last 14 days, drops paywalled, social-media and not-kid-friendly items, tags each story with its race, writes <code>docs/news.json</code>.</td></tr>
 <tr><td>Endorsement research</td><td>AI research agents, during development only</td><td>Parallel research agents compiled each endorser's 2026 list against the site's exact candidate list, with a source for every entry. I then had four more agents check Trump's 233 House endorsements against a second, independent source: 232 held up and the one that didn't was removed. All sources are in <code>report/endorsements.md</code>.</td></tr>
+<tr><td>Ratings and endorsement refresh (Oct 24)</td><td>AI research agents, then my review</td><td>Two agents looked for forecaster rating changes and new endorsements since the last snapshot. I applied only changes confirmed by an outlet post or news story with a date (31 rating changes, 13 new endorsements) and skipped 67 changes that came only from a summarized Wikipedia table.</td></tr>
 </table>
 
 <h2><span class="num">5</span>Tokenomics</h2>
@@ -228,7 +229,7 @@ test_drops_off_topic_old_paywalled_social_and_not_for_kids PASSED
 <tr><td>Cost to answer a question</td><td>$0.0007 to $0.0036</td><td>Measured tokens × estimated prices</td></tr>
 <tr><td>Setup time for a grader</td><td>46 seconds from fresh clone to running server</td><td>Fresh-clone test</td></tr>
 <tr><td>Races in the prediction game</td><td>50 (12 Senate, 10 Governor, 28 House)</td><td>The app</td></tr>
-<tr><td>Candidates with sourced endorsements shown</td><td>320 (Trump 279, AFP 23, Bernie Sanders 17, Obama 14, AOC 12, Harris 11, Musk 4, Pelosi 1, Hoyer 1)</td><td><code>report/endorsements.md</code></td></tr>
+<tr><td>Candidates with sourced endorsements shown</td><td>332 (Trump 288, AFP 23, Bernie Sanders 18, Obama 17, AOC 12, Harris 11, Musk 4, Pelosi 1, Hoyer 1)</td><td><code>report/endorsements.md</code></td></tr>
 <tr><td>Fresh midterm headlines</td><td>60 at a time, refreshed every 4 hours, 0 tokens</td><td>GitHub Action log</td></tr>
 </table>
 <div class="callout todo"><b>Real user test:</b> [TO ADD before submitting: a classmate signs up, makes picks, asks Joey a question. Record how long it took, a quote, and a screenshot.]</div>
@@ -239,7 +240,7 @@ test_drops_off_topic_old_paywalled_social_and_not_for_kids PASSED
 
 <h2><span class="num">8</span>Limits and next steps</h2>
 <ul>
-<li><b>Ratings are a snapshot</b> (Aug 11 to Oct 16, 2026), entered from public pages. Next: a scheduled refresh agent that proposes rating changes for human approval, like the Results agent.</li>
+<li><b>Ratings are a snapshot</b> (Aug 11 to Oct 22, 2026, last refreshed Oct 24), entered from public pages. Next: a scheduled refresh agent that proposes rating changes for human approval, like the Results agent.</li>
 <li><b>Few individual polls.</b> Only one verified poll is loaded. Next: a polling feed with sample sizes and dates.</li>
 <li><b>The model is experimental</b> and mostly echoes the forecasters; it hasn't been back-tested. Next: back-test on 2018 to 2024 results.</li>
 <li><b>Look-alike props</b> are done for about 250 candidates; lesser-known nominees are plain mascots, on purpose, to avoid wrong details. Next: use official public-domain portraits to add hair and glasses only, verified per person.</li>

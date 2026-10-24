@@ -1,7 +1,7 @@
 # Endorsements shown on the site
 
 The small Labubus next to a candidate's avatar show these endorsements. Every row was matched to a published source
-(collected Oct 21, 2026). Trump's House endorsements were then checked against a second, independent source (mostly his archived Truth Social posts); 232 of 233 held up (Derek Merrin, OH-09, is sourced to Trump's own Truth Social post) and the one that didn't (Chris Smith, NJ-04) was removed. Only endorsements for this 2026 race count; older endorsements and campaign appearances
+(collected Oct 21, 2026). Trump's House endorsements were then checked against a second, independent source (mostly his archived Truth Social posts); 232 of 233 held up (Derek Merrin, OH-09, is sourced to Trump's own Truth Social post) and the one that didn't (Chris Smith, NJ-04) was removed; Trump then endorsed Smith in his Oct 22 slate, so he was added back. Only endorsements for this 2026 race count; older endorsements and campaign appearances
 without an endorsement were left out. Lists may be incomplete: if no source we read named a candidate, they aren't shown.
 
 ## Donald Trump (279)
@@ -431,3 +431,14 @@ Notes: Donalds's endorsement was an X reply ("You certainly have my full support
 |---|---|---|---|
 | FL Senate | Angie Nixon | Barack Obama (Oct 24, 2026) | https://www.wfla.com/election/obama-weighs-in-on-florida-elections-endorsing-david-jolly-and-angie-nixon/ |
 | FL Governor | David Jolly | Barack Obama (Oct 24, 2026) | https://thehill.com/homenews/campaign/6170235-jolly-nixon-receive-obama-support/ |
+| AK-00 | Nick Begich III | Donald Trump (2026-10-03) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-3-2026 |
+| AK Governor | Bernadette Wilson | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| SC-01 | Jenny Costa Honeycutt | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| NJ-04 | Chris Smith | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| NY-22 | Kailee Buller | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| TN-05 | Charlie Hatcher | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| TN-06 | Johnny Garrett | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| WY-00 | Chuck Gray | Donald Trump (2026-10-22) | https://www.presidency.ucsb.edu/documents/truth-social-posts-october-22-2026 |
+| MN Senate | Michele Tafoya | Donald Trump (2026-10-12) | https://www.mprnews.org/story/2026/10/13/michele-tafoya-endorsed-by-trump-for-senate-minnesota |
+| OH Governor | Amy Acton | Barack Obama (2026-10-23) | https://en.wikipedia.org/wiki/2026_Ohio_gubernatorial_election |
+| VT Governor | Amanda Janoo | Bernie Sanders (2026-10-07) | https://www.sevendaysvt.com/news/election-2026/bernie-sanders-hits-the-campaign-trail-with-amanda-janoo-in-winooski/ |
