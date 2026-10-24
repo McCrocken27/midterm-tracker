@@ -76,9 +76,27 @@
 {{IMG:10_learn|"What are the Midterms?": what's on the ballot, why control matters, who can vote, how to read the site, why Alaska has four candidates and California can have two Democrats, and a glossary.}}
 {{IMG:11_election_night|Election Night (practice run): results arrive state by state, east to west; the map fills in, a ticker lists winners and the balance-of-power bar counts called seats.}}
 {{IMG:12_news|Midterm News: headlines about 2026 races only, from Google News, NPR and PBS, refreshed every 4 hours; each story is tagged with its race.}}
-{{IMG:13_badges|The prediction game: 20 Labubu avatars to choose from and six badges (three unlock after Election Day). Badges never reveal which races a player picked.}}
 {{IMG:14_quiz|Civics Quiz with Joey: 10 random questions from 20, with an explanation after each. No AI and no account needed.}}
 </div>
+<h3>The prediction game: something no forecasting site offers</h3>
+<p>Every forecaster tells you <i>their</i> picks. None of the sites I compared lets you make your own and find out how you stack up. Here anyone can call the winners of <b>50 key races</b>, then on Election Day get scored, <b>10 points per correct call</b>, on one leaderboard alongside the crowd, the forecasters' consensus, my model and Joey. "Did I beat the experts?" is a question that pulls people back to the races, which is the whole point for new voters.</p>
+<ul>
+<li><b>Fair and locked:</b> the server checks every pick and locks them at 6 AM Eastern on Nov 3, so nobody can change picks once votes are counted.</li>
+<li><b>Private by design:</b> before results the leaderboard shows only avatars and nicknames; afterward, points. Nobody's picks are ever shown.</li>
+<li><b>Fun to come back to:</b> 20 Labubu avatars (presidents, the Statue of Liberty, Joey), six badges (Full Ballot, Bold Pick, Toss-up Tamer, and after results Upset Caller, Sharpshooter and Beat Joey), and <b>private leagues</b>: make one, share its 8-character code, and play just with friends.</li>
+<li><b>Practice before it counts:</b> What If mode lets you flip races and watch the Senate and House bars move, and Election Night mode plays out a practice run state by state with confetti when your picks hit.</li>
+</ul>
+<p class="small">Closest alternatives: 270toWin lets you color in a map but doesn't score you against experts or friends; prediction markets use real money and aren't for kids.</p>
+<div class="grid2">
+{{IMG:13_badges|Badges and private leagues: a league named "Bulldog Buddies" with its join code, and badges that describe a play style without revealing any picks.}}
+{{IMG:02_account|Accounts: "Step 1" sign-up with just a nickname and password (no email), then pick an avatar; the password is stored only as a hash.}}
+</div>
+
+<h3>News and the Civics Quiz: learning without the homework feel</h3>
+<ul>
+<li><b>Midterm News</b> (0 AI tokens): headlines about 2026 races only, from Google News, NPR and PBS, refreshed every 4 hours by a scheduled job. Paywalled, social-media and not-kid-friendly stories are filtered out, and each story is tagged with its race, so the Maine Senate page shows Maine Senate news. You can search or filter by Senate, Governor or House.</li>
+<li><b>Civics Quiz with Joey</b> (no AI, no account): 10 random questions from 20, like "Who breaks a 50-50 Senate tie?" and "Why is it called a midterm?", with a one-line explanation after each answer and a "Civics Whiz" sticker for 8 or more right. Every fact about 2026 (35 Senate races, 36 Governor races, California's 52 seats) was checked against the site's own data.</li>
+</ul>
 <p><b>Honest about alternatives:</b> the ratings themselves are not mine; they come from the outlets (via Wikipedia's tables and outlet pages). The value is in combining them, making them understandable, and making it social.</p>
 
 <h2><span class="num">4</span>The agents</h2>
@@ -236,9 +254,9 @@ test_drops_off_topic_old_paywalled_social_and_not_for_kids PASSED
 <p>A classmate ("Classmate A") who doesn't follow forecasting did four tasks while I timed them. Notes are in <code>evidence/user_test.md</code>.</p>
 <table>
 <tr><th>Task</th><th>Without the site</th><th>With the site</th><th>What we learned</th></tr>
-<tr><td>Find what the forecasters say about their Senate race (Ohio)</td><td class="n"><b>2 min 47 s</b>, and only found polls: no forecaster ratings at all</td><td class="n"><b>30 s</b>, with the consensus and every outlet's rating and date</td><td>About <b>5.6x faster</b>, and it found the thing Google didn't</td></tr>
+<tr><td>Find what the forecasters say about their Senate race (Ohio)</td><td><b>2 min 47 s</b>, and only found polls: no forecaster ratings at all</td><td><b>30 s</b>, with the consensus and every outlet's rating and date</td><td>About <b>5.6x faster</b>, and it found the thing Google didn't</td></tr>
 <tr><td>Vote tab: find the races on their ballot</td><td>&mdash;</td><td>Found all of them</td><td>Asked how much of the address to type &rarr; I added "full street address with city and state, ZIP optional"</td></tr>
-<tr><td>Sign up, pick an avatar, pick 5 races, save</td><td>&mdash;</td><td class="n"><b>1 min 17 s</b>, done correctly</td><td>Had to scroll past the leaderboard to find the races &rarr; I moved the pick tables right under the avatars. They also didn't see a sign-up button: they were on the public page, which has no accounts (picks save in the browser) &rarr; it now says "No sign-up needed on this page," and the server version labels its box "Step 1: Sign up or log in."</td></tr>
+<tr><td>Sign up, pick an avatar, pick 5 races, save</td><td>&mdash;</td><td><b>1 min 17 s</b>, done correctly</td><td>Had to scroll past the leaderboard to find the races &rarr; I moved the pick tables right under the avatars. They also didn't see a sign-up button: they were on the public page, which has no accounts (picks save in the browser) &rarr; it now says "No sign-up needed on this page," and the server version labels its box "Step 1: Sign up or log in."</td></tr>
 <tr><td>Ask Joey a question</td><td>&mdash;</td><td><b>Couldn't find it</b></td><td>It was a box at the very bottom of the Map tab &rarr; I gave Ask Joey its own tab, with a "Sign up or log in" button. Re-checked afterwards: it answered "Who's favored in the Ohio Senate race?" correctly.</td></tr>
 </table>
 <p><b>Takeaway.</b> The core promise held up with a real person: the forecaster comparison that took almost 3 minutes and still failed on Google took 30 seconds on the site. The test also found four real usability problems in under 10 minutes, and all four were fixed the same day. <b>Limits:</b> this is one tester, in one session, and I didn't record 1-to-5 ratings or a quote; next I'd run five testers, including people who have never voted, and re-test Ask Joey in its new tab.</p>
@@ -260,10 +278,7 @@ test_drops_off_topic_old_paywalled_social_and_not_for_kids PASSED
 </ul>
 
 <h3>More screenshots</h3>
-<div class="grid2">
 {{IMG:01_map|The Maine Senate race: endorsement Labubus beside each mascot (hovering shows who), a white star on the incumbent, What If buttons, and every outlet's rating and date, next to the balance-of-power bar and map.}}
-{{IMG:02_account|Accounts: nickname and password (no email), Labubu avatars, and a note that the password is stored only as a hash.}}
-</div>
 
 </div>
 </body>
