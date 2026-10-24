@@ -36,7 +36,7 @@
   .tag.r{background:var(--red)}.tag.g{background:#2f8a3c}
   ul{margin:6px 0 6px 22px;padding:0}li{margin:3px 0}
   .small{font-size:.85rem;color:var(--muted)}
-  @media print{.page{padding:0 18px}h2{page-break-after:avoid}figure,table{page-break-inside:avoid}header.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media print{body{font-size:15px}.page{padding:0 18px}h2{page-break-after:avoid}figure,table{page-break-inside:avoid}header.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body>
@@ -76,7 +76,6 @@
 {{IMG:10_learn|"What are the Midterms?": what's on the ballot, why control matters, who can vote, how to read the site, why Alaska has four candidates and California can have two Democrats, and a glossary.}}
 {{IMG:11_election_night|Election Night (practice run): results arrive state by state, east to west; the map fills in, a ticker lists winners and the balance-of-power bar counts called seats.}}
 {{IMG:12_news|Midterm News: headlines about 2026 races only, from Google News, NPR and PBS, refreshed every 4 hours; each story is tagged with its race.}}
-{{IMG:14_quiz|Civics Quiz with Joey: 10 random questions from 20, with an explanation after each. No AI and no account needed.}}
 </div>
 <h3>The prediction game: something no forecasting site offers</h3>
 <p>Every forecaster tells you <i>their</i> picks. None of the sites I compared lets you make your own and find out how you stack up. Here anyone can call the winners of <b>50 key races</b>, then on Election Day get scored, <b>10 points per correct call</b>, on one leaderboard alongside the crowd, the forecasters' consensus, my model and Joey. "Did I beat the experts?" is a question that pulls people back to the races, which is the whole point for new voters.</p>
@@ -276,9 +275,6 @@ test_drops_off_topic_old_paywalled_social_and_not_for_kids PASSED
 <li><b>The shared game needs the server running.</b> The public GitHub Pages demo keeps picks in each visitor's own browser. Next: host the backend so friends can play from their phones.</li>
 <li><b>Prompt caching isn't used</b> because prompts are short; at larger scale I'd move the race index into a cached system prompt.</li>
 </ul>
-
-<h3>More screenshots</h3>
-{{IMG:01_map|The Maine Senate race: endorsement Labubus beside each mascot (hovering shows who), a white star on the incumbent, What If buttons, and every outlet's rating and date, next to the balance-of-power bar and map.}}
 
 </div>
 </body>
