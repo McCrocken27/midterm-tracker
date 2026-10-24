@@ -21,7 +21,7 @@ You need Python 3.11 or newer and the course `PORTKEY_API_KEY`.
      ```
      cd backend
      python -m venv .venv
-     .venv\Scripts\python -m pip install -r requirements.txt
+     .\.venv\Scripts\python -m pip install -r requirements.txt
      ```
    - Mac / Linux:
      ```
@@ -30,13 +30,13 @@ You need Python 3.11 or newer and the course `PORTKEY_API_KEY`.
      .venv/bin/python -m pip install -r requirements.txt
      ```
 4. **Start the server** (still in `backend`):
-   - Windows: `.venv\Scripts\python -m uvicorn main:app --port 8000`
+   - Windows: `.\.venv\Scripts\python -m uvicorn main:app --port 8000` (the leading `.\` is needed in PowerShell; it also works in Command Prompt)
    - Mac / Linux: `.venv/bin/python -m uvicorn main:app --port 8000`
 5. **Open http://127.0.0.1:8000.** To check the setup, open http://127.0.0.1:8000/api/health. It should say `"key_found": true`.
 
 Then go to **Predict and Compare**, pick an avatar, and sign up with any nickname and password (no email). Make picks, press **Save my picks**, and you're on the shared leaderboard. Once you're logged in, the **Ask Joey** box at the bottom of the Map tab works.
 
-**Run the tests** (no key needed, and no model calls): `.venv\Scripts\python -m pytest` (Mac: `.venv/bin/python -m pytest`)
+**Run the tests** (no key needed, and no model calls): `.\.venv\Scripts\python -m pytest` (Mac: `.venv/bin/python -m pytest`)
 
 ## What's on the site
 
@@ -85,10 +85,10 @@ Model: `gpt-6-luna` through Portkey, using PydanticAI.
 
 ```
 cd backend
-.venv\Scripts\python results_agent.py <results page URL>    # the agent suggests winners
-.venv\Scripts\python approve.py                              # you approve or reject each one
-.venv\Scripts\python approve.py set sen-tx R                 # or enter a result by hand
-.venv\Scripts\python usage_report.py                         # tokens per question, safety log
+.\.venv\Scripts\python results_agent.py <results page URL>    # the agent suggests winners
+.\.venv\Scripts\python approve.py                              # you approve or reject each one
+.\.venv\Scripts\python approve.py set sen-tx R                 # or enter a result by hand
+.\.venv\Scripts\python usage_report.py                         # tokens per question, safety log
 ```
 
 ## Data
