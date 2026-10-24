@@ -424,3 +424,10 @@ Notes: Donalds's endorsement was an X reply ("You certainly have my full support
 |---|---|---|---|
 | CA-11 | Connie Chan | Nancy Pelosi (May 18, 2026) | https://www.kqed.org/news/12084132/nancy-pelosi-endorses-san-francisco-supervisor-connie-chan-for-congress |
 | MD-05 | Adrian Boafo | Steny Hoyer (Jan 23, 2026) | https://www.thebanner.com/politics-power/national-politics/steny-hoyer-adrian-boafo-endorsement-IKBFRSKKKZDAZPSDSCPOLFQZQ4/ |
+
+## Updates after Oct 21, 2026
+
+| Race | Candidate | Endorser | Source |
+|---|---|---|---|
+| FL Senate | Angie Nixon | Barack Obama (Oct 24, 2026) | https://www.wfla.com/election/obama-weighs-in-on-florida-elections-endorsing-david-jolly-and-angie-nixon/ |
+| FL Governor | David Jolly | Barack Obama (Oct 24, 2026) | https://thehill.com/homenews/campaign/6170235-jolly-nixon-receive-obama-support/ |
