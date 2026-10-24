@@ -193,6 +193,7 @@ a.vote-reg{display:inline-block;color:#fff;text-decoration:none;margin-top:8px}
 .wrow .wj{font-size:.85rem;white-space:nowrap}.wbtn{background:var(--surface);color:var(--head);border:3px solid var(--yale);border-radius:999px;padding:3px 12px;font-weight:800;cursor:pointer;white-space:nowrap}
 @media (max-width:700px){.wrow{grid-template-columns:1fr auto;grid-template-areas:"n c" "w w" "j b"}.wrow .wn{grid-area:n}.wrow .chip-r{grid-area:c;justify-self:end}.wrow .wc{grid-area:w}.wrow .wj{grid-area:j}.wrow .wbtn{grid-area:b}}
 .wc .endr.inl{display:inline-flex;flex-direction:row;flex-wrap:nowrap;max-height:none;vertical-align:middle;margin:0 2px 0 4px;gap:1px}.wc .endr.inl.bef{margin:0 4px 0 0}.wc .endr.inl svg{width:20px;height:26px}
+.callout-login{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:#fff3cd;color:#3a2a00;border:3px solid #e0a800;border-radius:16px;padding:10px 14px;margin:6px 0 12px;font-weight:600}.callout-login[hidden]{display:none!important}.callout-login .wbtn{background:#fff;color:#3c3b6e}
 .wpick{font-size:.72rem;font-weight:800;background:#ffc83d;color:#1b2430;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
 .learn{columns:2 340px;column-gap:14px;margin:10px 0 16px}.learn .lcard{break-inside:avoid;display:inline-block;width:100%;margin:0 0 14px;box-sizing:border-box}
 .lcard{background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:0 4px 0 var(--line)}
@@ -473,6 +474,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
     <h3 id="av-h">Pick your avatar</h3>
     <div id="pred-avatars" class="avpick" role="radiogroup" aria-labelledby="av-h"></div>
     <p class="note" id="pred-mode"></p>
+    <div id="pred-login-note" class="callout-login" role="status" hidden><span><b>Your picks won't be saved yet.</b> Sign up or log in at the top of this page, then click <b>Save my picks</b>.</span><button type="button" class="wbtn" id="pred-login-go">Sign up or log in</button></div>
     <div id="pred-tables"></div>
     <div id="pred-badges"></div>
     <div id="pred-leagues"></div>
@@ -1416,6 +1418,7 @@ function renderLeagues(){var box=$("pred-leagues");if(!box)return;box.textConten
 function renderPred(){renderAvatars();
   $("pred-mode").textContent=API.on?"Your picks are saved to your account and count on the shared leaderboard. Only your nickname and avatar are shown, never your picks.":SHARED?"Your name and picks are visible to everyone who opens this page here, so a nickname is fine. There's no login, so anyone can use any name.":
     "On this site, picks are saved only in your own browser, so the crowd column shows just you. A shared leaderboard needs the project's server.";
+  var lnote=$("pred-login-note");if(lnote)lnote.hidden=!(API.on&&!API.user)||closed();
   var shut=closed();$("pred-save").disabled=shut;$("pred-del").hidden=!!API.on||!lsGet("mt_pred_self");$("pred-name").disabled=shut;if(shut)$("pred-msg").textContent="Picks are closed.";
   renderMyBadges();renderLeagues();var lb=$("pred-lb");lb.textContent="";
   /* Leaderboard: avatar and name for every player. Once results are in, 10 points per correct call, highest first. */
@@ -1469,14 +1472,14 @@ function api(path,opt){opt=opt||{};return fetch(path,{method:opt.method||"GET",c
 function apiInit(){if(location.protocol==="file:")return;fetch("/api/health").then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.ok)return;API.on=true;
   return api("/api/me").then(function(m){setUser(m.user,m.picks)})}).catch(function(){})}
 function setUser(u,picks){API.user=u;if(u){P.name=u.nickname;P.avatar=u.avatar;if(picks)P.mine=picks}renderAuth();renderAsk();if(!$("tab-predict").hidden)loadPred().then(renderPred)}
-function renderAuth(){if(!API.on)return;$("pred-auth").hidden=false;$("name-wrap").hidden=true;$("auth-out").hidden=!!API.user;$("auth-in").hidden=!API.user;
+function renderAuth(){var ln=$("pred-login-note");if(ln)ln.hidden=!(API.on&&!API.user);if(!API.on)return;$("pred-auth").hidden=false;$("name-wrap").hidden=true;$("auth-out").hidden=!!API.user;$("auth-in").hidden=!API.user;
   if(API.user){var w=$("auth-who");w.textContent="";var s=h("span",{class:"lbav"});s.innerHTML=Labubus.make(API.user.avatar,32,"Your avatar");w.appendChild(s);w.appendChild(document.createTextNode("Logged in as "));w.appendChild(h("b",{text:API.user.nickname}))}}
 function authMsg(t){$("auth-msg").textContent=t}
 function doSignup(){var n=$("auth-nick").value,pw=$("auth-pass").value;if(!P.avatar){authMsg("Pick an avatar below first.");return}
   api("/api/signup",{method:"POST",body:{nickname:n,password:pw,avatar:P.avatar}}).then(function(j){$("auth-pass").value="";authMsg("");setUser(j.user,P.mine)}).catch(function(e){authMsg(e.message)})}
 function doLogin(){api("/api/login",{method:"POST",body:{nickname:$("auth-nick").value,password:$("auth-pass").value}}).then(function(){$("auth-pass").value="";authMsg("");return api("/api/me")})
   .then(function(m){setUser(m.user,m.picks)}).catch(function(e){authMsg(e.message)})}
-function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};API.lgSel=null;API.leagues=[];setUser(null)})}
+function doLogout(){api("/api/logout",{method:"POST"}).then(function(){P.mine={};try{localStorage.removeItem("mt_pred_draft")}catch(e){}/* a shared computer shouldn't show the last player's picks */API.lgSel=null;API.leagues=[];setUser(null)})}
 function renderAsk(){if(!API.on)return;$("ask-form").hidden=!API.user;$("ask-note").textContent=API.user?"Ask Joey about any 2026 race. He only uses the site's data, and a checker makes sure every number he says is real.":"Log in on the Predict and Compare tab to ask Joey questions."}
 function askJoey(e){e.preventDefault();var q=$("ask-q").value.trim(),out=$("ask-out");if(!q)return;$("ask-go").disabled=true;out.textContent="Joey is thinking…";
   api("/api/ask",{method:"POST",body:{question:q}}).then(function(j){out.textContent="";var box=h("div",{class:"ask-answer"}),av=h("div");av.innerHTML=YaleAvatars.joey(48);box.appendChild(av.firstChild);
@@ -1582,6 +1585,7 @@ document.querySelectorAll(".nf").forEach(function(b){b.addEventListener("click",
 $("news-q").addEventListener("input",renderNews);loadNews().then(function(){if(S.raceId)selectRace(S.raceId)});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
+$("pred-login-go").addEventListener("click",function(){var a=$("pred-auth");a.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(function(){$("auth-nick").focus()},400)});
 /* clears the picks this browser saved (the public page has no server), so you can start over */
 $("pred-del").addEventListener("click",function(){if(!confirm("Delete the picks saved in this browser?"))return;try{localStorage.removeItem("mt_pred_self");localStorage.removeItem("mt_pred_draft")}catch(e){}P.mine={};P.name="";$("pred-name").value="";$("pred-msg").textContent="Your saved picks were deleted.";loadPred().then(renderPred);renderYou()});
 $("auth-signup").addEventListener("click",doSignup);$("auth-login").addEventListener("click",doLogin);$("auth-logout").addEventListener("click",doLogout);
