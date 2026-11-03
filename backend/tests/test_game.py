@@ -68,7 +68,9 @@ def test_picks_need_login(client):
 
 def test_picks_lock_on_election_day():
     user = auth.create_user("Late Voter", "correct horse battery", "fdr")
-    after = datetime(2026, 11, 3, 12, tzinfo=timezone.utc)
+    # 7:59 PM Eastern on Nov 3 is still open; 8:00 PM Eastern (01:00 UTC Nov 4) is closed.
+    assert game.save_picks(user["id"], {"sen-tx": "R"}, at=datetime(2026, 11, 4, 0, 59, tzinfo=timezone.utc)) == {"sen-tx": "R"}
+    after = datetime(2026, 11, 4, 1, tzinfo=timezone.utc)
     try:
         game.save_picks(user["id"], {"sen-tx": "R"}, at=after)
         assert False, "picks should be closed"

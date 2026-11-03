@@ -52,6 +52,6 @@ DAILY_TOKEN_BUDGET = int(os.getenv("DAILY_TOKEN_BUDGET", "200000"))  # all agent
 ASK_PER_USER_PER_HOUR = 10        # questions per logged-in user per hour
 ASK_PER_IP_PER_HOUR = 30          # questions per IP address per hour
 
-# Picks lock at 6 AM Eastern on Election Day (Nov 3, 2026 is after daylight saving ends: UTC-5).
-PICKS_CLOSE_UTC = "2026-11-03T11:00:00+00:00"
+# Picks lock at 8 PM Eastern on Election Day (Nov 3, 2026 is after daylight saving ends: UTC-5, so 01:00 UTC Nov 4).
+PICKS_CLOSE_UTC = "2026-11-04T01:00:00+00:00"
 POINTS_PER_CORRECT = 10

@@ -2,7 +2,7 @@
 
 Rules enforced here (never trusted from the browser):
 - Only the 50 prediction races can be picked, and only with a key for a candidate on the ballot.
-- Picks lock at 6 AM Eastern on Nov 3, 2026, by the server's clock.
+- Picks lock at 8 PM Eastern on Nov 3, 2026, by the server's clock.
 - 10 points per race called correctly; points only show once results have been approved.
 - The leaderboard shows nickname, avatar, points and badges. Nobody's individual picks are published.
 - Badges say what kind of player you are (for example "picked against the forecasters at least once")
@@ -37,7 +37,7 @@ def get_picks(user_id: int) -> dict[str, str]:
 def save_picks(user_id: int, picks: dict, at: datetime | None = None) -> dict[str, str]:
     """Replace this player's picks. Unknown races or keys are rejected, not silently dropped."""
     if picks_closed(at):
-        raise GameError(403, "Picks are closed. Election Day has started.")
+        raise GameError(403, "Picks are closed. Polls are closing.")
     if not isinstance(picks, dict) or len(picks) > len(races.prediction_races()):
         raise GameError(400, "Send a list of picks.")
     allowed = set(races.prediction_races())

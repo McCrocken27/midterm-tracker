@@ -461,7 +461,7 @@ h1 .st{color:#ffffff;font-size:1.25em;vertical-align:-.08em}
 <div id="tab-predict" role="tabpanel" hidden>
   <section class="pred">
     <h2>Predict and Compare</h2>
-    <p class="note">Pick the winner of 50 key races. You can skip races and come back to change your picks until 6 AM Eastern on Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
+    <p class="note">Pick the winner of 50 key races. You can skip races and come back to change your picks until 8 PM Eastern on Election Day, Nov 3, 2026. After the election, everyone is scored against the real results, along with the forecasters, my model, and Joey. A toss-up counts as a miss.</p>
     <div id="pred-auth" class="pred-auth" hidden>
       <h3 class="step" id="auth-step">Step 1: Sign up (new here) or log in</h3>
       <form id="auth-out" class="pred-form" autocomplete="on">
@@ -1362,7 +1362,7 @@ var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-
 var EXTRA={};
 /* Real winners after Election Day, keyed by race id ("D", "R" or "I"). Filling this turns on the leaderboard. */
 var RESULTS={};
-var CLOSE=Date.UTC(2026,10,3,11),SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
+var CLOSE=Date.UTC(2026,10,4,1),/* 8 PM Eastern, Nov 3 */SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
 function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
 function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
   var b=h("button",{type:"button",class:"av",role:"radio","aria-checked":String(P.avatar===a.id)});b.innerHTML=Labubus.make(a.id,72);b.appendChild(document.createTextNode(a.name));
