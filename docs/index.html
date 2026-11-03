@@ -1607,7 +1607,7 @@ loadPicks().then(renderYou);
 })();
 </script>
 <script>
-/* Eagles that fly across the page every couple of minutes, carrying an American, Democratic or GOP flag. */
+/* Eagles that fly across the page about once a minute, carrying an American, Democratic or GOP flag. */
 (function(){"use strict";
 var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 var sky=document.querySelector(".sky");
@@ -1640,7 +1640,7 @@ function fly(kind,dir){var kinds=["us","dem","gop"],k=kind||kinds[Math.floor(Mat
   d.addEventListener("animationend",function(e){if(e.target===d)d.remove()});document.body.appendChild(d);return d}
 window.flyEagle=fly;
 /* only launch eagles while the page is visible; hidden tabs pause animations, which made eagles pile up */
-function loop(){if(!document.hidden)fly();setTimeout(loop,90000+Math.random()*60000)}
+function loop(){if(!document.hidden)fly();setTimeout(loop,45000+Math.random()*30000)}
 document.addEventListener("visibilitychange",function(){if(document.hidden)document.querySelectorAll(".flyer").forEach(function(e){e.remove()})});
 setTimeout(loop,5000);
 })();
