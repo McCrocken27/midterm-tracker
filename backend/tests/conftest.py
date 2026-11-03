@@ -20,6 +20,12 @@ def fresh_db(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "DB_PATH", tmp_path / "t.db")
     monkeypatch.setattr(db, "DB_PATH", tmp_path / "t.db")
     db.init()
+    # Tests run as if it were before the 6 AM Nov 3 lock, so they keep passing after Election Day.
+    # The lock itself is tested with explicit times in test_picks_lock_on_election_day.
+    from datetime import datetime, timezone
+    import game
+    real = game.picks_closed
+    monkeypatch.setattr(game, "picks_closed", lambda at=None: real(at or datetime(2026, 10, 20, tzinfo=timezone.utc)))
     yield
 
 
