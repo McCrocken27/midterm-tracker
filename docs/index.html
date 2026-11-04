@@ -1041,9 +1041,9 @@ function nightPanel(){var N=S.night,called=Object.keys(N.res).length;
   if(!N.feed.length)tick.appendChild(h("span",{class:"tk",text:"Polls are closing in the East. Results coming in..."}));
   var mine=myPicks(),mp=Object.keys(mine).filter(function(id){return N.res[id]}),ok=mp.filter(function(id){return mine[id]===N.res[id]}).length;
   return h("div",{class:"night"},[h("div",{class:"nh"},[h("span",{class:"live"+(N.practice?" pr":""),text:N.practice?"PRACTICE RUN":"LIVE RESULTS"}),
-      h("b",{text:(N.done?"All ":"")+called+" of "+N.total+" races called"}),pause,all,exit]),tick,
+      h("b",{text:N.practice?(N.done?"All ":"")+called+" of "+N.total+" races called":called+" of "+S.races.length+" races called so far"}),pause,all,exit]),tick,
     mp.length?h("p",{class:"sum",text:"Your picks so far: "+ok+" of "+mp.length+" right"+(ok?" \uD83C\uDF89":"")}):null,
-    h("p",{class:"note",text:N.practice?"Pretend results, not real ones: your What If picks, else the forecasters' favorite, and Joey's call in toss-ups. Real results replace this after Election Day.":"Results approved by a person after each race was called. They come in state by state, east to west."})])}
+    h("p",{class:"note",text:N.practice?"Pretend results, not real ones: your What If picks, else the forecasters' favorite, and Joey's call in toss-ups. Real results replace this after Election Day.":"Real results, each approved by a person after the race was called"+(RES_AT?" (updated "+RES_AT+")":"")+". They come in state by state, east to west. Gray races aren't called yet."})])}
 /* ---- News: headlines about 2026 races, collected by backend/news.py into docs/news.json (free RSS feeds:
    Google News, NPR, PBS). Shown as plain text with links only; nothing from the feeds is ever run as HTML. ---- */
 var NEWS=null,NF="all";
@@ -1361,7 +1361,14 @@ var PRED=[["Senate",["sen-tx","sen-oh","sen-me","sen-ak","sen-ia","sen-ks","sen-
 /* Prediction-only races that aren't among the 30 tracked House races, so they have no ratings. */
 var EXTRA={};
 /* Real winners after Election Day, keyed by race id ("D", "R" or "I"). Filling this turns on the leaderboard. */
-var RESULTS={};
+var RESULTS={},FILE_RES={},RES_AT="";
+/* Real results for the public site: docs/results.json, written by backend/publish_results.py only after Joey approves each call.
+   With the local server running, its own approved results win over the file. Re-checked every 5 minutes on election night. */
+function loadResults(){return fetch("results.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}).then(function(j){
+  var res=j&&j.results;if(!res||!Object.keys(res).length)return;var fresh=0;
+  Object.keys(res).forEach(function(id){var w=res[id]&&res[id].winner;if(S.byId[id]&&w&&FILE_RES[id]!==w){FILE_RES[id]=w;fresh++}});
+  RES_AT=j.updated||"";if(!fresh)return;Object.keys(FILE_RES).forEach(function(id){if(!(API.on&&API.lb&&API.lb.results&&API.lb.results[id]))RESULTS[id]=FILE_RES[id]});
+  if(!S.night)renderMap();renderPred();if(S.raceId&&!S.night)selectRace(S.raceId)})}
 var CLOSE=Date.UTC(2026,10,4,1),/* 8 PM Eastern, Nov 3 */SHARED=!!window.storage,P={mine:{},name:"",avatar:"",all:[]};
 function draft(){lsSet("mt_pred_draft",{n:cleanName($("pred-name").value),a:P.avatar,p:P.mine})}
 function renderAvatars(){var box=$("pred-avatars");box.textContent="";Labubus.list.forEach(function(a){
@@ -1378,7 +1385,7 @@ function listShared(){return window.storage.list("pred:",true).then(function(res
 function loadPred(){if(API.on){if(!API.user){var d0=lsGet("mt_pred_draft");if(d0){P.mine=d0.p||{};P.avatar=Labubus.has(d0.a)?d0.a:P.avatar}}
     var lbp=API.user&&API.lgSel?"/api/leagues/"+API.lgSel+"/leaderboard":"/api/leaderboard";
     return Promise.all([api(lbp).catch(function(){API.lgSel=null;return api("/api/leaderboard")}),api("/api/crowd"),API.user?api("/api/leagues").catch(function(){return{leagues:[]}}):Promise.resolve({leagues:[]})])
-      .then(function(x){API.leagues=x[2].leagues||[];API.lb=x[0];API.crowd=x[1].crowd||{};Object.keys(RESULTS).forEach(function(k){delete RESULTS[k]});Object.assign(RESULTS,x[0].results||{})}).catch(function(){})}
+      .then(function(x){API.leagues=x[2].leagues||[];API.lb=x[0];API.crowd=x[1].crowd||{};Object.keys(RESULTS).forEach(function(k){delete RESULTS[k]});Object.assign(RESULTS,FILE_RES,x[0].results||{})}).catch(function(){})}
   var d=lsGet("mt_pred_draft");if(d){P.mine=d.p||{};P.name=d.n||"";P.avatar=Labubus.has(d.a)?d.a:""}$("pred-name").value=P.name;
   if(!SHARED){var me=lsGet("mt_pred_self");P.all=me?[me]:[];return Promise.resolve()}
   return listShared().then(function(a){P.all=a}).catch(function(){P.all=[]})}
@@ -1590,7 +1597,7 @@ function showTab(id){document.querySelectorAll(".tab").forEach(function(b){var o
 // ---- boot ----
 document.querySelectorAll(".f[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
 document.querySelectorAll(".nf").forEach(function(b){b.addEventListener("click",function(){NF=b.dataset.nf;document.querySelectorAll(".nf").forEach(function(x){x.classList.toggle("on",x===b);x.setAttribute("aria-pressed",String(x===b))});renderNews()})});
-$("news-q").addEventListener("input",renderNews);loadNews().then(function(){if(S.raceId)selectRace(S.raceId)});
+$("news-q").addEventListener("input",renderNews);loadResults();setInterval(loadResults,300000);loadNews().then(function(){if(S.raceId)selectRace(S.raceId)});
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
 $("pred-save").addEventListener("click",savePred);
 $("ask-login").addEventListener("click",function(){showTab("tab-predict");setTimeout(function(){var a=$("pred-auth");a.scrollIntoView({behavior:"smooth",block:"center"});$("auth-nick").focus()},200)});
