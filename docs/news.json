@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-07T20:14+00:00",
+"updated": "2026-11-07T23:39+00:00",
 "sources": [
 "Google News",
 "NPR",
@@ -7,9 +7,41 @@
 ],
 "items": [
 {
+"t": "Texas's 'Blue Tsunami' has former Texas congressman Beto O'Rourke 'over the moon'",
+"src": "NPR",
+"url": "https://www.npr.org/2026/11/07/nx-s1-6030966/texass-blue-tsunami-has-former-texas-congressman-beto-orourke-over-the-moon",
+"d": "2026-11-07T22:12+00:00",
+"sum": "NPR's Rob Schmitz speaks with former Texas congressman Beto O'Rourke about how past efforts by him and other Democrats helped the party win big in Texas in the midterms.",
+"races": []
+},
+{
+"t": "Tracking the 2026 Early Vote: Midterm Election Results",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
+"d": "2026-11-07T21:30+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "US midterm results in maps and charts",
+"src": "Reuters",
+"url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9mYlFQMWJNR3dHZEQ1QVZ5TEo4QnRWOHYwTE9UMGh2X2x4TV8xTk1VbWNJSWZzdkdjclZFdjBNZmE5UFhhQnU4dGh0eXloOVhCeTBkekRwQUUyTzVZNV96Uml0ZXZDbHB1RHExMkphQUtLRnl3cWNMYmwyYVE?oc=5",
+"d": "2026-11-07T21:00+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Trump says he's asked UFC's Dana White to be his press secretary",
+"src": "PBS News",
+"url": "https://www.pbs.org/newshour/politics/trump-says-hes-asked-ufcs-dana-white-to-be-his-press-secretary",
+"d": "2026-11-07T20:55+00:00",
+"sum": "Trump's social media post about the offer came as his White House is in a period of major transition and struggling with his party's deep losses in Tuesday's midterm elections.",
+"races": []
+},
+{
 "t": "Congress enters lame duck session following midterm elections",
-"src": "FOX Carolina News",
-"url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVTdSZUswNGM2V0FodkZzR2NiQVhSRVVTMVpORDI0allrajBMM2JOa0NHbmx0dnF2aFdOYTRKZXFZb1hnZ1hEczlLNTVyYjUxcXg4a3RjbHp2RzRLSE9NbGdVaUphNEJ2V2FyY3RnOXN2dFRBZm1JY0w5VmpLMF80TmNmbmkzamwyOHpCV0ZSWlE3Snl4bjdON2hOWTBBRVBzOURB0gG3AUFVX3lxTE1Fc2NuTnpCZjNMaVpLajA1SF9qdEh4QkMtMkNCZXRJVndUcVFNQTRjcllIQTNjTXhaazQ0Sm1feEU3MVhVdzF4SXI1QWhCX1FDVGpTN2liV2N0NS1UVWVXTGZSTDRUaWpOcW1sXzdmekpvSldrWUNvNFBRSzJUdWZScDJYRVJWWThFSDA5RHMwRzNETnVPVEhORnY1TWpoXy0xdlRnUkUyeGhhN0tVblpNdnVsYm5JRQ?oc=5",
+"src": "WSAZ",
+"url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNR0tIU1YwVGlwX1g0X3pDalJZS2V4TkZtMEFuNnY1b19RY1FZcDFyd3dhaTRvU0hZem5xQVVGX3JhNnh2UWVKZFVoc0JOTlRSZlFobWNadVJYZTJaeHRUVzFOT0MySm9ENGt5S2pacUNiYTMzWDNzSFFqR1h5ZmRCdG1sMzJiRmFwVnFGbDBzUTlQR0VsZHFwMTRR0gGuAUFVX3lxTE9DQjJYRFp5OE1oSGwtbGtDUGRSY0U3N0NScjJ4WXhVWDlDVkRwd1RNVG5fdXlpR3lTR0VBeWwxQnF5MGs4TVpQSS11eHoyRXpRWERGYmpSa3NaSExNdG5DemNhN2NTbk1oNTNKUW1UVmhxUTZYZE5oMG5keDdNc0RsQWdyWFI1dU83anFfYmVTRFdBcHNPMHc4WThWOUdYMm56MkM0cldoRm9wVEpuQQ?oc=5",
 "d": "2026-11-07T19:23+00:00",
 "sum": "",
 "races": []
@@ -33,14 +65,6 @@
 "races": [
 "sen-ms"
 ]
-},
-{
-"t": "Tracking the 2026 Early Vote: Midterm Election Results",
-"src": "NBC News",
-"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
-"d": "2026-11-07T17:30+00:00",
-"sum": "",
-"races": []
 },
 {
 "t": "Justice Department drops bid to force California to set aside disputed ballots",
@@ -101,14 +125,6 @@
 "races": []
 },
 {
-"t": "Risk of Iran war escalation remains high despite Democratic sweep in U.S. midterm elections",
-"src": "CNBC",
-"url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMWQ5c2RBN2lVLVVlYWRjNS03cFo4RkpVQXgzZUhWN2lyaS0tUHA1SXJ2Vm56MDQ4R0JCNlFubmt2bEhEZG5maGpLV0J6M3JRWm1iUHVWb0dXUnJWN19fU1dLS2tTY2lRNmI3YzNKM1ZPb2RHSE1pb19kWE9mS0RNRlNjZWU?oc=5",
-"d": "2026-11-07T13:03+00:00",
-"sum": "",
-"races": []
-},
-{
 "t": "Missing memory card flips apparent outcome of Georgia House race",
 "src": "The Augusta Chronicle",
 "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSW5MOU1RQi1SNlZVRFU5dVRMWDZRTmpNUEhPeXVTSDFjUjgzTHBSN3FQYXFrcHFtWDc5ckxVamxBcTdrZGVybUJOUFhzTHBhc1J6a0p4aldSWHlyUEF1RFBnRGdHU0gxVkR1RnF4WEwyZDBlbGlGS3RFSTdKbXNtcHg5SU9DTnRLbEd1R09VQ21wNTBONUVvWHpPbUJqaDVOTlZYcFBKS2dEOC0tdnR4ZGZCTk5hWlFkM1J1ZGtTX1BSVEFJMXNjaHZJN3p3ZTlCS1A2cWtEVEE1NXJza2dLcGdVRTlZWFk?oc=5",
@@ -133,18 +149,20 @@
 "races": []
 },
 {
+"t": "Mississippi and Alaska Senate races still too close to call post-midterms",
+"src": "WPTZ",
+"url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOX1VfaGZNN1dYd0pOWktKMFh6eFFPUG9pSDZ5Vm9CalFVb2lPTDVHMHRxUi1LTFBoOThyb0VvdG5TYk9VZXhrbHM0clJCYXROYTctUGNRb25jQkZqVFZtT3JOMEZpdlY5TW96RFBSNWFkSDBqVW9wSnJGTWp3Rk5TeDZKcXhwcXBnQkpPVXNoNi1OZjhFQml3bzREaw?oc=5",
+"d": "2026-11-07T12:25+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
 "t": "Four things we learned this week about 2028 White House race",
 "src": "BBC",
 "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9YRW9ZUUR2VXpOdGo4ZVlHRjhlcnNFOWdWZzVCcFNJUU4yeFdUZ3Q3d21QT1hOWHVFdGFKV3BZVjFRRnF2aHhRaWNTemNQNEJTSk9PN2dHUVFfaWs?oc=5",
 "d": "2026-11-07T12:23+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "‘Wait, what?’: the underdog Democrats who won their midterm races against all odds",
-"src": "The Guardian",
-"url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRTJpcG9fM0hwUGxaVDBPVkR2VmotcWFYNko0X2dYZVVDNkZWNjdEY2M0TFVHQkR3WkRXbnV5R0Z1Z1JpZHJEVV9DUUNBc1FTWU8xUll0U0wzWG9Wd1NsMVJTaHZUMFYyVVFVZTdwVUNWclVNalQ5dlU5N0FIY1VGSU1GdERnakI5WnVpY3huUE9lNVUwcXc?oc=5",
-"d": "2026-11-07T12:00+00:00",
 "sum": "",
 "races": []
 },
@@ -169,14 +187,6 @@
 "src": "CBC",
 "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMnlrYU9UY203QXhRZmY1dmd0ZFlVNzJOZ1Y4UFItRFVXY29BZVZZMV9ySjM4MTNBZk5KbXNlekJiWE80ZHo4SlFULTlUd1dtYzl5WFNNMG5fUC15ZFJaVXItVld3a2toMkhiSXVwZGVJNmNSbF81TGV6bU9fdDc4eWhQNA?oc=5",
 "d": "2026-11-07T09:00+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "Mississippi 2026 live midterm results: Surprisingly tight Senate race separated by dozens of votes",
-"src": "ABC7 Bay Area",
-"url": "https://news.google.com/rss/articles/CBMinwtBVV95cUxOTkh3ZXgtdkFlUXpwUzdvdjB5VmIxejZwcFRMUm9Jdm54Zl9OLWxuQWloZzFOeUM0S3ZydmFHRFZlbl9fRnhmaGZSRWtuR3IxYTlJa0VwbTBBTmdyaUI2bzU4TVBDMjBlblpQRENCb2szbzRRb2JLZ2JTRmRUU2dKbXgzbE9PVG40SkYyUk5UZ0J3UkpMczVmZ1pNYWNETGE0RHNfVF9aaFlPdVhxUFF5dVE3SnBGTE1fNVdqWGo5bV9DX1dLSXRsLUFrTHlaamZRZjVXTms4d0haMHFkM2JmWERHMk9oSW45U1lZS0xEcHBrT1lnNDBma3A1WHpvSlVSY1VaWlphQWNYZmNzem9mMDlaYUNTc2JvMWNob1BFd0NMQnNLNlVtQURKUEN3RWVpYWUyQUowa1JqNUlVdkhUVDlwU0dySlE2cGVVMHJWVlItTV9TR3VkQjAxYlo5UC1TcFV0LTRuWjNNOE5GRF9CalRBbVJ1UGExcVVPSXhNQ2pjVmdPWmx0b0NaSGMwWVVkeUtVMG1HbHo5ZnByVVBBZW55MXlrd2c4dldUckVUTndjZHpQenYyUWFXTjhPV0hfU1ozYkFFS2V1OTBBOXBNaU96b0d6cXJJcS1HUHZFd05mSHFUMzZzeDJBWDV2cGY4NzBERUFsVjJJTjhZWXJKaVJHMU5lVDJWVEltS2tidTJFVE5lU2IwV29mT3BnbjMzUGlqN1FBS1VXTlU3OVYwVXMzS1pBMHhiOXNleXo2Q2tEdTEtT2JhUmNCZXNJajdNTTVpTXJHTFM3bVJnZC1KQnpBZWZreDF6QTYtRzJUdTdLNzVKVk5odVYxVnFzc3Z5NzJFRjdJbXRMY2VGRnc4UjVwYll2alpvV0VtZHF2LWVncmhKNDRDLVR4RXZjVkR0TG5iZDB4ZTVQYmwyWWVVZTc2cEVLLVdjNjFtN2NHUUpackFib0kzTkZlemVqREZoQ3hpaktKcE5NUDFvWXlKQm1zZmJyekVvbFR3R2lpOVUwUG9fbFZyM0hfWU82RVAzNXN5d3dCWVZneXVERzh3ZnprMmxmQkpHdzJnM05LRzJTajRLNXRwNDN6dkE4bXU5QWtOYldEYnlHbUEzRmVPS0pYQnFhdWV0LVdUeUlKVHVFcjQ4UnVQcmM0bkFwdGdfbzJRRW9IS3cyUV9pWVg2ZjBMVlpNdDI5V2VmYWRMY3lvYTZWX1RNYVBIMEtTQ0Nua1ZvX3ZHOTExOHFBaDBUSXZpWU9CbHJsTmc3TnBucFBhdlhJeEpfdF8xS3Y5ak5zX2F1dDN5TTltT0lpNlViUExXaWdtVWJ6VTdmcWtRRjVTX2FTa1pMUm1UVjRjMGNEUW1UZGotc2pLZURydHhYdHdtb1NSOHRPSEplOW83Qy1UVjhpZmdnU3NBTjVnNEZBU1V0dGxDMGx4N1MxQ2JyTThla1VYWVhKOW9DMS1tbkxlWHJMbFd4X2tpejBNc2xuRTBOSnl2RTJpd2ZMNmtaeUYxM2V3SDlydTAzT3NyQ0Vxc2djRlFiZTItSkdkM2pFWmMyNVJ1QWNVVjdGZF9FNWl3WUdOaUJWWHdFRWNuRFRMcDlleTdUZnNkWnVoSXdveTZkUnR5MURrSVh5b3pvUzFzMVhLcUlLZGJNOUtDTEd6ZWN2SVhLMWpYaUZCeGI4M1M5NEFOc1o0TGpWcTJHZk5PQ1AycFoyV1U3UU81WEhTSHlWMUNyTXRVaEpJSXkxbGpvRVRQd3E3ZkJMM2dpTGF2ZnBEdFNlalk5X3J2OUppQU5tV3lRbENSVURiSWNobGZ2b1ZNQUJLM1kxR2ZWNXI5cTF6MWMxbi1aclU3R0VCZjZDYTFKbUh2ekhwZXVnRVBBc3gwNUNWc2wtNVFMQVMtSHM0a3ZGV1JsNEoxUQ?oc=5",
-"d": "2026-11-07T06:12+00:00",
 "sum": "",
 "races": []
 },
@@ -239,6 +249,14 @@
 "races": []
 },
 {
+"t": "2026 US midterms: Abortion rights upheld in several states, except Idaho",
+"src": "Le Monde.fr",
+"url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOcm90NW1pM2M2TnpsamZFUW9OWlRic3FaQ1Nkc09QSHVqSEtuRWIzN0x5SWVhcmJxOXlGeXk2eUJ2SFotU0RuNnlGTUFfa3BxZkp0ZVJZVWtWdExUbVNOdXkzMDNHRDZlQi1QdGNvU1JweVRydGIzU1Utcl9rX29MUmZRS29TTEZlMm9QMjZfWUxFU0tKR1RaZ2V0ODVtREVBNFNjbTFBOGtQeHhCREhtWUh5MlZ5ZmJzU0xEY3NnQXM5TkRMLXVvd0szbDJuVjZKYzM2b01QUm8?oc=5",
+"d": "2026-11-07T01:26+00:00",
+"sum": "",
+"races": []
+},
+{
 "t": "Secretary of state ignored Experian warnings days before midterm",
 "src": "Mississippi Today",
 "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxQanEwSWxZMm1JZFE2MDRlekl4ODZfMGtQaEFEZ0VWMW1wS3VLSURTVkJpbkFzNDBPZVU3dU1PNnUxYkprRmxkNVBOY0dLTEtjN0VDZVZyRVNreHhBSS1wTF9DT2dPVFZqczBCUlNCUXFOcU5McHBLRlRVVlo0WnI3c3g3YmU2NHlTZUFaTkJQWVY0ei0xNEN2OF8zMkRIVDd6ZkVGMjdGNnRkU3V6WDNER0szTE5hQjl5MndVT2kxZkRka0Z1bE5CTVRKSnZUYTczejBNcVBRam5sWUdtbnNIWm1mWWVUT1ZTdUdEcUtrNTZsRkdEajMzS3VPX1ZDUmpqM2M3MmVZTi12cFJuU3oyMzFhb1lXSVFOc05J?oc=5",
@@ -297,24 +315,6 @@
 "races": []
 },
 {
-"t": "US midterm results in maps and charts",
-"src": "Reuters",
-"url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9mYlFQMWJNR3dHZEQ1QVZ5TEo4QnRWOHYwTE9UMGh2X2x4TV8xTk1VbWNJSWZzdkdjclZFdjBNZmE5UFhhQnU4dGh0eXloOVhCeTBkekRwQUUyTzVZNV96Uml0ZXZDbHB1RHExMkphQUtLRnl3cWNMYmwyYVE?oc=5",
-"d": "2026-11-07T00:00+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "Virginia Foxx requests election observers as North Carolina House race stays too close to call",
-"src": "WXII",
-"url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPdjlTbzBGTnlJUTNkUGZWdlRNSG9PbjBsUnNRV2d5MnhEUWZYakpVbTJpN1RpVmdlU3d4ZmhwY3pDRHh1V1NTS2hMUi1FRlkzNFFOZmVQRmpuM3VwRmdsVHpmZi02aGg1Q3NWaVpDMmh5dFNZSm02OHZNQWdFZTVmOHVTZ1liTE5QWl9lcWNvWHFLZXdleHVjVUNEYXdEM1AzOXlB?oc=5",
-"d": "2026-11-06T23:57+00:00",
-"sum": "",
-"races": [
-"nc-05"
-]
-},
-{
 "t": "What Trump picking Stephen Miller for chief of staff signals about his agenda",
 "src": "PBS News",
 "url": "https://www.pbs.org/newshour/show/what-trump-picking-stephen-miller-for-chief-of-staff-signals-about-his-agenda",
@@ -359,28 +359,18 @@
 "races": []
 },
 {
-"t": "Brooks and Capehart on Trump’s White House shakeup and fallout from the midterms",
-"src": "PBS",
-"url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbjdHWHJVcDViNnl6T0FZeVdETDNZbk1KSmRXVkNzSVFYME5QQ1BHS2JITUZXbDZyWW1TMWs1QWpGOEFJZGlEalp1ZFZnUnVwQ0dyV09XYTBFYnR5Z1JKTjlJUThpSEJrdTFoM2dtVFNxNkFFNDc0ZUZiYXBsTmU1YVRtOGxNWjRCdWtWQ294ekFqY2xFMEFVTkVfZzYyTmlKa1Vzai1YVzcycVQwb2RBY0VtSQ?oc=5",
+"t": "Brooks and Capehart on Trump's White House shakeup and fallout from the midterms",
+"src": "PBS News",
+"url": "https://www.pbs.org/newshour/show/brooks-and-capehart-on-trumps-white-house-shakeup-and-fallout-from-the-midterms",
 "d": "2026-11-06T23:25+00:00",
-"sum": "",
+"sum": "David Brooks of The Atlantic and Jonathan Capehart of MS NOW join Geoff Bennett to discuss the week in politics, including Trump shaking up his White House leadership, deep divisions in the Republican Party and how...",
 "races": []
 },
 {
 "t": "Votes continue to be counted in Mississippi’s Senate race",
-"src": "WEAU",
-"url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOX21wclYxWV9fTFhwTkVFbnBITFdNdzNrSnFBMjk3d1FXUnd4N2R3YkR2amQtX1BVWG5LSklJR05qUUVzWjFlT2pDUG5yNlNPcjJKT0Y3X1AtdElvUnhraW5Iazdua2d1Q3BWMGhRa2x4OWlWeWhqNGRBYkVwbzZFeUlIRU9oT05GbE9n0gGfAUFVX3lxTE1ycFR0a0hPREh2eURMbXMzeHNoaU5TT0toaE1qTFVqbHBnMWpnQW4tcVdoZWVjcUVMaEVqQjQ1dXJPejB2dzRrd3FVVHZaUlZmU2tqVEZxSllLV2xVYmZ0SmRUNkF0QWxnUjBudHZEZ056Y2NVQThaRXM3TEp0aHlrbDcxTmkwVjdzS1FjN0ZZX09Xa1VnRmwwSGdlVHhNUQ?oc=5",
+"src": "WCTV",
+"url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOMHd4c3ZYcmFYTnE4Skctdnk5aGkzM0FHM2plQkdNZlpweVZOUXpGYl9ITkV5T3BkUUlXOU5Td3V3UkpvUjRXNjJMZmNNcFVHTFYxNnliV21qVzkycFhUZHljbVAtUDl5enFUWnFaYU03bXhzdFJURFR3Q3lMQU9TNHR0REtXbHp4TUHSAZ4BQVVfeXFMT3pISjZkN3dkWU5aUmVkS0xQaEZpUkN6WnFHZkN4ZE9hVV9WZjFKR0lwRjlWSmVmWGI0bHlPbmFfMzhDT09MQUZoNW54ZTN2ZmZ0bTVhUWhTU0oxSjE0N2JNZERDYVJkUDd2S3VzVEFkc3RKT2t2SXdScEhnTmpCanc0ekEzYTRFQXdPQV8zVndsQm1NeW5BNnRDZWVlM3c?oc=5",
 "d": "2026-11-06T23:20+00:00",
-"sum": "",
-"races": [
-"sen-ms"
-]
-},
-{
-"t": "Mississippi Senate race still a toss-up as Democrat holds narrow lead",
-"src": "CBS News",
-"url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNQWlaQkhSejdocVBYOEhhWUNqamg2cW1MZVVzaEVpRjNHNWNlS1R2T2xzLWlrdUw1amQzMjRCcmhKYjd6cDB2a20yanBZS042Nmx4OU03alFwZWt3bWtrMFdhcl8zSUcwS3VicmJLMENQckI2WC1vZjloQkhPRlNDWg?oc=5",
-"d": "2026-11-06T23:13+00:00",
 "sum": "",
 "races": [
 "sen-ms"
@@ -403,6 +393,16 @@
 "d": "2026-11-06T23:01+00:00",
 "sum": "",
 "races": []
+},
+{
+"t": "Looking into how Jackson was able to unseat Collins in Maine's Senate race",
+"src": "WMTW",
+"url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPblFnNmVINkc2a1p1VEpKaHp6cnJfOEJJTVZjUUVJbmdJeGF0S0tIU0dFX0ZkZ0NqR1FwMXpMZ3FSNFd2VmR5X1ZBWElHSV9VWkRaOFFsM1BnbzRKZTJKTkh2WGV6cV95WV9OdlA4RDZRZExtMUdmeFlmS3dGNHVXY2JaQ1JURVN0NldmM3VjZFRmZjhHbWVVUS1BTDd5OC01clFTaHdn?oc=5",
+"d": "2026-11-06T22:53+00:00",
+"sum": "",
+"races": [
+"sen-me"
+]
 },
 {
 "t": "Visualizing Montana’s midterm election",
@@ -448,17 +448,9 @@
 },
 {
 "t": "Why it’s still too early to call the US Senate race in Mississippi",
-"src": "The Seattle Times",
-"url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMnlWa2xWZmEyaDNQRkg5SkxWTXJCSkJKUVdHOWE5OHEwRlVKZ1FpU280aGFNQnRaVmp3NzhlRjVqd3BERVFldzU2MkNzcDlPbm5SNlpURWRJNmlMMHhITUJvd3RIUVJ3RVE5SWJIMWc5a0QtVFJnX0UwUElMcnpKMi1jY1oyaW81bUR6U0xwUFpfSy0xQ2ltUTlkX1llRUx3N3dGRnRNeGpnZDBIU2gyOTMyZW5TUQ?oc=5",
-"d": "2026-11-06T22:07+00:00",
-"sum": "",
-"races": []
-},
-{
-"t": "Exit polling shows Catholics almost evenly split between Democrats, Republicans in 2026 midterms",
-"src": "EWTN News",
-"url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPS2Zlc184TVhSb1pMajF4SlJpSjJ4NjdlcnR3U19WemNGNVFJMmQ2MDJIWjAtT3lnSGNsOHZxVGYtaXZBbUo5a090OGc4cmxXbUtaZFlhSDNpczNMUDB4RWRIb012YXdPRjk0MFNuQU5sejFOMm8xTFp2bTQ2ZTNPTjN5bUpEOEphVHZnWWdqN3ZDa2RtSDcyQ1NXY1RNcG1zV2g2VElZTkYwY3Z3NDlxSkVXQmhmYmswaXcyYXRFNA?oc=5",
-"d": "2026-11-06T21:35+00:00",
+"src": "AP News",
+"url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOT3o5UDVSZWVrQmI3Wk9zZS14MlJ2QnFYWkNHem1HdHlvVG5YX3JybWd3MVZRd19uclM2ZENiZ09yd3ZoNlZDcmFQam5rVm1xSGhkM1pwNUdYVExwOE1tNVI5ZTFDcGhJVmY1eG8xdW9nN19UZHRaUk9OaHF5WVdwOWozR2dsem9wa0dqSHhDVE5vckNWRUdXMEE3eUZYSG92Z2hZVC1CTmo5Q0hpUWEtblFCanY?oc=5",
+"d": "2026-11-06T22:14+00:00",
 "sum": "",
 "races": []
 },
@@ -473,18 +465,18 @@
 ]
 },
 {
-"t": "WATCH: 'Elections matter.' Houston mayor limits police cooperation with ICE",
-"src": "PBS News",
-"url": "https://www.pbs.org/newshour/politics/watch-elections-matter-houston-mayor-limits-police-cooperation-with-ice",
-"d": "2026-11-06T20:51+00:00",
-"sum": "The shift in the nation's fourth-largest city is one of the first actions to restrict U.S. Immigration and Customs Enforcement operations since Democrats' rout in Tuesday's midterm elections.",
-"races": []
-},
-{
 "t": "Surprising Turnout Rates in 2026 Midterms",
 "src": "Brennan Center for Justice",
 "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPT2tMNDNZaGJIZkU0QVQ2Q0N2djNjSVpWUGRRSDdKWHYyak1WbFJGMG1pSjRfaG9oNWZjUTRkbHlYYzF6ZHFuZ2VNeUljeURZZkY4NERLOUp0dGhncWpuenVnb19SZUdyNm5FSkEwOGxVYzg1T2V6cXBDTFJqVlRaTk9TQUhlYjJGbGVhMHdIZnlOb3Y3Qnc0elhB?oc=5",
 "d": "2026-11-06T20:44+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Mississippi 2026 live midterm results: Surprisingly tight Senate race separated by dozens of votes",
+"src": "ABC7 Bay Area",
+"url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWZIakxDYkNETUZwa3IzMHFQaXViSUpOVHdrbWhrZDZFaWgydmc1dUpQWWoyTkY5eGowV1VtMlJhM0FUa2xJcU93OEZ2a0NtNjJWOGF4ZHUwRXRHN1BhYk4zVldEeVR3bUxhWlZZSDZSQzVLcGxvejJCWXlSRkF1QWFCb1hLVHBGSmg1eElDQlNkVjJ0a2FMekwtSWJPRzdncFZ0MERQdHRDQkdFYXJHa2h5MG5BcWVlQTAyd0hpOFkySGU2eG1j?oc=5",
+"d": "2026-11-06T20:40+00:00",
 "sum": "",
 "races": []
 },
@@ -505,12 +497,22 @@
 "races": []
 },
 {
-"t": "Trump names Stephen Miller his next chief of staff after major Republican midterm losses",
-"src": "PBS News",
-"url": "https://www.pbs.org/newshour/politics/trump-names-stephen-miller-his-next-chief-of-staff-after-major-republican-midterm-losses",
-"d": "2026-11-06T19:17+00:00",
-"sum": "President Trump's White House chief of staff, Susie Wiles, is stepping down. She is Trump's longest-serving chief of staff and the first woman ever to hold the position.",
+"t": "AI data centers took a beating in the midterm elections. A reckoning may be ahead for tech giants",
+"src": "AP News",
+"url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNX3NGMHFJQlQwNk4yNzFPblZsOHRFS0FBcmc0b3JxbGRoSnUzUC00WGctejhmNllYa094VGFmMHJrSWYyaUhBRlFERkdKbktXSmRkcWhhc21JVUp5Z29kbFVtTE11YjZnc3ZkZU5jM3BvbmRqUVVyUDBveF9OTmJXd1poLVI1LVhlRUVfUjhzczh2b2t3cnZuTUc4UDExWXFmVWlQZ2R4MHVQaGllbnljdlR2UQ?oc=5",
+"d": "2026-11-06T19:16+00:00",
+"sum": "",
 "races": []
+},
+{
+"t": "Mail-in ballots set to arrive as Kansas governor’s race remains uncalled",
+"src": "KCTV",
+"url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUTR3OUJHbHo5RDh6anFRT0FfVld5YWZyRV9hejBzZUJvRTNhV0x4SW83ZWtVMG04Yk4tUFM0SUdwM1hTVXZRQWpuUS1zOGd5cDlpUzJoWUtFUk5kNkhmdk1sdTFKeHlyVFlkTGRIYmk1NkFkUW53aWp0TzhZY0FSNzJNZ0lzQlQzRGlFdVVvQ1ViRDNmYm9CM1h5QU5XMUFH0gG0AUFVX3lxTE8tSjRRaHFxbmI2NVFQLWRoNjZFSnR3V05GR29jRmtwMXhIZVBwLTdGal9zeTFBMmtVSzVTUXJBRXcwMG84R0FObVBKSFlGNlFNUVpsS2lROG9iNTh5NWE2anlTa09oaWU1RmlXRTFWd2RUN2xvN3JMejVpODdrR0V0WFpucXlCcmNJajMzdDdGMWp0TEZMVzlfclRJekFidjNjZmxFMzdRNmZJdlBVRkNidmRzSA?oc=5",
+"d": "2026-11-06T19:16+00:00",
+"sum": "",
+"races": [
+"gov-ks"
+]
 }
 ]
 }
