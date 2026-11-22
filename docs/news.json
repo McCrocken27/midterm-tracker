@@ -1,10 +1,169 @@
 {
-"updated": "2026-11-21T21:40+00:00",
+"updated": "2026-11-22T06:50+00:00",
 "sources": [
+"Google News",
 "NPR",
 "PBS News"
 ],
 "items": [
+{
+"t": "10 Historic Firsts From The 2026 Midterm Elections",
+"src": "Her Campus",
+"url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPck5KVWppN3NsMzd6a29RRWE4RXctVzJDbi04X2FXWno2MkhGa0lqcmJ4Y0M0SEFMSDBPblR6T2dWR2lqeWpHX19sd0Jla1BhX3NaZVF2NjU1bG55R29HLXJjaTNQdW1hNmF3MFFUd1IzX1JmZnlOcFlkdDg1aThmYmUteURZVjU0dFpLMlpMcEFLRW8?oc=5",
+"d": "2026-11-22T04:33+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Tracking the 2026 Early Vote: Midterm Election Results",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNDhGdFFLbHU0dnFMZGZ5T2Z4LVNzYk5Mb0lHNXZhQW56U09sX1RmWmRLZmlvRnQtOHNHUlZlS3NZckF2WHF0LXVZOHROTTBCMnQzbkM2X1JCYkY5RGpwamRubEc4M3lPaFE?oc=5",
+"d": "2026-11-22T04:19+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Midterms 2026: Here's Exactly What I'm Doing With My Investment Portfolio Right Now",
+"src": "Yahoo Finance",
+"url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNa3FMU0hvV2l0Y0FTeUlGQmY4QnVpVDEtZ0pZby1KOVZoV3hCbG1qamZhMlp4QzlrZ1NDc1RCTVVWZG9PUGdrOEF6d0NxQ1l3TnZSeDJ3ZVF4SGZnT2RqWXdzdW1NbHVraXNKekcxVnJmTVZBbEpnSXlOenBuSWktdEdHRzdqQ2RLaDVkTW9kS3d4T19FWEs4c0Q2UQ?oc=5",
+"d": "2026-11-22T03:50+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "2026 Midterm election brings diversity to U.S. Senate",
+"src": "The Eastern Echo",
+"url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQMlJOSXk2SF9XeVZJT0FYR0pwZUZlSndHb0hkMUNsdEZaOEtlZW5KY2NOb1JBUWVZTWd2a2lYUTM0c2x6ODd5bmFWR21hYk9vVk1yOHJmQXVIVWpEVzBVeEM0T1lvOUFSbGR4VWR4UHI0Y2NqQVpmNEI2NEJNSkZMSHpFaERBSlF6NjFxUWFVTWMzclVTc0l5LW9tWQ?oc=5",
+"d": "2026-11-22T01:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Eugene Daniels on the Historic 2026 Midterm Elections",
+"src": "Yahoo News UK",
+"url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNmhtanMyQks0TDh4c0NBVTk3NTVqSERzaE93a3Jya3BLeWdyczA3QUprZjJPZ0MzLXotcjdta1BjNU5PQmdVNWg2dk9laW5VczBmYl9DSzJjbnV0NXppdE5kdEZ4eGUzSFNkNDRoYUNiUFVGR2Rmb21Ob05JMkFHaU1Pcw?oc=5",
+"d": "2026-11-22T00:00+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "The US midterm elections showed that antisemitism is an asset, not a liability",
+"src": "The Jerusalem Post",
+"url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE12VGF4cURsaU1KVEhXVjMzWEF2ZFdrUVZTQWo0YU9VRGh1c25jZ2NQVTNHYlJYbHA2QXRnVC10aENjck1Mc1JNRHQ0S2VQVlZCd3BSbGlHTQ?oc=5",
+"d": "2026-11-21T22:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Near record-breaking number of people voted in 2026 midterm elections in Massachusetts",
+"src": "CBS News",
+"url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOGp0YlhIU2k1LXd2Y1FtWjdhTWQ2Z1QwLWVrYTVqek45NTV4N1NiOGEtNjZXNVpuclRoeWw3a3ZVSm8zeDV1Rm16QTZKdzBndzRMektERDFQd09pRlhmRC04MGpjR09md1hUakhWOEFIV3VRQTdjSkpjMGtDMjZTYnNsQTZ4dw?oc=5",
+"d": "2026-11-21T19:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Over half the Georgia counties that flipped in the midterms were rural",
+"src": "The Current",
+"url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQnZQTTg2cWFUbHFwdzJpYkx1X3hfWEVKRjJPQjU0X3ZjUlQ5Y2gyZVhUcm1wY1FxMkpNSUVUcjJLNmVjM2k3VEFDZGxueW5LVEZjWEprUUptNE9nYnhBQTdNbm5Cdkg4NnQxSUxaR0hONWJvR1lqdjRyTXZOVlc5TXFfdzlsM2dvX3g4OVU3Mk8tMHV2VHIxVm81Q1FueDB6Sk43SFZ1c0NVdzQ?oc=5",
+"d": "2026-11-21T19:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Foxx vs. Hubbard recount nearly finalized for North Carolina's 5th Congressional District race",
+"src": "WXII",
+"url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdzQwbEZlNkdvQXp6NUpnVDdLMGdxVHB4VWEwckNDXzU3QUd5ZWx6YlN1VGlSXzZzUlpOM1BKWUQwcXN5ZG8xdlZZNWlmcVU2Q3NudlAyZWdYenhITl9fOC1vQVI2eENhVnc1eUhTazl0UU5GZ2ZmWDhjZzZUUFFkZkhXZ0wyb0pyanZXOHBR?oc=5",
+"d": "2026-11-21T18:11+00:00",
+"sum": "",
+"races": [
+"nc-05"
+]
+},
+{
+"t": "Will the 2026 Midterms Spark a New Golden Age of African American and Jewish American Alliances?",
+"src": "The Good Men Project",
+"url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQYUlmN1RGdjNWenhQYlZMdkZmYWdQbVFpTEpGSFp1UGU0NlVCbml3a2tMYnR3c0huMmRsM2VvYm9YeW5kd2xnRmpBSGxFU1RzYlM4TkhDZE51WlZwaHo3NWNHTG5yTUNkUklaMVlfZ3VYN3kxekRFTC0xQzl1azBscDRwblZvQmQ1eU1CXzNaM3NwdXZJcW5ZeWNpOXRUTUp2RUdpbFlWMnFORDdZNEpBUUNHUzhvd2VNNU1XWnVpX2VTSmdjSmpVUjEwT2VEcndjQndJVzBJOA?oc=5",
+"d": "2026-11-21T17:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "US midterms 2026: What happens before the new Congress takes office?",
+"src": "Al Jazeera",
+"url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVGFnWEp4Qm9KZWpqMWJOY1A5eGZUQWNKLTlBUjZkY2FZU1FxaV9Uel9WRDRhTlRzbUpOT19sWGo0WWVBWGhkWDBmYTlBMDBrMGlQbFZyMVg0dFBVNDQwcGFhVEdOT2NfVzFsdWZ1R2Zib1RTWDBqbVJWaEpIWjZtMFk1U2NGQVoxMnhZb1lveGZhMlRfMV8tUzBFX2FvZ2ZkVjBWV3J0XzFCaHRQ0gGyAUFVX3lxTE1uWjdEYmgxeWFfMkFFM0N3dVl1RnNkeGJYR2E1N3ROTXdXQ3NvM2dxLVI3WEw5RVpSeHR5dU5GeFFZTmxoM2wzcDBiQ0tDZ28wWno4U01tYnF6NDN3SDhSNVIzR3hwd2JqZUlQX000bUNKZjA3LXI5bXpQdUdwR1AwQzVGZXdMOWt1ZUFJakE2RzJ2WDRzZHNsUXZzelNhN3MzZVB4b0I3LWdlZHpCUlp6cEE?oc=5",
+"d": "2026-11-21T15:56+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Vance, El-Sayed move toward meeting after contentious midterm election",
+"src": "Scripps News",
+"url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOSkxwbHBQWmhkMjBxNGNxb281dlRmbVdWYzlodFVfazh0SWFIcjFnc1NtSVI1UlFTQlhWNlh3UEY0UUltSEZYWlBJNlhMMjN3eWVuVDJvUUxfZWNTY0tEVXdKZVR2VFdHUHNfYXB1bUZybmlKR3ZTdGg5dDJoalJ0T3YwWnFVcFg1Snd2eEstVW9CMlRQbkx6aTRUOEZacTRtT0tmdXBmMmRwWGdFZDBVeW5lMm5RMEpTYmJRdA?oc=5",
+"d": "2026-11-21T15:34+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "2026 Midterm Election: Guide To The 120th Congress",
+"src": "Legal 500",
+"url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNEltMEo1QnJ4dlc2NUhxb3BjV3NQbHpLRlcwcXB4SnBuaVJTc0hLTWtvSmlSVzFvVlFZVGxXZXZyb1o1ZWxESV9YQVlGOFlybTJNdjloUHoyM2pobWZrWXJQRFdOUENnYzdrU0Job2ZXVGRNcDB1VzFodVdMNzZidkhwaTNiSTRTNUNIMEpsYzJLVWZvZnVqVXhWUjRHbV9nRkVSNWtaU0FPSklnOFh1WmlBQm0yVDhOYk9EeXFXeU44TDdr?oc=5",
+"d": "2026-11-21T15:23+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Democrats won big in the midterms. So now what?",
+"src": "Reuters",
+"url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNQnE0d0FZemxNMWZJX21aTjIxTVZwc3ZQaHlac3pnUFBKS010UEc2bXluckswdTJwa2hlY3N1Qzc4aGVGejB1NVJMOFFKQnVYYWppY2NiLUpkdG9reWJEdU50V2t5eWxKVmpjMzI4SWFxbi1rSDhPRG9UUmNqM3JGczBlTlZnSW1ORnZDYXI1dTdVOXg0c3c?oc=5",
+"d": "2026-11-21T14:23+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Voter fraud cases surged before the midterms. What happened after Election Day?",
+"src": "Cleveland.com",
+"url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPMjRCUHlZZTJScTgzeG9FS3g5SnYyT25HQnE4aTFXTl9jT25VUnE3TktBR0ZKaHJoSWx5b0p3M0U1SEl0YjJYNEhfSmNWQXBpZEpTX1E2eWJSTkJvdXduSUhmTFFsTVdUSzZsX2JVOEh2aWFWdkVtYkx5d3BFRHVNRkJkcU1IdjlCSDZuZDh2MTRDeXlWQVZRRndMbl9ELTlwQUtDeFVjeUN6cE45UUVRZW81Z0x6OFRMeExyQTV30gHSAUFVX3lxTE55ZzFMYllZbmhHQ09nd0NyemZ2U2hKTG1FNUl3S0dWanROZFZMQkRRdEF4ejlESFpEM1c4UWtUX3FFSko5SE4yRU0zZ0xDMmFhZURFeU02bzltOE1kWmhrTF8wZW9sUGlvYWVxV3doQzdsZzRBRlpDZ0NYSnFKZk45amdaQjJVLXVvbDRKWTFjZzdRbXhDRE5aa19Wc1JOcjVMQmF3anJjRklBWkpOU1l1cHJjTWhOa1BkZVNFZ1N2R2FhR21uR0RYdmdhdG9GeWdqQQ?oc=5",
+"d": "2026-11-21T13:38+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "This is how badly Trump’s Republican endorsements did in the midterms",
+"src": "The Guardian",
+"url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQzNKNlNFS0NjT2lENkRrWS1sUkltd0ZmZmoxQ3g4dV9vdXREb0VUVmlfOWUyNHVEQVZyZVhpTmg5Qlg0Y3FQczlyVkRYcDhXYVpQd18yU3owc2FDcDY4VFJQVGhGYVlDWEFXOWMzSnpzN1JSeDdsQVhBdk1yWmJ6SkdyUFRNZUtMbWtaOGE1Yw?oc=5",
+"d": "2026-11-21T12:00+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Judge declines long-term ban on Trump’s taxpayer-funded ads that aired during the midterm elections",
+"src": "The Press Democrat",
+"url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNTk5QMjhwS2Vla05kTWI5WkFhVDVCcDBmOFR3dHM4QnlrWFlxbEtoSFRVY0FzUGtuME1DZ3pzYzFhRDBYS0xhOVNDSUh2MHNTTHJxOGEyODlaemRGVXBxY0hxM0RxaDF2bW5LYm90YW5yTS12SE9VNzlZRjVwNXFJWldRVUtITURx?oc=5",
+"d": "2026-11-21T11:27+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Did Democrats fail Florida? Angie Nixon on ‘missed opportunity’ in midterms",
+"src": "The Guardian",
+"url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPejJTZlFRenJFeFpvcU1kRmZsWDB2MVkyTmM3Q1pCRzVENWZENkF1NDFhczNiSzZYd2lWbXFCMGVUcDFRQmhsRTdxTGFuUUs4UFZYcEVlRkZIZ2FHcTMtMGhpLXJxTjVMbE9jUTNkZ3lucjhZRXBRVlpBM2EyN3RTZmpmeUt0N1JDMWVYVTJwMVQ?oc=5",
+"d": "2026-11-21T11:02+00:00",
+"sum": "",
+"races": [
+"sen-fl"
+]
+},
+{
+"t": "DOJ Alaska Senate race investigation shifts focus toward Peltola campaign and Democratic operatives",
+"src": "CNN",
+"url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOODRJb29idzRBelc1UHNvWDlFWU8xbk5fRVFiR0dpOGRmWU5ON2YzQ25GVV9RR1B3WUh2U3h4R2hWSlVpMWRkOFBzdE5yd0dYYmZYelJ1NGxIN0llR0VQWlZOcWR6VWZGN19QZVRqMnhEbWtnSTZBcXhDTE1oNnZXNGU4VQ?oc=5",
+"d": "2026-11-21T03:52+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
 {
 "t": "Josh Shapiro on foreign policy, Democratic wins and his 2028 ambitions",
 "src": "PBS News",
@@ -16,22 +175,232 @@
 ]
 },
 {
+"t": "Women Voters Critical to Democrats’ Success in the 2026 Election",
+"src": "CAWP",
+"url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNR3V1cFQwV3NyVEl3MjRUTWNrdnc3U1ZNMWo1RjZNbmh2WlZ3WWY4NWdaUHFNUnFnSTdKUnFTVWJvb0E1eDNNSmRKNTJYd0xUSXBEZnVUUGNmczFJcHBmcW5tWllXallCN2xoSkU4dkFfZGdNSk9KMEFodXI0MjBLU0RpQldIcW9RTWRF?oc=5",
+"d": "2026-11-20T23:27+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Final 2026 midterm election results: Democrats clinch 56-seat Senate majority with Peltola's Alaska win. What they can — and can't — do next.",
+"src": "Yahoo",
+"url": "https://news.google.com/rss/articles/CBMingJBVV95cUxQSU9fSnFEZlI2QjgwV3J3UDB6YVcyVkNMMkU0T1NkVEkwWlRYVzJLa0V0T1dkd3F6SmtZZlp0b1NraVZNS19hLWRHcWxjTGRhUkY2and2SG42TXdRckdhVjV5Q1NDLXBwcnhEei11b2dTX3dkRE5rcVdVVTRpcWZoQ2lyOGZJdzRfWU0wUVJrM25VZWpveHVEYXJvRHRiRC1BVzJ0TEVCcjRZZGs4VWpHTWRJaTJuclIyREVBSUhHRWNIbXAydHVKQnE0dnktUEZQYjhLLU40SHEyVXVfaWlQNG1WOFdqcTMxdXRBWUpZcmZGa01MZzl3dFl3SS1oMUJ2SkZrcUstZ0ItVmgtRmF2bHNGVW1mbWNJYVVRakJR?oc=5",
+"d": "2026-11-20T22:11+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "The contradiction of the 2026 midterm election: why we must keep fighting for trans rights",
+"src": "Washington Blade",
+"url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOVDZJdEtRZlBIX1dycldCS2hiS0JBNHdPZnk1T3l3SDA0Y2YyTmt3b2ZtdTA5MmZDdnJRTC1ReHMyS2NGaTNZTmh1RW5qclNnMHRZMF8zWUlmTHlMZzlTMzdteEV4ODd2WkRDRHNpTm9vSXBWbDAtWURWazUyUG9pT0ktN0E1RUozSlNzRHV0WXVxc2Z4MU1VQ2UySDhrdy1FdXJ2YXhmOHNuU3AwRi0tZkE3UTRKNTRLV1RYcDNkejRSOUhybGFHR2pRMG85Zw?oc=5",
+"d": "2026-11-20T20:05+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "UC San Diego survey finds election confidence surges after 2026 midterms",
+"src": "FOX 5 San Diego & KUSI News",
+"url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1rZHJTT28tZVFTWU5kaWpFLUFQRU5PcU1MSmxUWE1wWG9BTDJYcVgweDV4QWM0T2tKQkItNHZkRzBhalpySmlJMTg5WXJ6MlZjWFI3emhWeGVjMDViWWhpUVd4dVE2SnppYWt1ZnZ1V21kdHB3RGVEUDlDZ281NVnSAYQBQVVfeXFMTlQ0ZWg0bUpIRmtHVWVJdFY5Mkt6NHJvX0xiY3NYYWFOOE03Y1dLOWQzaTZqZVdEbmhLcmR3dE5XM0h2bTZEZl96ZmFmV0EzN2VhT0YxMVc1TW0tZ0REbU9OTXhxZERadWZKYUdFY3Jidmd4STU3a3M4LXN2elJOM19XUDlz?oc=5",
+"d": "2026-11-20T20:01+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "DOJ drops appeal in bid to delay certification of Alaska Senate win",
+"src": "Maryland Daily Record",
+"url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQdXM5YXVjWXFtQ0x2cUJvZkd0VlViOUhScWZzLVpEV1NzTFVNSVQ4NDMzWXY4eUVvZ2FpdmJhVDhrUDE2TFJpR0pIQmN1S2ZJZHZXUWUxbHE0eFFjSjdNUmFZSllsVG5rZndYLURtZG9IWVlVVll6c1NEc2wyeVM0eHFtaGhNLU9fdWYzcUYzRnNGT2Q5UlBVVGdhaDY1cXM?oc=5",
+"d": "2026-11-20T19:23+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Commentary: What the numbers tell us about Oregon’s 2026 election",
+"src": "Bend Bulletin",
+"url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOV1ZxZm5KRlBGU1U4bnpLdnpxWmxkakRpbjdMamd5UFhTYzZLanppdlZYcGFiVlFPRExMMVRrMW40NVFWUWhrNEdYenJHbFRaTzBleTBDdWpnVHd1bDZ4RDZlRkVRQWZSal9lWk9qT3QtcHlWdzZ4SGZiN01WeUZaM1FYSVhZZ2xyTXdTSmVtUHF4WVY3ZGhRZk9pelRfekN4eXc?oc=5",
+"d": "2026-11-20T17:45+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Trust in Elections Surges for Majority of Americans After 2026 Midterms",
+"src": "UC San Diego Today",
+"url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQNkZrM2FfdGtIeXRSYUFzbTQ3ZzYwUFZpSGc1NjZ4MkR5VXBvcHZPV2tWdWt6SG16OExmUlFWbjFXZWxvMG80RzMtQXZxMUQ5Sk1JYVlsRGhocTBtQmpVU1VGZmxrN2U4WnNGOWpsdFZQNXVKMXlWWF9STng5QnlmRDUtSzdoeDZKUTRZWUtoakJBa3dfQmc3Xy1ubDJrbTNQN0E?oc=5",
+"d": "2026-11-20T17:01+00:00",
+"sum": "",
+"races": []
+},
+{
 "t": "Trump initially accepted the midterm results, but most GOP voters doubt they were fair",
 "src": "NPR",
-"url": "https://www.npr.org/2026/11/20/nx-s1-6047605/midterm-election-distrust-republicans",
+"url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRkdWRFdrbjlFOGQyY2lxU1FjNExxYUVENlQzYVBRcXZhSXpxTTc1WDA3eVZXUE5aMWQzYWFlVV9aekNVa0Z4YXExcjhVNDUwQUFzVk4wNmhkNVhnckdxRjdaclpLUDlObVpmbzFTUTFaVVZpeFUzMl9pQXFRU3J3eGg0VktUMGdrNXc?oc=5",
 "d": "2026-11-20T17:00+00:00",
-"sum": "Less than half of Republicans nationwide considered the midterm elections \"free and fair,\" according to new polling.",
+"sum": "",
+"races": []
+},
+{
+"t": "The 2026 Midterms Have Changed the Battle for American Energy",
+"src": "Crude Oil Prices Today | OilPrice.com",
+"url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbU1YaUoxQ08xWEVOVnZ5WE4tLU9KSzRGOVFnUU9kUWJmM0RBcFdwZHdyQno2bGhIUlVKU0lrWlNfS21Bc1VxY3ZUVmtKejZoVHU3UC1YS3huWURlRS1OemRIWDNtd1RLdHVCNzRjb3JZVXhaWUo2eUZBZUg0V0U5UkkxdGtsb0hLbE1QQm5YNXg1eVAxX1ppemtaNnE0UFc1WU9yYkZnNE9rLVZLLXfSAbMBQVVfeXFMUDlvTWY4RU9OdHB2WnY5LW9VVnhveEdtUjEybUpQUVkxeHNmOU44T2dFWVdGc0pIbDRJWloxX3R3RF9Mekx3Y19Bc1I2SjVWZ1RZeHVVc24xVU1hLUIwQmdWT1Y1d2NOdC1zdl84TDUyM3FyM012a1prdTlscF9qOGU1dW5rbXRHTlBsdVBhQWFaUnNBZ2tJcmc3QzRpandNLXdUSXFkQ1I2bnZ2QWxiR3J4azQ?oc=5",
+"d": "2026-11-20T17:00+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "From Beto to ‘Blexas’: how Democrats flipped Texas during the midterm elections",
+"src": "The Guardian",
+"url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9VVFlhRUNSWEtaeGtsZkNhekZYbElxNXhCc3ZUS3VfNF9IVi1KLS1NdUp2V1BkUHlWV0UtRFVnNDhGelhEd08xdnBhRWlYZVRDSDdFcEpQMEVSQnh3Y3hfR0FRSGN4VGRiQ0k5bnhFT2ZHcWd3bjZ5cEJVaEY?oc=5",
+"d": "2026-11-20T16:49+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "How the 2026 Midterms Played Out on Kalshi and Polymarket",
+"src": "Pew Research Center",
+"url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQcnA0Z3loUWtHNHJUR1o1a3N0MGk3ZG5QZ25BSDd3bEgyaGc0ZllZMlp1SDRBRjVxNkU0LVRJQUtLY3NrUXpLaHlvaWc2YlozNVI4R09KRGlfWjg4QWlMc0Y2b1NidE05bVdGT01vVHlIVG1xN0I5ZzBadDdXM1ZkUl85TXBRd1R6eV9uUmhyNGx3dmliWl9rQ2hBQjIyUlJfd05ObmdpMFJOeUVUeFE?oc=5",
+"d": "2026-11-20T16:10+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "In The Know: ICE found problems with use-of-force reviews before pepper spray incidents at OK detention center | Did 55% of registered voters in Oklahoma sit out of the 2026 midterm election? | OK Pol",
+"src": "Oklahoma Policy Institute",
+"url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxOM2Z0YXo0RDZmZjVpSHN2dXRZeko4ekEyU1VUZ0piMDRHd3ZZWGtSTTY0bEc1d2ZicDBueUk4Y3NEZnF3c3BkY0F1S3RRaHhZVUM2YjlWVHZ2anJHRTR0Sm9SRVF3TnhfWmM0TFdwOFNSS201c2wwS1Q3alpTZDZ1ZlJtWDl6NTk0SDVmdjYyOVZpMldBYl94RlNFNkJoem5HWkpZakt3RnhLNTdaejZLQklUYlBpeE1CMm5pb3lfQ0RtSVhxRnE2VXVueml6RXdrZ3pYNi1MYVkzQ2E4M0Y4dHowb3ZyYnp1czZHQkFldWNSOERocDA3WnNaWWxLYTFqYUxZU3JWblMxV3lKMGNtLXJzaHBxblNZMWh5MDhlSUVzOXJSVERhT1ZlOTR5Z29hV0NxS2tKbzh4amhl?oc=5",
+"d": "2026-11-20T16:08+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Justice Department moves to dismiss lawsuit in challenge to Alaska Senate race",
+"src": "Chicago Tribune",
+"url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQaVc4cFpnTGd0eTlRUXdXTmx1UWpsd3F6ZHRfeGI1X01JVzVUNl9vc011S1lRWC1TWE04T1E3X3FBUVNyWlpHb3pwVUNXeWludVhFN3lNdnNPdTZndG1BUnhQdmZleC15NXl0U2xBdWRFZjdOdkloQTVfbkFEaVFaM1B3?oc=5",
+"d": "2026-11-20T15:55+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Alaska’s 2026 midterm election turnout is the highest in state history",
+"src": "Anchorage Daily News",
+"url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOenBiTG1wWHF6RFVMd0ZETmFjSFhiX0UtZUZUd2F4TDFOYUVJalZvYlhPMWhkY3ZjbzNMUkd0a2lpcUFPMzlyVDFFa2wxSU9lcVc5S084Vkh6NkdSZVdyYVJreVQyTDAzMkxGbTFON1BDbGdBWjdkZDNDSUxPelJSQmIxcFhJOS1PYmNnaXJ1c0l6SUVRMndIX2VHXzZoXzE0N3BzWVh3TXIxblVVaGRz?oc=5",
+"d": "2026-11-20T15:25+00:00",
+"sum": "",
 "races": []
 },
 {
 "t": "Trump administration moves to have lawsuit dismissed in challenge to Alaska's U.S. Senate race",
-"src": "PBS News",
-"url": "https://www.pbs.org/newshour/politics/trump-administration-moves-to-have-lawsuit-dismissed-in-challenge-to-alaskas-u-s-senate-race",
+"src": "PBS",
+"url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPNGM3Y0VZTkx5Y3lQd2k3d2xkZnJBQmZST2lsem93eUF3Y1VheUp5ZVN4ajRMWlJkZXh2R2JJMjNHZDNjWkg2UDlmRmplWkh4TzJaMkFyMHNIM0VfTkhPaG1kelFOQjd5Qk43b0JtU1VFM1FuLWVwOUg2ZHdXUFg1UkRsOU5HRzNlWGNmOFFDWmgxMHN2SGdFQmxUMEFqUUJ6dU5kdThzQnJjMkFCQ3JJSklvd1Jlei1yT3FVM2FfaFUzTnp4cVQtaWRn0gHPAUFVX3lxTE9odjU4eklwaVhGUEp5Q3hWZUhIck5HTEN3OFB0eGx4OWtYLTBNZ01FeERrcFNueDd2SnVQSWpDWkJOVUR5M0xlRjE3Y2NsZ1FqemlTMVZxS3lTem8yZ1Z6ZWxNRms1aEhybVA2SjJkM1hJZnFJVHM1eUdEU0x1dVFDejBNc3U1SWVYTk9pa2VyUUptOWxwRUg0ZTRWTkhTQkxZY0JqOUotVzRxeUJVOUliQjBvY0JSZ2VHZGFIYWNCZWVmd3hxM1pKWUw3ZUpIcw?oc=5",
 "d": "2026-11-20T14:22+00:00",
-"sum": "In their filing, Justice Department attorneys urged the 9th U.S. Circuit Court of Appeals to overturn the lower court's dismissal of the case to erase the loss, but then dismiss the case anyway.",
+"sum": "",
 "races": [
 "sen-ak"
 ]
+},
+{
+"t": "Issue Brief on “The 2026 U.S. Midterm Elections: A Changing Political Landscape”",
+"src": "Institute of Strategic Studies Islamabad (ISSI)",
+"url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOUG9oT1pEcC1Gb0NvdFV5Y1JEUkVoRnZnWTluRXQwZXB4QnJTY0M1V2tuRlpqRTNFNGhoUGxoVGtGQU5qN3Rpb1Y0b3pRU1M2QjI3cHp6UUdrNXBzTno3Y1ZwNWhBcnhVNGljX0lXOU5VNVRWcWNsNk5UeXNGbUtFMks5YzVLLUZLQW9QRjVuOU9SNmd4MkwzQVZGemhiUQ?oc=5",
+"d": "2026-11-20T11:19+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Georgia Governor Election Live Results 2026",
+"src": "AP News",
+"url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1RN1R1RmdaOFF6WHd2cHJBbzhvdTJ2Z1VVOHJBd2hsSVRsTjJqQ04tajNnbDFycVNUSm9Tc2JkTDN6RS1yVGZMa0lkcWRBWlNOcV9yMnNJWXBURkdxRURzb2R5V0lWblpOZnJYVDhUUFNZS1lTOHpF?oc=5",
+"d": "2026-11-20T08:00+00:00",
+"sum": "",
+"races": [
+"gov-ga"
+]
+},
+{
+"t": "Defeated GOP Rep. Gabe Evans ditches Colorado battleground seat for safer 4th District in 2028",
+"src": "News From The States",
+"url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPS2lrNDZfQ1kwTElEUDd6OEllMWdsVk1VcS1zMm55Qk51dUUxYzk4Ul9QTnNfMlVYRVU3R1F2MlJ2OHYxNm1KSHpWb3J6RVQ4TjdCQmVZVFQ3LUFGenN4MkRxbG1Sb1BIaFU2cms1bmRjWW8zelZ1TVNMTWFyNFNYYlBzN3M2eVdZcHBFeTMwYURmRVJDLTdHZWhfenhIYWh5QVN3NFczQ2R4czZJNGpHczVFS1QyT01weFBna3B1TUFIakozcHNj?oc=5",
+"d": "2026-11-20T08:00+00:00",
+"sum": "",
+"races": [
+"co-08"
+]
+},
+{
+"t": "Who Really Won the 2026 Midterm Elections?",
+"src": "The Wesleyan Argus",
+"url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOeW5pUm1XeHUtbl96X1F2bG5Rc2NJZGRUZDIzM004REUxVXBUU1dsRDRHYnhuUWhkRGZTNWR2bldyUTVqcDlsU25uZ3gzOEpoZndtSGcwZjAtdnJJU0pEaE12WW8zT2t0ZzVNQV90b0dNM1Q5UTVpT0pxRlpzWVNacUo0aVdEQQ?oc=5",
+"d": "2026-11-20T06:03+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Texas Launches Audit of Senate Race Results after Democratic Sweep",
+"src": "Newsweek",
+"url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVJZNXRkeS01TFg4VXp2U09HVGNjRmVHeU5KTWRxclhOdlNuUjVFRG0xZVlLdUt3bjB5TURiUHZ1REV4bmphYnJ1TS1NcFRGeE1JZXBaOTI4dmJLc1FUand4bF9ZVzRfQjhWWlpYS0gyX0ZFYWcwblozU1N5TW52QmpaZmZ1MkhEVVJlUzIwRzAzdGlWdDRjd1BBRzdrVW9lYlE?oc=5",
+"d": "2026-11-20T04:29+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Trump’s DOJ drops challenge to Alaska Senate race won by Mary Peltola",
+"src": "Politico",
+"url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQTM2MFVidC1HVGFzTzlkYzFMekFGQlZoa05PWnQtTzU5Nm5weWxKVm55U1U3ZnVGbUZMMlpjRkx1bmc4NmE3R1JIYWRBcmtBSEVBcmt3eXgzWUdDMHlqVlphTVpnRzJwbGJvZWJqRnNQZ0piZXRBTWluMjBDalFMaWFPY0l2MlhfNUE?oc=5",
+"d": "2026-11-20T03:09+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Trump DoJ moves to drop legal challenge to Mary Peltola’s Alaska Senate win",
+"src": "The Guardian",
+"url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQZ2s1Tml2UFZTQUpoVF9tR1lqeE5rRTlMcmVpUjVwVmhGUjc5S0NWbW1VTnhEV3A4ODJKYjB0amt3eTdPNTFjeUN4QTVYcTdqaGRYVTEtTlJKT2FfaFl3ZDM0QzBuWDVQZ0JuRXZEMjFzMjNBbDdOVndmX0NWQnIzZmtmVDRxZ0U?oc=5",
+"d": "2026-11-20T02:43+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Justice Department seeks dismissal of its lawsuit in the Alaska Senate race",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPdmJMTTBzSmdyaWRqdHl2V1pjUnpsRklOVm5iUHhjWGpEbDhCSVBpbDFSUENJWDFKOFpXTTNSMGwtU2ZQZnY4cnVCMFAyOE10S1IxZmkyLWlVVllnOFRTZXhET1dSZllKSEZWeW1zbGxmemlReEJaVGF1MkdoNWx6Y1BXT0lZOXNJRTNSNFZ6dUh2RG1QRkZOMzBkSzhYc2FIQi1IUXVpVl81X2xHVmhPZUxkdUxMdExQTDZzaFZRLWlvN28?oc=5",
+"d": "2026-11-20T01:59+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "DOJ abandons lawsuit that sought to pause certification of Alaska’s US Senate election",
+"src": "Alaska Beacon",
+"url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQTM5YkY2YlN5NlJmcE9PeHlzSmlOQXdpMXA5QTBoa1VWbkdnMUpOMkJuX2lSY1YyQlk5eHNld2Z4UTNlbDJqZ1ktVlFSeWFvV3BtQW9sdHZUelBjWTJ0UVVNSVI0MGM4RW1OMC1RUUJPVXIwR21EdHFKbEJLNC1fc01MZnBxQmxRb0FCa2ZQS3VZLUtYWkJPM0szODA3bVZrcWVCSUllMnNyWXktNER4X3lXT1Zfd3ZidU9EeGt0WQ?oc=5",
+"d": "2026-11-20T01:32+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Trump administration moves to have lawsuit dismissed in challenge to Alaska’s US Senate race",
+"src": "Monterey Herald",
+"url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUkxjS3Q2SWNpZ1M0dUVYdUlYT1FCdlQ1cVdPRld6MEloLURFVDRZa1phWTZ1Y0JicklFaTFlS1BIaFBYX0IyZko1TG1mTmZEWV9MaUdkVHN2Z05ZZ2FBRXZHbk5iaTVUNGIxWXhuMjBRT0tnNUpJVVZaOUo4MTlnTFFrc2VyaGxU?oc=5",
+"d": "2026-11-20T01:05+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Montana’s midterm election turnout rate held steady, while county results varied widely",
+"src": "Montana Free Press",
+"url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORjUxLVNPX00zdWxXSURwMksyZ19tV3dsT19tQ09OeWNqRVVPUE5md0U1R3psdHBYRmRUUEp6WmwyVy1BQlZPVFotZXg5RVlPQkRFajZLcXJUd1RzOUxsX2U5UWx6eXJ1d1RxOGR0SVJuVFlmeFpJSWRfVjFDbFNrRUtSODE2NzVs?oc=5",
+"d": "2026-11-20T00:39+00:00",
+"sum": "",
+"races": []
 },
 {
 "t": "Tennessee Democrat describes how she won a Trump district with almost no ad money",
@@ -41,6 +410,118 @@
 "sum": "When Democrats take control of the House, one of their new members will hail from a district no one expected them to win. Victoria Broderick is a tech support worker from rural Tennessee who unseated eight-term...",
 "races": [
 "tn-04"
+]
+},
+{
+"t": "Recount results remain the same in Sioux Falls state Senate race",
+"src": "South Dakota Searchlight",
+"url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVTNIUmpzTk5QNDlFb3BRVE91aUROMmt2R2lsNU5MX2dzeDdrNmdkMUhyVEdIM0hCajFNaVFIWUhva0xQcEFid2hIR0dMMjN4eTFFNTdtUVdvQnNhTnZHZmlSU0lNNzZLUm5Ea2MyUzdvZTdOUEQxak0zdzIyMW5ZakN1RnFBOVdtSVA1ZDdPSHg4MGRfYmlUeVQ3SlhaRXdHUFFJZXdVS3hobW56eHpndjZjNlBQRkhVMjduN0FJTFFaelZoN2RUcWVQT3JwV2Y1?oc=5",
+"d": "2026-11-19T23:00+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "WATCH: Padilla Highlights Historic 2026 Midterm Elections, Demands Stronger Voter Safeguards to Protect Democracy",
+"src": "Senator Alex Padilla (.gov)",
+"url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPcWlLdmIySzVkTm83LTM2TTU4a0xiYnBJM0RwS1B6ai1IWGU3MGZ5VGdmVmYzcG9OeUdTbTRLR0c3aFFGVmNZTS03ejRPLWpSUmJBZUFYR3J0eDBxSW56VDVuLTI0WFBFYWt2czFyOTdYQnF6eVJFZUdsY3VudFctSUZNak9XVUoyWVBFU29WbWI2WVJ4RFFEdm93Ykt4V1c0WUFiRnZiYm9mT2JZbk5PTldfdzZKTlRwc0w1YkEzOHhVRlMyRzdXbVB3SS1EYkpxX3R0M3B3ckc3ZFdGNzdkOGxrVE1ZQ2dZcDlMdVdCclZmVmNRTjhFVEZvSQ?oc=5",
+"d": "2026-11-19T22:04+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Ty Masterson returns to GoCreate director role after Kansas governor’s race",
+"src": "KWCH",
+"url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZ1NpTVQtT1l3Sm1wM1ptSmZWMjIydWI5WHRwTXBUeDA3MEZCZmRQWWRONFE5b0RWZV9hSmdWZzZsVmc3OERjNnZkWm9JeGNIOEVGX0p1NmIxc1hIdHdqWm9yX0VIaS1XRHk3Z3ZRaFg2cGJTdC10bkgtaXVjdGJOVV9nVE9sd3l2VGYwTFI3Tkp6MUVhdEtEczNrNUtNalQ2bmZHbmd3WQ?oc=5",
+"d": "2026-11-19T21:54+00:00",
+"sum": "",
+"races": [
+"gov-ks"
+]
+},
+{
+"t": "After The 2026 Midterms: What The Election Means For Data Center Development—And Why Missouri Remains Open For Business",
+"src": "JD Supra",
+"url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPblAzS2FsVldKNm14OXJrcm1MajFlbk9md3AxNTVGT0FaMmJxOTNsUEZpU194WjlrdldXQ0U4RmtyVkZQMDlTQ3FfV1pPN2xjeDYyLUMxR0NzajUyLUd3WmJnVDlFUndSeGp3cEtDM0xFUU1JaWpSUFJQR3Q1Nlp3MA?oc=5",
+"d": "2026-11-19T19:17+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "The midterms were bad for Republicans. The closest races show how it was nearly even worse.",
+"src": "NBC News",
+"url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPR1JiUVc3TFVkUnl5ekp6SnlrRDdxQjBXTkZxSlcxSVU4eWlWdkxoc044QjF3a3ItYXVHVk9VbW42Tk40ZGlsTDBKbWVjMlozS1d2UEZyMUdfR2ZEcmQtNk02TXJFVWpUSkNyV1JyWC1vMkhaZkdxZVFaV3E1OWRfajcwNGhJME0zUjd6aGc4eXZDWm5jdUpMTXU2Sm1ySmpZYW1kZnBYYkhTaVhSZkVfeFhiODIzVU82NWdTQjRHYk4?oc=5",
+"d": "2026-11-19T19:10+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Mississippi saw a spike in 'inactive' voters for the midterms. Democratic lawmakers want answers",
+"src": "PBS",
+"url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOYU5LRHplTi1UVm9ZdmQ5cnhwN1RMNzUzOExhQjMyRFo3MF9PQ21wSzZMRTY3Sno2b25Db3hDY184TUJDWHNVLVhoNHJjMUlfM2pGZ0hjWHUyR0hJeUUyX3p3SDNFNXZDVGNDclRUSEFZRlJtazA2SUVGNktPMVF4Q0gybWdUVTZQdWNaVVVMRVFLcmV4czMwNVhQS2N0NDFhNGk1c1JhS255d29kYW1NOXUwcjFHRDVUNG5HcWlWT2JsV2xEc0o5MWRWONIB0AFBVV95cUxNM1VWWDAyeC1WLTlBbmJROGdoTkVUd0FsSHl6N0RGTlJMZlMzUzBYYmlhcUk3UjQ4T055Q0FOMExLTHBNTzBDTWVNVUw4U3V1YnZSMWlEeVVadGlzSVZfRlprQ3QwdFd2YTNueEkzUWVXUy1rNnNscXJDSnJ6MU5fVVZhQXdNRFFJSXJwMU8xV3NkbnE2MFBzLUh4aURHeVFDSUJTUldLeEJGM2w4ODNvSXdwNDZ2YW10eWhUcEdnV3BpbTFqQWJHSHdUX2pjS2tE?oc=5",
+"d": "2026-11-19T19:07+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Broad Satisfaction With 2026 Midterm Election Administration",
+"src": "Pew Research Center",
+"url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPa3hDLThER0FCU3NVNFNxUDBhaHBCVjNDX2E4aGNIS2lhSDlsUno3REJ2WUVva3JyN1AtMDVIbU9zM0tsX09YekgtazQzQVlTckZVc1pZSnlBTU9wTUZyZ3RWc2tnUXp0S3hORE1iVWtFSXozUHN2d2lHZUZlb0I4OHQwdGlUcWxSRlhWaHJ6b2ZLVzFjb1NtNXpzTzlQeUF6STJqSHlYaTNhaEpzMVE?oc=5",
+"d": "2026-11-19T18:55+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "In Wake of Democrats’ Midterm Victory, Majority of Americans Approve of the Party’s Policies and Plans",
+"src": "Pew Research Center",
+"url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNa1hDMTJEcURyWkU1d21HWW1XZ2lGOTMzMlN5eVNDbjJ2bmRRQVItYzVPZWNKMDJzWFhBS3pTTUJLa0NUNFFnaTgwM1JfekNla08tZFVGU3JqUDFZZTlZQXdyd2xfS2xpZi1WeTZCUlFQT192UmlUeURvaVhteFBNUm16VVZ3TVhUVXE5ZGlWaXVadUdjQ2IyZVNGSXYwZkRsZUZ4UE14elN1dXhzdVpZVnlEZXE1enF6X1d5bWxWOUN0VVBGY053emFxekNBOVE1U0NfT1NrMm5rcS1NdlFEN1Vn?oc=5",
+"d": "2026-11-19T18:55+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "How Mary Peltola won the Alaska Senate race | DATA NERDS",
+"src": "The Hill",
+"url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZFZzb3pxQjl4dlNnRmpPSDJ3amxKTFFVMDF3MzFMZDhsVXhWeG5EUE81T1JfZHZJRjhEWWREY1hCeGRpaEJhWDVNNl9FNXFEOWs1dHp5QTZtODNvZ0NKWHBzU1lvanBoQ3NJUFVUMDh3eWF1M1ZnNzFBRDNGRXpBYXBQeGRJS1R6WXJrZ3VoR1U2YW8w?oc=5",
+"d": "2026-11-19T18:25+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "Healthcare Policy Changes and Reform Expected Following the 2026 Midterm Elections",
+"src": "Morgan Lewis",
+"url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRmxFazZCRkhyYjFZZWsxMHB5cWhkUUdoQmduMzlfUm1rMTRNaEREUjZYRXR0VEk3M1h1R3llZkxlVHp4aWR4MHhHVDduRVh6NndoZUZSUlNsWVhiS0NacVpOT1gzbXZBNTEwal9MSXZRd29pR3JNSmZJVnhtRUxBX24yVnFqaXY4OEJ0WFdQOFlzeHNSam1fbDlpU2dkVHE3MXg5S3FGYnpBWnRGcTAw?oc=5",
+"d": "2026-11-19T17:56+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "Did the “second Dan Sullivan” affect Alaska's U.S. Senate election?",
+"src": "FairVote",
+"url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeURCemNUVGFBRVhfdEtZazdSNDhXMWo1U0QxZnhYY2x4VVY1Z3FhV3p1X1lha2Iwd3lZcU1mZEdrVzJ0dFo4QW5uaDBhSEwyRlRpT3p2NE1xaElQZ0R1NnJZY0tSQzBwXzJlXzQ3UUVKTEdDX3dhR2U2ZDRGM1BFRlBrcHBFV0ZuYXY4TA?oc=5",
+"d": "2026-11-19T17:51+00:00",
+"sum": "",
+"races": [
+"sen-ak"
+]
+},
+{
+"t": "The 2026 Midterms: How the Democrats overcame their “God problem” | LSE United States Politics and Policy",
+"src": "LSE Blogs",
+"url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQd184RXhIYmQxSEtBZE5MMkVJcUFDMGNVVVJCS3dHV1NNa1JSc3lndVNZM1JwVUR0eWk3YzJsdzhjLUp1ZWtHbWo3Z0w0M19EYy04em93OTJGZHJjd3dNVEF1REh6RHlEaDdfQkZxTTN3QTJWNkxiR0pBZnJSbHNpNHpCWkNqOFhqS3c?oc=5",
+"d": "2026-11-19T17:26+00:00",
+"sum": "",
+"races": []
+},
+{
+"t": "'Bigger than Barack Obama's election': Scholars reflect on Mississippi Senate race",
+"src": "NPR",
+"url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQT0lmVVJqVEotUUlNajY3Y0tYLW14dXRwUEZLbms3bHhVQ3RleE5KNUhSLWwxOU13ZHFsbFV0OG1UdnFoRFNQd25IdnhadXc4LXpQT3hfTkYwVC1SN2ZtNkVVbjd6Szh5Rnlxblo5Wm16THBDMmRmWG9sZ2RUMEpFTi1GQkliYlFvN1lXUXJHX0JnZUNpN2pVbjhCb2JTTDl4b1lnYmZoSDNrQk92RlRkcUVzTEtKd0pVaUpvb29iSWw?oc=5",
+"d": "2026-11-19T17:03+00:00",
+"sum": "",
+"races": [
+"sen-ms"
 ]
 }
 ]
